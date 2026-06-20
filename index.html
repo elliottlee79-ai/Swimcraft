@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues</title>
+  <meta name="description" content="A next-generation fishing simulator where you turn real photographs of your favourite swims into fully playable venues." />
+  <meta property="og:title" content="Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues" />
+  <meta property="og:description" content="Create fully playable fishing venues from real photographs." />
+  <meta property="og:image" content="https://elliottlee79-ai.github.io/Swimcraft/social-card-v2.jpg" />
+  <meta property="og:url" content="https://elliottlee79-ai.github.io/Swimcraft/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #E8E4D0;
+      --green:      #556b2f;
+      --green-mid:  #6b8a3a;
+      --green-light:#8aab52;
+      --slate-deep: #2c3830;
+      --slate:      #3d4f44;
+      --slate-mid:  #4e6358;
+      --slate-light:#6b8070;
+      --water:      #4a6675;
+      --water-pale: #7aa0b0;
+      --ink:        #1a211d;
+      --muted:      #a8b8a0;
+      --rule:       rgba(232,228,208,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--slate-deep);
+      color: var(--cream);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 17px;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: linear-gradient(to bottom, rgba(28,33,29,0.95) 0%, transparent 100%);
+      backdrop-filter: blur(2px);
+    }
+
+    nav .logo img {
+      height: 38px;
+      display: block;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    nav ul a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--cream); }
+
+    nav .nav-cta {
+      background: var(--green);
+      color: var(--cream) !important;
+      padding: 9px 22px;
+      border-radius: 3px;
+      transition: background 0.2s !important;
+    }
+
+    nav .nav-cta:hover { background: var(--green-mid) !important; color: var(--cream) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-color: var(--slate-deep);
+      background-image:
+        linear-gradient(to bottom, rgba(20,28,22,0.62) 0%, rgba(20,28,22,0.38) 45%, rgba(20,28,22,0.80) 100%),
+        url('Westbere.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .hero-logo {
+      width: min(480px, 85vw);
+      margin: 0 auto 32px;
+      display: block;
+      /* subtle drop shadow so logo reads on any bg */
+      filter: drop-shadow(0 4px 24px rgba(0,0,0,0.55));
+    }
+
+    .hero-tagline {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 400;
+      font-size: clamp(19px, 3vw, 26px);
+      color: var(--cream);
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6);
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 2.2vw, 20px);
+      font-weight: 400;
+      color: #d8d4bc;
+      max-width: 520px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--cream);
+      border: none;
+      padding: 14px 34px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(232,228,208,0.35);
+      padding: 14px 34px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { border-color: var(--cream); transform: translateY(-1px); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      animation: bounce 2.2s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .scroll-hint svg { opacity: 0.5; }
+
+    .hero-photo-credit {
+      position: absolute;
+      bottom: 14px;
+      right: 20px;
+      font-size: 11px;
+      color: rgba(232,228,208,0.4);
+      letter-spacing: 0.06em;
+      z-index: 2;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 96px 24px; }
+
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: clamp(26px, 4vw, 40px);
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    hr.rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0;
+    }
+
+    /* ── WHAT IS SWIMCRAFT ── */
+    .what {
+      background: var(--slate);
+    }
+
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 56px;
+    }
+
+    .what-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    .what-text p strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    .what-img {
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+      aspect-ratio: 16/10;
+    }
+
+    .what-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .what-img:hover img { transform: scale(1.02); }
+
+    /* ── FEATURES ── */
+    .features {
+      background: var(--slate-deep);
+    }
+
+    .features-header {
+      margin-bottom: 56px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--slate);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 36px 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(85,107,47,0.5);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── SCREENSHOTS ── */
+    .screenshots {
+      background: var(--ink);
+      overflow: hidden;
+    }
+
+    .screenshots-header {
+      margin-bottom: 48px;
+    }
+
+    .screenshots-strip {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--slate-mid) transparent;
+    }
+
+    .screenshots-strip::-webkit-scrollbar { height: 4px; }
+    .screenshots-strip::-webkit-scrollbar-track { background: transparent; }
+    .screenshots-strip::-webkit-scrollbar-thumb { background: var(--slate-mid); border-radius: 2px; }
+
+    .screenshot-item {
+      flex: 0 0 auto;
+      width: 480px;
+      scroll-snap-align: start;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+      aspect-ratio: 16/10;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .screenshot-item:hover img { transform: scale(1.04); }
+
+    /* ── SIGNUP ── */
+    .signup {
+      background: var(--slate);
+      text-align: center;
+    }
+
+    .signup .section-inner {
+      max-width: 560px;
+    }
+
+    .signup h2 { margin-bottom: 12px; }
+
+    .signup .lead {
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .signup-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .signup-form input[type="email"] {
+      flex: 1 1 260px;
+      background: var(--slate-deep);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      padding: 13px 18px;
+      color: var(--cream);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .signup-form input[type="email"]::placeholder { color: var(--slate-light); }
+    .signup-form input[type="email"]:focus { border-color: var(--green-mid); }
+
+    .signup-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--slate-light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer img { height: 28px; opacity: 0.7; }
+
+    footer p {
+      font-size: 13px;
+      color: var(--slate-light);
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,14,11,0.92);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 4px;
+      box-shadow: 0 16px 80px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 24px; right: 32px;
+      font-size: 32px;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+
+    .lightbox-close:hover { color: var(--cream); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      nav ul { display: none; }
+
+      .hero-tagline {
+        font-size: 20px;
+      }
+
+      .hero-sub {
+        font-size: 17px;
+        color: #dedad0;
+        padding: 0 8px;
+      }
+
+      .what-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .screenshot-item { width: 300px; }
+
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, .scroll-hint { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <img src="swimcraft-logo.png" alt="Swimcraft" />
+  </a>
+  <ul>
+    <li><a href="#what">About</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#signup" class="nav-cta">Get Early Access</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <img class="hero-logo" src="swimcraft-logo.png" alt="Swimcraft" />
+    <p class="hero-tagline">Turn Your Favourite Swims Into Virtual Fishing Venues</p>
+    <p class="hero-sub">A next-generation fishing simulator built around the places you actually fish — photograph your swim, build your venue, cast a line.</p>
+    <div class="hero-actions">
+      <a href="#signup" class="btn-primary">Get Early Access</a>
+      <a href="#screenshots" class="btn-ghost">See Screenshots</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+      <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="7" y="5" width="2" height="5" rx="1" fill="currentColor"/>
+    </svg>
+    Scroll
+  </div>
+  <p class="hero-photo-credit">Westbere Lakes, Canterbury</p>
+</section>
+
+<hr class="rule" />
+
+<!-- WHAT IS SWIMCRAFT -->
+<section class="what" id="what">
+  <div class="section-inner">
+    <p class="eyebrow">What is Swimcraft?</p>
+    <h2>Your water. Your fish. Your venue.</h2>
+    <div class="what-grid">
+      <div class="what-text">
+        <p>Swimcraft is a <strong>desktop fishing simulator</strong> built around a simple idea: the best venue is the one you already know. Take a photograph of your favourite spot — a park lake, a river bend, a canal cut — and Swimcraft turns it into a fully playable fishing venue.</p>
+        <p>Realistic <strong>fish AI</strong>, deep tackle systems, float bite mechanics, angler progression, online tournaments, and a community fish record board — all anchored in places that actually mean something to you.</p>
+        <p>Spiritual successor to the much-loved FishSim series, built from the ground up for modern hardware.</p>
+        <a href="#signup" class="btn-primary" style="margin-top:8px;">Join the Early Access List</a>
+      </div>
+      <div class="what-img">
+        <img src="venue.png" alt="Swimcraft venue editor" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-inner">
+    <div class="features-header">
+      <p class="eyebrow">Features</p>
+      <h2>Everything a serious angler expects</h2>
+      <p class="lead">Built feature by feature with real fishing in mind — not arcade mechanics.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">📸</span>
+        <h3>Photo-to-Venue</h3>
+        <p>Photograph any real swim and Swimcraft's Venue Creator builds it into a fully playable 3D location — water, banks, features and all.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎣</span>
+        <h3>Realistic Bite Mechanics</h3>
+        <p>Six float bite types — dip, lift, sail-away, hold-under, nervous, and run — each driven by species behaviour, bait choice, and rig setup.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🪱</span>
+        <h3>Deep Tackle System</h3>
+        <p>Hook patterns, line weights, rod actions, reel drag, and a full bait selector including loosefeed and groundbait mixing.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🐟</span>
+        <h3>Fish AI</h3>
+        <p>Species behave according to season, temperature, feeding windows, and presentation. Build a swim properly and they'll respond.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏆</span>
+        <h3>Online Tournaments</h3>
+        <p>Compete across community-built venues on a shared match calendar. Weight-ins, match cards, and a persistent leaderboard.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📖</span>
+        <h3>Fish Records</h3>
+        <p>Every venue tracks its own specimen records. Chase the PB, log the catch, build the history of your water over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- SCREENSHOTS -->
+<section class="screenshots" id="screenshots">
+  <div class="section-inner">
+    <div class="screenshots-header">
+      <p class="eyebrow">Early Screenshots</p>
+      <h2>Work in progress — looking good so far</h2>
+    </div>
+  </div>
+  <div class="screenshots-strip" style="padding-left: max(24px, calc((100vw - 1080px)/2));">
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="leeds1.png" alt="Leeds venue" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="forest.png" alt="Forest venue" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="venue.png" alt="Venue view" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="editor1.png" alt="Venue editor" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="stocking.png" alt="Fish stocking" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="about.png" alt="About screen" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="home2.png" alt="Swimcraft home screen" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="early1.jpg" alt="Early build" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="early2.jpg" alt="Early build" loading="lazy" />
+    </div>
+    <div class="screenshot-item" onclick="openLightbox(this)">
+      <img src="early3.jpg" alt="Early build" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- SIGNUP -->
+<section class="signup" id="signup">
+  <div class="section-inner">
+    <p class="eyebrow">Early Access</p>
+    <h2>Be first on the bank</h2>
+    <p class="lead">Sign up to hear about early access, beta invites, and development updates. No spam — just fishing.</p>
+    <div class="signup-form">
+      <input type="email" placeholder="your@email.com" aria-label="Email address" />
+      <button class="btn-primary" onclick="handleSignup(event)">Notify Me</button>
+    </div>
+    <p class="signup-note">We'll only contact you about Swimcraft. Unsubscribe any time.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="swimcraft-logo.png" alt="Swimcraft" />
+  <p>© 2026 Swimcraft — All Rights Reserved</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script>
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  function handleSignup(e) {
+    e.preventDefault();
+    const input = document.querySelector('.signup-form input[type="email"]');
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) {
+      input.style.borderColor = '#c0392b';
+      input.focus();
+      return;
+    }
+    input.style.borderColor = '';
+    const btn = e.target;
+    btn.textContent = '✓ You\'re on the list';
+    btn.style.background = '#3a5a20';
+    btn.disabled = true;
+    input.disabled = true;
+  }
+</script>
+
+</body>
+</html>
