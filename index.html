@@ -1,420 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues</title>
-<!-- Social Preview -->
-<meta property="og:title" content="Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues">
-<meta property="og:description" content="A next‑generation fishing simulator where you turn real photographs of your favourite swims into fully playable venues.">
-<meta property="og:image" content="social-card.jpg">
-<meta property="og:url" content="https://elliottlee79-ai.github.io/swimcraft/">
-<meta property="og:type" content="website">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues</title>
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues">
-<meta name="twitter:description" content="Create fully playable fishing venues from real photographs.">
-<meta name="twitter:image" content="social-card.jpg">
+    <!-- Social Preview -->
+    <meta property="og:title" content="Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues">
+    <meta property="og:description" content="A next‑generation fishing simulator where you turn real photographs of your favourite swims into fully playable venues.">
+    <meta property="og:image" content="social-card.jpg">
+    <meta property="og:url" content="https://elliottlee79-ai.github.io/Swimcraft/">
+    <meta property="og:type" content="website">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues">
+    <meta name="twitter:description" content="Create fully playable fishing venues from real photographs.">
+    <meta name="twitter:image" content="social-card.jpg">
 
-<style>
-:root {
-  --deep: #1a1f14;
-  --mid: #2a3420;
-  --surface: #344a28;
-  --water1: #3a5a48;
-  --water2: #4a7a6d;
-  --accent: #8faa6b;
-  --gold: #c9a84c;
-  --gold-light: #f0d080;
-  --text: #e8f0e0;
-  --muted: #8aa880;
-  --card-bg: rgba(26,31,20,0.85);
-  --border: rgba(143,170,107,0.25);
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            text-align: center;
+        }
 
-body {
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  background: var(--deep);
-  color: var(--text);
-  line-height: 1.6;
-}
+        header {
+            background: url('hero.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 0 0 10px black;
+        }
 
-/* HERO */
-.hero {
-  height: 70vh; /* restored */
-  background: url('hero.jpg') center/cover no-repeat; /* restored */
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        header h1 {
+            font-size: 3rem;
+            margin-top: -30px;
+        }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%);
-  pointer-events: none; /* FIX: allows form input to be clickable */
-}
+        .content {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  padding: 10px;
-  transform: translateY(-30px); /* NEW: moves the whole block up */
-}
+        .signup-box {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
 
-/* LOGO */
-.logo {
-  font-family: 'Bitter', serif;
-  font-size: 5rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-bottom: 0.2rem;
-}
+        input[type="email"] {
+            padding: 10px;
+            width: 70%;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
 
-.logo-swim { color: var(--text); }
-.logo-craft { color: #556b2f; } /* tactical angler green */
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #4caf50;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-/* TAGLINE */
-.tagline {
-  font-family: 'Bitter', serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  opacity: 0.95;
-  margin-top: 0.3rem;
-  letter-spacing: 0.5px;
-}
+        .early-screens {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
 
-.scroll-indicator {
-  margin-top: 20px;
-  font-size: 1rem;
-  opacity: 0.7;
-  animation: pulse 1.8s infinite;
-  color: var(--gold);
-}
+        .early-screens img {
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
 
-@keyframes pulse {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.3; }
-}
+        .early-screens img:hover {
+            transform: scale(1.03);
+        }
 
-.cta-btn {
-  margin-top: 1.2rem;
-  padding: 12px 28px;
-  background: var(--gold);
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.2s;
-}
+        /* Modal Viewer */
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
 
-.cta-btn:hover { background: var(--gold-light); }
+        #modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
 
-/* SECTIONS */
-section {
-  padding: 28px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-h2 {
-  font-family: 'Bitter', serif;
-  font-size: 2.1rem;
-  margin-bottom: 0.6rem;
-}
-
-.card {
-  background: var(--card-bg);
-  padding: 22px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  margin-bottom: 22px;
-}
-
-/* FEATURES */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-.feature {
-  background: var(--mid);
-  padding: 18px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-}
-
-.feature h3 {
-  font-family: 'Bitter', serif;
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  color: var(--gold);
-}
-
-/* EARLY SCREENS */
-.early-screens {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-}
-
-.early-screens img {
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  cursor: zoom-in;
-  transition: 0.2s;
-}
-
-.early-screens img:hover {
-  transform: scale(1.02);
-}
-
-/* MODAL */
-#imgModal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(4px);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-}
-
-#imgModal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  cursor: grab;
-  transition: transform 0.2s ease;
-}
-
-#imgModal img:active {
-  cursor: grabbing;
-}
-
-#closeModal {
-  position: fixed;
-  top: 30px;
-  right: 40px;
-  font-size: 2rem;
-  color: var(--gold);
-  cursor: pointer;
-  user-select: none;
-}
-
-/* SIGNUP */
-.signup {
-  text-align: center;
-}
-
-.signup input {
-  padding: 12px;
-  width: 260px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  margin-right: 10px;
-}
-
-.signup button {
-  padding: 12px 24px;
-  background: var(--gold);
-  border: none;
-  border-radius: 6px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  padding: 24px;
-  opacity: 0.6;
-  font-size: 0.9rem;
-}
-</style>
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #111;
+            color: #777;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <h1 class="logo">
-      <span class="logo-swim">Swim</span><span class="logo-craft">craft</span>
-    </h1>
-    <p class="tagline">Turn your favourite swims into virtual fishing venues</p>
+<header>
+    <h1>Turn Your Favourite Swims Into Virtual Fishing Venues</h1>
+</header>
 
-    <!-- HERO FORM -->
-    <form action="https://formspree.io/f/xpqezqea" method="POST" class="signup-form">
-      <input type="email" name="email" placeholder="Your email" required>
-      <button type="submit" class="cta-btn">Notify Me at Launch</button>
-    </form>
-
-    <div class="scroll-indicator">▼ Scroll</div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section>
-  <div class="card">
+<div class="content">
     <h2>What is Swimcraft?</h2>
     <p>
-      Swimcraft is a next‑generation fishing simulator where you turn real photographs of your favourite fishing spots into fully playable venues — complete with realistic fish AI, tackle systems, angler progression, online tournaments, fish record systems and more.
+        Swimcraft is a next‑generation fishing simulator where you turn real photographs of your favourite fishing spots into fully playable venues — complete with realistic fish AI, tackle systems, angler progression, online tournaments, fish record systems and more.
     </p>
-    <p>
-      Inspired by the legendary FishSim games of the early 2000s, Swimcraft brings authentic angling simulation to modern platforms with a focus on realism, creativity, and community.
-    </p>
-  </div>
-</section>
 
-<!-- FEATURES -->
-<section>
-  <h2>Features</h2>
-  <div class="features">
-
-    <div class="feature">
-      <h3>Create Venues</h3>
-      <p>Upload a photo, paint depths, stock species, and publish your own fishing venues.</p>
+    <div class="signup-box">
+        <h3>Sign up for updates</h3>
+        <form action="https://formspree.io/f/mqakjvkd" method="POST">
+            <input type="email" name="email" placeholder="Enter your email…" required>
+            <button type="submit">Notify Me</button>
+        </form>
     </div>
 
-    <div class="feature">
-      <h3>Realistic Fishing</h3>
-      <p>Float, ledger, spinning — with accurate rod behaviour, bite windows, and fish AI.</p>
+    <h2>Early Screenshots</h2>
+    <div class="early-screens">
+        <img src="home2.png" class="zoomable">
+        <img src="about.png" class="zoomable">
+        <img src="venue.png" class="zoomable">
+        <img src="editor1.png" class="zoomable">
+        <img src="stocking.png" class="zoomable">
+        <img src="leeds1.png" class="zoomable">
+        <img src="forest.png" class="zoomable">
+        <img src="early1.jpg" class="zoomable">
+        <img src="early2.jpg" class="zoomable">
+        <img src="early3.jpg" class="zoomable">
     </div>
-
-    <div class="feature">
-      <h3>Community Records</h3>
-      <p>Compete for venue records, named specimens, and seasonal leaderboards.</p>
-    </div>
-
-    <div class="feature">
-      <h3>Cross‑Platform</h3>
-      <p>Available on Windows, Android, and Apple platforms.</p>
-    </div>
-
-    <div class="feature">
-      <h3>Player Progression</h3>
-      <p>Earn your status from novice to professional as you master each discipline.</p>
-    </div>
-
-    <div class="feature">
-      <h3>Endless Variety</h3>
-      <p>Stock the water with any fish you want — even upload your own fish images.</p>
-    </div>
-
-    <div class="feature">
-      <h3>All Fishing Methods</h3>
-      <p>Float fishing, feeder, carp fishing, spinning, and even sea fishing.</p>
-    </div>
-
-    <div class="feature">
-      <h3>Live Tournaments</h3>
-      <p>Compete in online events with real‑life prizes and global leaderboards.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- EARLY SCREENS -->
-<section>
-  <h2>Early Screens</h2>
-  <div class="early-screens">
-    <img src="home2.png" class="zoomable">
-    <img src="about.png" class="zoomable">
-    <img src="venue.png" class="zoomable">
-    <img src="editor1.png" class="zoomable">
-    <img src="stocking.png" class="zoomable">
-    <img src="leeds1.png" class="zoomable">
-    <img src="forest.png" class="zoomable">
-    <img src="catch.png" class="zoomable">
-  </div>
-</section>
-
-<!-- MODAL -->
-<div id="imgModal">
-  <span id="closeModal">✕</span>
-  <img id="modalImg" src="">
 </div>
 
-<!-- SIGNUP -->
-<section class="signup">
-  <h2>Stay Updated</h2>
-  <p>Get notified when Swimcraft launches and when early builds become available.</p>
-
-  <form action="https://formspree.io/f/xpqezqea" method="POST" class="signup-form">
-    <input type="email" name="email" placeholder="Your email" required>
-    <button type="submit">Sign Up</button>
-  </form>
-</section>
-
-<footer>
-  Swimcraft © 2026 — Built by anglers, for anglers
-</footer>
+<!-- Modal -->
+<div id="modal" onclick="this.style.display='none'">
+    <img id="modal-img">
+</div>
 
 <script>
-const modal = document.getElementById('imgModal');
-const modalImg = document.getElementById('modalImg');
-const closeModal = document.getElementById('closeModal');
-
-document.querySelectorAll('.zoomable').forEach(img => {
-  img.addEventListener('click', () => {
-    modal.style.display = 'flex';
-    modalImg.src = img.src;
-    modalImg.style.transform = 'scale(1)';
-    scale = 1;
-    originX = 0;
-    originY = 0;
-  });
-});
-
-closeModal.onclick = () => modal.style.display = 'none';
-modal.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
-document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.style.display = 'none'; });
-
-let scale = 1;
-let originX = 0;
-let originY = 0;
-let isDragging = false;
-let startX, startY;
-
-modalImg.addEventListener('wheel', e => {
-  e.preventDefault();
-  scale += e.deltaY * -0.0015;
-  scale = Math.min(Math.max(1, scale), 4);
-  modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
-});
-
-modalImg.addEventListener('mousedown', e => {
-  isDragging = true;
-  startX = e.clientX - originX;
-  startY = e.clientY - originY;
-});
-
-window.addEventListener('mouseup', () => isDragging = false);
-
-window.addEventListener('mousemove', e => {
-  if (!isDragging) return;
-  originX = e.clientX - startX;
-  originY = e.clientY - startY;
-  modalImg.style.transform = `scale(${scale}) translate(${originX}px, ${originY}px)`;
-});
+    document.querySelectorAll('.zoomable').forEach(img => {
+        img.addEventListener('click', () => {
+            document.getElementById('modal-img').src = img.src;
+            document.getElementById('modal').style.display = 'flex';
+        });
+    });
 </script>
+
+<footer>
+    © 2026 Swimcraft — All Rights Reserved
+</footer>
 
 </body>
 </html>
