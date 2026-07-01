@@ -1,746 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues</title>
-  <meta name="description" content="A next-generation fishing simulator where you turn real photographs of your favourite swims into fully playable venues." />
-  <meta property="og:title" content="Swimcraft — Turn Your Favourite Swims Into Virtual Fishing Venues" />
-  <meta property="og:description" content="Create fully playable fishing venues from real photographs." />
-  <meta property="og:image" content="https://elliottlee79-ai.github.io/Swimcraft/social-card-v2.jpg" />
-  <meta property="og:url" content="https://elliottlee79-ai.github.io/Swimcraft/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream:      #E8E4D0;
-      --green:      #556b2f;
-      --green-mid:  #6b8a3a;
-      --green-light:#8aab52;
-      --slate-deep: #2c3830;
-      --slate:      #3d4f44;
-      --slate-mid:  #4e6358;
-      --slate-light:#6b8070;
-      --water:      #4a6675;
-      --water-pale: #7aa0b0;
-      --ink:        #1a211d;
-      --muted:      #a8b8a0;
-      --rule:       rgba(232,228,208,0.12);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--slate-deep);
-      color: var(--cream);
-      font-family: 'Source Sans 3', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      font-size: 17px;
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 48px;
-      background: linear-gradient(to bottom, rgba(28,33,29,0.95) 0%, transparent 100%);
-      backdrop-filter: blur(2px);
-    }
-
-    nav .logo img {
-      height: 38px;
-      display: block;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 36px;
-      align-items: center;
-    }
-
-    nav ul a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    nav ul a:hover { color: var(--cream); }
-
-    nav .nav-cta {
-      background: var(--green);
-      color: var(--cream) !important;
-      padding: 9px 22px;
-      border-radius: 3px;
-      transition: background 0.2s !important;
-    }
-
-    nav .nav-cta:hover { background: var(--green-mid) !important; color: var(--cream) !important; }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-color: var(--slate-deep);
-      background-image:
-        linear-gradient(to bottom, rgba(20,28,22,0.62) 0%, rgba(20,28,22,0.38) 45%, rgba(20,28,22,0.80) 100%),
-        url('Westbere.jpg');
-      background-size: cover;
-      background-position: center 40%;
-      background-repeat: no-repeat;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 780px;
-    }
-
-    .hero-logo {
-      width: min(480px, 85vw);
-      margin: 0 auto 32px;
-      display: block;
-      /* subtle drop shadow so logo reads on any bg */
-      filter: drop-shadow(0 4px 24px rgba(0,0,0,0.55));
-    }
-
-    .hero-tagline {
-      font-family: 'Roboto Slab', serif;
-      font-weight: 400;
-      font-size: clamp(19px, 3vw, 26px);
-      color: var(--cream);
-      margin-bottom: 16px;
-      letter-spacing: 0.01em;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6);
-    }
-
-    .hero-sub {
-      font-size: clamp(17px, 2.2vw, 20px);
-      font-weight: 400;
-      color: #d8d4bc;
-      max-width: 520px;
-      margin: 0 auto 48px;
-      line-height: 1.7;
-      text-shadow: 0 1px 12px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: var(--cream);
-      border: none;
-      padding: 14px 34px;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border-radius: 3px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-block;
-    }
-
-    .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--cream);
-      border: 1px solid rgba(232,228,208,0.35);
-      padding: 14px 34px;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border-radius: 3px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: border-color 0.2s, transform 0.15s;
-      display: inline-block;
-    }
-
-    .btn-ghost:hover { border-color: var(--cream); transform: translateY(-1px); }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      animation: bounce 2.2s ease-in-out infinite;
-      z-index: 2;
-    }
-
-    .scroll-hint svg { opacity: 0.5; }
-
-    .hero-photo-credit {
-      position: absolute;
-      bottom: 14px;
-      right: 20px;
-      font-size: 11px;
-      color: rgba(232,228,208,0.4);
-      letter-spacing: 0.06em;
-      z-index: 2;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(6px); }
-    }
-
-    /* ── SECTION SHARED ── */
-    section { padding: 96px 24px; }
-
-    .section-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--green-light);
-      margin-bottom: 14px;
-    }
-
-    h2 {
-      font-family: 'Roboto Slab', serif;
-      font-weight: 700;
-      font-size: clamp(26px, 4vw, 40px);
-      color: var(--cream);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .lead {
-      font-size: clamp(16px, 2vw, 19px);
-      color: var(--muted);
-      max-width: 580px;
-      line-height: 1.7;
-    }
-
-    hr.rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 0;
-    }
-
-    /* ── WHAT IS SWIMCRAFT ── */
-    .what {
-      background: var(--slate);
-    }
-
-    .what-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      margin-top: 56px;
-    }
-
-    .what-text p {
-      color: var(--muted);
-      margin-bottom: 18px;
-      font-size: 17px;
-    }
-
-    .what-text p strong {
-      color: var(--cream);
-      font-weight: 600;
-    }
-
-    .what-img {
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 8px 48px rgba(0,0,0,0.5);
-      aspect-ratio: 16/10;
-    }
-
-    .what-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .what-img:hover img { transform: scale(1.02); }
-
-    /* ── FEATURES ── */
-    .features {
-      background: var(--slate-deep);
-    }
-
-    .features-header {
-      margin-bottom: 56px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    .feature-card {
-      background: var(--slate);
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      padding: 36px 28px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .feature-card:hover {
-      border-color: rgba(85,107,47,0.5);
-      transform: translateY(-3px);
-    }
-
-    .feature-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .feature-card h3 {
-      font-family: 'Roboto Slab', serif;
-      font-weight: 700;
-      font-size: 17px;
-      color: var(--cream);
-      margin-bottom: 10px;
-    }
-
-    .feature-card p {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    /* ── SCREENSHOTS ── */
-    .screenshots {
-      background: var(--ink);
-      overflow: hidden;
-    }
-
-    .screenshots-header {
-      margin-bottom: 48px;
-    }
-
-    .screenshots-strip {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 16px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--slate-mid) transparent;
-    }
-
-    .screenshots-strip::-webkit-scrollbar { height: 4px; }
-    .screenshots-strip::-webkit-scrollbar-track { background: transparent; }
-    .screenshots-strip::-webkit-scrollbar-thumb { background: var(--slate-mid); border-radius: 2px; }
-
-    .screenshot-item {
-      flex: 0 0 auto;
-      width: 480px;
-      scroll-snap-align: start;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.5);
-      aspect-ratio: 16/10;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .screenshot-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .screenshot-item:hover img { transform: scale(1.04); }
-
-    /* ── SIGNUP ── */
-    .signup {
-      background: var(--slate);
-      text-align: center;
-    }
-
-    .signup .section-inner {
-      max-width: 560px;
-    }
-
-    .signup h2 { margin-bottom: 12px; }
-
-    .signup .lead {
-      margin: 0 auto 40px;
-      text-align: center;
-    }
-
-    .signup-form {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .signup-form input[type="email"] {
-      flex: 1 1 260px;
-      background: var(--slate-deep);
-      border: 1px solid var(--rule);
-      border-radius: 3px;
-      padding: 13px 18px;
-      color: var(--cream);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .signup-form input[type="email"]::placeholder { color: var(--slate-light); }
-    .signup-form input[type="email"]:focus { border-color: var(--green-mid); }
-
-    .signup-note {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--slate-light);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      padding: 40px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    footer img { height: 28px; opacity: 0.7; }
-
-    footer p {
-      font-size: 13px;
-      color: var(--slate-light);
-    }
-
-    /* ── LIGHTBOX ── */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(10,14,11,0.92);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .lightbox.open { display: flex; }
-
-    .lightbox img {
-      max-width: 100%;
-      max-height: 90vh;
-      border-radius: 4px;
-      box-shadow: 0 16px 80px rgba(0,0,0,0.8);
-    }
-
-    .lightbox-close {
-      position: absolute;
-      top: 24px; right: 32px;
-      font-size: 32px;
-      color: var(--muted);
-      cursor: pointer;
-      line-height: 1;
-      background: none;
-      border: none;
-    }
-
-    .lightbox-close:hover { color: var(--cream); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
-      nav ul { display: none; }
-
-      .hero-tagline {
-        font-size: 20px;
-      }
-
-      .hero-sub {
-        font-size: 17px;
-        color: #dedad0;
-        padding: 0 8px;
-      }
-
-      .what-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .screenshot-item { width: 300px; }
-
-      footer { flex-direction: column; text-align: center; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, .scroll-hint { animation: none !important; transition: none !important; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swimcraft — Turn your favourite swims into virtual fishing venues</title>
+
+<!-- Social preview (absolute URLs so cards render on every platform) -->
+<meta property="og:title" content="Swimcraft — Turn your favourite swims into virtual fishing venues">
+<meta property="og:description" content="A coarse-fishing simulator where you turn real photographs of your favourite swims into fully playable venues.">
+<meta property="og:image" content="https://swimcraft.harbledowndigital.com/social-card.jpg">
+<meta property="og:url" content="https://swimcraft.harbledowndigital.com/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Swimcraft — Turn your favourite swims into virtual fishing venues">
+<meta name="twitter:description" content="Create fully playable fishing venues from real photographs of your own swims.">
+<meta name="twitter:image" content="https://swimcraft.harbledowndigital.com/social-card.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* Brand tokens — mirror SWIMCRAFT_BRAND.md so the site and the game read one vocabulary */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Playfair Display',Georgia,serif;
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-ui:'Lato',system-ui,-apple-system,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+  /* ── HERO ── */
+  header.hero{
+    position:relative;min-height:74vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem;
+    background:url('hero.jpg') no-repeat center center/cover;
+  }
+  header.hero::before{content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(16,21,13,0.5) 0%,rgba(16,21,13,0.72) 55%,var(--deep) 100%);}
+  .hero-inner{position:relative;z-index:1;max-width:780px;}
+  .eyebrow{font-size:0.72rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:clamp(3rem,12vw,6rem);line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+  .tagline{font-family:var(--font-display);font-size:clamp(1.1rem,3.2vw,1.65rem);color:var(--text);margin-top:1.15rem;}
+  .hero-cta{display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
+  .btn{font-family:var(--font-ui);font-weight:700;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;
+    padding:0.85rem 1.6rem;border-radius:8px;cursor:pointer;border:1px solid transparent;text-decoration:none;
+    display:inline-flex;align-items:center;gap:0.5rem;transition:all .2s;}
+  .btn-primary{background:var(--brand-olive);border-color:var(--brand-olive);color:var(--brand-bone);}
+  .btn-primary:hover{background:#5c8039;transform:translateY(-1px);}
+  .btn-ghost{background:rgba(230,220,198,0.06);border-color:var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:#fff;}
+
+  /* ── CONTENT ── */
+  .content{max-width:900px;margin:0 auto;padding:3.5rem 1.5rem 1rem;text-align:center;}
+  .content h2{font-family:var(--font-display);font-size:1.9rem;margin-bottom:1rem;}
+  .lead{font-size:1.05rem;max-width:680px;margin:0 auto 1rem;}
+  .lead.muted{color:var(--muted);font-size:0.95rem;}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:2rem auto 0;max-width:780px;text-align:left;}
+  .feature{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;}
+  .feature h3{font-family:var(--font-display);font-size:1.02rem;color:var(--brand-bone);margin-bottom:0.35rem;}
+  .feature p{font-size:0.85rem;color:var(--muted);line-height:1.55;}
+  .tag-planned{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);
+    border:1px solid rgba(201,168,76,0.4);border-radius:50px;padding:0.1rem 0.5rem;margin-left:0.4rem;vertical-align:middle;}
+
+  /* ── SIGNUP (secondary) ── */
+  .signup{max-width:520px;margin:2.5rem auto 0;background:var(--card-bg);border:1px solid var(--border);
+    border-radius:12px;padding:1.5rem;text-align:center;}
+  .signup h3{font-family:var(--font-display);font-size:1.15rem;margin-bottom:0.35rem;}
+  .signup p{font-size:0.85rem;color:var(--muted);margin-bottom:1rem;}
+  .signup form{display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;}
+  .signup input[type=email]{flex:1;min-width:200px;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    border-radius:6px;color:var(--text);font-family:var(--font-ui);font-size:0.9rem;padding:0.7rem 1rem;}
+  .signup input::placeholder{color:rgba(138,168,128,0.5);}
+
+  /* ── SCREENSHOTS ── */
+  .shots{max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem 3rem;}
+  .shots h2{font-family:var(--font-display);font-size:1.6rem;text-align:center;margin-bottom:1.5rem;}
+  .shot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
+  .shot-grid img{width:100%;border-radius:8px;border:1px solid var(--border);cursor:pointer;display:block;
+    transition:transform .2s,border-color .2s;}
+  .shot-grid img:hover{transform:scale(1.02);border-color:rgba(143,170,107,0.45);}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.92);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal img{max-width:92%;max-height:92%;border-radius:8px;}
+
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+</style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="logo" href="#">
-    <img src="swimcraft-logo.png" alt="Swimcraft" />
-  </a>
-  <ul>
-    <li><a href="#what">About</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#screenshots">Screenshots</a></li>
-    <li><a href="#signup" class="nav-cta">Get Early Access</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <img class="hero-logo" src="swimcraft-logo.png" alt="Swimcraft" />
-    <p class="hero-tagline">Turn Your Favourite Swims Into Virtual Fishing Venues</p>
-    <p class="hero-sub">A next-generation fishing simulator built around the places you actually fish — photograph your swim, build your venue, cast a line.</p>
-    <div class="hero-actions">
-      <a href="#signup" class="btn-primary">Get Early Access</a>
-      <a href="#screenshots" class="btn-ghost">See Screenshots</a>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Harbledown Digital · In development</div>
+    <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
+    <p class="tagline">Turn your favourite swims into virtual fishing venues</p>
+    <div class="hero-cta">
+      <!-- TODO: replace 0000000 with your real Steam appid once the store page is live -->
+      <a class="btn btn-primary" href="https://store.steampowered.com/app/0000000/Swimcraft/" target="_blank" rel="noopener">Wishlist on Steam</a>
+      <a class="btn btn-ghost" href="#updates">Get email updates</a>
     </div>
   </div>
-  <div class="scroll-hint">
-    <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
-      <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="7" y="5" width="2" height="5" rx="1" fill="currentColor"/>
-    </svg>
-    Scroll
+</header>
+
+<section class="content">
+  <h2>What is Swimcraft?</h2>
+  <p class="lead">Swimcraft is a coarse-fishing simulator with a difference: you turn real photographs of your favourite swims into fully playable venues — then fish them.</p>
+  <p class="lead muted">It's in active development. Here's what's playable now, and what's on the way.</p>
+
+  <div class="features">
+    <div class="feature"><h3>Photo-to-venue</h3><p>Trace a swim from your own photos — water, islands, depths and features — and it becomes a fishable peg.</p></div>
+    <div class="feature"><h3>Real cast &amp; fight</h3><p>An honest cast, line management, and a species-accurate fight where fish run, tire, and test your tackle.</p></div>
+    <div class="feature"><h3>Tackle &amp; bait</h3><p>Rods, reels, lines, hooks, rigs and baits that matter — starting simple and unlocking as you progress.</p></div>
+    <div class="feature"><h3>Angler progression</h3><p>Level up, log your records, and build out your tackle box over time.</p></div>
+    <div class="feature"><h3>Tournaments <span class="tag-planned">Planned</span></h3><p>Online tournaments and a shared match calendar are planned for after launch — not in the game yet.</p></div>
+    <div class="feature"><h3>Leaderboards <span class="tag-planned">Planned</span></h3><p>Venue and global leaderboards are on the roadmap, not live today.</p></div>
   </div>
-  <p class="hero-photo-credit">Westbere Lakes, Canterbury</p>
-</section>
 
-<hr class="rule" />
-
-<!-- WHAT IS SWIMCRAFT -->
-<section class="what" id="what">
-  <div class="section-inner">
-    <p class="eyebrow">What is Swimcraft?</p>
-    <h2>Your water. Your fish. Your venue.</h2>
-    <div class="what-grid">
-      <div class="what-text">
-        <p>Swimcraft is a <strong>cross platform fishing simulator</strong> built around a simple idea: the best venue is the one you already know. Take a photograph of your favourite spot — a park lake, a river bend, a canal cut — and Swimcraft turns it into a fully playable fishing venue.</p>
-        <p>Realistic <strong>fish AI</strong>, deep tackle systems, float bite mechanics, angler progression, online tournaments, and a community fish record board — all anchored in places that actually mean something to you.</p>
-        <p>Spiritual successor to the much-loved FishSim series, built from the ground up for modern hardware.</p>
-        <a href="#signup" class="btn-primary" style="margin-top:8px;">Join the Early Access List</a>
-      </div>
-      <div class="what-img">
-        <img src="editor1.png" alt="Swimcraft venue editor" loading="lazy" />
-      </div>
-    </div>
+  <div class="signup" id="updates">
+    <h3>Prefer email?</h3>
+    <p>Wishlisting on Steam is the best way to hear at launch — but leave your email for the occasional update.</p>
+    <form action="https://formspree.io/f/mqakjvkd" method="POST">
+      <input type="email" name="email" placeholder="you@example.com" required>
+      <button class="btn btn-primary" type="submit">Notify me</button>
+    </form>
   </div>
 </section>
 
-<hr class="rule" />
-
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="section-inner">
-    <div class="features-header">
-      <p class="eyebrow">Features</p>
-      <h2>Everything a serious angler expects</h2>
-      <p class="lead">Built feature by feature with real fishing in mind — not arcade mechanics.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <span class="feature-icon">📸</span>
-        <h3>Photo-to-Venue</h3>
-        <p>Photograph any real swim and Swimcraft's Venue Creator builds it into a fully playable fishing location — water, banks, features and all.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🎣</span>
-        <h3>Realistic Bite Mechanics</h3>
-        <p>Bites are driven by species behaviour, tackle & bait choice, and rig setup.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🪱</span>
-        <h3>Deep Tackle System</h3>
-        <p>Hook patterns, line strengths, rod actions, reel drag, and a full bait selector including loosefeed and groundbait mixing.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🐟</span>
-        <h3>Fish AI</h3>
-        <p>Species behave according to season, temperature, feeding windows, and presentation. Build a swim properly and they'll respond.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🏆</span>
-        <h3>Online Tournaments</h3>
-        <p>Compete across community-built venues on a shared match calendar. Global records, match cards, and a persistent leaderboard.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">📖</span>
-        <h3>Fish Records</h3>
-        <p>Every venue tracks its own specimen records. Chase the PB, log the catch, build the history of your water over time.</p>
-      </div>
-    </div>
+<section class="shots">
+  <h2>Early screenshots</h2>
+  <div class="shot-grid">
+    <img src="home2.png"   class="zoomable" alt="Swimcraft home screen">
+    <img src="about.png"   class="zoomable" alt="About Swimcraft screen">
+    <img src="venue.png"   class="zoomable" alt="Venue browser">
+    <img src="editor1.png" class="zoomable" alt="Venue editor">
+    <img src="stocking.png" class="zoomable" alt="Fish stocking in the venue editor">
+    <img src="leeds1.png"  class="zoomable" alt="A created venue">
+    <img src="forest.png"  class="zoomable" alt="A woodland venue">
+    <img src="early1.jpg"  class="zoomable" alt="Early gameplay screenshot">
+    <img src="early2.jpg"  class="zoomable" alt="Early gameplay screenshot">
+    <img src="early3.jpg"  class="zoomable" alt="Early gameplay screenshot">
   </div>
 </section>
 
-<hr class="rule" />
-
-<!-- SCREENSHOTS -->
-<section class="screenshots" id="screenshots">
-  <div class="section-inner">
-    <div class="screenshots-header">
-      <p class="eyebrow">Early Screenshots</p>
-      <h2>Work in progress</h2>
-    </div>
-  </div>
-  <div class="screenshots-strip" style="padding-left: max(24px, calc((100vw - 1080px)/2));">
-    <div class="screenshot-item" onclick="openLightbox(this)">
-      <img src="leeds1.png" alt="Leeds venue" loading="lazy" />
-    </div>
-    <div class="screenshot-item" onclick="openLightbox(this)">
-      <img src="forest.png" alt="Forest venue" loading="lazy" />
-    </div>
-    <div class="screenshot-item" onclick="openLightbox(this)">
-      <img src="catch.png" alt="Venue view" loading="lazy" />
-    </div>
-    <div class="screenshot-item" onclick="openLightbox(this)">
-      <img src="editor1.png" alt="Venue editor" loading="lazy" />
-    </div>
-    <div class="screenshot-item" onclick="openLightbox(this)">
-      <img src="stocking.png" alt="Fish stocking" loading="lazy" />
-    </div>
-    <div class="screenshot-item" onclick="openLightbox(this)">
-      <img src="home2.png" alt="Swimcraft home screen" loading="lazy" />
-    </div>
-    <div class="screenshot-item" onclick="openLightbox(this)">
-      <img src="venue.png" alt="Early build" loading="lazy" />
-    </div>
-  </div>
-</section>
-
-<hr class="rule" />
-
-<!-- SIGNUP -->
-<section class="signup" id="signup">
-  <div class="section-inner">
-    <p class="eyebrow">Early Access</p>
-    <h2>Be first on the bank</h2>
-    <p class="lead">Sign up to hear about early access, beta invites, and development updates. No spam — just fishing.</p>
-    <div class="signup-form">
-      <input type="email" placeholder="your@email.com" aria-label="Email address" />
-      <button class="btn-primary" onclick="handleSignup(event)">Notify Me</button>
-    </div>
-    <p class="signup-note">We'll only contact you about Swimcraft. Unsubscribe any time.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <img src="swimcraft-logo.png" alt="Swimcraft" />
-  <p>© 2026 Swimcraft — All Rights Reserved</p>
-</footer>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">×</button>
-  <img id="lightbox-img" src="" alt="" />
+<!-- Lightbox -->
+<div id="modal" onclick="this.style.display='none'">
+  <img id="modal-img" alt="">
 </div>
 
 <script>
-  function openLightbox(el) {
-    const img = el.querySelector('img');
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox-img').alt = img.alt;
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('modal-img').src = img.src;
+      document.getElementById('modal').style.display = 'flex';
+    });
   });
-
-  function handleSignup(e) {
-    e.preventDefault();
-    const input = document.querySelector('.signup-form input[type="email"]');
-    const email = input.value.trim();
-    if (!email || !email.includes('@')) {
-      input.style.borderColor = '#c0392b';
-      input.focus();
-      return;
-    }
-    input.style.borderColor = '';
-    const btn = e.target;
-    btn.textContent = '✓ You\'re on the list';
-    btn.style.background = '#3a5a20';
-    btn.disabled = true;
-    input.disabled = true;
-  }
 </script>
+
+<footer>
+  © 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital Ltd
+</footer>
 
 </body>
 </html>
