@@ -82,6 +82,24 @@
     border-radius:6px;color:var(--text);font-family:var(--font-ui);font-size:0.9rem;padding:0.7rem 1rem;}
   .signup input::placeholder{color:rgba(138,168,128,0.5);}
 
+  /* ── TRAILER ── */
+  .trailer{max-width:900px;margin:0 auto;padding:3rem 1.5rem 0.5rem;text-align:center;}
+  .trailer h2{font-family:var(--font-display);font-size:1.9rem;margin-bottom:1rem;}
+  .video-facade{position:relative;max-width:780px;margin:0 auto;aspect-ratio:16/9;border-radius:12px;
+    overflow:hidden;border:1px solid var(--border);cursor:pointer;background:#000;
+    -webkit-tap-highlight-color:transparent;}
+  .video-facade img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s,opacity .2s;}
+  .video-facade:hover img{transform:scale(1.03);opacity:0.85;}
+  .video-facade .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:76px;height:76px;border-radius:50%;background:var(--brand-olive);border:2px solid var(--brand-bone);
+    display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;pointer-events:none;
+    box-shadow:0 4px 18px rgba(0,0,0,0.4);}
+  .video-facade:hover .play{background:#5c8039;transform:translate(-50%,-50%) scale(1.08);}
+  .video-facade .play::after{content:'';border-style:solid;border-width:13px 0 13px 22px;
+    border-color:transparent transparent transparent var(--brand-bone);margin-left:5px;}
+  .video-facade:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  .video-facade iframe{width:100%;height:100%;border:0;display:block;}
+
   /* ── SCREENSHOTS ── */
   .shots{max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem 3rem;}
   .shots h2{font-family:var(--font-display);font-size:1.6rem;text-align:center;margin-bottom:0.4rem;}
@@ -132,6 +150,16 @@
     </div>
   </div>
 </header>
+
+<section class="trailer">
+  <h2>See it in action</h2>
+  <!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
+  <div class="video-facade" id="video-facade" data-id="pSaQfvVUeek"
+       role="button" tabindex="0" aria-label="Play the Swimcraft gameplay video">
+    <img alt="Watch the Swimcraft gameplay video" loading="lazy">
+    <div class="play" aria-hidden="true"></div>
+  </div>
+</section>
 
 <section class="content">
   <h2>What is Swimcraft?</h2>
@@ -245,6 +273,38 @@
       if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
       startX = null;
     }, {passive:true});
+  })();
+</script>
+
+<script>
+  // Trailer facade: load YouTube thumbnail from the video ID, swap in the player on click.
+  (function () {
+    const facade = document.getElementById('video-facade');
+    if (!facade) return;
+    const id = facade.dataset.id;
+    const thumb = facade.querySelector('img');
+
+    // Prefer the HD thumbnail; fall back to the always-present standard one.
+    thumb.src = 'https://img.youtube.com/vi/' + id + '/maxresdefault.jpg';
+    thumb.onerror = function () { thumb.onerror = null; thumb.src = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg'; };
+
+    function play() {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.title = 'Swimcraft gameplay video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      facade.innerHTML = '';
+      facade.appendChild(iframe);
+      facade.style.cursor = 'default';
+      facade.removeAttribute('role');
+      facade.removeAttribute('tabindex');
+    }
+
+    facade.addEventListener('click', play);
+    facade.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
   })();
 </script>
 
