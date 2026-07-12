@@ -51,6 +51,7 @@
   th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
 
   .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
 
   footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
     font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
@@ -69,86 +70,139 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="meta"><strong>Last updated:</strong> 11 July 2026</p>
+  <p class="meta"><strong>Last updated:</strong> 12 July 2026</p>
   <p class="meta"><strong>Data controller:</strong> Elliott Lee, trading as Harbledown Digital, Tonford Manor Farm, Tonford Lane, Harbledown, Kent, CT2 9BH, United Kingdom</p>
   <p class="meta"><strong>Contact:</strong> <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a></p>
 
   <div class="intro">
-    Swimcraft collects a deliberately small amount of data — mostly your gameplay, not personal information. This policy explains what we collect, why, who processes it, how long we keep it, and your rights under UK data protection law (the UK GDPR and the Data Protection Act 2018).
+    Swimcraft collects a deliberately small amount of data. But it is an <strong>online game with public leaderboards and player-created venues</strong>, so some of what you do <em>is</em> shared with other players — and this policy is explicit about exactly which parts. It also explains what we keep private, who processes it, how long we keep it, and your rights under UK data protection law (the UK GDPR and the Data Protection Act 2018).
   </div>
 
   <h2>1. Who we are</h2>
   <p>Swimcraft is a fishing simulation game developed and published by Harbledown Digital ("we", "us", "our"), a sole trader business operated by Elliott Lee in the United Kingdom. We are the data controller responsible for your personal data when you play Swimcraft.</p>
 
   <h2>2. What data we collect</h2>
-  <h3>Account &amp; identity</h3>
-  <ul>
-    <li><strong>Your Steam identity.</strong> You sign in through Steam. We receive a Steam identifier linked to an internal player profile. We do <strong>not</strong> see or store your Steam password, email, or payment details — these stay with Valve/Steam.</li>
-    <li><strong>Display name</strong> — the name you choose to show on your profile, catches, and leaderboards. This is public to other players.</li>
-    <li><strong>Profile preferences</strong> — your chosen specialism and unit preferences (e.g. lb/oz vs metric).</li>
-  </ul>
-  <h3>Gameplay data (tied to your player profile)</h3>
-  <ul>
-    <li><strong>Catch records</strong> — species, weight, venue, swim, date/time, and the tackle used (rod, bait, method, float, hook size, line).</li>
-    <li><strong>Venues you create</strong> — venue names, descriptions, locations you enter, the photographs you upload to build venues, depth/geometry maps, water conditions, pegs, and fish stocking data.</li>
-    <li><strong>Records &amp; leaderboard entries</strong> — your personal bests and any venue records you set. Your display name is shown against records you hold (this is public, as leaderboards are by nature).</li>
-    <li><strong>Named specimens</strong> — names you give to individual fish, which may be shown to other players who catch them.</li>
-  </ul>
-  <h3>Photographs</h3>
-  <p>When you create a venue, you upload a <strong>photograph</strong> of a real location. These become part of the playable venue and may be visible to other players who fish that venue. Please do not upload photographs containing identifiable people or private information you don't want shared.</p>
-  <h3>Technical data</h3>
-  <p>We keep technical data to a minimum. We do <strong>not</strong> log connection data such as IP addresses for tracking or profiling. Our backend provider (Supabase) processes the technical information necessary to operate the database and authentication service, but we do not maintain separate connection or analytics logs.</p>
-  <h3>In-game chat / community features</h3>
-  <p>In-game text chat and community sharing features are <strong>planned for a future Early Access update</strong> and are <strong>not active in the current version</strong>. We do not currently collect or store chat messages. When these features launch, this policy will be updated, and chat will be filtered for profanity.</p>
-  <h3>Website email sign-up (optional)</h3>
-  <p>If you choose to sign up for updates on our website, we collect the <strong>email address</strong> you provide, solely to send occasional updates about Swimcraft. This is separate from the game. You can unsubscribe or ask us to delete your email at any time.</p>
-  <div class="callout"><strong>What we do NOT collect:</strong> we do not collect your real name, postal address, or payment information. We only collect an email address if you voluntarily submit one for updates. We do not track you across other sites, and we do not sell your data.</div>
 
-  <h2>3. Why we process your data, and our lawful basis</h2>
+  <h3>Account &amp; identity</h3>
+  <p>A <strong>Swimcraft account is required to play</strong>. It is what saves your progress, holds your catches, and puts your name against a record.</p>
+  <ul>
+    <li><strong>Email address</strong> — used to create your account, verify it (we send a 6-digit code), let you sign back in, and reset your password. We also use it for essential service messages.</li>
+    <li><strong>Password</strong> — handled by our authentication provider (Supabase) and stored only as a secure hash. <strong>We never see, and cannot recover, your password.</strong></li>
+    <li><strong>Sign in with Google or Apple</strong> (optional alternative) — if you use these, we receive an account identifier and your email address from that provider. We do not receive your Google or Apple password.</li>
+    <li><strong>Display name (angler name)</strong> — the name you choose. <strong>This is public.</strong> It appears against your catches, records and leaderboard entries, and against any venue you publish. Choose a name you are happy for other players to see; it does not have to be your real name.</li>
+    <li><strong>Avatar and preferences</strong> — your chosen avatar and settings (e.g. units, lb/oz vs metric).</li>
+  </ul>
+  <p>Swimcraft is sold through Steam, but you do <strong>not</strong> sign in to Swimcraft with Steam. We do not receive your Steam password, your Steam email, or any payment details — purchases stay entirely with Valve.</p>
+
+  <h3>Gameplay data</h3>
+  <ul>
+    <li><strong>Catch records</strong> — every fish you catch is written to your catch history: species, weight, venue, peg/swim, date and time, the tackle and bait used, and an image of the fish. <strong>Your catch history is private to you</strong> (see section 3).</li>
+    <li><strong>Venues you create</strong> — venue name, description, location text, country, the photographs you upload, the depth and geometry you paint, water conditions, pegs, and fish stocking data.</li>
+    <li><strong>Named specimens</strong> — the names you give to individual fish, which other players may see when they catch them in your venue.</li>
+    <li><strong>Progression</strong> — XP, level, achievements, and personal bests derived from the above.</li>
+  </ul>
+
+  <h3>Photographs and images</h3>
+  <p>Two kinds of image are involved, and both can end up in front of other players:</p>
+  <ul>
+    <li><strong>Venue photographs.</strong> When you create a venue you upload photographs of a real location. If that venue is published, those photographs become part of a playable venue that other players can fish.</li>
+    <li><strong>Fish images.</strong> An image of the fish is stored with each catch. If that catch sets a record, the image is shown on the public record.</li>
+  </ul>
+  <div class="callout warn">
+    <strong>Please do not upload photographs that contain identifiable people, children, number plates, addresses, or anything else private that you would not want shared publicly.</strong> Once a venue is published, its photographs are visible to other players. If you have uploaded something by mistake, contact us and we will remove it.
+  </div>
+
+  <h3>Reports and moderation records</h3>
+  <p>If you report another player's content, or if your own content is flagged by our automated checks or reported, we keep a record of the report, the content in question, and the decision we took. See section 6.</p>
+
+  <h3>In-game chat</h3>
+  <p>In-game chat is <strong>planned for a future Early Access update</strong> and is <strong>not active in the current version</strong>. We do not currently collect or store chat messages. When it launches, this policy will be updated before it goes live, and messages will be moderated (section 6).</p>
+
+  <h3>Technical data</h3>
+  <p>We keep technical data to a minimum. We do <strong>not</strong> maintain analytics or profiling logs, and we do not track you across other sites. Our backend provider (Supabase) processes the technical information necessary to operate the database and the authentication service, including the connection data inherent in serving a request.</p>
+
+  <h3>Website email sign-up (optional)</h3>
+  <p>If you sign up for updates on our website, we collect the <strong>email address</strong> you provide, solely to send occasional news about Swimcraft. This is separate from your game account. You can unsubscribe or ask us to delete it at any time.</p>
+
+  <div class="callout"><strong>What we do NOT collect:</strong> we do not collect your real name, date of birth, postal address, or payment information. We do not sell your data, and we do not use it for advertising.</div>
+
+  <h2>3. What is public, and what is private</h2>
+  <p>This is the section worth reading twice. Swimcraft has global, national and venue leaderboards, so some data is public <em>by design</em> — but a lot less of it than you might assume.</p>
+
+  <table>
+    <tr><th>Data</th><th>Who can see it</th></tr>
+    <tr><td><strong>Your full catch history</strong> (every fish, every session, with all the tackle detail)</td><td><strong>Only you.</strong> This is enforced in the database, not just in the interface — the catches table is readable only by the account that owns the row.</td></tr>
+    <tr><td><strong>A record-setting catch</strong> (venue record, national record, world record)</td><td><strong>Public.</strong> Only these fields are published: your display name, the species, the weight, the venue, the peg/swim, and the fish image.</td></tr>
+    <tr><td><strong>A published venue</strong> — its name, description, location, country, photographs, pegs, stocking and named fish, and your display name as its creator</td><td><strong>Public</strong> to other players.</td></tr>
+    <tr><td><strong>Your display name, avatar and level</strong></td><td><strong>Public</strong> wherever you appear (records, venues, and future chat).</td></tr>
+    <tr><td><strong>Your email address, password, and preferences</strong></td><td><strong>Never public.</strong> Never shown to other players, never sold, never shared for marketing.</td></tr>
+  </table>
+
+  <p>A catch is only ever published if it <em>beats a record</em>. Ordinary catches stay private. Nothing in your catch history is published because of the date, the time, the conditions, or the tackle you used.</p>
+
+  <h2>4. Why we process your data, and our lawful basis</h2>
   <table>
     <tr><th>Purpose</th><th>Lawful basis (UK GDPR)</th></tr>
-    <tr><td>Authenticate you and save/restore your progress across devices</td><td>Contract (Art. 6(1)(b))</td></tr>
-    <tr><td>Store and display your catches, venues, records, and leaderboards</td><td>Contract</td></tr>
-    <tr><td>Diagnose errors, secure the service, prevent fraud/abuse</td><td>Legitimate interests (Art. 6(1)(f))</td></tr>
-    <tr><td>Send you website updates you signed up for</td><td>Consent (Art. 6(1)(a)) — withdraw any time</td></tr>
+    <tr><td>Create and authenticate your account; save and restore your progress</td><td>Contract (Art. 6(1)(b))</td></tr>
+    <tr><td>Store your catches, venues and progression; run records and leaderboards</td><td>Contract</td></tr>
+    <tr><td>Publish player-created venues and record-setting catches to other players</td><td>Contract</td></tr>
+    <tr><td>Moderate content, act on reports, remove unlawful or unacceptable material, and enforce our rules — including keeping a record of enforcement so it isn't simply repeated</td><td>Legitimate interests (Art. 6(1)(f)) — keeping the game safe and lawful for everyone; and legal obligation where online safety law applies</td></tr>
+    <tr><td>Keep an anonymised record on a leaderboard after an account is deleted, so the board stays accurate</td><td>Legitimate interests — the integrity of a competitive record board (see section 8)</td></tr>
+    <tr><td>Diagnose errors, secure the service, prevent fraud and cheating</td><td>Legitimate interests (Art. 6(1)(f))</td></tr>
+    <tr><td>Send you essential account emails (verification, password reset)</td><td>Contract</td></tr>
+    <tr><td>Send you website updates you asked for</td><td>Consent (Art. 6(1)(a)) — withdraw any time</td></tr>
     <tr><td>Comply with legal obligations</td><td>Legal obligation (Art. 6(1)(c))</td></tr>
   </table>
   <p>We do <strong>not</strong> sell your personal data. We do <strong>not</strong> use it for advertising.</p>
 
-  <h2>4. Who we share it with</h2>
-  <p>We use trusted third parties to run Swimcraft. These act as our data processors:</p>
+  <h2>5. Who we share it with</h2>
+  <p>We use a small number of trusted third parties to run Swimcraft. These act as our data processors:</p>
   <ul>
-    <li><strong>Valve Corporation (Steam)</strong> — authentication and platform services. Your use of Steam is also governed by Valve's own privacy policy.</li>
-    <li><strong>Supabase</strong> — our backend database, storage, and authentication infrastructure (hosted in the EU — Frankfurt, Germany), which stores your player profile, gameplay data, records, and venue photographs.</li>
-    <li><strong>Formspree</strong> — processes the optional email sign-up form on our website. Applies only to the website, not the game.</li>
+    <li><strong>Supabase</strong> — our backend database, file storage and authentication (hosted in the EU, Frankfurt, Germany). Holds your account, gameplay data, records, and uploaded photographs.</li>
+    <li><strong>Resend</strong> — sends our transactional emails (account verification codes, password resets) from no-reply@swimcraft.harbledowndigital.com.</li>
+    <li><strong>Valve Corporation (Steam)</strong> — distribution and store platform. Your purchase and your use of Steam are governed by Valve's own privacy policy.</li>
+    <li><strong>Formspree</strong> — processes the optional email sign-up form on our website. Website only, not the game.</li>
   </ul>
-  <p><strong>Other players</strong> can see the parts of your data that are inherently public in an online records game: your display name, your leaderboard entries and records, and any venues or named specimens you create and share.</p>
+  <p><strong>Other players</strong> can see exactly what section 3 lists as public — and nothing more.</p>
 
-  <h2>5. International transfers</h2>
-  <p>Your data is stored and processed within the <strong>European Union (Frankfurt, Germany)</strong>. The United Kingdom recognises the EU as providing an adequate level of data protection (an "adequacy decision"), so transfers of your data from the UK to the EU are permitted and protected under UK data protection law. We do not transfer your personal data outside the UK or EU.</p>
-
-  <h2>6. How long we keep it</h2>
+  <h2>6. Player-created content and moderation</h2>
+  <p>Swimcraft lets players upload photographs and write text (venue names, descriptions, fish names, display names, and — in a future update — chat messages) that other players can see. That makes us responsible for keeping that content lawful and acceptable, and it is a responsibility we take seriously.</p>
   <ul>
-    <li><strong>Account, profile, and gameplay records:</strong> retained while your account is active. If you request deletion, we will remove your profile and associated records within 30 days.</li>
-    <li><strong>Chat messages:</strong> not applicable — in-game chat is not active, and no chat messages are collected or stored.</li>
-    <li><strong>Technical data:</strong> we do not retain connection logs.</li>
-    <li><strong>Website email sign-ups:</strong> retained until you unsubscribe or ask us to delete your email.</li>
+    <li>Content that is unlawful, abusive, hateful, sexual, violent, or otherwise inappropriate is <strong>not permitted</strong>. Nor is anyone else's copyrighted photograph, or a photograph of an identifiable person who has not agreed to it.</li>
+    <li>Player-created venues are <strong>checked before they are published</strong>. Text is screened automatically; photographs are screened before a venue can go live.</li>
+    <li>Every piece of public player content can be <strong>reported</strong>. We review reports and can remove content, unpublish a venue, remove a record, or suspend or terminate an account.</li>
+    <li>We keep a record of reports, flagged content and the decisions we make, so that enforcement is consistent and we can meet our obligations under UK online safety law.</li>
   </ul>
+  <p>The full rules on what you may and may not upload live in our Terms of Use and Community Guidelines. If you disagree with a moderation decision, contact us and we will look at it again.</p>
 
-  <h2>7. Your rights</h2>
+  <h2>7. International transfers</h2>
+  <p>Your data is stored and processed within the <strong>European Union (Frankfurt, Germany)</strong>. The United Kingdom recognises the EU as providing an adequate level of data protection (an "adequacy decision"), so transfers of your data from the UK to the EU are permitted and protected under UK data protection law.</p>
+
+  <h2>8. How long we keep it, and what happens if you delete your account</h2>
+  <ul>
+    <li><strong>Account, profile, gameplay and catch history:</strong> kept while your account is active.</li>
+    <li><strong>If you delete your account:</strong> we delete your account, your email address, your catch history, and your personal data within 30 days.</li>
+    <li><strong>One exception, and we want to be straight about it — records stay on the board.</strong> If you hold a venue, national or world record, deleting your account does not wipe the record. Instead, <strong>your name is removed and the record is re-attributed to "Deleted angler"</strong>. The fish, weight, venue and peg remain. This keeps the leaderboards honest: a record that simply vanishes would silently promote someone else to a record they never actually beat. Once anonymised, the entry is no longer personal data.</li>
+    <li><strong>Venues you published:</strong> a published venue is content other players may be fishing. On deletion we can either remove it or anonymise its creator credit — tell us which you would prefer, and if you don't, we will anonymise it.</li>
+    <li><strong>Reports and moderation records:</strong> kept for up to 2 years, so that repeat behaviour can be recognised and so we can evidence our decisions if challenged.</li>
+    <li><strong>Website email sign-ups:</strong> kept until you unsubscribe or ask us to delete.</li>
+  </ul>
+  <p>You can also <strong>export</strong> your data from within the game at any time.</p>
+
+  <h2>9. Your rights</h2>
   <p>Under UK data protection law you have the right to access, rectify, erase, restrict or object to processing of your data, to data portability, and to withdraw consent where processing is based on it. You can also complain to the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
   <p>To exercise any of these, contact us at <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>. We will respond within one month.</p>
 
-  <h2>8. Children</h2>
-  <p>Swimcraft is not directed at children under 13. We do not knowingly collect personal data from children under 13. If you believe a child under 13 has provided us with personal data, please contact us and we will delete it.</p>
+  <h2>10. Children</h2>
+  <p>Swimcraft is not directed at children under 13, and you must be at least 13 to create an account. Because the game includes player-created content that other players can see, we do not knowingly allow under-13s to hold accounts. If you believe a child under 13 has provided us with personal data, contact us and we will delete it.</p>
 
-  <h2>9. Security</h2>
-  <p>We take reasonable technical and organisational measures to protect your data, including authentication through Steam and access controls on our Supabase backend. No system is perfectly secure, but we work to protect your information and will notify you and the ICO of any breach as required by law.</p>
+  <h2>11. Security</h2>
+  <p>We take reasonable technical and organisational measures to protect your data. In particular: passwords are hashed by our authentication provider and never seen by us; database row-level security restricts your catch history to your own account; and the catch ledger is append-only, so records cannot be forged or tampered with by other players. No system is perfectly secure, but we work to protect your information and will notify you and the ICO of any breach as required by law.</p>
 
-  <h2>10. Changes to this policy</h2>
-  <p>We may update this policy as the game develops (for example, as new features roll out during Early Access). We'll post the updated policy here and update the "last updated" date. Significant changes will be communicated in-game or via our Steam page.</p>
+  <h2>12. Changes to this policy</h2>
+  <p>We may update this policy as the game develops (for example, when in-game chat launches). We'll post the updated policy here and update the "last updated" date. Significant changes will be communicated in-game or via our Steam page.</p>
 
-  <h2>11. Contact</h2>
+  <h2>13. Contact</h2>
   <p>Harbledown Digital (Elliott Lee, sole trader)<br>
   Tonford Manor Farm, Tonford Lane, Harbledown, Kent, CT2 9BH<br>
   <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a></p>
