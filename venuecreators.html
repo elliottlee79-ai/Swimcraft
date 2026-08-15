@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Venue Creator's Guide — Swimcraft</title>
+<meta name="robots" content="index,follow">
+<meta name="description" content="How to turn a photograph of your favourite swim into a Swimcraft venue that passes review and gets published.">
+
+<meta property="og:title" content="The Venue Creator's Guide — Swimcraft">
+<meta property="og:description" content="How to turn a photograph of your favourite swim into a Swimcraft venue that passes review and gets published.">
+<meta property="og:image" content="https://swimcraft.harbledowndigital.com/social-card.jpg">
+<meta property="og:url" content="https://swimcraft.harbledowndigital.com/venuecreators">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Playfair Display',Georgia,serif;
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-ui:'Lato',system-ui,-apple-system,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <a href="/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a>
+</div>
+
+<main>
+  <h1>The Venue Creator's Guide</h1>
+  <p class="meta"><strong>How to turn a photograph of a swim you know into a venue other anglers can fish.</strong></p>
+  <p class="meta">Last updated: August 2026</p>
+
+  <div class="intro">
+    The venue creator tutorial shows you the controls. This page is the rest of it — the judgement calls that
+    decide whether a venue is one people come back to, and the handful of rules that decide whether it passes
+    review. It is worth twenty minutes before you build your first proper water.
+  </div>
+
+  <ol class="toc">
+    <li><a href="#life">Draft, submitted, published — what actually happens</a></li>
+    <li><a href="#photo">The photograph, and the rules that apply to it</a></li>
+    <li><a href="#peg">Setting up a peg</a></li>
+    <li><a href="#calibrate">Calibration — the step people skip and regret</a></li>
+    <li><a href="#depth">Painting the bed</a></li>
+    <li><a href="#stock">Stocking it honestly</a></li>
+    <li><a href="#test">Fish it before you submit it</a></li>
+    <li><a href="#review">What review looks for, and why venues come back</a></li>
+    <li><a href="#after">After it goes live</a></li>
+  </ol>
+
+  <h2 id="life">1. Draft, submitted, published</h2>
+  <p>A venue moves through three states, and knowing them saves a lot of confusion later.</p>
+  <table class="pass">
+    <tr><th>State</th><th>What it means</th></tr>
+    <tr><td>Draft</td><td>Yours alone. Nobody else can see it or fish it. You can edit anything, as often as you like.</td></tr>
+    <tr><td>Submitted</td><td>Waiting for review. Still private. Left alone until somebody has looked at it.</td></tr>
+    <tr><td>Published</td><td>In the shared library. Other anglers can fish it, and catches made there count towards the record boards.</td></tr>
+  </table>
+  <p>If a venue is sent back, it comes back to you as a draft <strong>with a note saying what needs fixing</strong>.
+  That is not a black mark — most first submissions need one small thing. Fix it and submit again.</p>
+
+  <div class="callout">
+    <strong>In the demo, everything you build stays in drafts.</strong> Publishing to the shared library opens in
+    Early Access, and the venue creation token you earn at Level 5 is banked ready for it. Nothing you make in the
+    demo is thrown away — so build the good one now.
+  </div>
+
+  <h2 id="photo">2. The photograph</h2>
+  <p>Everything else is built on this one image, so it is worth being fussy. The game will take a photograph that is
+  <strong>JPEG or PNG</strong>, at least <strong>1280 × 720</strong>, and under <strong>20MB</strong>. That is the
+  technical floor. The useful advice sits above it:</p>
+  <ul>
+    <li><strong>Shoot from where you would sit.</strong> The photograph becomes the view from the peg, so a picture
+      taken standing on the bank at eye level fishes far better than one taken from a bridge or a hill.</li>
+    <li><strong>Landscape, and let the water breathe.</strong> You need water in the lower half of the frame to have
+      anything to paint, and a visible far bank or horizon to judge distance against.</li>
+    <li><strong>Flat light beats bright sun.</strong> Heavy glare on the surface hides the features you want to trace.</li>
+    <li><strong>Include something you can measure.</strong> A far bank, an island, a moored boat, a lily bed — anything
+      whose distance you actually know. Section 4 explains why this matters more than anything else on the page.</li>
+  </ul>
+
+  <h3>The rules that are not negotiable</h3>
+  <p>When you hand over an image, the game asks you to confirm that you own it or have permission to use it, and that
+  it contains nothing unlawful. That is a real declaration, and these are the rules behind it. They are the ones from
+  our <a href="/terms">Terms of Use</a>, summarised:</p>
+  <ul>
+    <li>The photograph must be <strong>yours</strong>, or you must have permission. Not off the internet, not off a
+      fishery's website, not off somebody's social media.</li>
+    <li>No <strong>identifiable people</strong> unless they have agreed. <strong>Never</strong> a photograph containing a child.</li>
+    <li>Crop out private detail — <strong>number plates, house names, addresses, signs with phone numbers</strong>.</li>
+    <li>Respect the fishery. If a water is private, or its owner would not want it recreated and published, do not
+      publish it. The test worth using: would you be happy showing the owner what you have made?</li>
+  </ul>
+  <div class="callout warn">
+    A venue that breaks these gets sent back at review, and the photograph rules are the single most common reason.
+    Almost all of it is avoidable at the moment you take the picture.
+  </div>
+
+  <!-- SCREENSHOT SLOT — a good source photograph beside a poor one (glare / wrong angle).
+       Drop the images into the repo and uncomment.
+  <figure>
+    <img src="guide-photo-good.webp" alt="A well-chosen swim photograph">
+    <figcaption>Bank height, flat light, water across the lower half — everything the editor needs.</figcaption>
+  </figure>
+  -->
+
+  <h2 id="peg">3. Setting up a peg</h2>
+  <p>A venue is one or more pegs, and each peg is one photograph with its own bed, its own features and its own fish.
+  A first venue with <strong>one really good peg</strong> beats one with four rushed ones, every time.</p>
+  <ul>
+    <li><strong>Name the venue as an angler would say it.</strong> "Leeds Castle Moat", not "my swim 2". Up to 60
+      characters, and the location line below it takes a town or county.</li>
+    <li><strong>Name each peg for where it is</strong> — "Gatehouse Peg", "The Point", "Bottom Bend". Up to 40
+      characters. Those names appear on the record boards under the fish, so they are worth a moment.</li>
+    <li><strong>Venue names, peg names, descriptions and fish names are screened</strong> before they will save.
+      Keep it clean and it will never come up.</li>
+  </ul>
+
+  <h2 id="calibrate">4. Calibration — the step people skip</h2>
+  <p>Calibration is how the game turns a flat picture into real distance. You trace the water's edge, then drop a
+  <strong>near pin</strong> and a <strong>far pin</strong> and tell it how far away each one really is.</p>
+  <p>You cannot move on until every peg is calibrated, and that is deliberate: an uncalibrated peg fishes wrong in a
+  way nobody can see. A cast that should reach an island falls short, or a 40-yard float rod reaches the far bank of a
+  reservoir. The venue looks fine and fishes like nonsense.</p>
+  <h3>How to get it right without a rangefinder</h3>
+  <p>You are not being asked to state a distance from memory. You are being asked to <strong>recognise</strong> one, which
+  anglers are good at:</p>
+  <ul>
+    <li>Think in casts. "That island is about two comfortable feeder casts" is roughly 60–70 yards, and that is a far
+      better answer than a number you invented.</li>
+    <li>Use what you know. Most commercial lake pegs are 20–40 yards across to the far bank. A big gravel pit or
+      reservoir is hundreds. A canal is 10–15.</li>
+    <li>Put the near pin on something close and definite — the margin shelf, a near lily pad, the end of your platform.</li>
+    <li>If you genuinely do not know, go and look at the water on a map before you build. It takes a minute.</li>
+  </ul>
+  <div class="callout">
+    <strong>Get this right and everything downstream is right.</strong> Bite ranges, how far your rods reach, where the
+    fish actually sit — all of it is measured off these two pins.
+  </div>
+
+  <h2 id="depth">5. Painting the bed</h2>
+  <p>Next you paint what is under the water: depth bands from the margin out, plus features — weed, gravel, silt,
+  snags, reeds. You need at least one square of water painted to continue, but a bed painted properly is what makes a
+  venue feel like a real water rather than a bath.</p>
+  <ul>
+    <li><strong>Follow the picture.</strong> Where the surface goes dark, it is usually deeper. Where you can see the
+      bottom, paint it shallow. A reed line is a shelf.</li>
+    <li><strong>Margins shallow, middle deeper</strong> is the default shape for most stillwaters — but a gravel pit is
+      lumpy and a canal has a flat boat channel with shallow shelves either side. Build the water you know.</li>
+    <li><strong>Features are what anglers hunt for.</strong> A bare, evenly-painted bed gives nobody a reason to cast
+      anywhere in particular. Give the peg two or three spots worth finding — a gravel bar, a silt gully, a snag on the
+      far shelf.</li>
+    <li><strong>Do not put snags everywhere.</strong> They are exciting where a fish might reasonably be lost. Everywhere
+      is just frustrating.</li>
+  </ul>
+
+  <h2 id="stock">6. Stocking it honestly</h2>
+  <p>Stocking is where a venue is made or ruined, and it is where the game is strictest with you. Three limits apply,
+  and each one exists for a reason.</p>
+
+  <div class="step">
+    <span class="num">Limit one</span>
+    <h3>Capacity — the water can only hold so much fish</h3>
+    <p>Capacity is worked out from the volume of water you painted and the venue's difficulty. A small shallow puddle
+    cannot hold 400lb of carp. Over-stock a peg and it will not save until you take some out or make the venue easier.</p>
+  </div>
+
+  <div class="step">
+    <span class="num">Limit two</span>
+    <h3>Difficulty decides both the stamp and the density</h3>
+    <p>Difficulty is not a slider for how hard you want it to feel — it changes how much fish the water holds and which
+    size bands are available.</p>
+    <table class="pass">
+      <tr><th>Difficulty</th><th>What it gives you</th></tr>
+      <tr><td>Easy</td><td>Densely stocked, frequent bites, small to medium fish. A runs water.</td></tr>
+      <tr><td>Intermediate</td><td>Fewer bites, better average size.</td></tr>
+      <tr><td>Hard</td><td>Realistic bite windows, cautious fish, presentation matters. Bigger stamp.</td></tr>
+      <tr><td>Specimen</td><td>Low stock, long waits, the biggest fish in the game available.</td></tr>
+    </table>
+    <p>If a fish you want is too big for the difficulty you picked, the game tells you the minimum difficulty that
+    would fit it. Raising difficulty is a real trade: you get the big fish, and the water goes quiet.</p>
+  </div>
+
+  <div class="step">
+    <span class="num">Limit three</span>
+    <h3>Nothing beats the national record</h3>
+    <p>Every species is capped at the national record for the country the venue is in. You cannot stock a 90lb common
+    carp in a Kent farm pond, and the editor will not let you try. There is also a soft warning for a fish that is
+    legal but a stretch for the water you have painted — that one does not block you, it just tells you an experienced
+    angler will notice.</p>
+  </div>
+
+  <h3>Named fish</h3>
+  <p>A named fish is the one people come for. Give it a species, a name and a weight and it goes on the peg; add a
+  photograph of it and it appears on the catch screen when somebody finally banks it. A venue with two or three known
+  residents has a story. A venue with fifteen has none.</p>
+
+  <h3>The stocking that makes a good water</h3>
+  <ul>
+    <li><strong>Mixed sizes.</strong> A water of nothing but doubles is boring, because nothing you catch is a surprise.
+      Small fish are what build a swim up — see the <a href="/swim-confidence">SWIM confidence guide</a>.</li>
+    <li><strong>Species that belong together.</strong> Roach, bream, tench and carp in a farm pond, yes. Not everything
+      in the list because the list was there.</li>
+    <li><strong>Leave headroom.</strong> Stocking right up to capacity leaves you no room to add the fish you think of
+      next week.</li>
+  </ul>
+
+  <h2 id="test">7. Fish it before you submit it</h2>
+  <p>The editor has a test mode, and it is not optional in any practical sense. Ten minutes on your own venue will
+  find things no amount of looking at the map will:</p>
+  <ul>
+    <li>Can you actually <strong>reach</strong> the features you painted with a sensible rod? If everything good is out of
+      range, calibration is wrong or the features are too far out.</li>
+    <li>Does the depth under the float <strong>match what the picture looks like</strong>?</li>
+    <li>Do you get bites at a rate that fits the difficulty you chose?</li>
+    <li>Is there a reason to move? A peg where one spot is obviously right and everywhere else is dead is a peg with
+      one cast in it.</li>
+  </ul>
+
+  <h2 id="review">8. What review looks for</h2>
+  <p>Every venue is looked at by a person before it joins the shared library. They are not marking your artwork. They
+  are checking a short list, and it is the same list every time:</p>
+  <table class="pass">
+    <tr><th>Checked</th><th>What sends a venue back</th></tr>
+    <tr><td>The photograph</td><td>Not yours, contains identifiable people or a child, shows private detail, or is not really a fishing swim.</td></tr>
+    <tr><td>The words</td><td>Venue name, description or fish names that break the community guidelines.</td></tr>
+    <tr><td>Honesty</td><td>Stocking or naming that is a joke at the game's expense — a puddle stuffed with record fish, a peg named to game the boards.</td></tr>
+    <tr><td>Playability</td><td>No calibration worth the name, an unpainted bed, or a venue that plainly could not be fished.</td></tr>
+  </table>
+  <p>What is <strong>not</strong> checked: whether it is pretty, whether it is like anyone else's, or whether the reviewer
+  would enjoy fishing it. A modest venue built honestly passes. A spectacular one built on somebody else's photograph
+  does not.</p>
+
+  <h2 id="after">9. After it goes live</h2>
+  <ul>
+    <li><strong>Edits go back through review.</strong> Once a venue is published its content is locked, and any change
+      you make is staged and looked at again before it reaches other players. So get it right before you submit rather
+      than planning to patch it.</li>
+    <li><strong>You can retire it.</strong> Retiring takes a venue out of the library — and its records come off the
+      boards with it — without deleting anything. It is your switch, and it is reversible.</li>
+    <li><strong>Records made there carry your venue's name</strong>, and the peg's, wherever they appear. That is the
+      reason to name pegs properly at the start.</li>
+  </ul>
+
+  <div class="callout">
+    <strong>The short version.</strong> Use your own photograph. Calibrate it honestly. Paint a bed with somewhere worth
+    casting. Stock it like a real water rather than a wish list. Fish it yourself before you send it. Do those five and
+    it will pass.
+  </div>
+
+  <p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">
+    Questions, or think we got a review decision wrong? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.
+  </p>
+</main>
+
+<footer>
+  © 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/">Home</a> · <a href="/swim-confidence">SWIM confidence guide</a> · <a href="/terms">Terms of Use</a> · <a href="/privacy">Privacy</a>
+</footer>
+
+</body>
+</html>
