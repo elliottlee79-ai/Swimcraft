@@ -69,7 +69,9 @@
   .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
     text-transform:uppercase;display:block;margin-bottom:0.15rem;}
   figure{margin:1.2rem 0;}
-  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
   figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
   /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
      poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
@@ -80,6 +82,25 @@
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
 
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
   footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
     font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
@@ -168,17 +189,17 @@
 
   <div class="pair">
     <figure>
-      <img src="gallery/vc-02-photo-good.webp" alt="A well-chosen swim photograph" loading="lazy">
+      <img src="gallery/vc-02-photo-good.webp" class="zoomable" alt="A well-chosen swim photograph" loading="lazy">
       <figcaption><strong>Good.</strong> Bank height, flat light, water across the lower half, a far bank to judge distance against.</figcaption>
     </figure>
     <figure>
-      <img src="gallery/vc-03-photo-poor.webp" alt="A poor swim photograph with too much foreground" loading="lazy">
+      <img src="gallery/vc-03-photo-poor.webp" class="zoomable" alt="A poor swim photograph with too much foreground" loading="lazy">
       <figcaption><strong>Poor.</strong> Too much bank in the foreground — a hooked fish would swim through the ground before it reached the net.</figcaption>
     </figure>
   </div>
 
   <figure>
-    <img src="gallery/vc-15-peg-list.webp" alt="A venue with several named pegs" loading="lazy">
+    <img src="gallery/vc-15-peg-list.webp" class="zoomable" alt="A venue with several named pegs" loading="lazy">
     <figcaption>Name your pegs the way the water names them. &ldquo;Gatehouse Peg&rdquo; tells an angler something; &ldquo;Peg 1&rdquo; does not.</figcaption>
   </figure>
 
@@ -218,11 +239,11 @@
 
   <div class="pair">
     <figure>
-      <img src="gallery/vc-04-trace.webp" alt="Tracing the water's edge in the venue editor" loading="lazy">
+      <img src="gallery/vc-04-trace.webp" class="zoomable" alt="Tracing the water's edge in the venue editor" loading="lazy">
       <figcaption>Tracing the water's edge. The outline has to close.</figcaption>
     </figure>
     <figure>
-      <img src="gallery/vc-05-calibration.webp" alt="Near and far distance pins placed on a swim" loading="lazy">
+      <img src="gallery/vc-05-calibration.webp" class="zoomable" alt="Near and far distance pins placed on a swim" loading="lazy">
       <figcaption>Both pins placed. Everything downstream is measured off these two.</figcaption>
     </figure>
   </div>
@@ -245,22 +266,22 @@
 
   <div class="pair">
     <figure>
-      <img src="gallery/vc-06-depth-good.webp" alt="A depth map with several distinct bands" loading="lazy">
+      <img src="gallery/vc-06-depth-good.webp" class="zoomable" alt="A depth map with several distinct bands" loading="lazy">
       <figcaption><strong>Passes.</strong> Several distinct bands, margins shallower than open water, a bed with real shape.</figcaption>
     </figure>
     <figure>
-      <img src="gallery/vc-07-depth-reject.webp" alt="A flat single-band depth map" loading="lazy">
+      <img src="gallery/vc-07-depth-reject.webp" class="zoomable" alt="A flat single-band depth map" loading="lazy">
       <figcaption><strong>Sent back.</strong> One flat band across the whole water. Nothing to find, nothing to learn.</figcaption>
     </figure>
   </div>
 
   <div class="pair">
     <figure>
-      <img src="gallery/vc-08-features-good.webp" alt="A varied feature map" loading="lazy">
+      <img src="gallery/vc-08-features-good.webp" class="zoomable" alt="A varied feature map" loading="lazy">
       <figcaption><strong>Passes.</strong> Weed in the shallows, silt in the deeps, gravel on the bar — and no unpainted holes.</figcaption>
     </figure>
     <figure>
-      <img src="gallery/vc-09-features-reject.webp" alt="A bare feature map with unpainted gaps" loading="lazy">
+      <img src="gallery/vc-09-features-reject.webp" class="zoomable" alt="A bare feature map with unpainted gaps" loading="lazy">
       <figcaption><strong>Sent back.</strong> Bare, and with blank cells left in fishable water. That second half catches most people out.</figcaption>
     </figure>
   </div>
@@ -319,17 +340,17 @@
 
   <div class="pair">
     <figure>
-      <img src="gallery/vc-11-stocking-good.webp" alt="A peg stocked with mixed species and sizes" loading="lazy">
+      <img src="gallery/vc-11-stocking-good.webp" class="zoomable" alt="A peg stocked with mixed species and sizes" loading="lazy">
       <figcaption>Mixed species, mixed sizes, and the capacity gauge left with headroom rather than pushed to the line.</figcaption>
     </figure>
     <figure>
-      <img src="gallery/vc-12-stocking-overcap.webp" alt="The over-capacity warning" loading="lazy">
+      <img src="gallery/vc-12-stocking-overcap.webp" class="zoomable" alt="The over-capacity warning" loading="lazy">
       <figcaption>Past the limit the editor stops you. This one is arithmetic, not judgement.</figcaption>
     </figure>
   </div>
 
   <figure>
-    <img src="gallery/vc-13-named-fish.webp" alt="A named fish added to a peg" loading="lazy">
+    <img src="gallery/vc-13-named-fish.webp" class="zoomable" alt="A named fish added to a peg" loading="lazy">
     <figcaption>A named fish, stocked and confirmed. Two or three per venue at weights the water could hold — they are the exception, not the stock.</figcaption>
   </figure>
 
@@ -346,7 +367,7 @@
   </ul>
 
   <figure>
-    <img src="gallery/vc-14-test-mode.webp" alt="Test fishing your own venue inside the editor" loading="lazy">
+    <img src="gallery/vc-14-test-mode.webp" class="zoomable" alt="Test fishing your own venue inside the editor" loading="lazy">
     <figcaption>Test mode. Ten minutes here finds what no amount of looking at the map will.</figcaption>
   </figure>
 
@@ -365,7 +386,7 @@
   does not.</p>
 
   <figure>
-    <img src="gallery/vc-16-library-card.webp" alt="A published venue in the shared library" loading="lazy">
+    <img src="gallery/vc-16-library-card.webp" class="zoomable" alt="A published venue in the shared library" loading="lazy">
     <figcaption>Published. This is the card every other angler sees — and where your water ends up.</figcaption>
   </figure>
 
@@ -395,6 +416,72 @@
   © 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
   <a href="/">Home</a> · <a href="/swim-confidence">SWIM confidence guide</a> · <a href="/terms">Terms of Use</a> · <a href="/privacy">Privacy</a>
 </footer>
+
+<!-- Lightbox gallery -->
+<div id="modal" aria-hidden="true">
+  <button id="modal-close" class="modal-btn" aria-label="Close (Esc)">&times;</button>
+  <button id="modal-prev" class="modal-btn" aria-label="Previous">&#8249;</button>
+  <img id="modal-img" alt="">
+  <button id="modal-next" class="modal-btn" aria-label="Next">&#8250;</button>
+  <div id="modal-counter"></div>
+</div>
+
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
 
 </body>
 </html>
