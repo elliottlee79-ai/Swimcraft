@@ -70,6 +70,13 @@
     text-transform:uppercase;display:block;margin-bottom:0.15rem;}
   figure{margin:1.2rem 0;}
   figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
 
@@ -159,13 +166,21 @@
     Almost all of it is avoidable at the moment you take the picture.
   </div>
 
-  <!-- SCREENSHOT SLOT — a good source photograph beside a poor one (glare / wrong angle).
-       Drop the images into the repo and uncomment.
+  <div class="pair">
+    <figure>
+      <img src="gallery/vc-02-photo-good.webp" alt="A well-chosen swim photograph" loading="lazy">
+      <figcaption><strong>Good.</strong> Bank height, flat light, water across the lower half, a far bank to judge distance against.</figcaption>
+    </figure>
+    <figure>
+      <img src="gallery/vc-03-photo-poor.webp" alt="A poor swim photograph with too much foreground" loading="lazy">
+      <figcaption><strong>Poor.</strong> Too much bank in the foreground — a hooked fish would swim through the ground before it reached the net.</figcaption>
+    </figure>
+  </div>
+
   <figure>
-    <img src="guide-photo-good.webp" alt="A well-chosen swim photograph">
-    <figcaption>Bank height, flat light, water across the lower half — everything the editor needs.</figcaption>
+    <img src="gallery/vc-15-peg-list.webp" alt="A venue with several named pegs" loading="lazy">
+    <figcaption>Name your pegs the way the water names them. &ldquo;Gatehouse Peg&rdquo; tells an angler something; &ldquo;Peg 1&rdquo; does not.</figcaption>
   </figure>
-  -->
 
   <h2 id="peg">3. Setting up a peg</h2>
   <p>A venue is one or more pegs, and each peg is one photograph with its own bed, its own features and its own fish.
@@ -201,6 +216,17 @@
     fish actually sit — all of it is measured off these two pins.
   </div>
 
+  <div class="pair">
+    <figure>
+      <img src="gallery/vc-04-trace.webp" alt="Tracing the water's edge in the venue editor" loading="lazy">
+      <figcaption>Tracing the water's edge. The outline has to close.</figcaption>
+    </figure>
+    <figure>
+      <img src="gallery/vc-05-calibration.webp" alt="Near and far distance pins placed on a swim" loading="lazy">
+      <figcaption>Both pins placed. Everything downstream is measured off these two.</figcaption>
+    </figure>
+  </div>
+
   <h2 id="depth">5. Painting the bed</h2>
   <p>Next you paint what is under the water: depth bands from the margin out, plus features — weed, gravel, silt,
   snags, reeds. You need at least one square of water painted to continue, but a bed painted properly is what makes a
@@ -216,6 +242,28 @@
     <li><strong>Do not put snags everywhere.</strong> They are exciting where a fish might reasonably be lost. Everywhere
       is just frustrating.</li>
   </ul>
+
+  <div class="pair">
+    <figure>
+      <img src="gallery/vc-06-depth-good.webp" alt="A depth map with several distinct bands" loading="lazy">
+      <figcaption><strong>Passes.</strong> Several distinct bands, margins shallower than open water, a bed with real shape.</figcaption>
+    </figure>
+    <figure>
+      <img src="gallery/vc-07-depth-reject.webp" alt="A flat single-band depth map" loading="lazy">
+      <figcaption><strong>Sent back.</strong> One flat band across the whole water. Nothing to find, nothing to learn.</figcaption>
+    </figure>
+  </div>
+
+  <div class="pair">
+    <figure>
+      <img src="gallery/vc-08-features-good.webp" alt="A varied feature map" loading="lazy">
+      <figcaption><strong>Passes.</strong> Weed in the shallows, silt in the deeps, gravel on the bar — and no unpainted holes.</figcaption>
+    </figure>
+    <figure>
+      <img src="gallery/vc-09-features-reject.webp" alt="A bare feature map with unpainted gaps" loading="lazy">
+      <figcaption><strong>Sent back.</strong> Bare, and with blank cells left in fishable water. That second half catches most people out.</figcaption>
+    </figure>
+  </div>
 
   <h2 id="stock">6. Stocking it honestly</h2>
   <p>Stocking is where a venue is made or ruined, and it is where the game is strictest with you. Three limits apply,
@@ -269,6 +317,22 @@
       next week.</li>
   </ul>
 
+  <div class="pair">
+    <figure>
+      <img src="gallery/vc-11-stocking-good.webp" alt="A peg stocked with mixed species and sizes" loading="lazy">
+      <figcaption>Mixed species, mixed sizes, and the capacity gauge left with headroom rather than pushed to the line.</figcaption>
+    </figure>
+    <figure>
+      <img src="gallery/vc-12-stocking-overcap.webp" alt="The over-capacity warning" loading="lazy">
+      <figcaption>Past the limit the editor stops you. This one is arithmetic, not judgement.</figcaption>
+    </figure>
+  </div>
+
+  <figure>
+    <img src="gallery/vc-13-named-fish.webp" alt="A named fish added to a peg" loading="lazy">
+    <figcaption>A named fish, stocked and confirmed. Two or three per venue at weights the water could hold — they are the exception, not the stock.</figcaption>
+  </figure>
+
   <h2 id="test">7. Fish it before you submit it</h2>
   <p>The editor has a test mode, and it is not optional in any practical sense. Ten minutes on your own venue will
   find things no amount of looking at the map will:</p>
@@ -280,6 +344,11 @@
     <li>Is there a reason to move? A peg where one spot is obviously right and everywhere else is dead is a peg with
       one cast in it.</li>
   </ul>
+
+  <figure>
+    <img src="gallery/vc-14-test-mode.webp" alt="Test fishing your own venue inside the editor" loading="lazy">
+    <figcaption>Test mode. Ten minutes here finds what no amount of looking at the map will.</figcaption>
+  </figure>
 
   <h2 id="review">8. What review looks for</h2>
   <p>Every venue is looked at by a person before it joins the shared library. They are not marking your artwork. They
@@ -294,6 +363,11 @@
   <p>What is <strong>not</strong> checked: whether it is pretty, whether it is like anyone else's, or whether the reviewer
   would enjoy fishing it. A modest venue built honestly passes. A spectacular one built on somebody else's photograph
   does not.</p>
+
+  <figure>
+    <img src="gallery/vc-16-library-card.webp" alt="A published venue in the shared library" loading="lazy">
+    <figcaption>Published. This is the card every other angler sees — and where your water ends up.</figcaption>
+  </figure>
 
   <h2 id="after">9. After it goes live</h2>
   <ul>

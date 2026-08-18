@@ -71,6 +71,13 @@
   .down{color:#d98a3a;font-weight:700;}
   figure{margin:1.2rem 0;}
   figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
 
   footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
@@ -115,6 +122,17 @@
     decision a real angler makes when they think about moving.
   </div>
 
+  <div class="pair">
+    <figure>
+      <img src="gallery/sc-01-bar-quiet.webp" alt="The SWIM confidence bar reading quiet" loading="lazy">
+      <figcaption><strong>Quiet.</strong> Where every session starts.</figcaption>
+    </figure>
+    <figure>
+      <img src="gallery/sc-02-bar-frenzy.webp" alt="The SWIM confidence bar reading frenzy" loading="lazy">
+      <figcaption><strong>Frenzy.</strong> The same two bars, earned. Same crop, so the difference is the whole picture.</figcaption>
+    </figure>
+  </div>
+
   <h2>Feeding is the engine — not catching</h2>
   <p><strong>Fish in the net build a swim faster than anything else</strong> — but bait is what gets them there, and
   it is the only thing that moves the bar at all when nothing is biting. Neither works without the other: bait with
@@ -156,6 +174,17 @@
        when midday in January measures hungrier than midday in July. A page describing a mechanic
        that is switched off is the fault rule 63 exists for, so it goes back rather than waits.
        This block moves again in the delivery that turns the flag on, and not before. -->
+
+  <div class="pair">
+    <figure>
+      <img src="gallery/sc-03-feed-baited.webp" alt="A well-baited swim" loading="lazy">
+      <figcaption>Feed high and held there. This is the state the rest of this page is about.</figcaption>
+    </figure>
+    <figure>
+      <img src="gallery/sc-04-overfeed.webp" alt="The over-feeding warning" loading="lazy">
+      <figcaption>One throw too many, and the swim spooks. The bar warns you before it happens — read it.</figcaption>
+    </figure>
+  </div>
 
   <h2>What moves the bar</h2>
   <table class="gain">
@@ -201,13 +230,21 @@
   below that, a specimen never rolls at all. The chance is deliberately low even then, so a drop stays a surprise.</p>
   <p>That gives the whole system a point: the swim you patiently built is the swim that pays you.</p>
 
-  <!-- SCREENSHOT SLOT — the HUD with the feed bar and the Swim bar at 'frenzy'.
-       Drop the image into the repo and uncomment.
+  <div class="pair">
+    <figure>
+      <img src="gallery/sc-05-token-drop.webp" alt="A catch dropping an XP boost token" loading="lazy">
+      <figcaption>A boost dropping off a good fish. It is a surprise, not a certainty.</figcaption>
+    </figure>
+    <figure>
+      <img src="gallery/tokensinbox.webp" alt="XP boost tokens held in the tackle box" loading="lazy">
+      <figcaption>Banked in the tackle box until you activate one. Save it for a session that counts.</figcaption>
+    </figure>
+  </div>
+
   <figure>
-    <img src="guide-confidence-hud.webp" alt="The feed bar and SWIM confidence bar in game">
-    <figcaption>The Swim bar sits under the feed bar. Feed high, and it climbs.</figcaption>
+    <img src="gallery/sc-06-specimen.webp" alt="A specimen fish on the catch reveal" loading="lazy">
+    <figcaption>What a swim built patiently eventually hands you.</figcaption>
   </figure>
-  -->
 
   <h2>How to fish it, in practice</h2>
   <ol>
