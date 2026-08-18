@@ -20,7 +20,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
   /* Brand tokens — mirror SWIMCRAFT_BRAND.md so the site and the game read one vocabulary */
@@ -30,9 +30,9 @@
     --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
     --text:#e8f0e0; --muted:#8aa880;
     --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
-    --font-brand:'Alfa Slab One','Playfair Display',Georgia,serif;
-    --font-display:'Playfair Display',Georgia,serif;
-    --font-ui:'Lato',system-ui,-apple-system,sans-serif;
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
@@ -50,7 +50,7 @@
   .wordmark{font-family:var(--font-brand);font-weight:400;font-size:clamp(3rem,12vw,6rem);line-height:1;letter-spacing:0.01em;}
   .wordmark .swim{color:var(--brand-bone);}
   .wordmark .craft{color:var(--brand-olive);}
-  .tagline{font-family:var(--font-display);font-size:clamp(1.1rem,3.2vw,1.65rem);color:var(--text);margin-top:1.15rem;}
+  .tagline{font-family:var(--font-display);font-weight:600;font-size:clamp(1.1rem,3.2vw,1.65rem);color:var(--text);margin-top:1.15rem;}
   .hero-cta{display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
   .btn{font-family:var(--font-ui);font-weight:700;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;
     padding:0.85rem 1.6rem;border-radius:8px;cursor:pointer;border:1px solid transparent;text-decoration:none;
@@ -62,12 +62,12 @@
 
   /* ── CONTENT ── */
   .content{max-width:900px;margin:0 auto;padding:3.5rem 1.5rem 1rem;text-align:center;}
-  .content h2{font-family:var(--font-display);font-size:1.9rem;margin-bottom:1rem;}
+  .content h2{font-family:var(--font-display);font-weight:700;font-size:1.9rem;margin-bottom:1rem;}
   .lead{font-size:1.05rem;max-width:680px;margin:0 auto 1rem;}
   .lead.muted{color:var(--muted);font-size:0.95rem;}
   .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:2rem auto 0;max-width:780px;text-align:left;}
   .feature{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;}
-  .feature h3{font-family:var(--font-display);font-size:1.02rem;color:var(--brand-bone);margin-bottom:0.35rem;}
+  .feature h3{font-family:var(--font-display);font-weight:700;font-size:1.02rem;color:var(--brand-bone);margin-bottom:0.35rem;}
   .feature p{font-size:0.85rem;color:var(--muted);line-height:1.55;}
   .tag-planned{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);
     border:1px solid rgba(201,168,76,0.4);border-radius:50px;padding:0.1rem 0.5rem;margin-left:0.4rem;vertical-align:middle;}
@@ -75,7 +75,7 @@
   /* ── SIGNUP (secondary) ── */
   .signup{max-width:520px;margin:2.5rem auto 0;background:var(--card-bg);border:1px solid var(--border);
     border-radius:12px;padding:1.5rem;text-align:center;}
-  .signup h3{font-family:var(--font-display);font-size:1.15rem;margin-bottom:0.35rem;}
+  .signup h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin-bottom:0.35rem;}
   .signup p{font-size:0.85rem;color:var(--muted);margin-bottom:1rem;}
   .signup form{display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;}
   .signup input[type=email]{flex:1;min-width:200px;background:rgba(16,21,13,0.6);border:1px solid var(--border);
@@ -84,7 +84,7 @@
 
   /* ── TRAILER ── */
   .trailer{max-width:900px;margin:0 auto;padding:3rem 1.5rem 0.5rem;text-align:center;}
-  .trailer h2{font-family:var(--font-display);font-size:1.9rem;margin-bottom:1rem;}
+  .trailer h2{font-family:var(--font-display);font-weight:700;font-size:1.9rem;margin-bottom:1rem;}
   .video-facade{position:relative;max-width:780px;margin:0 auto;aspect-ratio:16/9;border-radius:12px;
     overflow:hidden;border:1px solid var(--border);cursor:pointer;background:#000;
     -webkit-tap-highlight-color:transparent;}
@@ -102,10 +102,19 @@
 
   /* ── SCREENSHOTS ── */
   .shots{max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem 3rem;}
-  .shots h2{font-family:var(--font-display);font-size:1.6rem;text-align:center;margin-bottom:0.4rem;}
+  .shots h2{font-family:var(--font-display);font-weight:700;font-size:1.6rem;text-align:center;margin-bottom:0.4rem;}
   .shots-sub{text-align:center;color:var(--muted);font-size:0.9rem;margin:0 auto 1.6rem;}
   .shot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
-  .shot-grid img{width:100%;border-radius:8px;border:1px solid var(--border);cursor:pointer;display:block;
+  /* Every tile is a fixed 16:9 box and every image is CONTAINED in it, never cropped.
+     Two of the shots (the token drop and the specimen reveal) are portrait modal crops at
+     their native size — 459x558 and 418x559 — because the blurred game behind them adds
+     nothing. Left at width:100% they would each stretch their whole grid row to 1.2x its
+     width and wreck the rhythm of the page. `contain` letterboxes them against the ink
+     background so they read as deliberate; a 16:9 game shot fills the tile exactly and is
+     untouched. `cover` was the other option and was rejected: it would crop the modal,
+     which is the only thing those two images contain. */
+  .shot-grid img{width:100%;aspect-ratio:16/9;object-fit:contain;background:var(--ink);
+    border-radius:8px;border:1px solid var(--border);cursor:pointer;display:block;
     transition:transform .2s,border-color .2s;}
   .shot-grid img:hover{transform:scale(1.02);border-color:rgba(143,170,107,0.45);}
 
@@ -170,7 +179,7 @@
     <div class="feature"><h3>Photo-to-venue</h3><p>Trace a swim from your own photos — water, islands, depths and features — and it becomes a fishable peg.</p></div>
     <div class="feature"><h3>Real cast &amp; fight</h3><p>An honest cast, line management, and a species-accurate fight where fish run, tire, and test your tackle.</p></div>
     <div class="feature"><h3>Tackle &amp; bait</h3><p>Rods, reels, lines, hooks, rigs and baits that matter — starting simple and unlocking as you progress.</p></div>
-    <div class="feature"><h3>Angler progression <span class="tag-planned">Coming soon</span></h3><p>Level up, earn rewards, and build out your tackle box over time — rolling out during Early Access.</p></div>
+    <div class="feature"><h3>Angler progression</h3><p>Earn XP for every catch, climb the ranks, and unlock tackle and bait as you go. A specimen can drop an XP boost — save it for a session that counts. Deeper levels and rewards arrive during Early Access.</p></div>
     <div class="feature"><h3>Tournaments <span class="tag-planned">Planned</span></h3><p>Online tournaments and a shared match calendar are planned for after launch — not in the game yet.</p></div>
     <div class="feature"><h3>Leaderboards</h3><p>Log your catches and climb venue and global leaderboards — every record tied to the swim where you made it.</p></div>
   </div>
@@ -204,6 +213,18 @@
     <img src="early1.webp"      class="zoomable" loading="lazy" alt="Gameplay screenshot">
     <img src="early2.webp"      class="zoomable" loading="lazy" alt="Gameplay screenshot">
     <img src="early3.webp"      class="zoomable" loading="lazy" alt="Gameplay screenshot">
+    <!-- Guide shot set (P4-242). These live in guide/ at the repo root, so the paths are
+         relative to this page rather than root-absolute — index.html sits beside the folder. -->
+    <img src="guide/vc-01-finished-venue.webp" class="zoomable" loading="lazy" alt="A finished venue being fished">
+    <img src="guide/vc-04-trace.webp"          class="zoomable" loading="lazy" alt="Tracing the water's edge in the venue editor">
+    <img src="guide/vc-05-calibration.webp"    class="zoomable" loading="lazy" alt="Setting the distance pins on a swim">
+    <img src="guide/vc-06-depth-good.webp"     class="zoomable" loading="lazy" alt="Painting the depth map of a swim">
+    <img src="guide/vc-08-features-good.webp"  class="zoomable" loading="lazy" alt="Painting weed, silt and gravel onto the bed">
+    <img src="guide/vc-14-test-mode.webp"      class="zoomable" loading="lazy" alt="Test fishing your own venue from inside the editor">
+    <img src="guide/vc-15-peg-list.webp"       class="zoomable" loading="lazy" alt="A venue with several named pegs">
+    <img src="guide/vc-16-library-card.webp"   class="zoomable" loading="lazy" alt="A published venue in the shared library">
+    <img src="guide/sc-05-token-drop.webp"     class="zoomable" loading="lazy" alt="A catch dropping an XP boost token">
+    <img src="guide/sc-06-specimen.webp"       class="zoomable" loading="lazy" alt="A specimen fish on the catch reveal">
   </div>
 </section>
 

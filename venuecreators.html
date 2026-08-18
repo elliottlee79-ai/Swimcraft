@@ -15,7 +15,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
   /* Brand tokens — mirror the main site, privacy.html and terms.html */
@@ -25,9 +25,9 @@
     --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
     --text:#e8f0e0; --muted:#8aa880;
     --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
-    --font-brand:'Alfa Slab One','Playfair Display',Georgia,serif;
-    --font-display:'Playfair Display',Georgia,serif;
-    --font-ui:'Lato',system-ui,-apple-system,sans-serif;
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
@@ -39,12 +39,12 @@
   .wordmark .craft{color:var(--brand-olive);}
 
   main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
-  h1{font-family:var(--font-display);font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
   .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
   .meta strong{color:var(--text);font-weight:700;}
   .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
 
-  h2{font-family:var(--font-display);font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
   h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
   p{margin-bottom:0.9rem;}
   ul,ol{margin:0 0 1rem 1.3rem;}
@@ -66,7 +66,7 @@
   .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
     border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
   .step h3{margin-top:0;}
-  .step .num{font-family:var(--font-display);color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
     text-transform:uppercase;display:block;margin-bottom:0.15rem;}
   figure{margin:1.2rem 0;}
   figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;}
@@ -231,14 +231,15 @@
   <div class="step">
     <span class="num">Limit two</span>
     <h3>Difficulty decides both the stamp and the density</h3>
-    <p>Difficulty is not a slider for how hard you want it to feel — it changes how much fish the water holds and which
-    size bands are available.</p>
+    <p>Difficulty is not a slider for how hard you want it to feel, and it does not change how the fish behave. It sets
+    how much stock the water holds and which size bands you may use — nothing else. A hard water fishes hard because
+    there is less in it and what is in it is bigger.</p>
     <table class="pass">
       <tr><th>Difficulty</th><th>What it gives you</th></tr>
       <tr><td>Easy</td><td>Densely stocked, frequent bites, small to medium fish. A runs water.</td></tr>
-      <tr><td>Intermediate</td><td>Fewer bites, better average size.</td></tr>
-      <tr><td>Hard</td><td>Realistic bite windows, cautious fish, presentation matters. Bigger stamp.</td></tr>
-      <tr><td>Specimen</td><td>Low stock, long waits, the biggest fish in the game available.</td></tr>
+      <tr><td>Intermediate</td><td>About half the stock of Easy. Fewer bites, better average size.</td></tr>
+      <tr><td>Hard</td><td>Lightly stocked. Longer waits, and what does bite is bigger — up to Specimen.</td></tr>
+      <tr><td>Specimen</td><td>Very lightly stocked, long waits by design. The only setting that allows Big Specimen and Monster.</td></tr>
     </table>
     <p>If a fish you want is too big for the difficulty you picked, the game tells you the minimum difficulty that
     would fit it. Raising difficulty is a real trade: you get the big fish, and the water goes quiet.</p>
