@@ -57,6 +57,9 @@
     display:inline-flex;align-items:center;gap:0.5rem;transition:all .2s;}
   .btn-primary{background:var(--brand-olive);border-color:var(--brand-olive);color:var(--brand-bone);}
   .btn-primary:hover{background:#5c8039;transform:translateY(-1px);}
+  /* Brand gold — the demo CTA. Ink text, not bone: bone on gold fails contrast (SWIMCRAFT_BRAND.md §2). */
+  .btn-gold{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+  .btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-1px);}
   .btn-ghost{background:rgba(230,220,198,0.06);border-color:var(--border);color:var(--text);}
   .btn-ghost:hover{border-color:var(--accent);color:#fff;}
 
@@ -153,7 +156,8 @@
     <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
     <p class="tagline">Turn your favourite swims into virtual fishing venues</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" target="_blank" rel="noopener">Wishlist on Steam</a>
+      <a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" target="_blank" rel="noopener">Wishlist on Steam</a>
+      <a class="btn btn-primary" href="https://swimcraft.itch.io/swimcraft" target="_blank" rel="noopener">Play the demo</a>
       <a class="btn btn-ghost" href="#updates">Get email updates</a>
     </div>
   </div>
