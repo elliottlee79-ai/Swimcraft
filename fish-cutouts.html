@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!-- Swimcraft website — fish-cutouts · v1 · P4-448, 10 Sep 2026
+     The how-to behind the venue creator's "Fish pictures" panel. Linked from three doors in the
+     game (the panel, its refusal message, the Guides menu) through SITE_URLS.fishCutoutGuide.
+     ⚠ EVERY RULE ON THIS PAGE IS A CLAIM ABOUT THE GAME, SO EACH ONE IS READ FROM THE CODE:
+       PNG or WebP only, JPG refused by type · the edges must be see-through and the solid part
+       must not be a rectangle (fishDepth.js cutoutVerdict) · pictures are shrunk to 1,024 px on
+       the long side (VenueCreator FISH_MAX_EDGE) · location data is removed on upload
+       (reencodeImage) · the three refusal sentences are quoted from CUTOUT_REFUSAL.
+       If any of those change in the game, this page is wrong until it is edited to match. -->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cutting out your fish · Swimcraft</title>
+<meta name="description" content="How to cut a fish out of your photo so Swimcraft can show it in 3D, with a phone, a free tool, or by hand in Paint.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-bone: #E6DCC6; --brand-olive: #4E6B30; --ink: #10150D;
+    --gold: #C9A84C; --gold-light: #F0D080; --accent: #8FAA6B;
+    --text: #E8F0E0; --muted: #8AA880; --deep: #1A1F14; --mid: #2A3420; --surface: #344A28;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+    --warn: #E08A50;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--deep); color: var(--text);
+    font-family: var(--font-ui); font-size: 1.0625rem; line-height: 1.75;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; border-radius: 3px; }
+
+  .bar { background: var(--ink); border-bottom: 1px solid var(--border); }
+  .bar-in { max-width: 1040px; margin: 0 auto; padding: 0.9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .mark { font-family: var(--font-brand); font-size: 1.45rem; text-decoration: none; letter-spacing: 0.01em; }
+  .mark .s { color: var(--brand-bone); } .mark .c { color: var(--accent); }
+  .bar nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; margin-left: 1.25rem; }
+  .bar nav a:hover { color: var(--text); }
+
+  /* THE ONE BOLD THING: the whole guide in a picture — what you took, and what the game needs. */
+  .hero { max-width: 1040px; margin: 0 auto; padding: 3.25rem 1.25rem 1rem; }
+  .hero h1 { font-family: var(--font-brand); font-weight: 400; font-size: clamp(2.3rem, 5.5vw, 3.6rem); line-height: 1.08; margin: 0 0 1rem; color: var(--brand-bone); max-width: 18ch; }
+  .hero p.lede { font-size: 1.2rem; line-height: 1.6; color: var(--text); max-width: 60ch; margin: 0 0 2rem; }
+  .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
+  .pair figure { margin: 0; }
+  .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
+  .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pane.photo { background:
+      repeating-linear-gradient(115deg, rgba(0,0,0,0.13) 0 14px, rgba(0,0,0,0) 14px 30px),
+      radial-gradient(ellipse at 30% 30%, #4d6a3a, #2c3b22 70%); }
+  .pane.cut { background-color: #d8d8d8;
+      background-image: conic-gradient(#f4f4f4 25%, #d0d0d0 0 50%, #f4f4f4 0 75%, #d0d0d0 0);
+      background-size: 26px 26px; }
+  .arrow { font-family: var(--font-brand); color: var(--gold); font-size: 2rem; line-height: 1; }
+
+  /* One left edge for the whole page: the reading column sits under the hero's text rather
+     than floating in the middle beneath a wider hero. */
+  main { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  main > * { max-width: 720px; }
+  h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; line-height: 1.25; color: var(--brand-bone); margin: 3.25rem 0 0.75rem; }
+  h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; color: var(--gold-light); margin: 2rem 0 0.35rem; }
+  p { margin: 0 0 1rem; }
+  .muted { color: var(--muted); }
+
+  ul.needs { list-style: none; padding: 0; margin: 1rem 0 1.25rem; }
+  ul.needs li { padding: 0.55rem 0 0.55rem 2rem; border-top: 1px solid var(--border); position: relative; }
+  ul.needs li:last-child { border-bottom: 1px solid var(--border); }
+  ul.needs li::before { content: ''; position: absolute; left: 0.35rem; top: 1.15rem; width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--accent); }
+  ul.needs strong { color: var(--text); }
+
+  ol.steps { padding-left: 1.4rem; margin: 0.5rem 0 1.25rem; }
+  ol.steps li { padding-left: 0.35rem; margin-bottom: 0.45rem; }
+  ol.steps li::marker { color: var(--gold); font-weight: 700; }
+  kbd { font-family: var(--font-ui); font-size: 0.9em; background: var(--mid); border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px; padding: 0.02rem 0.4rem; color: var(--text); white-space: nowrap; }
+  .ui { color: var(--text); font-weight: 600; }
+
+  .note { background: var(--mid); border-left: 3px solid var(--gold); padding: 0.9rem 1.1rem; border-radius: 0 10px 10px 0; margin: 1.25rem 0; }
+  .note p:last-child { margin-bottom: 0; }
+
+  .refusal { margin: 1rem 0 1.5rem; }
+  .refusal dt { color: var(--warn); font-weight: 600; margin-top: 1.1rem; }
+  .refusal dd { margin: 0.25rem 0 0; }
+
+  footer { border-top: 1px solid var(--border); background: var(--ink); }
+  footer div { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1.25rem; color: var(--muted); font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 640px) {
+    .pair { grid-template-columns: 1fr; }
+    .arrow { transform: rotate(90deg); justify-self: center; }
+    .bar nav a { margin-left: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="mark" href="/" aria-label="Swimcraft home"><span class="s">Swim</span><span class="c">craft</span></a>
+    <nav aria-label="Guides">
+      <a href="/venuecreators">Venue creator's guide</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Cutting out your fish</h1>
+  <p class="lede">When you stock a venue with your own fish pictures, Swimcraft shows them in 3D on the catch card and the record boards. For that it needs the fish on its own, with nothing behind it. This page shows you how, whether you let your phone do it or do it by hand.</p>
+
+  <div class="pair" role="img" aria-label="On the left, a photo of a fish lying on a mat. On the right, the same fish on its own, on a see-through background shown as a grey and white checkerboard.">
+    <figure>
+    <div class="pane photo">
+      <svg viewBox="0 0 320 180" aria-hidden="true">
+        <g transform="translate(26 36)">
+          <path d="M14 58 C 40 20, 120 8, 176 22 C 200 28, 214 40, 222 52 L 262 24 C 270 40, 270 76, 262 92 L 222 64 C 214 78, 196 92, 172 98 C 116 112, 40 100, 14 58 Z" fill="#b08a3e"/>
+          <path d="M78 24 C 96 -4, 146 -10, 170 24 C 140 16, 104 16, 78 24 Z" fill="#8f6c2c"/>
+          <path d="M118 100 C 126 118, 146 122, 150 102 Z" fill="#8f6c2c"/>
+          <circle cx="44" cy="52" r="5" fill="#1c1a12"/>
+          <path d="M40 66 C 70 74, 110 76, 150 70" stroke="#e9d49a" stroke-opacity="0.45" stroke-width="3" fill="none"/>
+        </g>
+      </svg>
+    </div>
+    <figcaption>The photo you took</figcaption>
+    </figure>
+    <div class="arrow" aria-hidden="true">&gt;</div>
+    <figure>
+    <div class="pane cut">
+      <svg viewBox="0 0 320 180" aria-hidden="true">
+        <g transform="translate(26 36)">
+          <path d="M14 58 C 40 20, 120 8, 176 22 C 200 28, 214 40, 222 52 L 262 24 C 270 40, 270 76, 262 92 L 222 64 C 214 78, 196 92, 172 98 C 116 112, 40 100, 14 58 Z" fill="#b08a3e"/>
+          <path d="M78 24 C 96 -4, 146 -10, 170 24 C 140 16, 104 16, 78 24 Z" fill="#8f6c2c"/>
+          <path d="M118 100 C 126 118, 146 122, 150 102 Z" fill="#8f6c2c"/>
+          <circle cx="44" cy="52" r="5" fill="#1c1a12"/>
+          <path d="M40 66 C 70 74, 110 76, 150 70" stroke="#e9d49a" stroke-opacity="0.45" stroke-width="3" fill="none"/>
+        </g>
+      </svg>
+    </div>
+    <figcaption>What the game needs: just the fish</figcaption>
+    </figure>
+  </div>
+</section>
+
+<main>
+
+  <h2>What the game needs</h2>
+  <ul class="needs">
+    <li><strong>Only the fish.</strong> No mat, no grass, no landing net, no hands and no people. Every venue is checked before it goes live, and pictures with any of those in them won't be approved.</li>
+    <li><strong>Saved as a PNG.</strong> A PNG can have a see-through background. A JPG can't, so the game turns JPGs away. WebP pictures work too.</li>
+    <li><strong>The whole fish, side on,</strong> with no fins or tail cut off at the edge.</li>
+    <li><strong>A decent size.</strong> Aim for a fish at least 1,000 pixels long. The game shrinks anything bigger to 1,024 pixels on its longest side, so a larger picture does no harm.</li>
+    <li><strong>Your own photo.</strong> You'll be asked to confirm that when you upload.</li>
+  </ul>
+  <p class="muted">You don't need to remove your location from the photo first. The game strips that information out when it saves the picture.</p>
+
+  <h2>Start with the right photo</h2>
+  <p>A good cut-out starts with a good photo, and a few seconds on the bank saves a lot of tidying later.</p>
+  <ul class="needs">
+    <li><strong>Lay the fish flat on the mat</strong> and take the picture from directly above, side on.</li>
+    <li><strong>Keep your hands off it</strong> for the shot if you safely can. Fingers across the flank are the hardest thing to cut round neatly.</li>
+    <li><strong>Get the whole fish in,</strong> with a bit of mat showing all the way round.</li>
+    <li><strong>Pick a plain, contrasting background.</strong> A dark mat under a silver fish is far easier for any tool than grass under a green tench.</li>
+  </ul>
+  <p>The classic trophy shot, held up towards the camera, is the hardest photo to use. The fish is foreshortened, which throws its shape out, and the angler's hands are over the body.</p>
+
+  <h2>The quick way: let a tool do it</h2>
+  <p>Most phones and computers can now lift a fish off its background for you. These tools are quick, but they are guessing. Always look at the result closely, because they often leave a thumb, a corner of the net or a patch of mat behind. You can tidy that up by hand afterwards, <a href="#by-hand">as shown below</a>.</p>
+
+  <h3>iPhone</h3>
+  <ol class="steps">
+    <li>Open the photo in <span class="ui">Photos</span>, tap <span class="ui">Share</span>, then <span class="ui">Save to Files</span>.</li>
+    <li>Open the <span class="ui">Files</span> app and find the photo. Don't open it.</li>
+    <li>Touch and hold the photo, then tap <span class="ui">Quick Actions</span> and <span class="ui">Remove Background</span>.</li>
+    <li>A new PNG of just the subject appears in the same folder. That is the file to upload.</li>
+  </ol>
+  <p class="muted">Holding your finger on the fish inside the Photos app also lifts it out, but the copy it makes doesn't always keep its see-through background. The Files route saves a proper PNG.</p>
+
+  <h3>Samsung Galaxy</h3>
+  <ol class="steps">
+    <li>Open the photo in the <span class="ui">Gallery</span> app.</li>
+    <li>Touch and hold the fish until an outline appears around it, then let go.</li>
+    <li>Tap <span class="ui">Save as image</span>. The cut-out is saved to your Gallery as a PNG.</li>
+  </ol>
+  <p class="muted">Other Android phones may have a similar feature in their photo app. If yours doesn't, use one of the options for a computer below, or do it by hand.</p>
+
+  <h3>Windows 11: Paint</h3>
+  <ol class="steps">
+    <li>Right-click the photo and choose <span class="ui">Open with</span> then <span class="ui">Paint</span>.</li>
+    <li>Click <span class="ui">Remove background</span> on the toolbar.</li>
+    <li>Zoom in and check the edges. Tidy anything left behind with the eraser, <a href="#paint">as described below</a>.</li>
+    <li>Choose <span class="ui">File</span>, <span class="ui">Save as</span>, <span class="ui">PNG picture</span>, and give it a new name.</li>
+  </ol>
+  <p class="muted">If you can't see <span class="ui">Remove background</span>, update Paint from the Microsoft Store. The version of Paint on Windows 10 can't make see-through pictures at all; use one of the free editors further down instead.</p>
+
+  <h3>Any computer: a free website</h3>
+  <p>Free background-removal websites such as Adobe Express let you upload a photo and download a PNG of the subject. Before you pick one, check the size of the free download. Some sites only give you a small preview for free, often around 600 pixels wide, which will look soft on the catch card.</p>
+
+  <h2 id="by-hand">The careful way: do it by hand</h2>
+  <p>If you want every fin ray exactly right, or you'd simply rather not hand your photo to an AI tool, cutting a fish out yourself is straightforward. It takes ten or fifteen minutes, and the result is as good as your patience.</p>
+
+  <h3 id="paint">In Paint on Windows 11</h3>
+  <p>You need a recent version of Paint. To check, rub the eraser over a corner of the photo: if you see a grey and white checkerboard, you're set. If the erased area turns white, you have the old Paint, which can't save a see-through picture; use one of the free editors below instead.</p>
+  <ol class="steps">
+    <li>Right-click the photo and choose <span class="ui">Open with</span> then <span class="ui">Paint</span>.</li>
+    <li>First, crop it down. Choose <span class="ui">Select</span>, drag a rectangle around the fish leaving a small gap, then click <span class="ui">Crop</span>. There is far less to erase.</li>
+    <li>Pick the <span class="ui">Eraser</span> and set it to a large size. Clear the background well away from the fish.</li>
+    <li>Zoom in with <kbd>Ctrl</kbd> and the mouse wheel, and choose a smaller eraser size as you get closer to the fish.</li>
+    <li>Work slowly round the outline. Take the fins and tail in short strokes, and leave the fin tips on rather than shaving them off.</li>
+    <li>Made a mistake? Press <kbd>Ctrl</kbd> + <kbd>Z</kbd> to undo the last stroke.</li>
+    <li>Optional: if the fish faces right, choose <span class="ui">Rotate</span> then <span class="ui">Flip horizontal</span> so its head faces left, like the game's own fish.</li>
+    <li>Choose <span class="ui">File</span>, <span class="ui">Save as</span>, <span class="ui">PNG picture</span>. Don't choose JPEG: it fills everything you erased with white.</li>
+  </ol>
+  <div class="note">
+    <p>Save a copy under a new name every few minutes. If a stroke goes badly wrong later on, you can go back to the last good copy rather than starting again.</p>
+  </div>
+
+  <h3>With a free photo editor</h3>
+  <p>For very fiddly edges, a proper editor lets you draw a line round the fish instead of rubbing out everything else. Three good free ones are <a href="https://www.getpaint.net/">Paint.NET</a> for Windows, <a href="https://www.photopea.com/">Photopea</a>, which runs in your web browser, and <a href="https://www.gimp.org/">GIMP</a>, which works on any computer. The buttons differ a little, but the idea is the same in all three:</p>
+  <ol class="steps">
+    <li>Open the photo.</li>
+    <li>Use the <span class="ui">Lasso</span> tool to draw carefully all the way round the fish. Zooming in helps.</li>
+    <li>Invert the selection, so that everything except the fish is selected.</li>
+    <li>Press <kbd>Delete</kbd>. The background should turn into a checkerboard.</li>
+    <li>Export or save the picture as a PNG.</li>
+  </ol>
+  <p class="muted">If deleting turns the background white instead of a checkerboard, the picture's layer is locked. Unlock it in the Layers panel, or in GIMP add an alpha channel to the layer, then delete again.</p>
+
+  <h2>Check it before you upload</h2>
+  <ol class="steps">
+    <li>Open your PNG in a web browser, or drop it onto a dark background.</li>
+    <li>Look all the way round the edge for a white fringe, a thumb, or a scrap of net or mat.</li>
+    <li>Make sure no fins or tail have been clipped off.</li>
+  </ol>
+  <p>Then, in the venue creator, go to <span class="ui">Stocking</span> and use <span class="ui">Upload a cut-out</span> under <span class="ui">Fish pictures</span>. You can give a whole stock line one picture, and add different pictures for particular weights if you like. Move your pointer over the preview to see it in 3D.</p>
+
+  <h2>If the game turns your picture away</h2>
+  <p>The game checks every picture as you upload it. If it refuses one, the message tells you why:</p>
+  <dl class="refusal">
+    <dt>“JPG pictures can’t have a see-through background.”</dt>
+    <dd>The file is a JPG. Open your cut-out again and save it as a PNG.</dd>
+    <dt>“This picture still has its background.”</dt>
+    <dd>The edges of the picture aren't see-through, so the background is still there. The most common cause is saving from the old version of Paint, which turns erased areas white. Remove the background again and save as a PNG.</dd>
+    <dt>“This looks like a photo on a see-through sheet, not a cut-out fish.”</dt>
+    <dd>The whole rectangular photo has been placed on a see-through background, with the mat still around the fish. Cut round the fish itself.</dd>
+    <dt>“We couldn’t read that picture.”</dt>
+    <dd>The file may be damaged or in a format the game can't open. Open it in Paint or your editor and save it again as a PNG.</dd>
+  </dl>
+
+</main>
+
+<footer>
+  <div>
+    <span>Swimcraft by Harbledown Digital</span>
+    <span><a href="/venuecreators">Venue creator's guide</a> &nbsp; <a href="/terms">Terms</a> &nbsp; <a href="/privacy">Privacy</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
