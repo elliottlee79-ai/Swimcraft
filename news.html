@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swimcraft news</title>
+<meta name="description" content="News from the Swimcraft riverbank: the demo, updates and what's coming next.">
+<meta property="og:title" content="Swimcraft news">
+<meta property="og:description" content="News from the Swimcraft riverbank: the demo, updates and what's coming next.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://swimcraft.harbledowndigital.com/news">
+<meta property="og:image" content="https://swimcraft.harbledowndigital.com/social-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url('/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+
+  .post { border-top: 1px solid var(--border); padding: 2rem 0 1.5rem; }
+  .post:first-of-type { border-top: 0; padding-top: 0.5rem; }
+  .post-date { color: var(--gold); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.35rem; }
+  .post h2 { margin-bottom: 0.6rem; }
+  .post p { margin: 0 0 0.9rem; max-width: 38rem; }
+  .post .read { font-weight: 700; }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="https://swimcraft.harbledowndigital.com/" aria-label="Swimcraft home"><span class="swim">swim</span><span class="craft">craft</span></a>
+    <a class="back" href="https://swimcraft.harbledowndigital.com/">Back to the home page</a>
+  </div>
+</header>
+
+<div class="intro">
+  <h1>News</h1>
+  <p class="lede">What's happening with Swimcraft, newest first.</p>
+</div>
+
+<main>
+
+  <article class="post" aria-labelledby="p-update">
+    <p class="post-date">September 2026</p>
+    <h2 id="p-update">A demo update is on its way</h2>
+    <p>We're finishing a new demo build, and it goes out as soon as it's ready. Hooked fish now head for cover, every species fights its own way, floats are easier to see, and there's a long list of smaller improvements and fixes.</p>
+    <p><a class="read" href="https://swimcraft.harbledowndigital.com/whats-new">See everything that's new</a></p>
+  </article>
+
+  <article class="post" aria-labelledby="p-advertise">
+    <p class="post-date">September 2026</p>
+    <h2 id="p-advertise">Your tackle shop could be on the home screen</h2>
+    <p>The game's home screen now has a news board, and there's room on it for tackle shops, fisheries and bait makers. If your business serves anglers, have a look at how it works.</p>
+    <p><a class="read" href="https://swimcraft.harbledowndigital.com/advertise">Advertise in Swimcraft</a></p>
+  </article>
+
+  <article class="post" aria-labelledby="p-demo">
+    <p class="post-date">September 2026</p>
+    <h2 id="p-demo">The Swimcraft demo is live</h2>
+    <p>The free demo is out on itch.io. Build a venue from your own photographs, fish it, and climb the boards. Thanks to everyone who has fished it so far and told us what they found. Your reports shaped the update above.</p>
+    <p><a class="read" href="https://swimcraft.itch.io/swimcraft">Play the demo</a></p>
+  </article>
+
+</main>
+
+<div class="cta">
+  <div class="cta-panel">
+    <p>Swimcraft is heading to Steam Early Access. Wishlisting is the best way to hear when it lands.</p>
+    <div class="buttons">
+      <a class="button primary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Wishlist on Steam</a>
+      <a class="button secondary" href="https://swimcraft.itch.io/swimcraft">Play the demo</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    © 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Privacy Policy</a> and <a href="https://swimcraft.harbledowndigital.com/terms">Terms of Use</a>.
+  </div>
+</footer>
+
+</body>
+</html>
