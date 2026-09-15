@@ -191,6 +191,13 @@
   .post h2 { margin-bottom: 0.6rem; }
   .post p { margin: 0 0 0.9rem; max-width: 38rem; }
   .post .read { font-weight: 700; }
+  .banner { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem 2rem; }
+  .banner img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border); }
+  .post figure { margin: 0 0 1.1rem; }
+  .post figure img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); background: var(--ink); }
+  .post figure.narrow img { max-width: 300px; margin: 0 auto; border-color: rgba(201,168,76,0.45); }
+  .post figcaption { color: var(--muted); font-size: 0.88rem; margin-top: 0.45rem; }
+  .post figure.narrow figcaption { text-align: center; }
 
   footer {
     background: var(--ink);
@@ -223,11 +230,19 @@
   <p class="lede">What's happening with Swimcraft, newest first.</p>
 </div>
 
+<div class="banner">
+  <img src="/gallery/news-lake-dawn.webp" width="1600" height="685" alt="Mist lifting off a lake at sunrise, with reeds in the foreground">
+</div>
+
 <main>
 
   <article class="post" aria-labelledby="p-update">
     <p class="post-date">September 2026</p>
     <h2 id="p-update">A demo update is on its way</h2>
+    <figure>
+      <img src="/gallery/news-demo-update.webp" width="1400" height="779" loading="lazy" alt="Carp fishing at Westbere in the new build, with the line-out panel reading silt and pondweed">
+      <figcaption>Westbere in the new build. The line-out panel now tells you what your rig is sitting over.</figcaption>
+    </figure>
     <p>We're finishing a new demo build, and it goes out as soon as it's ready. Hooked fish now head for cover, every species fights its own way, floats are easier to see, and there's a long list of smaller improvements and fixes.</p>
     <p><a class="read" href="https://swimcraft.harbledowndigital.com/whats-new">See everything that's new</a></p>
   </article>
@@ -235,6 +250,10 @@
   <article class="post" aria-labelledby="p-advertise">
     <p class="post-date">September 2026</p>
     <h2 id="p-advertise">Your tackle shop could be on the home screen</h2>
+    <figure>
+      <img src="/gallery/news-home-board.webp" width="1000" height="770" loading="lazy" alt="The Swimcraft home screen menu, with the advertise with us board glowing underneath">
+      <figcaption>The board sits under the main menu, the first screen every player sees.</figcaption>
+    </figure>
     <p>The game's home screen now has a news board, and there's room on it for tackle shops, fisheries and bait makers. If your business serves anglers, have a look at how it works.</p>
     <p><a class="read" href="https://swimcraft.harbledowndigital.com/advertise">Advertise in Swimcraft</a></p>
   </article>
@@ -242,6 +261,10 @@
   <article class="post" aria-labelledby="p-demo">
     <p class="post-date">September 2026</p>
     <h2 id="p-demo">The Swimcraft demo is live</h2>
+    <figure class="narrow">
+      <img src="/gallery/news-mirror-carp.webp" width="453" height="617" loading="lazy" alt="A 26lb 1oz 14dr mirror carp on the fish landed card, taken from The Deeps at Westbere">
+      <figcaption>A 26lb mirror carp from The Deeps at Westbere, landed in testing.</figcaption>
+    </figure>
     <p>The free demo is out on itch.io. Build a venue from your own photographs, fish it, and climb the boards. Thanks to everyone who has fished it so far and told us what they found. Your reports shaped the update above.</p>
     <p><a class="read" href="https://swimcraft.itch.io/swimcraft">Play the demo</a></p>
   </article>
