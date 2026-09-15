@@ -141,6 +141,14 @@
     #modal-img{max-width:94%;max-height:80%;}
   }
 
+  /* ── SITE NAV (news, advertise) — quiet text links over the hero, so the CTAs stay the loudest thing ── */
+  .site-nav{position:absolute;top:0;right:0;z-index:2;display:flex;gap:1.4rem;padding:1.1rem 1.5rem;}
+  .site-nav a{color:var(--brand-bone);font-family:var(--font-ui);font-weight:600;font-size:0.95rem;text-decoration:none;
+    text-shadow:0 1px 6px rgba(0,0,0,0.6);}
+  .site-nav a:hover{color:var(--gold-light);text-decoration:underline;text-underline-offset:3px;}
+  .site-nav a:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;border-radius:4px;}
+  @media (max-width:600px){ .site-nav{left:0;justify-content:center;padding-top:0.9rem;} }
+
   footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
@@ -151,6 +159,10 @@
 <body>
 
 <header class="hero">
+  <nav class="site-nav" aria-label="Site">
+    <a href="/news">News</a>
+    <a href="/advertise">Advertise</a>
+  </nav>
   <div class="hero-inner">
     <div class="eyebrow">Harbledown Digital · In development</div>
     <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
@@ -319,7 +331,7 @@
 
 <footer>
   © 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Privacy Policy</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Terms of Use</a>
+  <a href="/news" style="color:var(--muted);text-decoration:underline;">News</a> · <a href="/advertise" style="color:var(--muted);text-decoration:underline;">Advertise</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Privacy Policy</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Terms of Use</a>
 </footer>
 
 </body>
