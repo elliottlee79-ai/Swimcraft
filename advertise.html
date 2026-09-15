@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advertise in Swimcraft</title>
+<meta name="description" content="Put your tackle shop, fishery or bait in front of anglers inside Swimcraft.">
+<meta property="og:title" content="Advertise in Swimcraft">
+<meta property="og:description" content="Put your tackle shop, fishery or bait in front of anglers inside Swimcraft.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://swimcraft.harbledowndigital.com/advertise">
+<meta property="og:image" content="https://swimcraft.harbledowndigital.com/social-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url('/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --water2: #4A7A6D;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+
+  /* The in-game board, drawn at the game's own sizes (index.css .home-billboard) and enlarged for the page */
+  .board-wrap {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2.5rem 1.25rem 2.25rem;
+    margin: 0 0 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(16,21,13,0.15) 0%, rgba(16,21,13,0.75) 100%),
+      url('/gallery/menu.webp') center / cover no-repeat,
+      radial-gradient(120% 140% at 50% 0%, #6f9a8c 0%, var(--water2) 30%, var(--water1) 60%, var(--deep) 100%);
+    display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  }
+  .scene-mark {
+    font-family: var(--font-brand); font-size: 2.1rem; line-height: 1;
+    background: rgba(16,21,13,0.88); padding: 0.45rem 1.1rem 0.55rem; border-radius: 12px;
+  }
+  .scene-mark .swim { color: var(--brand-bone); }
+  .scene-mark .craft { color: var(--brand-olive); }
+  .scene-menu { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .scene-menu span {
+    font-size: 0.8rem; font-weight: 600; color: var(--brand-bone);
+    background: rgba(16,21,13,0.7); border: 1px solid rgba(143,170,107,0.3);
+    border-radius: 999px; padding: 0.25rem 0.8rem;
+  }
+  .board-scale { transform: scale(1.3); transform-origin: center top; margin-bottom: 1.4rem; width: 100%; display: flex; justify-content: center; }
+  .board {
+    position: relative; overflow: hidden;
+    width: 100%; max-width: 380px; min-height: 4.2rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+    padding: 0.7rem 1.2rem;
+    background: rgba(16,21,13,0.9);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.3);
+  }
+  .board::before {
+    content: ''; position: absolute; inset: 3px;
+    border: 1px solid rgba(201,168,76,0.55); border-radius: 7px; pointer-events: none;
+  }
+  .board::after {
+    content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
+    background: linear-gradient(100deg, transparent 0%, rgba(240,208,128,0.18) 50%, transparent 100%);
+    transform: skewX(-18deg);
+    animation: glint 1.6s 0.9s ease-out 1 both;
+    pointer-events: none;
+  }
+  @keyframes glint { from { left: -60%; } to { left: 130%; } }
+  @media (prefers-reduced-motion: reduce) { .board::after { animation: none; display: none; } }
+  .board-logo { flex: none; height: 2.6rem; width: auto; max-width: 5.5rem; display: block; }
+  .board-text { color: #f0e060; font-weight: 600; font-size: 0.95rem; line-height: 1.4; text-align: center; }
+  .board-flag {
+    display: inline-block; margin-right: 0.25rem; padding: 0 0.5rem;
+    font-size: 0.78rem; font-weight: 700; line-height: 1.45;
+    color: var(--brand-bone); background: rgba(230,220,198,0.12);
+    border: 1px solid rgba(230,220,198,0.3); border-radius: 999px; vertical-align: 0.1em;
+  }
+  @media (max-width: 520px) { .board-scale { transform: none; margin-bottom: 0; } .scene-mark { font-size: 1.7rem; } }
+  .caption { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.75rem; }
+  .specs { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.25rem; margin: 0 0 1.25rem; }
+  .specs dt { font-weight: 700; color: var(--brand-bone); }
+  .specs dd { margin: 0; }
+  @media (max-width: 480px) { .specs { grid-template-columns: 1fr; gap: 0.15rem; } .specs dd { margin-bottom: 0.6rem; } }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="https://swimcraft.harbledowndigital.com/" aria-label="Swimcraft home"><span class="swim">swim</span><span class="craft">craft</span></a>
+    <a class="back" href="https://swimcraft.harbledowndigital.com/">Back to the home page</a>
+  </div>
+</header>
+
+<div class="intro">
+  <h1>Advertise in Swimcraft</h1>
+  <p class="lede">Put your tackle shop, fishery or bait in front of anglers, on the first screen they see every time they start the game.</p>
+</div>
+
+<main>
+
+  <section aria-labelledby="board">
+    <div class="board-wrap" role="img" aria-label="An example advert for a made-up tackle shop, on the board under the Swimcraft home menu">
+      <div class="scene-mark"><span class="swim">swim</span><span class="craft">craft</span></div>
+      <div class="scene-menu" aria-hidden="true"><span>Go Fishing</span><span>Angler's Lodge</span><span>Venue Creator</span></div>
+      <div class="board-scale">
+        <div class="board">
+          <svg class="board-logo" viewBox="0 0 120 72" aria-hidden="true">
+            <defs>
+              <linearGradient id="sg-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5d7f3a"/><stop offset="1" stop-color="#3a5024"/></linearGradient>
+              <linearGradient id="sg-tip" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a3d"/><stop offset="1" stop-color="#d8431f"/></linearGradient>
+            </defs>
+            <rect x="2" y="2" width="116" height="68" rx="12" fill="url(#sg-bg)" stroke="#E6DCC6" stroke-width="3"/>
+            <rect x="8" y="8" width="104" height="56" rx="8" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.8"/>
+            <path d="M8 50 Q24 45 40 50 T72 50 T112 50 L112 56 Q112 64 104 64 L16 64 Q8 64 8 56 Z" fill="#2c4a52" opacity="0.9"/>
+            <line x1="24" y1="12" x2="24" y2="20" stroke="#E6DCC6" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M24 20 C18 30 18 42 24 52 C30 42 30 30 24 20 Z" fill="#E6DCC6"/>
+            <path d="M24 20 C20.5 25 20 28 20.2 30 L27.8 30 C28 28 27.5 25 24 20 Z" fill="url(#sg-tip)"/>
+            <text x="42" y="34" font-family="'Alfa Slab One','Bitter',Georgia,serif" font-size="15" fill="#E6DCC6" textLength="68" lengthAdjust="spacingAndGlyphs">SEDGEWICK</text>
+            <text x="76" y="48" text-anchor="middle" font-family="'Bitter',Georgia,serif" font-weight="700" font-size="11" letter-spacing="1.5" fill="#F0D080">TACKLE</text>
+          </svg>
+          <div class="board-text"><span class="board-flag">Sponsored</span> Sedgewick Tackle: 20% off carp rigs this weekend</div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">An example advert for a made-up shop, shown larger than it appears in the game. The board sits under the main menu on the home screen.</p>
+    <h2 id="board">What you get</h2>
+    <ul>
+      <li>A place on the board on Swimcraft's home screen, shown to every player each time they start the game.</li>
+      <li>Your logo, a short line of text, and a link. A click opens your website or shop in the player's browser.</li>
+      <li>Your advert carries a small Sponsored label, as UK advertising rules expect, so it never looks like our own news.</li>
+      <li>The board takes turns between a few items, changing about every eight seconds, and holds still while a player hovers over it.</li>
+      <li>Start and end dates if you want them, so a placement can run for a sale, a match or an open day.</li>
+      <li>Changes show up the next time a player starts the game, with no download needed.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="who">
+    <h2 id="who">Who sees it</h2>
+    <p>Swimcraft is a fishing simulator for carp, coarse and sea anglers, where players turn photographs of their own swims into venues and fish them. The free demo is on Steam and itch.io, and the full game is heading to Steam Early Access.</p>
+    <p>It suits businesses anglers already use:</p>
+    <ul>
+      <li>Tackle shops, online and on the high street</li>
+      <li>Fisheries, clubs and syndicates</li>
+      <li>Bait and groundbait makers</li>
+      <li>Fishing holidays and guides</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="send">
+    <h2 id="send">What to send us</h2>
+    <dl class="specs">
+      <dt>Logo</dt><dd>A PNG with a transparent background, at least 180 by 90 pixels. It shows small, so a simple mark reads best.</dd>
+      <dt>Your line</dt><dd>Up to about 60 characters. The board fits two short lines.</dd>
+      <dt>Link</dt><dd>The page you want players to land on.</dd>
+      <dt>Dates</dt><dd>When you'd like it to start and finish, if it's for something in particular.</dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="brands">
+    <h2 id="brands">Tackle brands</h2>
+    <p>Real rods, reels and terminal tackle in the tacklebox, by name, are planned for Early Access. If you make tackle and would like to be part of that, talk to us early.</p>
+  </section>
+
+</main>
+
+<div class="cta">
+  <div class="cta-panel">
+    <p>Tell us a little about your business and what you'd like to promote, and we'll come back to you with rates and dates.</p>
+    <div class="buttons">
+      <a class="button primary" href="mailto:info@harbledowndigital.com?subject=Advertising%20in%20Swimcraft">Email us about advertising</a>
+      <a class="button secondary" href="https://swimcraft.itch.io/swimcraft">Try the demo</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    © 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Privacy Policy</a> and <a href="https://swimcraft.harbledowndigital.com/terms">Terms of Use</a>.
+  </div>
+</footer>
+
+</body>
+</html>
