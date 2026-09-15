@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's new in Swimcraft</title>
+<meta name="description" content="Everything that has changed in the Swimcraft demo since the first build.">
+<meta property="og:title" content="What's new in Swimcraft">
+<meta property="og:description" content="Everything that has changed in the Swimcraft demo since the first build.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://swimcraft.harbledowndigital.com/whats-new">
+<meta property="og:image" content="https://swimcraft.harbledowndigital.com/social-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url('/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="https://swimcraft.harbledowndigital.com/" aria-label="Swimcraft home"><span class="swim">swim</span><span class="craft">craft</span></a>
+    <a class="back" href="https://swimcraft.harbledowndigital.com/">Back to the home page</a>
+  </div>
+</header>
+
+<div class="intro">
+  <h1>What's new</h1>
+  <div class="build">Demo update, September 2026</div>
+  <p class="lede">Everything that has changed since the first demo build (0.111.405). Thank you to everyone who fished it and told us what they found.</p>
+</div>
+
+<main>
+
+  <section aria-labelledby="fight">
+    <h2 id="fight">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21 C9 15 13 8 20 4"/><path d="M20 4 L20 13"/><path d="M17.5 13 Q20 16 22.5 13"/></svg>
+      The fight
+    </h2>
+    <ul>
+      <li>Hooked fish now head for cover, such as reeds, lilies and snags, so every fight plays out differently. Your job is to stop them getting there.</li>
+      <li>Each species fights in its own way, and fish close to their record fight harder.</li>
+      <li>Your drag setting really matters now. Set it right and you can land a fish heavier than your line.</li>
+      <li>Carp and tench run, and big bream draw the line away. You'll see the float or the line move before you strike.</li>
+      <li>Netting has been reworked, and carp waters now have a proper carp net.</li>
+      <li>Move the mouse to raise and lower the rod tip, and hold the right button to lift. The rod rests while you're cast out.</li>
+      <li>Every rod bends like its type: sea rods are stiff, match and feeder rods are soft.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="bites">
+    <h2 id="bites">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 L12 6"/><path d="M12 6 C9.5 9 9.5 13 12 16 C14.5 13 14.5 9 12 6 Z"/><path d="M12 16 L12 19"/><path d="M3 19 Q6 17.5 9 19 T15 19 T21 19"/></svg>
+      Bites and swims
+    </h2>
+    <ul>
+      <li>The four difficulty levels have been retuned. Easy waters give quick bites and Specimen waters make you work for them.</li>
+      <li>Line strength now counts. Heavy line for small, shy fish will cost you bites.</li>
+      <li>Fishing close to cover is rewarded, while open water is fair but slower.</li>
+      <li>The swim bar now shows how well your swim is really fishing.</li>
+      <li>Tiger nuts now catch big tench and bream, as well as chub and barbel.</li>
+      <li>Bites come as they should when you fish bigger hooks for carp.</li>
+      <li>Smaller sea hooks, sizes 4 and 6, are now available for whiting and flatfish.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="screen">
+    <h2 id="screen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 L3 6 Q3 4 5 4 L19 4 Q21 4 21 6 L21 9"/><rect x="2" y="9" width="20" height="11" rx="2"/><path d="M9 9 L9 7 L15 7 L15 9"/></svg>
+      Tackle and the screen
+    </h2>
+    <ul>
+      <li>The line-out panel tells you what your rig is sitting over, for example <q>silt / reeds</q>.</li>
+      <li>Floats are bigger and easier to see at range.</li>
+      <li>Opening your tackle or bait box no longer winds your line in.</li>
+      <li>The tacklebox in the Angler's Lodge can now set up a sea loadout.</li>
+      <li>When you level up, new gear is marked until you've had a look at it.</li>
+      <li>The venue page has a <q>Fish today</q> button, and the date and time are easier to find. The exact-time slider now really does set the time you start fishing at.</li>
+      <li>Catch cards name the exact bait you used, for example <q>Maize</q> rather than <q>Sweetcorn</q>.</li>
+      <li>Fish on catch cards and record boards are shown at their true size, with a subtle 3D effect.</li>
+      <li>The home screen has a news board, and Guides now links to the Rigipedia.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="creator">
+    <h2 id="creator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8 Q3 6.5 4.5 6.5 L7.5 6.5 L9 4 L15 4 L16.5 6.5 L19.5 6.5 Q21 6.5 21 8 L21 18 Q21 19.5 19.5 19.5 L4.5 19.5 Q3 19.5 3 18 Z"/><circle cx="12" cy="12.5" r="3.8"/></svg>
+      Venue creator
+    </h2>
+    <ul>
+      <li>The stocking bar tells you in words how well stocked your water is for its difficulty.</li>
+      <li>Adding fish pictures shows a live preview, with a guide to making cut-outs.</li>
+      <li>The Monster size band has been folded into Big Specimen, and sizes stop at the national record.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="fixes">
+    <h2 id="fixes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"/><path d="M15 9 L4.5 19.5"/><circle cx="4" cy="20" r="1.2"/></svg>
+      Fixes
+    </h2>
+    <ul>
+      <li>The rod guides no longer jump from one side of the rod to the other.</li>
+      <li>The rod no longer loops back on itself when a fish is near the net.</li>
+      <li>The last card of the fishing tutorial now works as it should.</li>
+    </ul>
+  </section>
+
+</main>
+
+<div class="cta">
+  <div class="cta-panel">
+    <p>Swimcraft is heading to Steam Early Access. Wishlisting is the best way to hear when it lands.</p>
+    <div class="buttons">
+      <a class="button primary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Wishlist on Steam</a>
+      <a class="button secondary" href="https://swimcraft.itch.io/swimcraft">Play the demo</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    © 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Privacy Policy</a> and <a href="https://swimcraft.harbledowndigital.com/terms">Terms of Use</a>.
+  </div>
+</footer>
+
+</body>
+</html>
