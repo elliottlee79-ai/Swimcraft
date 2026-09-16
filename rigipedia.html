@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<!-- Swimcraft website — rigipedia · v1 · P4-493, 16 Sep 2026 (119th session)
+     Linked from the game's Guides panel through SITE_URLS.rigipedia (https://swimcraft.harbledowndigital.com/rigipedia).
+     ⚠ TWO KINDS OF CLAIM LIVE ON THIS PAGE AND THEY ARE KEPT APART ON PURPOSE (P4-493's DoD):
+       · the description, overview, good for and less good for are how each rig works in real angling, written
+         in our own words;
+       · every "In Swimcraft" line, and the three family notes, are what the GAME does, generated from rigEffects.js v1
+         (Elliott's SWIMCRAFT_RIG_EFFECTS.xlsx, filled 15 Sep 2026) by build_rigipedia.py — not typed.
+     ⚠ IF THE SHEET IS RE-FILLED, OR EA WIDENS RIG_EFFECT_SCALE, THIS PAGE IS WRONG UNTIL IT IS REBUILT. The honesty panel
+       says the effect is subtle and capped at 4% (rule 63); that sentence changes with the cap.
+     ⚠ RIG NAMES ARE SPELLED AS THE TACKLEBOX SPELLS THEM (FloatSkins FLOAT_TYPES, Tacklebox FEEDER_TYPES, LEAD_TYPES,
+       CARP_PRESETS, SEA_PRESETS). Lures and fly are left out until those methods exist in the game.
+     Diagrams are drawn for this page in brand colours; no image is taken from anywhere else. -->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rigipedia: every rig in Swimcraft · Swimcraft</title>
+<meta name="description" content="Every fishing rig in Swimcraft explained: float, feeder, ledger, carp and sea rigs, how each one works, what it is good for, and what it does in the game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-bone: #E6DCC6; --brand-olive: #4E6B30; --ink: #10150D;
+    --gold: #C9A84C; --gold-light: #F0D080; --accent: #8FAA6B;
+    --text: #E8F0E0; --muted: #8AA880; --deep: #1A1F14; --mid: #2A3420; --surface: #344A28;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--deep); color: var(--text); font-family: var(--font-ui); font-size: 1.0625rem; line-height: 1.75; }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; border-radius: 3px; }
+
+  .bar { background: var(--ink); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 5; }
+  .bar-in { max-width: 1040px; margin: 0 auto; padding: 0.9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .mark { font-family: var(--font-brand); font-size: 1.45rem; text-decoration: none; letter-spacing: 0.01em; }
+  .mark .s { color: var(--brand-bone); } .mark .c { color: var(--accent); }
+  .bar nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; margin-left: 1.25rem; }
+  .bar nav a:hover { color: var(--text); }
+
+  /* THE ONE BOLD THING: the water itself, in section, with every family of rig where it fishes. Each rig is a link. */
+  .hero { max-width: 1040px; margin: 0 auto; padding: 3.25rem 1.25rem 0.5rem; }
+  .hero h1 { font-family: var(--font-brand); font-weight: 400; font-size: clamp(2.6rem, 6vw, 4rem); line-height: 1.05; margin: 0 0 1rem; color: var(--brand-bone); }
+  .hero p.lede { font-size: 1.2rem; line-height: 1.6; max-width: 60ch; margin: 0 0 2rem; }
+  .section-cut { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+  .section-cut svg { display: block; width: 100%; height: auto; }
+  .section-cut .hl { fill: var(--brand-bone); font-family: var(--font-display); font-weight: 700; font-size: 26px; text-anchor: middle; }
+  .section-cut a .hot { transition: opacity .15s; }
+  .section-cut a:hover .hot, .section-cut a:focus .hot { opacity: .8; }
+  .section-cut a:hover .hl { fill: var(--gold-light); text-decoration: underline; }
+  .section-cut figcaption { color: var(--muted); font-size: 0.95rem; padding: 0.6rem 0 0; }
+
+  main { max-width: 1040px; margin: 0 auto; padding: 1rem 1.25rem 4rem; }
+  .honest { background: var(--mid); border-left: 3px solid var(--gold); padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; margin: 2rem 0 0; max-width: 720px; }
+  .honest p { margin: 0 0 0.6rem; } .honest p:last-child { margin: 0; }
+  .muted { color: var(--muted); }
+
+  .family { margin-top: 4rem; }
+  .fam-head { max-width: 720px; }
+  h2 { font-family: var(--font-brand); font-weight: 400; font-size: clamp(1.9rem, 4vw, 2.5rem); line-height: 1.15; color: var(--brand-bone); margin: 0 0 0.5rem; scroll-margin-top: 5rem; }
+  .idx { margin: 0 0 1.25rem; line-height: 2; }
+  .idx a { display: inline-block; margin-right: 0.9rem; color: var(--gold-light); text-decoration: none; border-bottom: 1px solid rgba(240,208,128,.35); line-height: 1.4; }
+  .idx a:hover { border-bottom-color: var(--gold); }
+  .fam-note { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0.4rem 0 0.6rem; margin-bottom: 1rem; }
+  .fam-note h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--gold-light); margin: 1rem 0 0.25rem; }
+  .fam-note p { margin: 0.4rem 0 0.8rem; }
+  ul.needs { list-style: none; padding: 0; margin: 0.4rem 0 0.9rem; }
+  ul.needs li { padding: 0.35rem 0 0.35rem 1.4rem; position: relative; }
+  ul.needs li::before { content: ''; position: absolute; left: 0.2rem; top: 0.95rem; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--accent); }
+
+  .rig { display: grid; grid-template-columns: 280px 1fr; gap: 1.75rem; padding: 2.25rem 0; border-top: 1px solid var(--border); scroll-margin-top: 4.5rem; }
+  .dia { margin: 0; }
+  .dia svg { display: block; width: 100%; height: auto; border-radius: 10px; }
+  .txt { max-width: 640px; }
+  .rig h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.55rem; line-height: 1.2; color: var(--brand-bone); margin: 0 0 0.2rem; }
+  .what { font-size: 1.12rem; color: var(--text); margin: 0 0 0.8rem; }
+  .facts { display: flex; flex-wrap: wrap; gap: 0.3rem 1.6rem; margin: 0 0 0.9rem; font-size: 0.95rem; }
+  .facts div { display: flex; gap: 0.4rem; }
+  .facts dt { color: var(--muted); } .facts dt::after { content: ':'; }
+  .facts dd { margin: 0; color: var(--text); font-weight: 600; }
+  .rig p { margin: 0 0 0.9rem; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 0 0 1rem; }
+  .pc h4 { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--gold-light); margin: 0 0 0.2rem; }
+  .pc ul { margin: 0; padding-left: 1.1rem; }
+  .pc li { margin-bottom: 0.2rem; }
+  .pc li::marker { color: var(--accent); }
+  .pc div + div li::marker { color: var(--muted); }
+  .sc { background: rgba(58,90,72,.35); border-radius: 8px; padding: 0.6rem 0.9rem; font-size: 1rem; }
+  .sc span { color: var(--gold-light); font-weight: 700; margin-right: 0.35rem; }
+
+  footer { border-top: 1px solid var(--border); background: var(--ink); }
+  footer div { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1.25rem; color: var(--muted); font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 760px) {
+    .rig { grid-template-columns: 1fr; gap: 1rem; }
+    .dia { max-width: 360px; }
+    .pc { grid-template-columns: 1fr; gap: 0.6rem; }
+    .bar nav a { margin-left: 0.8rem; }
+    .section-cut .hl { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="mark" href="/" aria-label="Swimcraft home"><span class="s">Swim</span><span class="c">craft</span></a>
+    <nav aria-label="Guides">
+      <a href="/venuecreators">Venue creator's guide</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Rigipedia</h1>
+  <p class="lede">Every rig in Swimcraft, one by one: what it is, how it fishes, what it is good for and when to reach for something else. Pick a rig in the water below, or scroll through.</p>
+  <figure class="section-cut" style="margin:0"><svg viewBox="0 0 1000 300" role="img" aria-label="A cross-section of water: a float rig on a lake, a feeder on the lakebed, a chod rig over weed, then the bottom drops away into the sea where a pulley rig lies on the seabed. Each rig links to its section.">
+  <defs><linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A5A48"/><stop offset="1" stop-color="#2c4638"/></linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f5563"/><stop offset="1" stop-color="#1f3b45"/></linearGradient></defs>
+  <rect width="1000" height="300" fill="#1A1F14"/>
+  <path d="M0 70 H1000 V300 H0 Z" fill="url(#lake)"/>
+  <path d="M640 70 H1000 V300 H640 Z" fill="url(#sea)"/>
+  <path d="M0 240 Q120 228 240 236 T480 232 Q560 230 610 238 L660 300 H0 Z" fill="#5b4a33"/>
+    <path d="M640 300 Q700 262 780 266 T1000 258 V300 Z" fill="#b39b6a"/>
+  <path d="M0 70 H1000" stroke="#E6DCC6" stroke-opacity=".3" stroke-width="2"/>
+  <path d="M470 236 q-8 -26 3 -48 q8 -16 -3 -34" stroke="#5f7f3a" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M500 236 q-8 -26 3 -48 q8 -16 -3 -34" stroke="#5f7f3a" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M540 236 q-8 -26 3 -48 q8 -16 -3 -34" stroke="#5f7f3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <a href="#float" aria-label="Float rigs"><g class="hot">
+    <path d="M40 30 L148 58" stroke="#E6DCC6" stroke-opacity=".8" stroke-width="2" fill="none"/>
+    <path d="M150 56 L156 118 H144 Z" fill="#c9bfa4"/><rect x="147" y="40" width="6" height="20" fill="#f2822a"/>
+    <path d="M150 118 V214" stroke="#E6DCC6" stroke-opacity=".8" stroke-width="2"/><circle cx="150" cy="124" r="4" fill="#9ea39a"/><circle cx="150" cy="132" r="4" fill="#9ea39a"/>
+    <path d="M150 208 V222 q0 8 7 8 q7 0 7 -8" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+    <text x="150" y="30" class="hl">Float</text></g></a>
+  <a href="#feeder" aria-label="Feeder and ledger rigs"><g class="hot">
+    <path d="M250 70 Q290 140 300 222" stroke="#E6DCC6" stroke-opacity=".8" stroke-width="2" fill="none"/>
+    <path d="M284 238 Q304 206 324 238 Z" fill="#8a6a42"/><path d="M286 238 H322" stroke="#8FAA6B" stroke-width="4"/>
+    <path d="M324 232 Q360 224 384 232" stroke="#E6DCC6" stroke-opacity=".8" stroke-width="2" fill="none"/><circle cx="392" cy="234" r="8" fill="#d9c79a"/>
+    <text x="300" y="50" class="hl">Feeder and ledger</text></g></a>
+  <a href="#carp" aria-label="Carp rigs"><g class="hot">
+    <path d="M480 70 Q505 150 510 226" stroke="#E6DCC6" stroke-opacity=".8" stroke-width="2" fill="none"/>
+    <path d="M498 240 Q510 222 524 240 Z" fill="#9ea39a"/>
+    <path d="M507 178 Q526 168 540 174" stroke="#E6DCC6" stroke-width="4" fill="none"/><circle cx="546" cy="146" r="11" fill="#F0D080"/>
+    <text x="500" y="50" class="hl">Carp</text></g></a>
+  <a href="#sea" aria-label="Sea rigs"><g class="hot">
+    <path d="M760 70 Q810 130 836 186" stroke="#E6DCC6" stroke-opacity=".8" stroke-width="2" fill="none"/><circle cx="840" cy="190" r="6" fill="none" stroke="#C9A84C" stroke-width="3"/>
+    <path d="M840 196 V238" stroke="#E6DCC6" stroke-opacity=".8" stroke-width="2"/><path d="M830 238 H850 L846 262 H834 Z" fill="#9ea39a"/>
+    <path d="M842 192 Q890 220 930 250" stroke="#E6DCC6" stroke-opacity=".8" stroke-width="2" fill="none"/><path d="M936 254 q14 3 24 -2" stroke="#d98a8a" stroke-width="6" stroke-linecap="round"/>
+    <text x="780" y="50" class="hl">Sea</text></g></a>
+</svg></figure>
+</section>
+
+<main>
+  <div class="honest">
+    <p><strong>How much your rig matters in the demo.</strong> The right rig gives you a small nudge, not a big one. Everything about your rig together can change a fish's chance of biting by 4% at most, and usually by less. It's kept deliberately subtle so the fishing stays fair while we tune it, and we plan to make rig choice count for more in Early Access.</p>
+    <p class="muted">The descriptions are how each rig works on real water. The line marked <em>In Swimcraft</em> is what it does in the game today.</p>
+  </div>
+  
+<section class="family" id="float">
+  <div class="fam-head">
+    <h2>Float rigs</h2>
+    <p class="idx"><a href="#waggler">Waggler</a> <a href="#pellet-waggler">Pellet Waggler</a> <a href="#stick-float">Stick Float</a> <a href="#pole-float">Pole Float</a> <a href="#controller">Controller</a></p>
+    <div class="fam-note"><h3 class="fam-note-h">How they fish in Swimcraft</h3><p>On a float, the part of your rig that counts is which float you pair with which bait. The line under each float below says how. Your hook, line and bait still matter as they always have.</p></div>
+  </div>
+  
+  <article class="rig" id="waggler">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A waggler float fixed at its base by shot, standing in still water with the hook bait near the bottom."><rect width="240" height="150" fill="#3A5A48"/><rect x="0" y="0" width="240" height="34" fill="#1A1F14"/><path d="M0 34 H240" stroke="#E6DCC6" stroke-opacity=".35" stroke-width="1.5"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M40 0 L118 22" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M120 58 V120" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M120 20 L124 58 H116 Z" fill="#c9bfa4"/><rect x="118" y="12" width="4" height="12" fill="#f2822a"/><circle cx="120" cy="62" r="3" fill="#9ea39a"/><circle cx="120" cy="67" r="3" fill="#9ea39a"/><circle cx="120" cy="96" r="2" fill="#9ea39a"/><path d="M120 110.0 V124 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><ellipse cx="126" cy="129" rx="4.5" ry="2" fill="#efe6cf" transform="rotate(20 126 129)"/></svg></figure>
+    <div class="txt">
+      <h3>Waggler</h3>
+      <p class="what">A float fixed to the line at its base only, locked in place with shot.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Float</dd></div><div><dt>In the game</dt><dd>Rigs tab, Float rig</dd></div></dl>
+      <p>The waggler is the everyday float for still and slow water. Because only the bottom is attached, you can sink the line between rod and float so wind and surface drift don&#x27;t drag the bait off course.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Still and slow-moving water</li><li>Casting a good distance</li><li>Windy days, with the line sunk</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Fast rivers, where it drags the bait</li><li>Holding a bait back against the flow</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with corn, pellets, hemp and tiger nuts, and natural baits like maggots, worms and bread; slightly fewer bites with boilies, pop-ups and wafters.</p>
+    </div>
+  </article>
+  <article class="rig" id="pellet-waggler">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A short, heavy pellet waggler fishing shallow with pellets falling through the water around the hook bait."><rect width="240" height="150" fill="#3A5A48"/><rect x="0" y="0" width="240" height="34" fill="#1A1F14"/><path d="M0 34 H240" stroke="#E6DCC6" stroke-opacity=".35" stroke-width="1.5"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M40 0 L118 22" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M120 50 V78" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M113 26 Q120 18 127 26 L125 50 H115 Z" fill="#c9bfa4"/><rect x="118" y="16" width="4" height="10" fill="#f2822a"/><circle cx="120" cy="52" r="3.5" fill="#9ea39a"/><path d="M120 68.0 V82 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><rect x="124" y="84" width="7" height="7" rx="2" fill="#7a5530"/><rect x="92" y="60" width="5" height="5" rx="1.5" fill="#7a5530" opacity=".8"/><rect x="150" y="48" width="5" height="5" rx="1.5" fill="#7a5530" opacity=".8"/><rect x="104" y="96" width="5" height="5" rx="1.5" fill="#7a5530" opacity=".8"/><rect x="140" y="88" width="5" height="5" rx="1.5" fill="#7a5530" opacity=".8"/></svg></figure>
+    <div class="txt">
+      <h3>Pellet Waggler</h3>
+      <p class="what">A short, stubby waggler carrying a heavy load in its base.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Float</dd></div><div><dt>In the game</dt><dd>Rigs tab, Float rig</dd></div></dl>
+      <p>Made for fishing shallow on commercial lakes. It hits the water with a plop that sounds like free pellets landing, and fish that come up in the water to intercept falling pellets find the hook bait among them.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Carp and F1s feeding shallow in warm weather</li><li>Accurate, repeated casting to one spot</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Deep water</li><li>Cold days, when fish stay near the bottom</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with corn, pellets, hemp and tiger nuts, and natural baits like maggots, worms and bread; slightly fewer bites with boilies, pop-ups and wafters.</p>
+    </div>
+  </article>
+  <article class="rig" id="stick-float">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A stick float fixed top and bottom, trotting down a flowing river with shot spaced evenly down the line."><rect width="240" height="150" fill="#3A5A48"/><rect x="0" y="0" width="240" height="34" fill="#1A1F14"/><path d="M0 34 H240" stroke="#E6DCC6" stroke-opacity=".35" stroke-width="1.5"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M20 0 L112 24" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M120 56 Q124 90 130 118" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M118 16 Q122 14 123 20 L121 58 H119 Z" fill="#c9bfa4" transform="rotate(12 120 36)"/><rect x="118" y="10" width="4" height="9" fill="#f2822a" transform="rotate(12 120 36)"/><circle cx="121.0" cy="70" r="2.4" fill="#9ea39a"/><circle cx="122.1" cy="81" r="2.4" fill="#9ea39a"/><circle cx="123.2" cy="92" r="2.4" fill="#9ea39a"/><circle cx="124.3" cy="103" r="2.4" fill="#9ea39a"/><path d="M131 110.0 V124 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><ellipse cx="137" cy="128" rx="4.5" ry="2" fill="#efe6cf" transform="rotate(30 137 128)"/><path d="M30 70 H70 m-8 -5 l8 5 l-8 5" stroke="#E6DCC6" stroke-opacity=".45" stroke-width="1.5" fill="none"/></svg></figure>
+    <div class="txt">
+      <h3>Stick Float</h3>
+      <p class="what">A tapered float attached at both the top and the bottom.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Float</dd></div><div><dt>In the game</dt><dd>Rigs tab, Float rig</dd></div></dl>
+      <p>The classic river float for trotting. You let the current carry the float downstream while easing it back slightly, so the bait travels just ahead of it at a natural pace, with the shot spread evenly down the line.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Trotting steady-paced rivers</li><li>Showing a bait as naturally as possible</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Stillwaters and strong wind</li><li>Fishing at long range</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with corn, pellets, hemp and tiger nuts, and natural baits like maggots, worms and bread; slightly fewer bites with boilies, pop-ups and wafters.</p>
+    </div>
+  </article>
+  <article class="rig" id="pole-float">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A small, sensitive pole float hanging straight under the pole tip, with an olivette and fine shot below it."><rect width="240" height="150" fill="#3A5A48"/><rect x="0" y="0" width="240" height="34" fill="#1A1F14"/><path d="M0 34 H240" stroke="#E6DCC6" stroke-opacity=".35" stroke-width="1.5"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 2 L150 8" stroke="#b8a77a" stroke-width="4" stroke-linecap="round"/><path d="M150 8 V20" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M150 30 Q156 40 150 50 Q144 40 150 30 Z" fill="#c9bfa4"/><rect x="149" y="20" width="2" height="12" fill="#f2822a"/><path d="M150 50 V118" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="150" cy="70" rx="2.5" ry="5" fill="#9ea39a"/><circle cx="150" cy="96" r="1.8" fill="#9ea39a"/><circle cx="150" cy="104" r="1.8" fill="#9ea39a"/><path d="M150 110.8 V122 q0 5.6000000000000005 4.800000000000001 5.6000000000000005 q4.800000000000001 0 4.800000000000001 -5.6000000000000005 l-2.4000000000000004 2.4000000000000004" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/><ellipse cx="155" cy="127" rx="4.5" ry="2" fill="#efe6cf" transform="rotate(20 155 127)"/></svg></figure>
+    <div class="txt">
+      <h3>Pole Float</h3>
+      <p class="what">A small, finely balanced float fished directly under a pole tip.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Float</dd></div><div><dt>In the game</dt><dd>Rigs tab, Float rig</dd></div></dl>
+      <p>Pole floats are built for precision. With the float right under the tip you can hold the bait in exactly the same place, and the fine bristle shows the tiniest bite.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Close-range precision</li><li>Shy, delicate bites</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Anything beyond the reach of the pole</li><li>Big fish in tight spaces</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with corn, pellets, hemp and tiger nuts, and natural baits like maggots, worms and bread; slightly fewer bites with boilies, pop-ups and wafters.</p>
+    </div>
+  </article>
+  <article class="rig" id="controller">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A controller float lying on the surface with a floating bait fished on top among floating free offerings."><rect width="240" height="150" fill="#3A5A48"/><rect x="0" y="0" width="240" height="34" fill="#1A1F14"/><path d="M0 34 H240" stroke="#E6DCC6" stroke-opacity=".35" stroke-width="1.5"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M30 0 L110 30" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="120" cy="33" rx="12" ry="7" fill="#c9bfa4"/><rect x="118" y="20" width="4" height="10" fill="#f2822a"/><path d="M132 34 Q170 36 196 34" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M198 30.799999999999997 V42 q0 5.6000000000000005 4.800000000000001 5.6000000000000005 q4.800000000000001 0 4.800000000000001 -5.6000000000000005 l-2.4000000000000004 2.4000000000000004" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="204" cy="34" r="5" fill="#F0D080"/><rect x="160" y="31" width="7" height="5" rx="1" fill="#a3743d"/><rect x="178" y="31" width="7" height="5" rx="1" fill="#a3743d"/><rect x="214" y="31" width="7" height="5" rx="1" fill="#a3743d"/></svg></figure>
+    <div class="txt">
+      <h3>Controller</h3>
+      <p class="what">A weighted float that lies on the surface, used for fishing floating baits.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Float</dd></div><div><dt>In the game</dt><dd>Rigs tab, Float rig</dd></div></dl>
+      <p>The controller gives you casting weight and a visible marker when you want a bait on top. Carp that are cruising and taking floating food are the target, usually with a floating bait a short way from the float.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Carp feeding off the surface</li><li>Reaching surface fish at range</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Anything on or near the bottom</li><li>Days when fish aren&#x27;t coming up</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with pop-ups. Other baits fish as normal.</p>
+    </div>
+  </article>
+</section>
+<section class="family" id="feeder">
+  <div class="fam-head">
+    <h2>Feeder and ledger rigs</h2>
+    <p class="idx"><a href="#cage">Cage</a> <a href="#method">Method</a> <a href="#inline">Inline</a> <a href="#maggot">Maggot</a> <a href="#running-bomb">Running bomb</a> <a href="#inline-lead">Inline lead</a> <a href="#flat-pear">Flat pear</a></p>
+    <div class="fam-note"><h3 class="fam-note-h">How they fish in Swimcraft</h3><p>Three things count on a feeder or lead: the rig against your bait (under each rig below), the weight against the size of fish you're after, and your hooklength against the bottom.</p><h3>Weight against fish size</h3><ul class="needs"><li><strong>Fish under 4lb:</strong> slight edge on 20g and 30g; slightly fewer bites on 60g, 80g and 3oz</li><li><strong>Fish 4 to 10lb:</strong> slight edge on 45g and 2oz; slightly fewer bites on 3oz</li><li><strong>Fish 10 to 20lb:</strong> slight edge on 60g and 80g</li><li><strong>Fish 20lb and over:</strong> slight edge on 80g and 3oz</li></ul><h3>Hooklength against the bottom</h3><ul class="needs"><li><strong>Short, under 4 inches:</strong> slight edge over gravel, sand and clay; slightly fewer bites over silt / mud, rocks and weed</li><li><strong>Medium, 4 to 8 inches:</strong> slight edge over sand; slightly fewer bites over rocks</li><li><strong>Long, over 8 inches:</strong> slight edge over silt / mud, rocks and weed; slightly fewer bites over gravel, sand and clay</li></ul><p class="muted">Weed and the bottom under it both count, so a long hooklink over weedy silt gets both edges.</p></div>
+  </div>
+  
+  <article class="rig" id="cage">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A cage feeder on the bottom with groundbait clouding out of its open mesh near the hook bait."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 20 Q70 50 96 108" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><rect x="90" y="102" width="26" height="20" rx="3" fill="none" stroke="#8FAA6B" stroke-width="2"/><path d="M96 102 V122 M103 102 V122 M110 102 V122 M90 112 H116" stroke="#8FAA6B" stroke-width="1"/><circle cx="100" cy="94" r="2.2" fill="#9b7b4f" opacity=".8"/><circle cx="86" cy="96" r="2.2" fill="#9b7b4f" opacity=".8"/><circle cx="112" cy="90" r="2.2" fill="#9b7b4f" opacity=".8"/><circle cx="94" cy="84" r="2.2" fill="#9b7b4f" opacity=".8"/><circle cx="120" cy="98" r="2.2" fill="#9b7b4f" opacity=".8"/><path d="M110 118 Q150 112 176 122" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M178 112.4 V125 q0 6.3 5.4 6.3 q5.4 0 5.4 -6.3 l-2.7 2.7" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/><ellipse cx="185" cy="128" rx="4.5" ry="2" fill="#efe6cf" transform="rotate(20 185 128)"/></svg></figure>
+    <div class="txt">
+      <h3>Cage</h3>
+      <p class="what">An open mesh feeder, filled with groundbait.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Feeder or ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Feeder / ledger</dd></div></dl>
+      <p>The groundbait breaks out of the mesh quickly once it lands, putting a cloud of feed around the hook bait. Every cast adds a little more, so it builds a swim up fast.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Getting feed into a swim quickly</li><li>Roach, bream and skimmers on groundbait</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Keeping a tight, compact pile of bait</li><li>Big carp baits</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with corn, pellets, hemp and tiger nuts, and natural baits like maggots, worms and bread. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="method">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A method feeder with bait moulded around its frame and the hook bait pressed into the mould."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 20 Q70 50 96 108" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M86 124 Q103 96 120 124 Z" fill="#8a6a42"/><path d="M88 124 H118" stroke="#8FAA6B" stroke-width="3"/><rect x="100" y="104" width="7" height="7" rx="2" fill="#7a5530"/><path d="M112 110 Q108 106 104 108" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></figure>
+    <div class="txt">
+      <h3>Method</h3>
+      <p class="what">A flat frame feeder with bait moulded around it.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Feeder or ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Feeder / ledger</dd></div></dl>
+      <p>You press groundbait or micro pellets around the frame and push the hook bait into it. A fish feeding on the mould finds the hook bait and pricks itself against the feeder&#x27;s weight.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Carp and bream on commercial lakes</li><li>Hooking fish reliably</li><li>Keeping bait tight to the hook</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Rivers with a strong flow</li><li>Cautious fish in cold water</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies, corn, pellets, hemp and tiger nuts, and natural baits like maggots, worms and bread; slightly fewer bites with pop-ups. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="inline">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="An inline feeder with the line passing through its centre, and a short hooklink to a boilie."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 20 Q70 50 96 108" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><rect x="86" y="108" width="30" height="14" rx="7" fill="none" stroke="#8FAA6B" stroke-width="2"/><path d="M86 115 H116" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M110 118 Q150 112 176 122" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M178 112.4 V125 q0 6.3 5.4 6.3 q5.4 0 5.4 -6.3 l-2.7 2.7" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="186" cy="126" r="6" fill="#d9c79a"/></svg></figure>
+    <div class="txt">
+      <h3>Inline</h3>
+      <p class="what">A feeder with the line running through its middle.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Feeder or ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Feeder / ledger</dd></div></dl>
+      <p>With the weight on the line itself, a taking fish meets resistance straight away, which sets the hook for you. It also tangles less than a feeder hanging off to one side.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Carp and boilie fishing</li><li>Self-hooking bites</li><li>Fewer tangles on the cast</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Shy fish that feel the weight</li><li>Small fish that nibble</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies and wafters. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="maggot">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A drilled maggot feeder releasing live maggots on the bottom beside the hook bait."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 20 Q70 50 96 108" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><rect x="90" y="100" width="22" height="24" rx="4" fill="#6f7a60" stroke="#8FAA6B" stroke-width="1.5"/><circle cx="96" cy="106" r="1.8" fill="#1A1F14"/><circle cx="106" cy="106" r="1.8" fill="#1A1F14"/><circle cx="96" cy="116" r="1.8" fill="#1A1F14"/><circle cx="106" cy="116" r="1.8" fill="#1A1F14"/><ellipse cx="122" cy="124" rx="4.5" ry="2" fill="#efe6cf" transform="rotate(-10 122 124)"/><ellipse cx="84" cy="126" rx="4.5" ry="2" fill="#efe6cf" transform="rotate(15 84 126)"/><path d="M110 118 Q150 112 176 122" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M178 112.4 V125 q0 6.3 5.4 6.3 q5.4 0 5.4 -6.3 l-2.7 2.7" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/><ellipse cx="186" cy="128" rx="4.5" ry="2" fill="#efe6cf" transform="rotate(25 186 128)"/><ellipse cx="190" cy="126" rx="4.5" ry="2" fill="#efe6cf" transform="rotate(-20 190 126)"/></svg></figure>
+    <div class="txt">
+      <h3>Maggot</h3>
+      <p class="what">A drilled plastic feeder filled with live maggots.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Feeder or ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Feeder / ledger</dd></div></dl>
+      <p>Maggots crawl out of the holes once the feeder is on the bottom, putting a small trail of live bait next to the hook. It is a winter and river favourite.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Cold water and rivers</li><li>Roach, chub, perch and bream on maggots</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Boilies and other carp baits</li><li>Feeding a big area</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with hemp and tiger nuts, and natural baits like maggots, worms and bread; slightly fewer bites with boilies, pop-ups and wafters. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="running-bomb">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A running bomb hanging on a swivel that slides freely along the line, so a fish can take line without feeling the weight."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 20 Q70 80 176 122" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M102 90 q-10 18 0 26 q10 -8 0 -26 Z" fill="#9ea39a"/><path d="M102 90 V84" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="102" cy="82" r="3" fill="none" stroke="#C9A84C" stroke-width="1.5"/><path d="M178 112.4 V125 q0 6.3 5.4 6.3 q5.4 0 5.4 -6.3 l-2.7 2.7" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="186" cy="127" r="6" fill="#d9c79a"/></svg></figure>
+    <div class="txt">
+      <h3>Running bomb</h3>
+      <p class="what">A plain lead on a swivel that slides freely along the line.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Feeder / ledger</dd></div></dl>
+      <p>Because the lead can slide, a fish can move off with the bait without feeling the weight. It is the simplest way to put a bait on the bottom and still see cautious bites.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Cautious fish</li><li>A simple, all-round bottom rig</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Hooking fish for you</li><li>Holding bottom in flow</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies, corn, pellets, hemp and tiger nuts, and natural baits like maggots, worms and bread. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="inline-lead">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="An inline lead with the line running through its middle, fixed so a fish pricks itself against the weight."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 20 Q60 56 110 116" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M92 106 Q106 98 120 108 Q108 126 92 120 Z" fill="#9ea39a"/><path d="M92 112 L120 112" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1" fill="none" stroke-linecap="round"/><path d="M112 118 Q150 114 176 122" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M178 112.4 V125 q0 6.3 5.4 6.3 q5.4 0 5.4 -6.3 l-2.7 2.7" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="186" cy="127" r="6" fill="#d9c79a"/></svg></figure>
+    <div class="txt">
+      <h3>Inline lead</h3>
+      <p class="what">A lead with the line running through its centre, fixed in place.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Feeder / ledger</dd></div></dl>
+      <p>This is the bolt rig. A fish picking up the bait feels the weight at once, bolts, and hooks itself. It also casts accurately because the weight sits in line.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Self-hooking carp</li><li>Accurate casting</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Delicate bites from small fish</li><li>Snaggy swims, unless it can release</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies, pop-ups and wafters. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="flat-pear">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A flat pear lead gripping a sloping bottom where a round lead would roll."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 132 L240 98 V150 H0 Z" fill="#5b4a33"/><path d="M0 20 Q60 70 92 116" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M80 122 Q96 106 114 116 Z" fill="#9ea39a"/><path d="M110 114 Q150 102 176 100" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M178 90.4 V103 q0 6.3 5.4 6.3 q5.4 0 5.4 -6.3 l-2.7 2.7" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="186" cy="102" r="6" fill="#d9c79a"/></svg></figure>
+    <div class="txt">
+      <h3>Flat pear</h3>
+      <p class="what">A lead with a flattened base that grips the bottom.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Feeder / ledger</dd></div></dl>
+      <p>A round lead rolls down a slope or gets pushed along by flow. The flat base stays where it lands, so the bait stays in the spot you cast to.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Sloping margins and shelves</li><li>Holding bottom in a current</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Casting as far as a streamlined lead</li><li>Very soft, silty bottoms</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies, pop-ups and wafters. Other baits fish as normal.</p>
+    </div>
+  </article>
+</section>
+<section class="family" id="carp">
+  <div class="fam-head">
+    <h2>Carp rigs</h2>
+    <p class="idx"><a href="#hair-rig">Hair rig</a> <a href="#blowback">Blowback</a> <a href="#spinner-rig">Spinner rig</a> <a href="#combi-rig">Combi rig</a> <a href="#kd-rig">KD rig</a> <a href="#chod-rig">Chod rig</a> <a href="#multi-rig">Multi rig</a></p>
+    <div class="fam-note"><h3 class="fam-note-h">How they fish in Swimcraft</h3><p>Carp rigs have the most going on: the rig against your bait (under each rig below), the hooklink material and the hook you pair it with, and your hooklength against the bottom, which works the same way as on a feeder. Carp rigs have no weight setting, so weight doesn't count here.</p><p>Hooklink material: Coated braid and fluorocarbon give a slight edge on their own; stiff fluoro boom gives slightly fewer bites on its own. Some pairings with a hook pattern add a little more:</p><ul class="needs"><li><strong>Coated braid:</strong> slight edge with Wide Gape and Long Shank hooks; slightly fewer bites with Chod Point hooks</li><li><strong>Fluorocarbon:</strong> slight edge with Curved Shank and Long Shank hooks</li><li><strong>Stiff fluoro boom:</strong> slight edge with Curved Shank and Chod Point hooks</li><li><strong>Soft braid:</strong> slight edge with Wide Gape hooks; slightly fewer bites with Chod Point hooks</li><li><strong>Mono:</strong> slight edge with Wide Gape hooks</li></ul></div>
+  </div>
+  
+  <article class="rig" id="hair-rig">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A hair rig: the boilie hangs on a short hair below the hook, leaving the hook point free."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 14 Q40 50 70 110" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M60 124 Q70 102 82 124 Z" fill="#9ea39a"/><path d="M82 120 Q120 112 150 116" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M156 106.0 V120 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><path d="M156 120 Q158 128 166 128" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="172" cy="127" r="7" fill="#d9c79a"/></svg></figure>
+    <div class="txt">
+      <h3>Hair rig</h3>
+      <p class="what">The bait sits on a short length of line, the hair, below the hook.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Carp ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Carp rigs</dd></div></dl>
+      <p>The hair rig changed carp fishing. With the bait off the hook, the hook point is free, so when a carp sucks the bait in the hook goes in with it and catches in the bottom lip.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Boilies and other bottom baits</li><li>A simple, reliable all-rounder</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Pop-ups</li><li>Weed and deep silt that hide the hook</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies; slightly fewer bites with pop-ups. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="blowback">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A blowback rig: a small ring slides on the hook shank so the hook turns quickly when a fish tries to blow the bait out."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 14 Q40 50 70 110" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M60 124 Q70 102 82 124 Z" fill="#9ea39a"/><path d="M82 120 Q120 112 150 116" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M156 106.0 V120 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><circle cx="156" cy="111" r="2.6" fill="none" stroke="#E6DCC6" stroke-width="1.3"/><path d="M156 111 Q164 118 168 124" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="174" cy="127" r="7" fill="#d9c79a"/></svg></figure>
+    <div class="txt">
+      <h3>Blowback</h3>
+      <p class="what">A hair rig with a small ring that slides on the hook shank.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Carp ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Carp rigs</dd></div></dl>
+      <p>When a carp tries to blow the bait back out, the ring lets the hook flip and turn so it catches instead of coming straight out with the bait.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Wary fish that eject baits</li><li>Bottom baits and wafters</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Pop-ups</li><li>Anglers who want a quick, simple tie</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies and wafters; slightly fewer bites with pop-ups. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="spinner-rig">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A spinner rig: a buoyant pop-up rides above a curved hook on a swivel, with a small weight holding it down."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 14 Q40 50 70 110" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M60 124 Q70 102 82 124 Z" fill="#9ea39a"/><path d="M82 120 Q120 116 148 112" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="152" cy="110" r="3" fill="none" stroke="#C9A84C" stroke-width="1.5"/><path d="M154 100 q10 -6 12 6" stroke="#C9A84C" stroke-width="2" fill="none"/><path d="M150 106 v-10" stroke="#556" stroke-width="3"/><path d="M160 96 V84" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="160" cy="76" r="8" fill="#F0D080"/><circle cx="151" cy="122" r="3" fill="#9ea39a"/></svg></figure>
+    <div class="txt">
+      <h3>Spinner rig</h3>
+      <p class="what">A pop-up on a swivel above a curved hook, with a small weight holding it down.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Carp ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Carp rigs</dd></div></dl>
+      <p>The hook can rotate freely on the swivel, so it finds a hold whichever way the carp turns. The pop-up sits just off the bottom where it is easy to see.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Pop-ups</li><li>Excellent hook holds</li><li>Clean, firm bottoms</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Heavy bottom baits</li><li>Dense weed</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A small edge with pop-ups; a slight edge with wafters. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="combi-rig">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A combi rig: a stiff boom section joined to a supple section by the hook, keeping it tangle-free but natural."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 14 Q40 50 70 110" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M60 124 Q70 102 82 124 Z" fill="#9ea39a"/><path d="M82 120 Q104 114 126 114" stroke="#E6DCC6" stroke-width="3.2" fill="none"/><path d="M126 114 Q140 120 152 116" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M158 106.0 V120 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><path d="M158 120 Q160 128 168 128" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="174" cy="127" r="7" fill="#d9c79a"/></svg></figure>
+    <div class="txt">
+      <h3>Combi rig</h3>
+      <p class="what">A stiff section of hooklink joined to a supple section near the hook.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Carp ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Carp rigs</dd></div></dl>
+      <p>The stiff part pushes the hook away from the lead so it doesn&#x27;t tangle, and the supple part lets the bait move naturally. It is a favourite for big, wary fish.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Big, wary fish</li><li>Bottom baits and wafters</li><li>Staying tangle-free at range</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Pop-ups</li><li>Quick tying</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies and wafters; slightly fewer bites with pop-ups. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="kd-rig">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A KD rig: the hair leaves the back of the hook shank, so a balanced wafter tips the hook point down."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 14 Q40 50 70 110" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M60 124 Q70 102 82 124 Z" fill="#9ea39a"/><path d="M82 120 Q120 112 150 116" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M156 106.0 V120 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><path d="M162 112 Q172 116 174 122" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="178" cy="122" r="7" fill="#e7c98a"/></svg></figure>
+    <div class="txt">
+      <h3>KD rig</h3>
+      <p class="what">A hair that leaves the back of the hook shank rather than the bend.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Carp ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Carp rigs</dd></div></dl>
+      <p>With a carefully balanced bait, the hair&#x27;s position tips the hook point down towards the bottom. A carp sucking and blowing at the bait gets hooked more easily.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Wafters and balanced baits</li><li>Fish that feed cautiously</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Pop-ups</li><li>Heavy bottom baits</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A small edge with wafters; slightly fewer bites with pop-ups. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="chod-rig">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A chod rig: a short stiff hooklink and pop-up slide on the leader above the lead, so the bait sits above silt and weed."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#3d3526"/><path d="M150 128 q-6 -18 2 -34 q6 -12 -2 -24" stroke="#5f7f3a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M172 128 q-6 -18 2 -34 q6 -12 -2 -24" stroke="#5f7f3a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M205 128 q-6 -18 2 -34 q6 -12 -2 -24" stroke="#5f7f3a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M0 14 Q70 40 90 118" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M80 128 Q90 112 102 128 Z" fill="#9ea39a"/><circle cx="84" cy="82" r="2.5" fill="#8FAA6B"/><circle cx="87" cy="92" r="2.5" fill="#8FAA6B"/><path d="M86 87 Q100 80 112 84" stroke="#E6DCC6" stroke-width="3" fill="none"/><path d="M116 75.4 V88 q0 6.3 5.4 6.3 q5.4 0 5.4 -6.3 l-2.7 2.7" stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="118" cy="66" r="8" fill="#F0D080"/><path d="M118 74 V78" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1" fill="none" stroke-linecap="round"/></svg></figure>
+    <div class="txt">
+      <h3>Chod rig</h3>
+      <p class="what">A short, stiff hooklink with a pop-up, sliding on a leader above the lead.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Carp ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Carp rigs</dd></div></dl>
+      <p>The hooklink can ride up the leader, so however far the lead sinks into silt or weed, the pop-up still sits above it. It is the rig to reach for when you don&#x27;t know what the bottom is like.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Silt and light weed</li><li>Unknown bottoms</li><li>Pop-ups</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Bottom baits</li><li>Clean, hard bottoms</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A small edge with pop-ups; slightly fewer bites with boilies and wafters. Other baits fish as normal.</p>
+    </div>
+  </article>
+  <article class="rig" id="multi-rig">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A multi rig: the hook sits in a sliding loop at the end of the hooklink, so it can be swapped in seconds."><rect width="240" height="150" fill="#3A5A48"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#5b4a33"/><path d="M0 14 Q40 50 70 110" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M60 124 Q70 102 82 124 Z" fill="#9ea39a"/><path d="M82 120 Q120 112 144 114" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M144 114 q10 -10 16 2 q-6 8 -16 -2" stroke="#E6DCC6" stroke-width="1.5" fill="none"/><path d="M160 108.0 V122 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><circle cx="170" cy="127" r="7" fill="#d9c79a"/></svg></figure>
+    <div class="txt">
+      <h3>Multi rig</h3>
+      <p class="what">A hooklink with the hook held in a sliding loop.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Coarse</dd></div><div><dt>Method</dt><dd>Carp ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Carp rigs</dd></div></dl>
+      <p>The loop lets you take a hook off and put a fresh one on in seconds, without retying the whole rig, so you can always fish a sharp hook.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Changing hooks quickly</li><li>Clean lakebeds</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Weedy swims</li><li>Deep silt that hides the hook</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> A slight edge with boilies and wafters; slightly fewer bites with pop-ups. Other baits fish as normal.</p>
+    </div>
+  </article>
+</section>
+<section class="family" id="sea">
+  <div class="fam-head">
+    <h2>Sea rigs</h2>
+    <p class="idx"><a href="#pulley-rig">Pulley rig</a> <a href="#2-hook-paternoster">2-hook paternoster</a> <a href="#clipped-down">Clipped-down</a> <a href="#running-ledger">Running ledger</a> <a href="#wishbone">Wishbone</a></p>
+    <div class="fam-note"><h3 class="fam-note-h">How they fish in Swimcraft</h3><p><strong>Nothing yet.</strong> In the demo every sea rig fishes the same, whatever bait, lead or ground. The descriptions below are how they work on a real beach, and the game will catch up.</p></div>
+  </div>
+  
+  <article class="rig" id="pulley-rig">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A pulley rig: the lead hangs below a pulley bead, and a taking fish lifts the lead up off rough ground."><rect width="240" height="150" fill="#2f5563"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#b39b6a"/><path d="M18 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M70 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M130 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M190 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M0 10 Q60 40 104 70" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="108" cy="72" r="4" fill="none" stroke="#C9A84C" stroke-width="2"/><path d="M108 76 V112" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M101 112 L115 112 L112 130 L104 130 Z" fill="#9ea39a"/><path d="M104 130 l-4 5 M112 130 l4 5" stroke="#9ea39a" stroke-width="1.5"/><path d="M110 74 Q150 100 176 118" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M180 108.0 V122 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><path d="M184 124 q10 2 16 -2" stroke="#d98a8a" stroke-width="4" stroke-linecap="round"/></svg></figure>
+    <div class="txt">
+      <h3>Pulley rig</h3>
+      <p class="what">The lead hangs below a pulley bead, with the hook on a separate length above.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Sea</dd></div><div><dt>Method</dt><dd>Sea ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Sea rigs, with a sea rod</dd></div></dl>
+      <p>When a fish takes, it pulls the lead up towards the bead and off the bottom, which helps it clear rocks and weed rather than snagging. It also clips down for a clean cast.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Rough ground</li><li>Bigger fish like cod, bass and conger</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Small fish</li><li>Presenting more than one bait</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> No difference yet: every bait fishes the same on this rig in the demo.</p>
+    </div>
+  </article>
+  <article class="rig" id="2-hook-paternoster">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A two-hook paternoster: two short hook lengths stand out from the line above a lead on the seabed."><rect width="240" height="150" fill="#2f5563"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#b39b6a"/><path d="M18 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M70 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M130 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M190 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M20 0 Q80 30 120 40" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M120 40 V112" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M113 112 L127 112 L124 130 L116 130 Z" fill="#9ea39a"/><path d="M120 62 Q140 66 156 72" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M160 66.8 V78 q0 5.6000000000000005 4.800000000000001 5.6000000000000005 q4.800000000000001 0 4.800000000000001 -5.6000000000000005 l-2.4000000000000004 2.4000000000000004" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M163 80 q8 1 12 -2" stroke="#d98a8a" stroke-width="3.5" stroke-linecap="round"/><path d="M120 90 Q140 94 156 100" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M160 94.8 V106 q0 5.6000000000000005 4.800000000000001 5.6000000000000005 q4.800000000000001 0 4.800000000000001 -5.6000000000000005 l-2.4000000000000004 2.4000000000000004" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M163 108 q8 1 12 -2" stroke="#d98a8a" stroke-width="3.5" stroke-linecap="round"/></svg></figure>
+    <div class="txt">
+      <h3>2-hook paternoster</h3>
+      <p class="what">Two short hook lengths standing out from the line above the lead.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Sea</dd></div><div><dt>Method</dt><dd>Sea ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Sea rigs, with a sea rod</dd></div></dl>
+      <p>Two baits fished at slightly different heights over clean ground give you twice the chance with smaller, mixed species.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Clean ground</li><li>Mixed catches of whiting, dabs and other small fish</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Rough ground, where two hooks means twice the snags</li><li>Very big baits</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> No difference yet: every bait fishes the same on this rig in the demo.</p>
+    </div>
+  </article>
+  <article class="rig" id="clipped-down">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A clipped-down rig: the hook bait is clipped tight against the lead so the whole rig flies neatly on a long cast."><rect width="240" height="150" fill="#2f5563"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#b39b6a"/><path d="M18 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M70 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M130 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M190 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M0 30 Q80 50 150 100" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M150 100 L176 108 L170 118 L146 108 Z" fill="#9ea39a"/><path d="M142 96 l6 -6" stroke="#C9A84C" stroke-width="2.5"/><path d="M120 82 Q132 84 144 92" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M144 86.2 V96 q0 4.8999999999999995 4.199999999999999 4.8999999999999995 q4.199999999999999 0 4.199999999999999 -4.8999999999999995 l-2.0999999999999996 2.0999999999999996" stroke="#C9A84C" stroke-width="1.4" fill="none" stroke-linecap="round"/><path d="M20 70 q30 -30 70 -24 m-7 -6 l7 6 l-8 4" stroke="#E6DCC6" stroke-opacity=".45" stroke-width="1.5" fill="none"/></svg></figure>
+    <div class="txt">
+      <h3>Clipped-down</h3>
+      <p class="what">The hook bait clipped tight against the lead for casting.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Sea</dd></div><div><dt>Method</dt><dd>Sea ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Sea rigs, with a sea rod</dd></div></dl>
+      <p>Clipping the bait to the lead makes the rig streamlined, so it flies further and the bait arrives intact. The clip releases when the rig hits the water.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Distance casting</li><li>Soft baits that fly apart on the cast</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Rough ground</li><li>Close-in fishing</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> No difference yet: every bait fishes the same on this rig in the demo.</p>
+    </div>
+  </article>
+  <article class="rig" id="running-ledger">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A running ledger: the lead slides on the line above a stop, with a long trace lying along the seabed."><rect width="240" height="150" fill="#2f5563"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#b39b6a"/><path d="M18 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M70 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M130 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M190 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M0 10 Q70 60 110 118 Q170 126 206 122" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M96 104 L110 102 L114 116 L100 118 Z" fill="#9ea39a"/><circle cx="128" cy="121" r="2.5" fill="#C9A84C"/><path d="M210 112.0 V126 q0 7.0 6.0 7.0 q6.0 0 6.0 -7.0 l-3.0 3.0" stroke="#C9A84C" stroke-width="2.0" fill="none" stroke-linecap="round"/><path d="M214 128 q10 2 16 -2" stroke="#d98a8a" stroke-width="4" stroke-linecap="round"/></svg></figure>
+    <div class="txt">
+      <h3>Running ledger</h3>
+      <p class="what">A lead that slides on the line, with a long trace below a stop.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Sea</dd></div><div><dt>Method</dt><dd>Sea ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Sea rigs, with a sea rod</dd></div></dl>
+      <p>Like the coarse running bomb, a fish can pick up the bait and move off without feeling the weight. The long trace lets the bait move naturally in the tide.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Shy fish like bass and rays</li><li>Letting a bait move with the tide</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Long casts</li><li>Strong tides, which roll the lead</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> No difference yet: every bait fishes the same on this rig in the demo.</p>
+    </div>
+  </article>
+  <article class="rig" id="wishbone">
+    <figure class="dia"><svg viewBox="0 0 240 150" role="img" aria-label="A wishbone rig: one looped trace carries two hooks side by side, so two baits sit together as one bigger offering."><rect width="240" height="150" fill="#2f5563"/><path d="M0 128 Q60 122 120 127 T240 125 V150 H0 Z" fill="#b39b6a"/><path d="M18 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M70 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M130 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M190 136 q6 -4 12 0" stroke="#8c7850" stroke-width="1.5" fill="none"/><path d="M0 10 Q60 40 110 96" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M103 112 L117 112 L114 130 L106 130 Z" fill="#9ea39a"/><path d="M110 96 V112" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M110 96 Q150 90 170 110" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M110 96 Q150 118 170 122" stroke="#E6DCC6" stroke-opacity="0.85" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M172 102.8 V114 q0 5.6000000000000005 4.800000000000001 5.6000000000000005 q4.800000000000001 0 4.800000000000001 -5.6000000000000005 l-2.4000000000000004 2.4000000000000004" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M174 114.8 V126 q0 5.6000000000000005 4.800000000000001 5.6000000000000005 q4.800000000000001 0 4.800000000000001 -5.6000000000000005 l-2.4000000000000004 2.4000000000000004" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M176 118 q10 3 18 1" stroke="#d98a8a" stroke-width="5" stroke-linecap="round"/></svg></figure>
+    <div class="txt">
+      <h3>Wishbone</h3>
+      <p class="what">One looped trace carrying two hooks side by side.</p>
+      <dl class="facts"><div><dt>Fishing</dt><dd>Sea</dd></div><div><dt>Method</dt><dd>Sea ledger</dd></div><div><dt>In the game</dt><dd>Rigs tab, Sea rigs, with a sea rod</dd></div></dl>
+      <p>Both hooks sit together, so two baits make one bigger, more noticeable offering, and a fish taking either one is hooked.</p>
+      <div class="pc">
+        <div><h4>Good for</h4><ul><li>Flatfish and rays</li><li>A bigger combined bait</li></ul></div>
+        <div><h4>Less good for</h4><ul><li>Long casts, where it can tangle</li><li>Rough ground</li></ul></div>
+      </div>
+      <p class="sc"><span>In Swimcraft</span> No difference yet: every bait fishes the same on this rig in the demo.</p>
+    </div>
+  </article>
+</section>
+  <p class="muted" style="margin-top:3rem;max-width:720px">Lures and fly fishing aren't in Swimcraft yet, so they aren't here yet either.</p>
+</main>
+
+<footer>
+  <div>
+    <span>Swimcraft by Harbledown Digital</span>
+    <span><a href="/venuecreators">Venue creator's guide</a> &nbsp; <a href="/terms">Terms</a> &nbsp; <a href="/privacy">Privacy</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
