@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swimcraft press kit</title>
+<meta name="description" content="Fact sheet, screenshots, key art and contact for press covering Swimcraft, the photo-to-venue fishing simulator.">
+<meta property="og:title" content="Swimcraft press kit">
+<meta property="og:description" content="Fact sheet, screenshots, key art and contact for press covering Swimcraft, the photo-to-venue fishing simulator.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://swimcraft.harbledowndigital.com/press">
+<meta property="og:image" content="https://swimcraft.harbledowndigital.com/social-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bitter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url('/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+
+  .facts { width: 100%; border-collapse: collapse; margin: 0 0 1rem; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 0.55rem 0.75rem 0.55rem 0; border-top: 1px solid var(--border); }
+  .facts td { overflow-wrap: anywhere; }
+  .facts th { color: var(--muted); font-weight: 600; width: 34%; }
+  .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 0.5rem 0 1rem; }
+  .shots figure { margin: 0; }
+  .shots a { display: block; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .shots img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.35rem; }
+  .art { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: end; margin: 0.5rem 0 1rem; }
+  .art a { display: block; text-align: center; color: var(--muted); font-size: 0.9rem; text-decoration: none; }
+  .art img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.35rem; background: var(--mid); }
+  .tagline { color: var(--brand-bone); font-weight: 700; font-size: 1.2rem; margin: 0 0 1rem; }
+  p { max-width: 38rem; }
+  @media (max-width: 600px) { .shots, .art { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="https://swimcraft.harbledowndigital.com/" aria-label="Swimcraft home"><span class="swim">swim</span><span class="craft">craft</span></a>
+    <a class="back" href="https://swimcraft.harbledowndigital.com/">Back to the home page</a>
+  </div>
+</header>
+
+<div class="intro">
+  <h1>Press kit</h1>
+  <p class="tagline">Turn your favourite swims into virtual fishing venues.</p>
+  <p class="lede">Swimcraft is a coarse, carp and sea fishing simulation for PC where players photograph real waters and build them into fishable venues. The free demo is out now; the full game launches into Steam Early Access after Steam Next Fest (19&ndash;26 October 2026).</p>
+</div>
+
+<main>
+
+  <section aria-labelledby="facts">
+    <h2 id="facts">At a glance</h2>
+    <table class="facts">
+      <tr><th scope="row">Developer</th><td>Harbledown Digital (Elliott Lee), Canterbury, Kent, UK</td></tr>
+      <tr><th scope="row">Genre</th><td>Fishing simulation, venue creator</td></tr>
+      <tr><th scope="row">Platform</th><td>Windows PC</td></tr>
+      <tr><th scope="row">Demo</th><td>Free, out now on <a href="https://store.steampowered.com/app/4949860/Swimcraft/">Steam</a> and <a href="https://swimcraft.itch.io/swimcraft">itch.io</a></td></tr>
+      <tr><th scope="row">Full game</th><td>Steam Early Access, after Next Fest October 2026</td></tr>
+      <tr><th scope="row">Price</th><td>$10.99</td></tr>
+      <tr><th scope="row">Steam</th><td><a href="https://store.steampowered.com/app/4949860/Swimcraft/">store.steampowered.com/app/4949860</a></td></tr>
+      <tr><th scope="row">Website</th><td><a href="https://swimcraft.harbledowndigital.com">swimcraft.harbledowndigital.com</a></td></tr>
+      <tr><th scope="row">Gameplay video</th><td><a href="https://www.youtube.com/watch?v=7L82M1So4co">Watch on YouTube</a></td></tr>
+      <tr><th scope="row">Press contact</th><td><a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a></td></tr>
+    </table>
+  </section>
+
+  <section aria-labelledby="about">
+    <h2 id="about">What Swimcraft is</h2>
+    <p>Swimcraft is a fishing simulator with a difference: you take photographs of the waters you love and turn them into venues you can fish. Trace the bank, the islands, the depths and the features, stock it with fish, and it becomes a playable peg. Coarse, carp and sea fishing sit in one game, with an honest cast, a fight where fish run, tire and test your tackle, and records tied to the swim where they were set.</p>
+  </section>
+
+  <section aria-labelledby="features">
+    <h2 id="features">Headline features</h2>
+    <ul>
+      <li><strong>Photo-to-venue creator.</strong> Build a fishable venue from your own photos of a real swim: water, islands, depth bands, the lake bed, pegs and stocking.</li>
+      <li><strong>Species creator.</strong> Design and save your own fish species; sharing them with the community arrives in Early Access.</li>
+      <li><strong>A real fight.</strong> Fish run, tire and test the rod, reel and line, with a strain read-out you feel rather than calculate.</li>
+      <li><strong>Tackle and bait that matter.</strong> Rods, reels, lines, hooks, floats, rigs and baits across five tackle brands, unlocked with XP as you progress.</li>
+      <li><strong>Coarse, carp and sea.</strong> Float, feeder, carp and beach rigs, each with its own rig screen and drawn diagram.</li>
+      <li><strong>Records.</strong> Peg, venue and global leaderboards, every record tied to the swim where it was caught.</li>
+      <li><strong>Realistic mode.</strong> No on-screen prompts and per-species strike timing, for anglers who want it straight.</li>
+    </ul>
+    <p>Lure fishing, online tournaments and community venue sharing are planned for Early Access and later; they are not in the demo.</p>
+  </section>
+
+  <section aria-labelledby="screens">
+    <h2 id="screens">Screenshots</h2>
+    <p>Click any picture for the full-size image.</p>
+    <div class="shots">
+      <figure><a href="/press/the-fight.jpg" target="_blank" rel="noopener"><img src="/press/the-fight-preview.jpg" alt="A fish on: the rod bent and the strain gauge rising" loading="lazy"></a><figcaption>A fish on: the rod bent and the strain gauge rising</figcaption></figure>
+      <figure><a href="/press/tackle-box.jpg" target="_blank" rel="noopener"><img src="/press/tackle-box-preview.jpg" alt="The tackle box: real gear, set out by brand" loading="lazy"></a><figcaption>The tackle box: real gear, set out by brand</figcaption></figure>
+      <figure><a href="/press/bait-box.jpg" target="_blank" rel="noopener"><img src="/press/bait-box-preview.jpg" alt="The bait box: boilies, pop-ups and more" loading="lazy"></a><figcaption>The bait box: boilies, pop-ups and more</figcaption></figure>
+      <figure><a href="/press/sea-rig.jpg" target="_blank" rel="noopener"><img src="/press/sea-rig-preview.jpg" alt="The sea rig screen: three rigs, drawn and explained" loading="lazy"></a><figcaption>The sea rig screen: three rigs, drawn and explained</figcaption></figure>
+      <figure><a href="/press/species-creator.jpg" target="_blank" rel="noopener"><img src="/press/species-creator-preview.jpg" alt="The species creator: describe a real fish and stock it" loading="lazy"></a><figcaption>The species creator: describe a real fish and stock it</figcaption></figure>
+      <figure><a href="/press/fishing-the-peg.jpg" target="_blank" rel="noopener"><img src="/press/fishing-the-peg-preview.jpg" alt="Fishing the peg" loading="lazy"></a><figcaption>Fishing the peg</figcaption></figure>
+      <figure><a href="/press/catch-card.jpg" target="_blank" rel="noopener"><img src="/press/catch-card-preview.jpg" alt="A tench landed, on the catch card" loading="lazy"></a><figcaption>A tench landed, on the catch card</figcaption></figure>
+      <figure><a href="/press/venue-creator-depths.jpg" target="_blank" rel="noopener"><img src="/press/venue-creator-depths-preview.jpg" alt="The venue creator: painting the depths" loading="lazy"></a><figcaption>The venue creator: painting the depths</figcaption></figure>
+      <figure><a href="/press/anglers-lodge.jpg" target="_blank" rel="noopener"><img src="/press/anglers-lodge-preview.jpg" alt="The Angler's Lodge: catches and achievements" loading="lazy"></a><figcaption>The Angler's Lodge: catches and achievements</figcaption></figure>
+      <figure><a href="/press/records-board.jpg" target="_blank" rel="noopener"><img src="/press/records-board-preview.jpg" alt="The catch records board" loading="lazy"></a><figcaption>The catch records board</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="art">
+    <h2 id="art">Key art and logo</h2>
+    <div class="art">
+      <a href="/press/key-art-main-capsule.png" target="_blank" rel="noopener"><img src="/press/key-art-main-capsule.png" alt="Swimcraft key art, wide" loading="lazy">Key art, wide</a>
+      <a href="/press/key-art-vertical-capsule.png" target="_blank" rel="noopener"><img src="/press/key-art-vertical-capsule.png" alt="Swimcraft key art, portrait" loading="lazy">Key art, portrait</a>
+      <a href="/press/swimcraft-logo-transparent.png" target="_blank" rel="noopener"><img src="/press/swimcraft-logo-transparent.png" alt="Swimcraft logo" loading="lazy">Logo, transparent PNG</a>
+    </div>
+    <p>Also available: the <a href="/press/key-art-header-capsule.png">header capsule</a> and the <a href="/press/swimcraft-logo.svg">logo as SVG</a>. Everything on this page in one download: <a href="/press/swimcraft-press-kit.zip">swimcraft-press-kit.zip</a>.</p>
+  </section>
+
+  <section aria-labelledby="dev">
+    <h2 id="dev">About the developer</h2>
+    <p>Swimcraft is made by Harbledown Digital, the one-person studio of Elliott Lee in Canterbury, Kent. Elliott is the game's sole developer and creative director. The game draws on the tradition of Fishing Simulator 2 and its community of venue builders, and sets out to give anyone the power to bring their own water into a fishing game.</p>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Contact</h2>
+    <p>For review keys, interviews or a venue built from your own swim, email <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    &copy; 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Privacy Policy</a> and <a href="https://swimcraft.harbledowndigital.com/terms">Terms of Use</a>.
+  </div>
+</footer>
+
+</body>
+</html>
