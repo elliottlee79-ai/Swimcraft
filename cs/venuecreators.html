@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Průvodce tvůrce revírů — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Jak proměnit fotku svého oblíbeného lovného místa v revír pro Swimcraft, který projde kontrolou a bude zveřejněn." name="description"/>
+<meta content="Průvodce tvůrce revírů — Swimcraft" property="og:title"/>
+<meta content="Jak proměnit fotku svého oblíbeného lovného místa v revír pro Swimcraft, který projde kontrolou a bude zveřejněn." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/cs/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/cs/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Průvodce tvůrce revírů</h1>
+<p class="meta"><strong>Jak proměnit fotku lovného místa, které znáš, v revír, na kterém můžou chytat i jiní rybáři.</strong></p>
+<p class="meta">Naposledy aktualizováno: 18. srpna 2026</p>
+<div class="intro">Návod k editoru revírů ti ukáže ovládání. Tahle stránka je všechno ostatní — rozhodnutí, která
+    určí, jestli se k revíru lidé budou vracet, a pár pravidel, která určí, jestli projde
+    kontrolou. Než postavíš svou první pořádnou vodu, vyplatí se jí věnovat dvacet minut.</div>
+<ol class="toc">
+<li><a href="#life">Koncept, odesláno, zveřejněno — co se doopravdy děje</a></li>
+<li><a href="#photo">Fotka a pravidla, která pro ni platí</a></li>
+<li><a href="#peg">Nastavení lovného místa</a></li>
+<li><a href="#calibrate">Kalibrace — krok, který lidé přeskočí a pak litují</a></li>
+<li><a href="#depth">Malování dna</a></li>
+<li><a href="#stock">Poctivé zarybnění</a></li>
+<li><a href="#test">Zachytej si na něm, než ho odešleš</a></li>
+<li><a href="#review">Na co se dívá kontrola a proč se revíry vracejí</a></li>
+<li><a href="#after">Když je revír venku</a></li>
+</ol>
+<h2 id="life">1. Koncept, odesláno, zveřejněno</h2>
+<p>Revír prochází třemi stavy a když je znáš, ušetříš si později spoustu zmatku.</p>
+<table class="pass">
+<tr><th>Stav</th><th>Co to znamená</th></tr>
+<tr><td>Koncept</td><td>Jen tvůj. Nikdo jiný ho nevidí ani na něm nemůže chytat. Můžeš upravovat cokoli a kolikrát chceš.</td></tr>
+<tr><td>Odesláno</td><td>Čeká na kontrolu. Pořád soukromý. Zůstane, jak je, dokud se na něj někdo nepodívá.</td></tr>
+<tr><td>Zveřejněno</td><td>Ve společné knihovně. Ostatní rybáři na něm můžou chytat a úlovky odtamtud se počítají do tabulí rekordů.</td></tr>
+</table>
+<p>Pokud se revír vrátí, přijde zpátky k tobě jako koncept <strong>s poznámkou, co je potřeba opravit</strong>.
+  Není to černý puntík — většina prvních odeslání potřebuje jednu drobnost. Oprav ji a odešli znovu.</p>
+<div class="callout"><strong>V demu všechno, co postavíš, zůstává v konceptech.</strong> Zveřejňování do společné knihovny se otevře
+    v předběžném přístupu a žeton pro vytvoření revíru, který získáš na úrovni 5, máš schovaný připravený. Nic, co
+    v demu vytvoříš, nepřijde nazmar — takže postav ten dobrý revír už teď.</div>
+<h2 id="photo">2. Fotka</h2>
+<p>Všechno ostatní stojí na tomhle jednom obrázku, takže se vyplatí být náročný. Hra vezme fotku ve formátu
+  <strong>JPEG nebo PNG</strong>, alespoň <strong>1280 × 720</strong> a menší než <strong>20MB</strong>. To je
+  technické minimum. Užitečné rady jsou nad ním:</p>
+<ul>
+<li><strong>Foť odtud, kde bys seděl.</strong> Z fotky se stane pohled z lovného místa, takže obrázek
+      vyfocený vestoje na břehu ve výšce očí se chytá mnohem líp než fotka z mostu nebo z kopce.</li>
+<li><strong>Na šířku a nech vodu dýchat.</strong> Potřebuješ vodu ve spodní polovině záběru, abys měl
+      co malovat, a viditelný protější břeh nebo horizont, podle kterého odhadneš vzdálenost.</li>
+<li><strong>Rovnoměrné světlo je lepší než ostré slunce.</strong> Silné odlesky na hladině schovají prvky, které chceš obkreslit.</li>
+<li><strong>Zachyť něco, co umíš změřit.</strong> Protější břeh, ostrov, uvázanou loďku, lekníny — cokoli,
+      u čeho opravdu znáš vzdálenost. Oddíl 4 vysvětluje, proč na tom záleží víc než na čemkoli jiném na stránce.</li>
+</ul>
+<h3>Pravidla, o kterých se nevyjednává</h3>
+<p>Když nahráváš obrázek, hra tě požádá o potvrzení, že ho vlastníš nebo máš svolení ho použít a že
+  neobsahuje nic protiprávního. Je to skutečné prohlášení a stojí za ním tato pravidla. Jsou to pravidla z našich
+  <a href="/terms">Podmínek použití</a>, ve zkratce:</p>
+<ul>
+<li>Fotka musí být <strong>tvoje</strong>, nebo musíš mít svolení. Ne z internetu, ne z webu
+      revíru, ne ze sociálních sítí někoho jiného.</li>
+<li>Žádní <strong>rozpoznatelní lidé</strong>, pokud nesouhlasili. <strong>Nikdy</strong> fotka, na které je dítě.</li>
+<li>Ořízni soukromé detaily — <strong>registrační značky, jména domů, adresy, cedule s telefonními čísly</strong>.</li>
+<li>Respektuj revír. Pokud je voda soukromá nebo by její majitel nechtěl, aby byla znovu vytvořena a zveřejněna,
+      nezveřejňuj ji. Test, který stojí za to: ukázal bys rád majiteli, co jsi vytvořil?</li>
+</ul>
+<div class="callout warn">Revír, který tato pravidla porušuje, se při kontrole vrátí, a pravidla pro fotky jsou vůbec nejčastějším důvodem.
+    Skoro všemu se dá vyhnout už ve chvíli, kdy fotku pořizuješ.</div>
+<div class="pair">
+<figure>
+<img alt="Dobře zvolená fotka lovného místa" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>Dobře.</strong> Výška břehu, rovnoměrné světlo, voda přes spodní polovinu, protější břeh pro odhad vzdálenosti.</figcaption>
+</figure>
+<figure>
+<img alt="Špatná fotka lovného místa s příliš velkým popředím" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>Špatně.</strong> Moc břehu v popředí — zaseknutá ryba by proplavala zemí dřív, než by se dostala k podběráku.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Revír s několika pojmenovanými lovnými místy" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>Pojmenuj lovná místa tak, jak jim říkají u vody. „Lovné místo u vrátnice“ rybáři něco řekne; „Lovné místo 1“ ne.</figcaption>
+</figure>
+<h2 id="peg">3. Nastavení lovného místa</h2>
+<p>Revír má jedno nebo více lovných míst a každé lovné místo je jedna fotka s vlastním dnem, vlastními prvky a vlastními rybami.
+  První revír s <strong>jedním opravdu dobrým lovným místem</strong> vždycky porazí revír se čtyřmi uspěchanými.</p>
+<ul>
+<li><strong>Pojmenuj revír tak, jak by ho řekl rybář.</strong> „Příkop hradu Leeds“, ne „moje místo 2“. Až 60
+      znaků a řádek s lokalitou pod ním bere město nebo hrabství.</li>
+<li><strong>Pojmenuj každé lovné místo podle toho, kde je</strong> — „U vrátnice“, „Špička“, „Dolní ohyb“. Až 40
+      znaků. Tato jména se objevují na tabulích rekordů pod rybou, takže stojí za chvilku přemýšlení.</li>
+<li><strong>Názvy revírů, názvy lovných míst, popisy a jména ryb se kontrolují</strong>, než se uloží.
+      Drž to slušné a nikdy se to neobjeví.</li>
+</ul>
+<h2 id="calibrate">4. Kalibrace — krok, který lidé přeskočí</h2>
+<p>Kalibrací hra promění plochý obrázek ve skutečnou vzdálenost. Obkreslíš břehovou linii a pak umístíš
+  <strong>blízkou značku</strong> a <strong>vzdálenou značku</strong> a řekneš hře, jak daleko každá doopravdy je.</p>
+<p>Dál nemůžeš, dokud nejsou zkalibrovaná všechna lovná místa, a je to schválně: nezkalibrované lovné místo chytá špatně
+  tak, že to nikdo nevidí. Nához, který by měl doletět k ostrovu, nedoletí, nebo 40yardový splávkový prut dosáhne na protější břeh
+  přehrady. Revír vypadá v pořádku a chytá se nesmyslně.</p>
+<h3>Jak to udělat správně bez dálkoměru</h3>
+<p>Nikdo po tobě nechce vzdálenost zpaměti. Chceme, abys ji <strong>poznal</strong>, a to
+  rybáři umí:</p>
+<ul>
+<li>Mysli v náhozech. „Ten ostrov je zhruba na dva pohodlné feederové náhozy“ je zhruba 60–70 yardů, a to je mnohem
+      lepší odpověď než číslo, které sis vymyslel.</li>
+<li>Využij, co víš. Většina lovných míst na komerčních jezerech má k protějšímu břehu 20–40 yardů. Velká štěrkovna nebo
+      přehrada má stovky. Kanál 10–15.</li>
+<li>Blízkou značku dej na něco blízkého a jasného — hranu u břehu, blízký leknín, konec tvého lovného plata.</li>
+<li>Pokud to opravdu nevíš, podívej se na vodu na mapě, než začneš stavět. Zabere to minutu.</li>
+</ul>
+<div class="callout"><strong>Když tohle uděláš správně, všechno, co z toho vyplývá, bude správně.</strong> Dosahy záběrů, kam dosáhnou tvoje pruty, kde
+    ryby opravdu jsou — to všechno se měří od těchto dvou značek.</div>
+<div class="pair">
+<figure>
+<img alt="Obkreslování břehové linie v editoru revírů" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>Obkreslování břehové linie. Obrys se musí uzavřít.</figcaption>
+</figure>
+<figure>
+<img alt="Blízká a vzdálená značka vzdálenosti umístěné na lovném místě" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>Obě značky umístěné. Všechno ostatní se měří od těchto dvou.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. Malování dna</h2>
+<p>Pak namaluješ, co je pod vodou: hloubková pásma od břehu dál a k tomu prvky — řasy, štěrk, bahno,
+  překážky, rákosí. Abys mohl pokračovat, musíš namalovat aspoň jeden čtverec vody, ale pořádně namalované dno je to, díky čemu
+  revír působí jako skutečná voda a ne jako vana.</p>
+<ul>
+<li><strong>Řiď se obrázkem.</strong> Kde hladina tmavne, bývá hlouběji. Kde je vidět
+      dno, namaluj mělčinu. Pás rákosí je hrana.</li>
+<li><strong>U břehu mělko, uprostřed hlouběji</strong> je výchozí tvar většiny stojatých vod — ale štěrkovna je
+      hrbolatá a kanál má plochý lodní kanál s mělkými hranami po obou stranách. Postav vodu, kterou znáš.</li>
+<li><strong>Prvky jsou to, co rybáři hledají.</strong> Holé, rovnoměrně namalované dno nikomu nedá důvod nahodit
+      někam konkrétně. Dej lovnému místu dvě tři místa, která stojí za to najít — štěrkovou lavici, bahnitý žlab, překážku na
+      vzdálené hraně.</li>
+<li><strong>Nedávej překážky všude.</strong> Jsou napínavé tam, kde by se ryba mohla rozumně utrhnout. Všude
+      jsou jen frustrující.</li>
+</ul>
+<div class="callout"><strong>Dvě z těchto věcí se počítají, ne posuzují.</strong> Lovné místo potřebuje <strong>aspoň tři odlišná hloubková
+    pásma</strong> a <strong>aspoň dva různé typy prvků</strong> a nesmí mít
+    <strong>žádné prázdné buňky nikde v lovné vodě</strong>. To jsou čísla, která kontrola ověřuje, a
+    čísla, ke kterým tě bude editor držet — všechno ostatní v tomto oddíle jsou rady, jak udělat vodu, na které stojí za to
+    chytat.</div>
+<div class="pair">
+<figure>
+<img alt="Hloubková mapa s několika odlišnými pásmy" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>Projde.</strong> Několik odlišných pásem, u břehu mělčeji než na volné vodě, dno se skutečným tvarem.</figcaption>
+</figure>
+<figure>
+<img alt="Plochá hloubková mapa s jediným pásmem" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>Vráceno.</strong> Jedno ploché pásmo přes celou vodu. Nic k nalezení, nic k naučení.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="Pestrá mapa prvků" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>Projde.</strong> Řasy na mělčině, bahno v hloubce, štěrk na lavici — a žádné nenamalované díry.</figcaption>
+</figure>
+<figure>
+<img alt="Holá mapa prvků s nenamalovanými mezerami" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>Vráceno.</strong> Holé a s prázdnými buňkami v lovné vodě. Na té druhé půlce se nachytá většina lidí.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. Poctivé zarybnění</h2>
+<p>Zarybněním se revír udělá, nebo zničí, a právě tady je k tobě hra nejpřísnější. Platí tři limity
+  a každý má svůj důvod.</p>
+<div class="step">
+<span class="num">Limit první</span><h3>Kapacita — voda unese jen určité množství ryb</h3>
+<p>Kapacita se počítá z objemu vody, který jsi namaloval, a z obtížnosti revíru. Malá mělká louže
+    neunese 400 lb kaprů. Když lovné místo přezarybníš, neuloží se, dokud nějaké ryby neodebereš nebo revír neusnadníš.</p>
+</div>
+<div class="step">
+<span class="num">Limit druhý</span><h3>Obtížnost určuje velikost ryb i hustotu</h3>
+<p>Obtížnost není posuvník toho, jak těžké to má působit, a nemění chování ryb. Nastavuje,
+    kolik ryb voda unese a která velikostní pásma smíš použít — nic jiného. Těžká voda se chytá těžce, protože
+    je v ní méně ryb a ty, co v ní jsou, jsou větší.</p>
+<table class="pass">
+<tr><th>Obtížnost</th><th>Co ti dá</th></tr>
+<tr><td>Snadná</td><td>Hustě zarybněná, časté záběry, malé až střední ryby. Voda na hodně záběrů.</td></tr>
+<tr><td>Střední</td><td>Zhruba poloviční zarybnění oproti Snadné. Méně záběrů, lepší průměrná velikost.</td></tr>
+<tr><td>Těžká</td><td>Slabě zarybněná. Delší čekání, a co vezme, je větší — až po Trofejní.</td></tr>
+<tr><td>Trofejní</td><td>Velmi slabě zarybněná, dlouhé čekání záměrně. Jediné nastavení, které povoluje Velkou trofej a Monstrum.</td></tr>
+</table>
+<p>Pokud je ryba, kterou chceš, příliš velká pro obtížnost, kterou jsi vybral, hra ti řekne minimální obtížnost, do které
+    by se vešla. Zvýšení obtížnosti je skutečný obchod: dostaneš velkou rybu a voda ztichne.</p>
+</div>
+<div class="step">
+<span class="num">Limit třetí</span><h3>Nic nepřekoná národní rekord</h3>
+<p>Každý druh je omezený národním rekordem země, ve které revír leží. Do rybníčku na farmě v Kentu nevysadíš
+    90librového kapra a editor ti to ani nedovolí zkusit. Je tu i mírné varování pro rybu, která je
+    povolená, ale na vodu, kterou jsi namaloval, je to trochu přehnané — to tě neblokuje, jen ti řekne, že si toho zkušený
+    rybář všimne.</p>
+</div>
+<h3>Pojmenované ryby</h3>
+<p>Pojmenovaná ryba je ta, za kterou lidé přijíždějí. Dej jí druh, jméno a váhu a půjde na lovné místo; přidej
+  její fotku a objeví se na obrazovce úlovku, až ji někdo konečně vytáhne. Revír se dvěma třemi známými
+  obyvateli má příběh. Revír s patnácti nemá žádný.</p>
+<h3>Zarybnění, které dělá dobrou vodu</h3>
+<ul>
+<li><strong>Smíšené velikosti.</strong> Voda plná jen desetilibrových ryb je nuda, protože nic, co chytíš, není překvapení.
+      Lovné místo rozjedou malé ryby — viz <a href="/cs/swim-confidence">průvodce SWIM confidence</a>.</li>
+<li><strong>Druhy, které k sobě patří.</strong> Plotice, cejn, lín a kapr v rybníčku na farmě, ano. Ne všechno
+      ze seznamu jen proto, že tam ten seznam byl.</li>
+<li><strong>Nech si rezervu.</strong> Zarybnění až po strop kapacity ti nenechá místo na ryby, které tě napadnou
+      příští týden.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="Lovné místo zarybněné smíšenými druhy a velikostmi" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>Smíšené druhy, smíšené velikosti a ukazatel kapacity s rezervou, ne natlačený až k čáře.</figcaption>
+</figure>
+<figure>
+<img alt="Varování o překročení kapacity" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>Za limitem tě editor zastaví. Tohle je aritmetika, ne posuzování.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Pojmenovaná ryba přidaná na lovné místo" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>Pojmenovaná ryba, vysazená a potvrzená. Dvě tři na revír, s váhou, kterou by voda unesla — jsou výjimkou, ne základem obsádky.</figcaption>
+</figure>
+<h2 id="test">7. Zachytej si na něm, než ho odešleš</h2>
+<p>Editor má testovací režim a v praxi není volitelný. Deset minut na vlastním revíru
+  odhalí věci, které žádné zírání do mapy neodhalí:</p>
+<ul>
+<li>Opravdu <strong>dosáhneš</strong> rozumným prutem na prvky, které jsi namaloval? Pokud je všechno dobré mimo
+      dosah, je špatně kalibrace nebo jsou prvky moc daleko.</li>
+<li>Odpovídá hloubka pod splávkem <strong>tomu, jak vypadá obrázek</strong>?</li>
+<li>Chodí záběry tempem, které odpovídá zvolené obtížnosti?</li>
+<li>Je důvod se přesunout? Lovné místo, kde je jeden flek jasně správný a všude jinde je mrtvo, je lovné místo
+      s jedním náhozem.</li>
+</ul>
+<figure>
+<img alt="Zkušební lov na vlastním revíru přímo v editoru" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>Testovací režim. Deset minut tady odhalí, co žádné zírání do mapy neodhalí.</figcaption>
+</figure>
+<h2 id="review">8. Na co se dívá kontrola</h2>
+<p>Každý revír si před zařazením do společné knihovny prohlédne člověk. Nehodnotí tvoje umělecké dílo.
+  Kontroluje krátký seznam a je to pokaždé stejný seznam:</p>
+<table class="pass">
+<tr><th>Kontroluje se</th><th>Co revír vrátí</th></tr>
+<tr><td>Fotka</td><td>Není tvoje, jsou na ní rozpoznatelní lidé nebo dítě, ukazuje soukromé detaily nebo to vlastně není rybářské lovné místo.</td></tr>
+<tr><td>Texty</td><td>Název revíru, popis nebo jména ryb, které porušují zásady komunity.</td></tr>
+<tr><td>Poctivost</td><td>Zarybnění nebo pojmenování, které si ze hry dělá legraci — louže nacpaná rekordními rybami, lovné místo pojmenované tak, aby obelstilo žebříčky.</td></tr>
+<tr><td>Hratelnost</td><td>Žádná pořádná kalibrace, nenamalované dno nebo revír, na kterém se zjevně chytat nedá.</td></tr>
+<tr><td>Dno, spočítané</td><td>Méně než <strong>tři odlišná hloubková pásma</strong> na lovném místě, méně než <strong>dva různé typy prvků</strong> nebo <strong>jakákoli prázdná buňka v lovné vodě</strong>. Je to aritmetika, ne posuzování, takže se to nejsnáz splní a nejsnáz se na tom zakopne.</td></tr>
+</table>
+<p>Co se <strong>nekontroluje</strong>: jestli je to hezké, jestli se to podobá něčemu jinému nebo jestli by kontrolora
+  bavilo na tom chytat. Skromný revír postavený poctivě projde. Okázalý revír postavený na cizí fotce
+  ne.</p>
+<figure>
+<img alt="Zveřejněný revír ve společné knihovně" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>Zveřejněno. Tohle je karta, kterou vidí každý další rybář — a kde tvoje voda skončí.</figcaption>
+</figure>
+<h2 id="after">9. Když je revír venku</h2>
+<ul>
+<li><strong>Úpravy jdou znovu přes kontrolu.</strong> Jakmile je revír zveřejněný, jeho obsah je zamčený a každá změna,
+      kterou uděláš, se připraví a znovu zkontroluje, než se dostane k ostatním hráčům. Takže to udělej správně před odesláním,
+      ne s plánem to pak záplatovat.</li>
+<li><strong>Můžeš ho stáhnout.</strong> Stažení vyřadí revír z knihovny — a jeho rekordy zmizí z
+      tabulí s ním — aniž by se cokoli smazalo. Je to tvůj vypínač a dá se vrátit.</li>
+<li><strong>Rekordy, které tam padnou, nesou jméno tvého revíru</strong> a lovného místa, ať se objeví kdekoli. To je
+      důvod, proč lovná místa pořádně pojmenovat hned na začátku.</li>
+</ul>
+<div class="callout"><strong>Zkrácená verze.</strong> Použij vlastní fotku. Poctivě ji zkalibruj. Namaluj dno s místy, kam stojí za to
+    nahodit. Zarybni ho jako skutečnou vodu, ne jako seznam přání. Než ho odešleš, sám si na něm zachytej. Udělej těchto pět věcí a
+    projde.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Máš otázky, nebo si myslíš, že jsme při kontrole rozhodli špatně? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/cs/">Domů</a> · <a href="/cs/swim-confidence">Průvodce SWIM confidence</a> · <a href="/terms">Podmínky použití</a> · <a href="/privacy">Soukromí</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Zavřít (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Předchozí" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Další" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Čeština</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a aria-current="true" href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

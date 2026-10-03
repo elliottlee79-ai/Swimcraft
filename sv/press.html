@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Swimcrafts presskit</title>
+<meta content="Faktablad, skärmbilder, nyckelbilder och kontaktuppgifter för press som bevakar Swimcraft, fiskesimulatorn där foton blir fiskevatten." name="description"/>
+<meta content="Swimcrafts presskit" property="og:title"/>
+<meta content="Faktablad, skärmbilder, nyckelbilder och kontaktuppgifter för press som bevakar Swimcraft, fiskesimulatorn där foton blir fiskevatten." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://swimcraft.harbledowndigital.com/sv/press" property="og:url"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url(/'/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+
+  .facts { width: 100%; border-collapse: collapse; margin: 0 0 1rem; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 0.55rem 0.75rem 0.55rem 0; border-top: 1px solid var(--border); }
+  .facts td { overflow-wrap: anywhere; }
+  .facts th { color: var(--muted); font-weight: 600; width: 34%; }
+  .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 0.5rem 0 1rem; }
+  .shots figure { margin: 0; }
+  .shots a { display: block; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .shots img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.35rem; }
+  .art { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: end; margin: 0.5rem 0 1rem; }
+  .art a { display: block; text-align: center; color: var(--muted); font-size: 0.9rem; text-decoration: none; }
+  .art img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.35rem; background: var(--mid); }
+  .tagline { color: var(--brand-bone); font-weight: 700; font-size: 1.2rem; margin: 0 0 1rem; }
+  p { max-width: 38rem; }
+  @media (max-width: 600px) { .shots, .art { grid-template-columns: 1fr; } }
+</style>
+<link href="https://swimcraft.harbledowndigital.com/sv/press" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/press" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/press" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/press" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/press" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/press" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/press" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/press" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/press" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/press" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/press" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/press" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/press" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/press" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/press" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/press" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/press" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/press" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/press" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/press" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/press" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/press" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="topbar">
+<div class="topbar-inner"><a aria-label="Swimcraft home" class="wordmark" href="/sv/"><span class="swim">swim</span><span class="craft">craft</span></a>
+<a class="back" href="/sv/">Tillbaka till startsidan</a></div>
+</header>
+<div class="intro">
+<h1>Presskit</h1>
+<p class="tagline">Gör dina favoritplatser vid vattnet till virtuella fiskevatten.</p>
+<p class="lede">Swimcraft är en simulator för mete, karpfiske och havsfiske till PC där spelarna fotograferar riktiga vatten och bygger dem till fiskevatten man kan fiska i. Den kostnadsfria demon är ute nu; det fullständiga spelet lanseras i Steam Early Access efter Steam Next Fest (19–26 oktober 2026).</p>
+</div>
+<main>
+<section aria-labelledby="facts">
+<h2 id="facts">I korthet</h2>
+<table class="facts">
+<tr><th scope="row">Utvecklare</th><td>Harbledown Digital (Elliott Lee), Canterbury, Kent, Storbritannien</td></tr>
+<tr><th scope="row">Genre</th><td>Fiskesimulator, fiskevattenbyggare</td></tr>
+<tr><th scope="row">Plattform</th><td>Windows-PC</td></tr>
+<tr><th scope="row">Demo</th><td>Gratis, ute nu på <a href="https://store.steampowered.com/app/4949860/Swimcraft/">Steam</a> och <a href="https://swimcraft.itch.io/swimcraft">itch.io</a></td></tr>
+<tr><th scope="row">Fullständigt spel</th><td>Steam Early Access, efter Next Fest i oktober 2026</td></tr>
+<tr><th scope="row">Pris</th><td>$10.99</td></tr>
+<tr><th scope="row">Steam</th><td><a href="https://store.steampowered.com/app/4949860/Swimcraft/">store.steampowered.com/app/4949860</a></td></tr>
+<tr><th scope="row">Webbplats</th><td><a href="https://swimcraft.harbledowndigital.com">swimcraft.harbledowndigital.com</a></td></tr>
+<tr><th scope="row">Spelvideo</th><td><a href="https://www.youtube.com/watch?v=7L82M1So4co">Titta på YouTube</a></td></tr>
+<tr><th scope="row">Presskontakt</th><td><a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a></td></tr>
+</table>
+</section>
+<section aria-labelledby="about">
+<h2 id="about">Vad Swimcraft är</h2>
+<p>Swimcraft är en fiskesimulator med en skillnad: du fotograferar vattnen du älskar och gör dem till fiskevatten du kan fiska i. Rita av stranden, öarna, djupen och detaljerna, plantera ut fisk, så blir det en spelbar plats. Mete, karpfiske och havsfiske finns i ett och samma spel, med ärliga kast, en drill där fisken rusar, tröttnar och sätter dina grejer på prov, och rekord knutna till fiskeplatsen där de sattes.</p>
+</section>
+<section aria-labelledby="features">
+<h2 id="features">Huvudfunktioner</h2>
+<ul>
+<li><strong>Fiskevattenbyggare från foto.</strong> Bygg ett fiskevatten från dina egna foton av en riktig fiskeplats: vatten, öar, djupzoner, botten, platser och utplantering.</li>
+<li><strong>Artskapare.</strong> Utforma och spara dina egna fiskarter; att dela dem med communityn kommer i Early Access.</li>
+<li><strong>En riktig drill.</strong> Fisken rusar, tröttnar och sätter spö, rulle och lina på prov, med en belastningsmätare du känner snarare än räknar på.</li>
+<li><strong>Grejer och beten som spelar roll.</strong> Spön, rullar, linor, krokar, flöten, riggar och beten från fem grejmärken, som låses upp med XP allteftersom du gör framsteg.</li>
+<li><strong>Mete, karp och hav.</strong> Flöt-, feeder-, karp- och strandriggar, var och en med egen riggskärm och ritat diagram.</li>
+<li><strong>Rekord.</strong> Topplistor för plats, fiskevatten och hela världen, där varje rekord är knutet till fiskeplatsen där fisken fångades.</li>
+<li><strong>Realistiskt läge.</strong> Inga uppmaningar på skärmen och mothugg med timing per art, för fiskare som vill ha det rakt av.</li>
+</ul>
+<p>Spinnfiske, onlineturneringar och delning av fiskevatten i communityn är planerade till Early Access och senare; de finns inte i demon.</p>
+</section>
+<section aria-labelledby="screens">
+<h2 id="screens">Skärmbilder</h2>
+<p>Klicka på valfri bild för att se den i full storlek.</p>
+<div class="shots">
+<figure><a href="/press/the-fight.jpg" rel="noopener" target="_blank"><img alt="Fisk på: spöet böjt och belastningsmätaren stiger" loading="lazy" src="/press/the-fight-preview.jpg"/></a><figcaption>Fisk på: spöet böjt och belastningsmätaren stiger</figcaption></figure>
+<figure><a href="/press/tackle-box.jpg" rel="noopener" target="_blank"><img alt="Grejlådan: riktiga grejer, sorterade efter märke" loading="lazy" src="/press/tackle-box-preview.jpg"/></a><figcaption>Grejlådan: riktiga grejer, sorterade efter märke</figcaption></figure>
+<figure><a href="/press/bait-box.jpg" rel="noopener" target="_blank"><img alt="Beteslådan: boilies, pop-ups och mer" loading="lazy" src="/press/bait-box-preview.jpg"/></a><figcaption>Beteslådan: boilies, pop-ups och mer</figcaption></figure>
+<figure><a href="/press/sea-rig.jpg" rel="noopener" target="_blank"><img alt="Skärmen för havsriggar: tre riggar, ritade och förklarade" loading="lazy" src="/press/sea-rig-preview.jpg"/></a><figcaption>Skärmen för havsriggar: tre riggar, ritade och förklarade</figcaption></figure>
+<figure><a href="/press/species-creator.jpg" rel="noopener" target="_blank"><img alt="Artskaparen: beskriv en riktig fisk och plantera ut den" loading="lazy" src="/press/species-creator-preview.jpg"/></a><figcaption>Artskaparen: beskriv en riktig fisk och plantera ut den</figcaption></figure>
+<figure><a href="/press/fishing-the-peg.jpg" rel="noopener" target="_blank"><img alt="Karpfiske i mörker, i väntan på napp" loading="lazy" src="/press/fishing-the-peg-preview.jpg"/></a><figcaption>Karpfiske i mörker, i väntan på napp</figcaption></figure>
+<figure><a href="/press/catch-card.jpg" rel="noopener" target="_blank"><img alt="En fjällkarp på 25lb på fångstkortet" loading="lazy" src="/press/catch-card-preview.jpg"/></a><figcaption>En fjällkarp på 25lb på fångstkortet</figcaption></figure>
+<figure><a href="/press/venue-creator-depths.jpg" rel="noopener" target="_blank"><img alt="Fiskevattenbyggaren: djupkurvor och föremål på botten" loading="lazy" src="/press/venue-creator-depths-preview.jpg"/></a><figcaption>Fiskevattenbyggaren: djupkurvor och föremål på botten</figcaption></figure>
+<figure><a href="/press/venue-chooser.jpg" rel="noopener" target="_blank"><img alt="Val av ett fiskevatten byggt av communityn" loading="lazy" src="/press/venue-chooser-preview.jpg"/></a><figcaption>Val av ett fiskevatten byggt av communityn</figcaption></figure>
+<figure><a href="/press/anglers-lodge.jpg" rel="noopener" target="_blank"><img alt="Fiskestugan: fångster och prestationer" loading="lazy" src="/press/anglers-lodge-preview.jpg"/></a><figcaption>Fiskestugan: fångster och prestationer</figcaption></figure>
+<figure><a href="/press/records-board.jpg" rel="noopener" target="_blank"><img alt="Tavlan med fångstrekord" loading="lazy" src="/press/records-board-preview.jpg"/></a><figcaption>Tavlan med fångstrekord</figcaption></figure>
+</div>
+</section>
+<section aria-labelledby="art">
+<h2 id="art">Nyckelbilder och logga</h2>
+<div class="art"><a href="/press/key-art-main-capsule.png" rel="noopener" target="_blank"><img alt="Swimcraft key art, wide" loading="lazy" src="/press/key-art-main-capsule.png"/>Nyckelbild, bred</a>
+<a href="/press/key-art-vertical-capsule.png" rel="noopener" target="_blank"><img alt="Swimcraft key art, portrait" loading="lazy" src="/press/key-art-vertical-capsule.png"/>Nyckelbild, stående</a>
+<a href="/press/swimcraft-logo-transparent.png" rel="noopener" target="_blank"><img alt="Swimcraft logo" loading="lazy" src="/press/swimcraft-logo-transparent.png"/>Logga, genomskinlig PNG</a></div>
+<p>Finns också: <a href="/press/key-art-header-capsule.png">header-kapseln</a> och <a href="/press/swimcraft-logo.svg">loggan som SVG</a>. Allt på den här sidan i en nedladdning: <a href="/press/swimcraft-press-kit.zip">swimcraft-press-kit.zip</a>.</p>
+</section>
+<section aria-labelledby="dev">
+<h2 id="dev">Om utvecklaren</h2>
+<p>Swimcraft görs av Harbledown Digital, Elliott Lees enmansstudio i Canterbury, Kent. Elliott är spelets enda utvecklare och kreativa chef. Spelet bygger vidare på traditionen från Fishing Simulator 2 och dess community av fiskevattenbyggare, och har som mål att ge vem som helst möjligheten att ta med sitt eget vatten in i ett fiskespel.</p>
+</section>
+<section aria-labelledby="contact">
+<h2 id="contact">Kontakt</h2>
+<p>För recensionsnycklar, intervjuer eller ett fiskevatten byggt från din egen fiskeplats, mejla <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</section>
+</main>
+<footer>
+<div class="footer-inner">© 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Integritetspolicy</a> och <a href="https://swimcraft.harbledowndigital.com/terms">Användarvillkor</a>.</div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Svenska</span></summary><ul><li><a href="/press" hreflang="en" lang="en">English</a></li><li><a href="/de/press" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/press" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/press" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/press" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/press" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/press" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/press" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/press" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/press" hreflang="nb" lang="nb">Norsk</a></li><li><a aria-current="true" href="/sv/press" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/press" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/press" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/press" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/press" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/press" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/press" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/press" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/press" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/press" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/press"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/press"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/press"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/press"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/press"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/press"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/press"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/press"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/press"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/press"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/press"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/press"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/press"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/press"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/press"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/press"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/press"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/press"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/press"}, {"c": "", "hl": "en", "n": "English", "u": "/press"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

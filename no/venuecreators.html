@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="nb">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Veiledning for vannbyggere – Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Slik gjør du et bilde av favorittplassen din om til et fiskevann i Swimcraft som består gjennomgangen og blir publisert." name="description"/>
+<meta content="Veiledning for vannbyggere – Swimcraft" property="og:title"/>
+<meta content="Slik gjør du et bilde av favorittplassen din om til et fiskevann i Swimcraft som består gjennomgangen og blir publisert." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/no/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/no/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/no/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Veiledning for vannbyggere</h1>
+<p class="meta"><strong>Slik gjør du et bilde av en fiskeplass du kjenner om til et fiskevann andre fiskere kan fiske i.</strong></p>
+<p class="meta">Sist oppdatert: 18. august 2026</p>
+<div class="intro">Veiledningen for vannbyggeren viser deg kontrollene. Denne siden er resten – skjønnsvurderingene som
+    avgjør om et fiskevann blir et folk kommer tilbake til, og den håndfullen regler som avgjør om det består
+    gjennomgangen. Det er verdt tjue minutter før du bygger ditt første skikkelige vann.</div>
+<ol class="toc">
+<li><a href="#life">Utkast, sendt inn, publisert – hva som faktisk skjer</a></li>
+<li><a href="#photo">Bildet, og reglene som gjelder for det</a></li>
+<li><a href="#peg">Sette opp en plass</a></li>
+<li><a href="#calibrate">Kalibrering – steget folk hopper over og angrer på</a></li>
+<li><a href="#depth">Male bunnen</a></li>
+<li><a href="#stock">Sette ut fisk ærlig</a></li>
+<li><a href="#test">Fisk det før du sender det inn</a></li>
+<li><a href="#review">Hva gjennomgangen ser etter, og hvorfor fiskevann blir sendt tilbake</a></li>
+<li><a href="#after">Etter at det er publisert</a></li>
+</ol>
+<h2 id="life">1. Utkast, sendt inn, publisert</h2>
+<p>Et fiskevann går gjennom tre tilstander, og å kjenne dem sparer deg for mye forvirring senere.</p>
+<table class="pass">
+<tr><th>Tilstand</th><th>Hva det betyr</th></tr>
+<tr><td>Utkast</td><td>Bare ditt. Ingen andre kan se det eller fiske i det. Du kan redigere alt, så ofte du vil.</td></tr>
+<tr><td>Sendt inn</td><td>Venter på gjennomgang. Fortsatt privat. Blir liggende urørt til noen har sett på det.</td></tr>
+<tr><td>Publisert</td><td>I det felles biblioteket. Andre fiskere kan fiske i det, og fangster der teller på rekordtavlene.</td></tr>
+</table>
+<p>Hvis et fiskevann blir sendt tilbake, kommer det tilbake til deg som utkast <strong>med en merknad om hva som må rettes</strong>.
+  Det er ingen svart prikk – de fleste første innsendinger trenger én liten ting. Rett den og send inn på nytt.</p>
+<div class="callout"><strong>I demoen blir alt du bygger liggende som utkast.</strong> Publisering til det felles biblioteket åpner i
+    Early Access, og tokenet for vannbyggeren som du tjener på nivå 5, er lagret og klart til det. Ingenting du lager i
+    demoen blir kastet – så bygg det gode nå.</div>
+<h2 id="photo">2. Bildet</h2>
+<p>Alt annet bygges på dette ene bildet, så det er verdt å være kresen. Spillet tar imot et bilde som er
+  <strong>JPEG eller PNG</strong>, minst <strong>1280 × 720</strong> og under <strong>20MB</strong>. Det er det
+  tekniske minimumet. De nyttige rådene ligger over det:</p>
+<ul>
+<li><strong>Ta bildet der du ville sittet.</strong> Bildet blir utsikten fra plassen, så et bilde
+      tatt stående på bredden i øyehøyde fisker mye bedre enn et som er tatt fra en bro eller en bakke.</li>
+<li><strong>Liggende format, og gi vannet plass.</strong> Du trenger vann i nedre halvdel av bildet for å ha
+      noe å male, og en synlig motsatt bredd eller horisont å bedømme avstand mot.</li>
+<li><strong>Flatt lys slår sterk sol.</strong> Kraftig gjenskinn i overflaten skjuler detaljene du vil tegne opp.</li>
+<li><strong>Ta med noe du kan måle.</strong> En motsatt bredd, en øy, en fortøyd båt, et felt med nøkkeroser – alt
+      der du faktisk vet avstanden. Del 4 forklarer hvorfor dette betyr mer enn noe annet på siden.</li>
+</ul>
+<h3>Reglene som ikke kan forhandles</h3>
+<p>Når du leverer et bilde, ber spillet deg bekrefte at du eier det eller har tillatelse til å bruke det, og at
+  det ikke inneholder noe ulovlig. Det er en ekte erklæring, og dette er reglene bak den. De er hentet fra
+  våre <a href="/terms">vilkår for bruk</a>, oppsummert:</p>
+<ul>
+<li>Bildet må være <strong>ditt</strong>, eller du må ha tillatelse. Ikke fra internett, ikke fra et
+      fiskevanns nettsted, ikke fra noens sosiale medier.</li>
+<li>Ingen <strong>personer som kan gjenkjennes</strong> med mindre de har sagt ja. <strong>Aldri</strong> et bilde som inneholder et barn.</li>
+<li>Beskjær bort private detaljer – <strong>bilskilt, husnavn, adresser, skilt med telefonnumre</strong>.</li>
+<li>Respekter fiskevannet. Hvis et vann er privat, eller eieren ikke ville ønsket at det ble gjenskapt og publisert, ikke
+      publiser det. En test som er verdt å bruke: Ville du vært glad for å vise eieren det du har laget?</li>
+</ul>
+<div class="callout warn">Et fiskevann som bryter disse, blir sendt tilbake ved gjennomgangen, og bildereglene er den aller vanligste grunnen.
+    Nesten alt kan unngås i det øyeblikket du tar bildet.</div>
+<div class="pair">
+<figure>
+<img alt="Et godt valgt bilde av en fiskeplass" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>Bra.</strong> Høyde som fra bredden, flatt lys, vann over nedre halvdel, en motsatt bredd å bedømme avstand mot.</figcaption>
+</figure>
+<figure>
+<img alt="Et dårlig bilde av en fiskeplass med for mye forgrunn" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>Dårlig.</strong> For mye bredd i forgrunnen – en kroket fisk ville svømt gjennom bakken før den nådde håven.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Et fiskevann med flere navngitte plasser" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>Gi plassene navn slik vannet selv kaller dem. «Gatehouse Peg» forteller en fisker noe; «Plass 1» gjør det ikke.</figcaption>
+</figure>
+<h2 id="peg">3. Sette opp en plass</h2>
+<p>Et fiskevann er én eller flere plasser, og hver plass er ett bilde med sin egen bunn, sine egne detaljer og sin egen fisk.
+  Et første fiskevann med <strong>én virkelig god plass</strong> slår et med fire forhastede, hver gang.</p>
+<ul>
+<li><strong>Gi fiskevannet navn slik en fisker ville sagt det.</strong> «Leeds Castle Moat», ikke «min plass 2». Opptil 60
+      tegn, og stedslinja under tar en by eller et fylke.</li>
+<li><strong>Gi hver plass navn etter hvor den er</strong> – «Gatehouse Peg», «The Point», «Bottom Bend». Opptil 40
+      tegn. Disse navnene vises på rekordtavlene under fisken, så de er verdt et øyeblikk.</li>
+<li><strong>Navn på fiskevann, navn på plasser, beskrivelser og fiskenavn blir kontrollert</strong> før de kan lagres.
+      Hold det rent, så blir det aldri et tema.</li>
+</ul>
+<h2 id="calibrate">4. Kalibrering – steget folk hopper over</h2>
+<p>Kalibrering er hvordan spillet gjør et flatt bilde om til ekte avstand. Du tegner opp vannkanten, setter så en
+  <strong>nær nål</strong> og en <strong>fjern nål</strong> og forteller hvor langt unna hver av dem egentlig er.</p>
+<p>Du kan ikke gå videre før hver plass er kalibrert, og det er med vilje: En ukalibrert plass fisker feil på en
+  måte ingen kan se. Et kast som burde nå en øy, faller kort, eller en duppstang på 40 yards når motsatt bredd av et
+  magasin. Fiskevannet ser fint ut og fisker som tull.</p>
+<h3>Slik får du det riktig uten avstandsmåler</h3>
+<p>Du blir ikke bedt om å oppgi en avstand etter hukommelsen. Du blir bedt om å <strong>kjenne igjen</strong> en, og det
+  er fiskere flinke til:</p>
+<ul>
+<li>Tenk i kast. «Den øya er omtrent to behagelige feederkast» er rundt 60–70 yards, og det er et langt
+      bedre svar enn et tall du fant på.</li>
+<li>Bruk det du vet. De fleste plasser i put-and-take-vann er 20–40 yards over til motsatt bredd. En stor grustak eller
+      et magasin er hundrevis. En kanal er 10–15.</li>
+<li>Sett den nære nåla på noe nært og tydelig – kantavsatsen, et nært nøkkeroseblad, enden av plattformen din.</li>
+<li>Hvis du virkelig ikke vet, se på vannet på et kart før du bygger. Det tar et minutt.</li>
+</ul>
+<div class="callout"><strong>Få dette riktig, så blir alt videre riktig.</strong> Nappeavstander, hvor langt stengene dine når, hvor
+    fisken faktisk står – alt måles ut fra disse to nålene.</div>
+<div class="pair">
+<figure>
+<img alt="Tegner opp vannkanten i vannbyggeren" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>Tegner opp vannkanten. Omrisset må lukkes.</figcaption>
+</figure>
+<figure>
+<img alt="Nære og fjerne avstandsnåler satt på en fiskeplass" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>Begge nålene er satt. Alt videre måles ut fra disse to.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. Male bunnen</h2>
+<p>Deretter maler du det som er under vannet: dybdebånd fra kanten og utover, pluss detaljer – vegetasjon, grus, mudder,
+  hindringer, siv. Du må ha minst én rute med vann malt for å fortsette, men en skikkelig malt bunn er det som gjør at
+  et fiskevann føles som ekte vann i stedet for et badekar.</p>
+<ul>
+<li><strong>Følg bildet.</strong> Der overflaten blir mørk, er det som regel dypere. Der du kan se
+      bunnen, mal den grunn. En sivkant er en avsats.</li>
+<li><strong>Grunne kanter, dypere midt ute</strong> er standardformen for de fleste stillestående vann – men en grustak er
+      ujevn, og en kanal har en flat båtrenne med grunne avsatser på begge sider. Bygg vannet du kjenner.</li>
+<li><strong>Detaljer er det fiskere jakter på.</strong> En naken, jevnt malt bunn gir ingen grunn til å kaste
+      noe bestemt sted. Gi plassen to eller tre steder som er verdt å finne – en grusrygg, en mudderrenne, en hindring på
+      den motsatte avsatsen.</li>
+<li><strong>Ikke legg hindringer overalt.</strong> De er spennende der en fisk med rimelighet kan bli mistet. Overalt
+      er det bare frustrerende.</li>
+</ul>
+<div class="callout"><strong>To av disse telles, de vurderes ikke.</strong> En plass trenger <strong>minst tre forskjellige
+    dybdebånd</strong> og <strong>minst to forskjellige typer detaljer</strong>, og den må ha
+    <strong>ingen tomme ruter noe sted i vann det kan fiskes i</strong>. Det er tallene gjennomgangen sjekker, og
+    tallene redigeringsverktøyet holder deg til – alt annet i denne delen er råd om å lage et vann som er verdt å
+    fiske i.</div>
+<div class="pair">
+<figure>
+<img alt="Et dybdekart med flere tydelige bånd" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>Består.</strong> Flere tydelige bånd, grunnere kanter enn det åpne vannet, en bunn med ekte form.</figcaption>
+</figure>
+<figure>
+<img alt="Et flatt dybdekart med bare ett bånd" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>Sendt tilbake.</strong> Ett flatt bånd over hele vannet. Ingenting å finne, ingenting å lære.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="Et variert kart over detaljer" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>Består.</strong> Vegetasjon på grunna, mudder i dypet, grus på ryggen – og ingen umalte hull.</figcaption>
+</figure>
+<figure>
+<img alt="Et nakent kart over detaljer med umalte hull" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>Sendt tilbake.</strong> Naken, og med tomme ruter igjen i vann det kan fiskes i. Den andre halvdelen er den som lurer folk flest.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. Sette ut fisk ærlig</h2>
+<p>Utsettingen er der et fiskevann blir laget eller ødelagt, og det er der spillet er strengest med deg. Tre grenser gjelder,
+  og hver av dem finnes av en grunn.</p>
+<div class="step">
+<span class="num">Grense én</span><h3>Kapasitet – vannet kan bare romme så mye fisk</h3>
+<p>Kapasiteten regnes ut fra vannvolumet du har malt og vanskelighetsgraden til fiskevannet. En liten, grunn dam
+    kan ikke romme 400 lb karpe. Setter du ut for mye på en plass, kan den ikke lagres før du tar noe ut eller gjør fiskevannet lettere.</p>
+</div>
+<div class="step">
+<span class="num">Grense to</span><h3>Vanskelighetsgraden bestemmer både preget og tettheten</h3>
+<p>Vanskelighetsgraden er ikke en glidebryter for hvor vanskelig du vil at det skal føles, og den endrer ikke hvordan fisken oppfører seg. Den
+    bestemmer hvor mye fisk vannet rommer og hvilke størrelsesklasser du kan bruke – ingenting annet. Et vanskelig vann fisker vanskelig fordi
+    det er mindre i det, og det som er der, er større.</p>
+<table class="pass">
+<tr><th>Vanskelighetsgrad</th><th>Hva du får</th></tr>
+<tr><td>Lett</td><td>Tett besatt, hyppige napp, liten til middels stor fisk. Et vann med mye action.</td></tr>
+<tr><td>Middels</td><td>Omtrent halvparten av bestanden i Lett. Færre napp, bedre gjennomsnittsstørrelse.</td></tr>
+<tr><td>Vanskelig</td><td>Glissent besatt. Lengre ventetid, og det som tar, er større – opp til Storfisk.</td></tr>
+<tr><td>Storfisk</td><td>Svært glissent besatt, lang ventetid med vilje. Den eneste innstillingen som tillater Kjempestorfisk og Monster.</td></tr>
+</table>
+<p>Hvis en fisk du vil ha, er for stor for vanskelighetsgraden du valgte, forteller spillet deg den laveste vanskelighetsgraden
+    den ville passet i. Å heve vanskelighetsgraden er en ekte avveining: Du får den store fisken, og vannet blir stille.</p>
+</div>
+<div class="step">
+<span class="num">Grense tre</span><h3>Ingenting slår den nasjonale rekorden</h3>
+<p>Hver art har et tak på den nasjonale rekorden for landet fiskevannet ligger i. Du kan ikke sette ut en skjellkarpe på 90 lb
+    i en gårdsdam i Kent, og redigeringsverktøyet lar deg ikke prøve. Det finnes også en mild advarsel for en fisk som er
+    lovlig, men drøy for vannet du har malt – den stopper deg ikke, den forteller deg bare at en erfaren
+    fisker vil legge merke til det.</p>
+</div>
+<h3>Navngitt fisk</h3>
+<p>En navngitt fisk er den folk kommer for. Gi den en art, et navn og en vekt, så havner den på plassen; legg til et
+  bilde av den, så vises den på fangstskjermen når noen endelig får den på land. Et fiskevann med to eller tre kjente
+  beboere har en historie. Et fiskevann med femten har ingen.</p>
+<h3>Utsettingen som gir et godt vann</h3>
+<ul>
+<li><strong>Blandede størrelser.</strong> Et vann med bare fisk over 10 lb er kjedelig, fordi ingenting du fanger er en overraskelse.
+      Småfisk er det som bygger opp en fiskeplass – se <a href="/no/swim-confidence">veiledningen for SWIM-tillit</a>.</li>
+<li><strong>Arter som hører sammen.</strong> Mort, brasme, suter og karpe i en gårdsdam, ja. Ikke alt
+      på lista bare fordi lista var der.</li>
+<li><strong>La det være rom.</strong> Setter du ut helt opp til kapasiteten, har du ikke plass til fisken du kommer på
+      neste uke.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="En plass med blandede arter og størrelser" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>Blandede arter, blandede størrelser, og kapasitetsmåleren har rom igjen i stedet for å være presset helt til streken.</figcaption>
+</figure>
+<figure>
+<img alt="Advarselen om overkapasitet" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>Forbi grensen stopper redigeringsverktøyet deg. Denne er regning, ikke skjønn.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="En navngitt fisk lagt til på en plass" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>En navngitt fisk, satt ut og bekreftet. To eller tre per fiskevann, med vekter vannet kunne rommet – de er unntaket, ikke bestanden.</figcaption>
+</figure>
+<h2 id="test">7. Fisk det før du sender det inn</h2>
+<p>Redigeringsverktøyet har en testmodus, og den er ikke valgfri i noen praktisk forstand. Ti minutter i ditt eget fiskevann
+  finner ting som ingen mengde titting på kartet vil finne:</p>
+<ul>
+<li>Kan du faktisk <strong>nå</strong> detaljene du malte, med en fornuftig stang? Hvis alt det gode er utenfor
+      rekkevidde, er kalibreringen feil, eller detaljene ligger for langt ute.</li>
+<li>Stemmer dybden under duppen <strong>med det bildet ser ut som</strong>?</li>
+<li>Får du napp i et tempo som passer vanskelighetsgraden du valgte?</li>
+<li>Er det en grunn til å flytte seg? En plass der ett punkt åpenbart er riktig og alt annet er dødt, er en plass med
+      ett kast i seg.</li>
+</ul>
+<figure>
+<img alt="Prøvefiske i ditt eget fiskevann inne i redigeringsverktøyet" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>Testmodus. Ti minutter her finner det som ingen mengde titting på kartet vil finne.</figcaption>
+</figure>
+<h2 id="review">8. Hva gjennomgangen ser etter</h2>
+<p>Hvert fiskevann blir sett på av et menneske før det blir med i det felles biblioteket. De gir ikke karakter på kunsten din. De
+  sjekker en kort liste, og det er den samme lista hver gang:</p>
+<table class="pass">
+<tr><th>Sjekkes</th><th>Hva som sender et fiskevann tilbake</th></tr>
+<tr><td>Bildet</td><td>Ikke ditt, inneholder personer som kan gjenkjennes eller et barn, viser private detaljer, eller er egentlig ikke en fiskeplass.</td></tr>
+<tr><td>Ordene</td><td>Navn på fiskevannet, beskrivelse eller fiskenavn som bryter retningslinjene for fellesskapet.</td></tr>
+<tr><td>Ærlighet</td><td>Utsetting eller navngiving som er en spøk på spillets bekostning – en dam stappfull av rekordfisk, en plass navngitt for å lure tavlene.</td></tr>
+<tr><td>Spillbarhet</td><td>Ingen kalibrering verdt navnet, en umalt bunn, eller et fiskevann som tydeligvis ikke kan fiskes i.</td></tr>
+<tr><td>Bunnen, telt</td><td>Færre enn <strong>tre forskjellige dybdebånd</strong> på en plass, færre enn <strong>to forskjellige typer detaljer</strong>, eller <strong>en eneste tom rute i vann det kan fiskes i</strong>. Dette er regning, ikke skjønn, så de er de enkleste å bestå og de enkleste å snuble i.</td></tr>
+</table>
+<p>Hva som <strong>ikke</strong> sjekkes: om det er pent, om det ligner på noen andres, eller om den som går gjennom det,
+  ville likt å fiske der. Et beskjedent fiskevann bygget ærlig består. Et spektakulært et bygget på noen andres bilde
+  gjør det ikke.</p>
+<figure>
+<img alt="Et publisert fiskevann i det felles biblioteket" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>Publisert. Dette er kortet alle andre fiskere ser – og der vannet ditt havner.</figcaption>
+</figure>
+<h2 id="after">9. Etter at det er publisert</h2>
+<ul>
+<li><strong>Endringer går gjennom gjennomgang igjen.</strong> Når et fiskevann er publisert, er innholdet låst, og alle endringer
+      du gjør, blir lagt klar og sett på igjen før de når andre spillere. Så få det riktig før du sender inn, i stedet
+      for å planlegge å lappe det.</li>
+<li><strong>Du kan trekke det tilbake.</strong> Å trekke tilbake tar et fiskevann ut av biblioteket – og rekordene forsvinner fra
+      tavlene sammen med det – uten å slette noe. Det er din bryter, og den kan reverseres.</li>
+<li><strong>Rekorder satt der bærer navnet på fiskevannet ditt</strong>, og plassens, overalt der de vises. Det er
+      grunnen til å gi plassene skikkelige navn fra starten.</li>
+</ul>
+<div class="callout"><strong>Kortversjonen.</strong> Bruk ditt eget bilde. Kalibrer det ærlig. Mal en bunn med steder verdt å
+    kaste mot. Sett ut fisk som i et ekte vann, ikke en ønskeliste. Fisk det selv før du sender det. Gjør du de fem, så
+    består det.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Spørsmål, eller mener du vi har tatt en feil avgjørelse i en gjennomgang? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/no/">Forside</a> · <a href="/no/swim-confidence">Veiledning for SWIM-tillit</a> · <a href="/terms">Vilkår for bruk</a> · <a href="/privacy">Personvern</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Lukk (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Forrige" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Neste" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Norsk</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a aria-current="true" href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

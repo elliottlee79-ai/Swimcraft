@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Le guide du créateur de plans d'eau — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Comment transformer la photo de ton poste préféré en plan d'eau Swimcraft qui passe la vérification et se fait publier." name="description"/>
+<meta content="Le guide du créateur de plans d'eau — Swimcraft" property="og:title"/>
+<meta content="Comment transformer la photo de ton poste préféré en plan d'eau Swimcraft qui passe la vérification et se fait publier." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/fr/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/fr/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Le guide du créateur de plans d'eau</h1>
+<p class="meta"><strong>Comment transformer la photo d'un poste que tu connais en plan d'eau où d'autres pêcheurs peuvent pêcher.</strong></p>
+<p class="meta">Dernière mise à jour : 18 août 2026</p>
+<div class="intro">Le tutoriel du créateur de plans d'eau te montre les commandes. Cette page, c'est tout le reste — les choix
+    qui font qu'un plan d'eau donne envie d'y revenir, et la poignée de règles qui décident s'il passe la
+    vérification. Ça vaut vingt minutes avant de construire ta première vraie eau.</div>
+<ol class="toc">
+<li><a href="#life">Brouillon, soumis, publié — ce qui se passe vraiment</a></li>
+<li><a href="#photo">La photo, et les règles qui s'y appliquent</a></li>
+<li><a href="#peg">Créer un poste</a></li>
+<li><a href="#calibrate">L'étalonnage — l'étape qu'on saute et qu'on regrette</a></li>
+<li><a href="#depth">Peindre le fond</a></li>
+<li><a href="#stock">Un empoissonnement honnête</a></li>
+<li><a href="#test">Pêche-le avant de le soumettre</a></li>
+<li><a href="#review">Ce que regarde la vérification, et pourquoi des plans d'eau sont renvoyés</a></li>
+<li><a href="#after">Une fois en ligne</a></li>
+</ol>
+<h2 id="life">1. Brouillon, soumis, publié</h2>
+<p>Un plan d'eau passe par trois états, et les connaître t'évitera bien des confusions plus tard.</p>
+<table class="pass">
+<tr><th>État</th><th>Ce que ça veut dire</th></tr>
+<tr><td>Brouillon</td><td>Rien qu'à toi. Personne d'autre ne peut le voir ni y pêcher. Tu peux tout modifier, aussi souvent que tu veux.</td></tr>
+<tr><td>Soumis</td><td>En attente de vérification. Toujours privé. Il reste tel quel jusqu'à ce que quelqu'un l'ait regardé.</td></tr>
+<tr><td>Publié</td><td>Dans la bibliothèque partagée. Les autres pêcheurs peuvent y pêcher, et les prises qui y sont faites comptent pour les tableaux des records.</td></tr>
+</table>
+<p>Si un plan d'eau est renvoyé, il te revient sous forme de brouillon <strong>avec une note indiquant ce qu'il faut corriger</strong>.
+  Ce n'est pas un mauvais point — la plupart des premières soumissions ont besoin d'une petite chose. Corrige-la et soumets-le à nouveau.</p>
+<div class="callout"><strong>Dans la démo, tout ce que tu construis reste en brouillon.</strong> La publication dans la bibliothèque partagée ouvre avec
+    l'accès anticipé, et le jeton de création de plan d'eau que tu gagnes au niveau 5 est mis de côté en attendant. Rien de ce que tu crées dans la
+    démo n'est perdu — alors construis le bon dès maintenant.</div>
+<h2 id="photo">2. La photo</h2>
+<p>Tout le reste est construit sur cette seule image, alors ça vaut la peine d'être exigeant. Le jeu accepte une photo
+  <strong>JPEG ou PNG</strong>, d'au moins <strong>1280 × 720</strong>, et de moins de <strong>20MB</strong>. C'est le
+  minimum technique. Les conseils utiles vont au-delà :</p>
+<ul>
+<li><strong>Prends la photo d'où tu serais assis.</strong> La photo devient la vue depuis le poste, donc une image
+      prise debout sur la berge à hauteur des yeux se pêche bien mieux qu'une image prise depuis un pont ou une colline.</li>
+<li><strong>En paysage, et laisse de la place à l'eau.</strong> Il te faut de l'eau dans la moitié basse du cadre pour avoir
+      quelque chose à peindre, et une berge d'en face ou un horizon visible pour juger les distances.</li>
+<li><strong>Une lumière douce vaut mieux qu'un grand soleil.</strong> Un fort reflet sur la surface cache les éléments que tu veux tracer.</li>
+<li><strong>Inclus quelque chose que tu peux mesurer.</strong> Une berge d'en face, une île, un bateau amarré, un herbier de nénuphars — tout ce
+      dont tu connais vraiment la distance. La section 4 explique pourquoi c'est plus important que tout le reste de la page.</li>
+</ul>
+<h3>Les règles non négociables</h3>
+<p>Quand tu fournis une image, le jeu te demande de confirmer qu'elle t'appartient ou que tu as l'autorisation de l'utiliser, et
+  qu'elle ne contient rien d'illégal. C'est une vraie déclaration, et voici les règles qui la sous-tendent. Ce sont celles de
+  nos <a href="/terms">Conditions d'utilisation</a>, en résumé :</p>
+<ul>
+<li>La photo doit être <strong>la tienne</strong>, ou tu dois avoir l'autorisation. Pas prise sur Internet, pas sur le site d'un
+      plan d'eau, pas sur les réseaux sociaux de quelqu'un.</li>
+<li>Aucune <strong>personne identifiable</strong> sans son accord. <strong>Jamais</strong> de photo montrant un enfant.</li>
+<li>Recadre les détails privés — <strong>plaques d'immatriculation, noms de maisons, adresses, panneaux avec des numéros de téléphone</strong>.</li>
+<li>Respecte le plan d'eau. Si une eau est privée, ou si son propriétaire ne voudrait pas qu'elle soit recréée et publiée, ne la
+      publie pas. Le bon test : serais-tu content de montrer au propriétaire ce que tu as fait ?</li>
+</ul>
+<div class="callout warn">Un plan d'eau qui enfreint ces règles est renvoyé à la vérification, et les règles sur les photos en sont de loin la raison la plus fréquente.
+    Presque tout peut être évité au moment où tu prends la photo.</div>
+<div class="pair">
+<figure>
+<img alt="Une photo de poste bien choisie" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>Bien.</strong> Hauteur de berge, lumière douce, de l'eau sur toute la moitié basse, une berge d'en face pour juger les distances.</figcaption>
+</figure>
+<figure>
+<img alt="Une mauvaise photo de poste avec trop de premier plan" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>Mauvais.</strong> Trop de berge au premier plan — un poisson ferré nagerait à travers le sol avant d'atteindre l'épuisette.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Un plan d'eau avec plusieurs postes nommés" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>Nomme tes postes comme on les nomme sur place. « Poste de la Loge » dit quelque chose à un pêcheur ; « Poste 1 », non.</figcaption>
+</figure>
+<h2 id="peg">3. Créer un poste</h2>
+<p>Un plan d'eau, c'est un ou plusieurs postes, et chaque poste est une photo avec son propre fond, ses propres éléments et ses propres poissons.
+  Un premier plan d'eau avec <strong>un seul très bon poste</strong> vaut mieux qu'un plan d'eau avec quatre postes bâclés, à chaque fois.</p>
+<ul>
+<li><strong>Nomme le plan d'eau comme un pêcheur le dirait.</strong> « Douves du château de Leeds », pas « mon poste 2 ». Jusqu'à 60
+      caractères, et la ligne de lieu en dessous accepte une ville ou un comté.</li>
+<li><strong>Nomme chaque poste selon son emplacement</strong> — « Poste de la Loge », « La Pointe », « Le Coude du bas ». Jusqu'à 40
+      caractères. Ces noms apparaissent sur les tableaux des records sous le poisson, ils méritent donc un instant de réflexion.</li>
+<li><strong>Les noms de plans d'eau, de postes, les descriptions et les noms de poissons sont filtrés</strong> avant de pouvoir être enregistrés.
+      Reste correct et tu n'en entendras jamais parler.</li>
+</ul>
+<h2 id="calibrate">4. L'étalonnage — l'étape qu'on saute</h2>
+<p>L'étalonnage, c'est la façon dont le jeu transforme une image plate en vraies distances. Tu traces le bord de l'eau, puis tu places un
+  <strong>repère proche</strong> et un <strong>repère lointain</strong> et tu indiques à quelle distance se trouve vraiment chacun.</p>
+<p>Tu ne peux pas continuer tant que chaque poste n'est pas étalonné, et c'est voulu : un poste non étalonné pêche mal d'une
+  façon que personne ne voit. Un lancer qui devrait atteindre une île tombe court, ou une canne à flotteur de 40 yards atteint la berge d'en face d'un
+  réservoir. Le plan d'eau a l'air bien et se pêche n'importe comment.</p>
+<h3>Comment bien faire sans télémètre</h3>
+<p>On ne te demande pas d'annoncer une distance de mémoire. On te demande d'en <strong>reconnaître</strong> une, ce pour quoi
+  les pêcheurs sont doués :</p>
+<ul>
+<li>Pense en lancers. « Cette île, c'est à peu près deux lancers de feeder confortables » correspond à environ 60–70 yards, et c'est une bien
+      meilleure réponse qu'un chiffre inventé.</li>
+<li>Sers-toi de ce que tu sais. La plupart des postes d'étangs commerciaux font 20–40 yards jusqu'à la berge d'en face. Une grande gravière ou un
+      réservoir, c'est des centaines. Un canal, 10–15.</li>
+<li>Place le repère proche sur quelque chose de proche et de net — le talus du bord, un nénuphar proche, le bout de ton ponton.</li>
+<li>Si tu ne sais vraiment pas, va regarder l'eau sur une carte avant de construire. Ça prend une minute.</li>
+</ul>
+<div class="callout"><strong>Fais-le bien et tout ce qui suit sera juste.</strong> Les distances de touche, la portée de tes cannes, l'endroit où
+    se tiennent vraiment les poissons — tout est mesuré à partir de ces deux repères.</div>
+<div class="pair">
+<figure>
+<img alt="Tracé de la bordure de l'eau dans l'éditeur de plans d'eau" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>Tracé du bord de l'eau. Le contour doit être fermé.</figcaption>
+</figure>
+<figure>
+<img alt="Repères de distance proche et lointain placés sur un poste" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>Les deux repères sont placés. Tout ce qui suit est mesuré à partir de ces deux-là.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. Peindre le fond</h2>
+<p>Ensuite, tu peins ce qu'il y a sous l'eau : des zones de profondeur depuis le bord vers le large, plus des éléments — herbiers, gravier, vase,
+  obstacles, roseaux. Il te faut au moins une case d'eau peinte pour continuer, mais c'est un fond bien peint qui donne à un
+  plan d'eau l'air d'une vraie eau plutôt que d'une baignoire.</p>
+<ul>
+<li><strong>Suis l'image.</strong> Là où la surface devient sombre, c'est généralement plus profond. Là où tu vois le
+      fond, peins-le peu profond. Une ligne de roseaux, c'est un talus.</li>
+<li><strong>Bords peu profonds, milieu plus profond</strong> : c'est la forme par défaut de la plupart des eaux closes — mais une gravière est
+      bosselée et un canal a un chenal de navigation plat avec des talus peu profonds de chaque côté. Construis l'eau que tu connais.</li>
+<li><strong>Les éléments, c'est ce que les pêcheurs recherchent.</strong> Un fond nu, peint uniformément, ne donne à personne de raison de lancer
+      à un endroit plutôt qu'un autre. Donne au poste deux ou trois coins qui valent la peine d'être trouvés — un haut-fond de gravier, une rigole de vase, un obstacle sur le
+      talus d'en face.</li>
+<li><strong>Ne mets pas des obstacles partout.</strong> Ils sont palpitants là où on pourrait raisonnablement perdre un poisson. Partout,
+      c'est juste frustrant.</li>
+</ul>
+<div class="callout"><strong>Deux de ces points sont comptés, pas jugés.</strong> Un poste a besoin d'<strong>au moins trois zones de profondeur
+    distinctes</strong> et d'<strong>au moins deux types d'éléments différents</strong>, et il ne doit avoir
+    <strong>aucune case vide dans l'eau pêchable</strong>. Ce sont les chiffres que vérifie la vérification et les
+    chiffres que l'éditeur t'imposera — tout le reste de cette section, ce sont des conseils pour faire une eau qui vaille la peine
+    d'être pêchée.</div>
+<div class="pair">
+<figure>
+<img alt="Une carte des profondeurs avec plusieurs zones distinctes" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>Accepté.</strong> Plusieurs zones distinctes, des bords moins profonds que le large, un fond qui a une vraie forme.</figcaption>
+</figure>
+<figure>
+<img alt="Une carte des profondeurs plate, à une seule zone" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>Renvoyé.</strong> Une seule zone plate sur toute l'eau. Rien à trouver, rien à apprendre.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="Une carte des éléments variée" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>Accepté.</strong> Des herbiers sur les hauts-fonds, de la vase dans les profondeurs, du gravier sur le haut-fond — et aucun trou non peint.</figcaption>
+</figure>
+<figure>
+<img alt="Une carte des éléments nue avec des trous non peints" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>Renvoyé.</strong> Nu, et avec des cases vides laissées dans l'eau pêchable. C'est ce second point qui piège la plupart des gens.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. Un empoissonnement honnête</h2>
+<p>L'empoissonnement, c'est là qu'un plan d'eau se fait ou se défait, et c'est là que le jeu est le plus strict avec toi. Trois limites s'appliquent,
+  et chacune a sa raison d'être.</p>
+<div class="step">
+<span class="num">Limite n° 1</span><h3>La capacité — l'eau ne peut contenir qu'une certaine quantité de poissons</h3>
+<p>La capacité est calculée à partir du volume d'eau que tu as peint et de la difficulté du plan d'eau. Une petite flaque peu profonde
+    ne peut pas contenir 400lb de carpes. Surempoissonne un poste et il ne s'enregistrera pas tant que tu n'en auras pas retiré ou rendu le plan d'eau plus facile.</p>
+</div>
+<div class="step">
+<span class="num">Limite n° 2</span><h3>La difficulté décide à la fois du gabarit et de la densité</h3>
+<p>La difficulté n'est pas un curseur pour régler à quel point tu veux que ce soit dur, et elle ne change pas le comportement des poissons. Elle fixe
+    la quantité de poissons que contient l'eau et les catégories de taille que tu peux utiliser — rien d'autre. Une eau difficile se pêche difficilement parce
+    qu'il y a moins de poissons dedans et que ceux qui y sont sont plus gros.</p>
+<table class="pass">
+<tr><th>Difficulté</th><th>Ce qu'elle te donne</th></tr>
+<tr><td>Facile</td><td>Densément empoissonnée, touches fréquentes, poissons petits à moyens. Une eau à touches.</td></tr>
+<tr><td>Intermédiaire</td><td>Environ la moitié des poissons de Facile. Moins de touches, une meilleure taille moyenne.</td></tr>
+<tr><td>Difficile</td><td>Peu empoissonnée. Des attentes plus longues, et ce qui mord est plus gros — jusqu'à Gros poissons.</td></tr>
+<tr><td>Gros poissons</td><td>Très peu empoissonnée, de longues attentes, c'est voulu. Le seul réglage qui autorise Très gros poissons et Monstre.</td></tr>
+</table>
+<p>Si un poisson que tu veux est trop gros pour la difficulté choisie, le jeu t'indique la difficulté minimale qui
+    lui conviendrait. Augmenter la difficulté est un vrai compromis : tu obtiens les gros poissons, et l'eau devient calme.</p>
+</div>
+<div class="step">
+<span class="num">Limite n° 3</span><h3>Rien ne dépasse le record national</h3>
+<p>Chaque espèce est plafonnée au record national du pays où se trouve le plan d'eau. Tu ne peux pas mettre une carpe commune de 90lb
+    dans un étang de ferme du Kent, et l'éditeur ne te laissera pas essayer. Il y a aussi un avertissement léger pour un poisson qui est
+    autorisé mais exagéré pour l'eau que tu as peinte — celui-là ne te bloque pas, il te prévient juste qu'un pêcheur expérimenté
+    le remarquera.</p>
+</div>
+<h3>Poissons nommés</h3>
+<p>Un poisson nommé, c'est celui pour lequel les gens viennent. Donne-lui une espèce, un nom et un poids et il est placé sur le poste ; ajoute
+  une photo de lui et elle apparaît sur l'écran de prise quand quelqu'un finit par le sortir. Un plan d'eau avec deux ou trois
+  pensionnaires connus a une histoire. Un plan d'eau qui en a quinze n'en a aucune.</p>
+<h3>L'empoissonnement qui fait une bonne eau</h3>
+<ul>
+<li><strong>Des tailles variées.</strong> Une eau où il n'y a que des poissons de plus de 10lb est ennuyeuse, parce que rien de ce que tu prends n'est une surprise.
+      Ce sont les petits poissons qui font monter un poste — voir le <a href="/fr/swim-confidence">Guide de la confiance SWIM</a>.</li>
+<li><strong>Des espèces qui vont ensemble.</strong> Gardons, brèmes, tanches et carpes dans un étang de ferme, oui. Pas tout ce qui figure
+      dans la liste simplement parce que la liste était là.</li>
+<li><strong>Garde de la marge.</strong> Empoissonner jusqu'à la capacité maximale ne te laisse aucune place pour ajouter les poissons auxquels tu penseras
+      la semaine prochaine.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="Un poste empoissonné avec des espèces et des tailles variées" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>Des espèces variées, des tailles variées, et la jauge de capacité laissée avec de la marge plutôt que poussée jusqu'à la limite.</figcaption>
+</figure>
+<figure>
+<img alt="L'avertissement de capacité dépassée" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>Au-delà de la limite, l'éditeur t'arrête. C'est de l'arithmétique, pas du jugement.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Un poisson nommé ajouté à un poste" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>Un poisson nommé, placé et confirmé. Deux ou trois par plan d'eau, à des poids que l'eau pourrait accueillir — ils sont l'exception, pas le cheptel.</figcaption>
+</figure>
+<h2 id="test">7. Pêche-le avant de le soumettre</h2>
+<p>L'éditeur a un mode test, et en pratique il n'est pas facultatif. Dix minutes sur ton propre plan d'eau
+  te feront découvrir des choses que tu ne trouveras jamais en regardant la carte :</p>
+<ul>
+<li>Peux-tu vraiment <strong>atteindre</strong> les éléments que tu as peints avec une canne raisonnable ? Si tout ce qui est intéressant est hors de
+      portée, l'étalonnage est faux ou les éléments sont trop loin.</li>
+<li>La profondeur sous le flotteur <strong>correspond-elle à ce que montre l'image</strong> ?</li>
+<li>As-tu des touches à un rythme qui correspond à la difficulté choisie ?</li>
+<li>Y a-t-il une raison de bouger ? Un poste où un seul coin est manifestement le bon et où tout le reste est mort, c'est un poste avec
+      un seul lancer dedans.</li>
+</ul>
+<figure>
+<img alt="Test de pêche sur ton propre plan d'eau dans l'éditeur" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>Mode test. Dix minutes ici te font découvrir ce que tu ne trouveras jamais en regardant la carte.</figcaption>
+</figure>
+<h2 id="review">8. Ce que regarde la vérification</h2>
+<p>Chaque plan d'eau est examiné par une personne avant de rejoindre la bibliothèque partagée. Elle ne note pas ton œuvre. Elle
+  vérifie une courte liste, et c'est la même liste à chaque fois :</p>
+<table class="pass">
+<tr><th>Vérifié</th><th>Ce qui fait renvoyer un plan d'eau</th></tr>
+<tr><td>La photo</td><td>Pas la tienne, montre des personnes identifiables ou un enfant, montre des détails privés, ou n'est pas vraiment un poste de pêche.</td></tr>
+<tr><td>Les textes</td><td>Un nom de plan d'eau, une description ou des noms de poissons qui enfreignent les règles de la communauté.</td></tr>
+<tr><td>L'honnêteté</td><td>Un empoissonnement ou des noms qui se moquent du jeu — une flaque bourrée de poissons records, un poste nommé pour truquer les classements.</td></tr>
+<tr><td>La jouabilité</td><td>Aucun étalonnage digne de ce nom, un fond non peint, ou un plan d'eau où il est clairement impossible de pêcher.</td></tr>
+<tr><td>Le fond, compté</td><td>Moins de <strong>trois zones de profondeur distinctes</strong> sur un poste, moins de <strong>deux types d'éléments différents</strong>, ou <strong>une case vide dans l'eau pêchable</strong>. C'est de l'arithmétique plutôt que du jugement, donc ce sont les points les plus faciles à valider et les plus faciles à rater.</td></tr>
+</table>
+<p>Ce qui n'est <strong>pas</strong> vérifié : si c'est joli, si ça ressemble à celui de quelqu'un d'autre, ou si la personne qui vérifie
+  aimerait y pêcher. Un plan d'eau modeste construit honnêtement est accepté. Un plan d'eau spectaculaire construit sur la photo de quelqu'un d'autre
+  ne l'est pas.</p>
+<figure>
+<img alt="Un plan d'eau publié dans la bibliothèque partagée" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>Publié. Voici la carte que voient tous les autres pêcheurs — et là où ton eau finit.</figcaption>
+</figure>
+<h2 id="after">9. Une fois en ligne</h2>
+<ul>
+<li><strong>Les modifications repassent par la vérification.</strong> Une fois un plan d'eau publié, son contenu est verrouillé, et toute modification
+      que tu fais est mise en attente et réexaminée avant d'arriver chez les autres joueurs. Alors fais les choses bien avant de soumettre plutôt
+      que de prévoir de corriger après.</li>
+<li><strong>Tu peux le retirer.</strong> Retirer un plan d'eau le sort de la bibliothèque — et ses records quittent les
+      tableaux avec lui — sans rien supprimer. C'est ton interrupteur, et c'est réversible.</li>
+<li><strong>Les records établis là portent le nom de ton plan d'eau</strong>, et celui du poste, partout où ils apparaissent. C'est la
+      raison de bien nommer les postes dès le départ.</li>
+</ul>
+<div class="callout"><strong>En bref.</strong> Utilise ta propre photo. Étalonne-la honnêtement. Peins un fond avec des endroits où ça vaut la peine de
+    lancer. Empoissonne-le comme une vraie eau plutôt que comme une liste de souhaits. Pêche-le toi-même avant de l'envoyer. Fais ces cinq choses et
+    il sera accepté.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Des questions, ou tu penses qu'on s'est trompés dans une décision de vérification ? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/fr/">Accueil</a> · <a href="/fr/swim-confidence">Guide de la confiance SWIM</a> · <a href="/terms">Conditions d'utilisation</a> · <a href="/privacy">Confidentialité</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Fermer (Échap)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Précédent" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Suivant" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Français</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a aria-current="true" href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

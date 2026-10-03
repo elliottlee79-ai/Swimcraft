@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="es-419">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Novedades de Swimcraft</title>
+<meta content="Todo lo que ha cambiado en la demo de Swimcraft desde la primera versión." name="description"/>
+<meta content="Novedades de Swimcraft" property="og:title"/>
+<meta content="Todo lo que ha cambiado en la demo de Swimcraft desde la primera versión." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://swimcraft.harbledowndigital.com/es-419/whats-new" property="og:url"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url(/'/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+<link href="https://swimcraft.harbledowndigital.com/es-419/whats-new" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/whats-new" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/whats-new" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/whats-new" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/whats-new" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/whats-new" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/whats-new" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/whats-new" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/whats-new" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/whats-new" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/whats-new" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/whats-new" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/whats-new" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/whats-new" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/whats-new" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/whats-new" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/whats-new" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/whats-new" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/whats-new" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/whats-new" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="topbar">
+<div class="topbar-inner"><a aria-label="Swimcraft home" class="wordmark" href="/es-419/"><span class="swim">swim</span><span class="craft">craft</span></a>
+<a class="back" href="/es-419/">Volver a la página de inicio</a></div>
+</header>
+<div class="intro">
+<h1>Novedades</h1>
+<div class="build">Última actualización de la demo: 0.111.530, 3 de octubre de 2026</div>
+<p class="lede">Los cambios más recientes van primero, y después todo lo que ha cambiado desde la primera versión de la demo (0.111.405). Gracias a todos los que la pescaron y nos contaron lo que encontraron. Mira lo que viene en la <a href="/es-419/roadmap">hoja de ruta</a>.</p>
+</div>
+<main>
+<section aria-labelledby="v530-languages">
+<h2 id="v530-languages"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12 H21"></path><path d="M12 3 C15 6 15 18 12 21 C9 18 9 6 12 3 Z"></path></svg>
+      Nuevo en 0.111.530: Swimcraft en tu idioma</h2>
+<ul>
+<li>Ahora puedes jugar todo el juego en 20 idiomas: inglés, alemán, francés, español (España), español (Latinoamérica), portugués (Brasil), italiano, neerlandés, danés, noruego, sueco, finés, polaco, checo, ruso, turco, japonés, chino simplificado, chino tradicional y coreano.</li>
+<li>Están cubiertas todas las pantallas: los menús, el tutorial, la caja de equipo y la caja de carnadas, la pantalla de pesca, las tarjetas de captura, los récords, el creador de lugares de pesca y el creador de especies.</li>
+<li>La primera vez que inicias el juego, toma el idioma de tu Windows. Puedes cambiarlo cuando quieras desde Idioma en el menú de inicio.</li>
+<li>Las traducciones son nuevas, así que si una línea suena mal, presiona F8 y haz clic en ella para avisarnos. Leemos todos los reportes.</li>
+<li>Pequeña corrección: el recuento de la sesión ya no dice "fishs".</li>
+</ul>
+</section>
+<section aria-labelledby="v509-fixes">
+<h2 id="v509-fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      Nuevo en 0.111.509: correcciones</h2>
+<ul>
+<li>Ningún pez pesa ya menos de un dracma. Los peces más pequeñitos podían aparecer como 0lb 0oz 0dr. Gracias a Dave por detectarlo.</li>
+<li>En el creador de especies, una foto elegida antes de ponerle nombre a tu pez ahora se puede volver a elegir una vez que se lo pusiste.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-tackle">
+<h2 id="v507-tackle"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nuevo en 0.111.507: la caja de equipo y la caja de carnadas</h2>
+<ul>
+<li>Las dos cajas se rehicieron desde cero. Cada caña, carrete, línea, anzuelo y carnada tiene ahora su propia imagen, ordenada en secciones por marca.</li>
+<li>El equipo que todavía no desbloqueaste se muestra con claridad, para que veas lo que te espera a medida que subes de nivel.</li>
+<li>Tu equipo armado aparece en la parte de arriba de la caja como una fila de tarjetas en miniatura, y las casillas vacías muestran el equipo que podría ir ahí.</li>
+<li>Hay fotos de los cinco tipos de flotador junto al aparejo de flotador, y la pantalla del aparejo de feeder está organizada en dos columnas.</li>
+<li>La pantalla de aparejos de mar ahora coincide con la de aparejos carperos: tres aparejos de mar, cada uno dibujado, con una descripción de cómo pesca.</li>
+<li>Una carnada nueva: Pineapple Wafter. Match T Hatch ahora se llama Match T Hatch Pop-up, que es lo que siempre fue.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-species">
+<h2 id="v507-species"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nuevo en 0.111.507: creador de especies</h2>
+<ul>
+<li>Crea tus propios peces. Responde unas cuantas preguntas sencillas sobre dónde vive y cómo come, pelea y pica, agrega una foto y guárdalo.</li>
+<li>La opción de enviar tu pez para que se agregue al juego para todos llega en el Early Access.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-fishing">
+<h2 id="v507-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nuevo en 0.111.507: pesca y lugares de pesca</h2>
+<ul>
+<li>Tu progreso en los tutoriales ahora se guarda en tu cuenta, así que un tutorial terminado sigue terminado cuando vuelves a iniciar sesión.</li>
+<li>Un pez que llega a un obstáculo ahora se desclava a los 10 segundos, más o menos. Dale línea floja para que vuelva a moverse.</li>
+<li>La guía de temporadas ahora muestra la lubina como el pez británico que es, escasa en invierno, en lugar de tomar prestadas las temporadas de la lobina negra estadounidense.</li>
+<li>Guardar un lugar de pesca con mucho fondo pintado ya no se queda colgado por tiempo de espera.</li>
+<li>En ríos con muchos puestos, los primeros puestos ya no quedan escondidos fuera del borde de la lista.</li>
+<li>El panel de pesca ya no puede quedarse atascado con su cabecera fuera de la pantalla.</li>
+<li>Probar este lugar de pesca ahora te avisa si tu lugar de pesca no se pudo guardar, en lugar de seguir como si nada.</li>
+<li>El mensaje de "lugares de pesca cargados" ahora siempre desaparece.</li>
+<li>Una descarga más pequeña.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-fishing">
+<h2 id="latest-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nuevo en 0.111.478: pesca</h2>
+<ul>
+<li>Clava en cuanto tu flotador se hunda y engancharás el pez. Una reacción rápida ya no se castiga; clavar ante un leve hundimiento o un toquecito sigue arrancando la carnada.</li>
+<li>Modo realista: un botón en el panel de pesca desactiva todas las indicaciones en pantalla, incluido ¡CLAVA AHORA!, y cada pez sostiene la carnada durante su propio tiempo antes de soltarla. Tu elección se recuerda.</li>
+<li>Atajos de teclado: Z para clavar, B para el asa, L para la carnada suelta, G para el engodo, R para recoger, T para la caja de equipo, Y para la caja de carnadas y M para el sonido. Están todos en la tarjeta de Controles.</li>
+<li>Después de un lance, el asa queda abierta cuando pescas al flotador en agua corriente, para que el flotador vaya a la deriva, y cerrada en aguas quietas.</li>
+<li>El mango de la red ahora llega recto hasta la red.</li>
+<li>Puedes quitar tu carnada suelta o tu engodo de la caja de carnadas con la × de su etiqueta.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-rivers">
+<h2 id="latest-rivers"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nuevo en 0.111.478: ríos</h2>
+<ul>
+<li>Una nueva velocidad de corriente, la más lenta: Apenas se mueve.</li>
+<li>Un ajuste de Agua pequeña para cada puesto, que frena mucho la corriente en ríos estrechos y arroyos pequeños.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-creator">
+<h2 id="latest-creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nuevo en 0.111.478: creador de lugares de pesca</h2>
+<ul>
+<li>Ahora puedes pescar hasta la orilla de enfrente en fotos tomadas con el agua alta en el encuadre. Un límite oculto detenía los lances a un tercio de la altura de la imagen.</li>
+<li>Las líneas de distancia llevan el nombre de la caña que las alcanza, como Alcance de la caña de flotador y Alcance de la caña feeder en aguas dulces, y Alcance de la caña de muelle y Alcance de la caña de surfcasting en lugares de pesca de mar, además de una línea Muy cerca. Pasa el mouse sobre una línea para ver su distancia.</li>
+<li>Un tinte azul de distancia muestra la perspectiva de tu agua en el paso Mapa: profundo a tus pies y difuso en la orilla de enfrente.</li>
+<li>El paso Pintar ahora marca el contorno de la orilla de tu agua y de las islas, para que veas el límite sobre el que estás pintando.</li>
+<li>Cambiar entre los pasos Mapa y Pintar ya no hace que pierdas una forma que estabas dibujando.</li>
+</ul>
+</section>
+<section aria-labelledby="fight">
+<h2 id="fight"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 21 C9 15 13 8 20 4"></path><path d="M20 4 L20 13"></path><path d="M17.5 13 Q20 16 22.5 13"></path></svg>
+      La pelea</h2>
+<ul>
+<li>Los peces enganchados ahora buscan refugio, como carrizos, nenúfares y obstáculos, así que cada pelea es distinta. Tu trabajo es impedir que lleguen ahí.</li>
+<li>Cada especie pelea a su manera, y los peces cercanos a su récord pelean más fuerte.</li>
+<li>Tu ajuste de freno ahora sí importa. Ajústalo bien y podrás sacar un pez más pesado que la resistencia de tu línea.</li>
+<li>Las carpas y las tencas corren, y las bremas grandes se llevan la línea. Verás moverse el flotador o la línea antes de clavar.</li>
+<li>La salida con la red se rehízo, y las aguas carperas ahora tienen una red carpera como se debe.</li>
+<li>Mueve el mouse para subir y bajar la puntera de la caña, y mantén presionado el botón derecho para levantar. La caña descansa mientras tienes la línea lanzada.</li>
+<li>Cada caña se dobla según su tipo: las cañas de mar son rígidas, y las de match y feeder son suaves.</li>
+</ul>
+</section>
+<section aria-labelledby="bites">
+<h2 id="bites"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 L12 6"></path><path d="M12 6 C9.5 9 9.5 13 12 16 C14.5 13 14.5 9 12 6 Z"></path><path d="M12 16 L12 19"></path><path d="M3 19 Q6 17.5 9 19 T15 19 T21 19"></path></svg>
+      Piques y puestos</h2>
+<ul>
+<li>Se reajustaron los cuatro niveles de dificultad. Las aguas fáciles dan piques rápidos y las de Grandes ejemplares te hacen trabajar para conseguirlos.</li>
+<li>La resistencia de la línea ahora cuenta. Una línea gruesa para peces pequeños y desconfiados te costará piques.</li>
+<li>Pescar cerca de refugios tiene premio, mientras que el agua abierta es justa pero más lenta.</li>
+<li>La barra del puesto ahora muestra qué tan bien está pescando de verdad tu puesto.</li>
+<li>Las chufas ahora atrapan tencas y bremas grandes, además de cachos y barbos.</li>
+<li>Los piques llegan como deben cuando pescas carpas con anzuelos más grandes.</li>
+<li>Ya hay anzuelos de mar más pequeños, de los números 4 y 6, para merlanes y peces planos.</li>
+<li>Tu aparejo ahora cuenta. El peso del plomo, el material del bajo de línea, su longitud y el tipo de aparejo afectan cómo toman los peces tu carnada, así que adaptar tu aparejo al pez, al fondo y a la carnada vale la pena. La <a href="/es-419/rigipedia">Rigipedia</a> explica cada aparejo.</li>
+</ul>
+</section>
+<section aria-labelledby="screen">
+<h2 id="screen"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 9 L3 6 Q3 4 5 4 L19 4 Q21 4 21 6 L21 9"></path><rect height="11" rx="2" width="20" x="2" y="9"></rect><path d="M9 9 L9 7 L15 7 L15 9"></path></svg>
+      El equipo y la pantalla</h2>
+<ul>
+<li>El panel de línea fuera te dice sobre qué está tu aparejo, por ejemplo <q>limo / carrizo</q>.</li>
+<li>Los flotadores son más grandes y se ven mejor a distancia.</li>
+<li>Abrir tu caja de equipo o de carnadas ya no recoge tu línea.</li>
+<li>La caja de equipo de El refugio del pescador ahora puede preparar un equipo de mar.</li>
+<li>Cuando subes de nivel, el equipo nuevo queda marcado hasta que lo hayas visto.</li>
+<li>La página del lugar de pesca tiene un botón <q>Pescar hoy</q>, y la fecha y la hora son más fáciles de encontrar. El control deslizante de la hora exacta ahora sí fija la hora a la que empiezas a pescar.</li>
+<li>Las tarjetas de captura indican la carnada exacta que usaste, por ejemplo <q>Maíz duro</q> en lugar de <q>Elote</q>.</li>
+<li>Los peces de las tarjetas de captura y de los tableros de récords se muestran a su tamaño real, con un sutil efecto 3D.</li>
+<li>La pantalla de inicio tiene un tablero de noticias, y Guías ahora enlaza a la Rigipedia. Los elementos patrocinados del tablero llevan la etiqueta de patrocinado.</li>
+<li>Compartir mi captura: un botón Compartir en tu tarjeta de captura, en tus propias capturas y mejores marcas personales, y en los récords mundiales que tienes. Guarda una imagen de la tarjeta, con un código que lleva a tus amigos a Swimcraft en Steam, y copia un texto listo para publicar.</li>
+<li>Nuevos íconos dibujados en la caja de equipo, la caja de carnadas y el menú de la cuenta, y los menús de las cajas se leen mejor.</li>
+</ul>
+</section>
+<section aria-labelledby="creator">
+<h2 id="creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 8 Q3 6.5 4.5 6.5 L7.5 6.5 L9 4 L15 4 L16.5 6.5 L19.5 6.5 Q21 6.5 21 8 L21 18 Q21 19.5 19.5 19.5 L4.5 19.5 Q3 19.5 3 18 Z"></path><circle cx="12" cy="12.5" r="3.8"></circle></svg>
+      Creador de lugares de pesca</h2>
+<ul>
+<li>La barra de siembra te dice con palabras qué tan bien sembrada está tu agua para su dificultad.</li>
+<li>Al agregar imágenes de peces se muestra una vista previa en vivo, con una guía para hacer recortes.</li>
+<li>La franja de tamaño Monstruo se fusionó con Ejemplares excepcionales, y los tamaños se detienen en el récord nacional.</li>
+</ul>
+</section>
+<section aria-labelledby="fixes">
+<h2 id="fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      Correcciones</h2>
+<ul>
+<li>Las anillas de la caña ya no saltan de un lado de la caña al otro.</li>
+<li>La caña ya no se dobla sobre sí misma cuando un pez está cerca de la red.</li>
+<li>La última tarjeta del tutorial de pesca ahora funciona como debe.</li>
+<li>El aparejo que aparece en pantalla siempre es el aparejo que está en el agua. Cambiar de un aparejo carpero a uno de flotador ya no arrastra ajustes viejos.</li>
+<li>Los mensajes emergentes ahora aparecen delante de las tarjetas de récord en lugar de detrás.</li>
+</ul>
+</section>
+</main>
+<div class="cta">
+<div class="cta-panel">
+<p>Swimcraft llegará al Early Access de Steam. Agregarlo a tu lista de deseados es la mejor forma de enterarte cuando salga.</p>
+<div class="buttons"><a class="button primary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Agrégalo a tu lista de deseados de Steam</a>
+<a class="button secondary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Juega la demo</a></div>
+</div>
+</div>
+<footer>
+<div class="footer-inner">© 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Política de privacidad</a> y <a href="https://swimcraft.harbledowndigital.com/terms">Términos de uso</a>.</div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Español (Latinoamérica)</span></summary><ul><li><a href="/whats-new" hreflang="en" lang="en">English</a></li><li><a href="/de/whats-new" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/whats-new" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/whats-new" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a aria-current="true" href="/es-419/whats-new" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/whats-new" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/whats-new" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/whats-new" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/whats-new" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/whats-new" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/whats-new" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/whats-new" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/whats-new" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/whats-new" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/whats-new" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/whats-new" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/whats-new" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/whats-new" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/whats-new" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/whats-new" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/whats-new"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/whats-new"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/whats-new"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/whats-new"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/whats-new"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/whats-new"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/whats-new"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/whats-new"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/whats-new"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/whats-new"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/whats-new"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/whats-new"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/whats-new"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/whats-new"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/whats-new"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/whats-new"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/whats-new"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/whats-new"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/whats-new"}, {"c": "", "hl": "en", "n": "English", "u": "/whats-new"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

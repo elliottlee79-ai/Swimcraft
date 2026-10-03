@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>De gids voor watermakers — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Zo maak je van een foto van je favoriete stek een Swimcraft-water dat door de controle komt en gepubliceerd wordt." name="description"/>
+<meta content="De gids voor watermakers — Swimcraft" property="og:title"/>
+<meta content="Zo maak je van een foto van je favoriete stek een Swimcraft-water dat door de controle komt en gepubliceerd wordt." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/nl/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/nl/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>De gids voor watermakers</h1>
+<p class="meta"><strong>Zo maak je van een foto van een stek die je kent een water waarop andere vissers kunnen vissen.</strong></p>
+<p class="meta">Laatst bijgewerkt: 18 augustus 2026</p>
+<div class="intro">De tutorial van de watereditor laat je de bediening zien. Deze pagina gaat over de rest: de afwegingen die bepalen of mensen naar een water terugkomen, en de handvol regels die bepalen of het door de controle komt. Het is twintig minuten waard voordat je je eerste echte water bouwt.</div>
+<ol class="toc">
+<li><a href="#life">Concept, ingediend, gepubliceerd: wat er echt gebeurt</a></li>
+<li><a href="#photo">De foto, en de regels die ervoor gelden</a></li>
+<li><a href="#peg">Een stek opzetten</a></li>
+<li><a href="#calibrate">Kalibratie: de stap die mensen overslaan en waar ze spijt van krijgen</a></li>
+<li><a href="#depth">De bodem schilderen</a></li>
+<li><a href="#stock">Eerlijk uitzetten</a></li>
+<li><a href="#test">Vis erop voordat je het indient</a></li>
+<li><a href="#review">Waar de controle op let, en waarom wateren worden teruggestuurd</a></li>
+<li><a href="#after">Nadat het live staat</a></li>
+</ol>
+<h2 id="life">1. Concept, ingediend, gepubliceerd</h2>
+<p>Een water doorloopt drie fases, en als je die kent, scheelt dat later een hoop verwarring.</p>
+<table class="pass">
+<tr><th>Fase</th><th>Wat het betekent</th></tr>
+<tr><td>Concept</td><td>Alleen van jou. Niemand anders kan het zien of erop vissen. Je kunt alles bewerken, zo vaak als je wilt.</td></tr>
+<tr><td>Ingediend</td><td>Wacht op controle. Nog steeds privé. Blijft onaangeroerd tot iemand ernaar heeft gekeken.</td></tr>
+<tr><td>Gepubliceerd</td><td>In de gedeelde bibliotheek. Andere vissers kunnen erop vissen, en vangsten daar tellen mee voor de recordborden.</td></tr>
+</table>
+<p>Als een water wordt teruggestuurd, krijg je het terug als concept <strong>met een notitie over wat er moet worden verbeterd</strong>. Dat is geen smet: de meeste eerste inzendingen hebben één kleinigheid nodig. Pas het aan en dien het opnieuw in.</p>
+<div class="callout"><strong>In de demo blijft alles wat je bouwt een concept.</strong> Publiceren naar de gedeelde bibliotheek gaat open in Early Access, en de watertoken die je op Niveau 5 verdient, staat daarvoor klaar. Niets wat je in de demo maakt, gaat verloren, dus bouw nu alvast de goede.</div>
+<h2 id="photo">2. De foto</h2>
+<p>Al het andere wordt op deze ene afbeelding gebouwd, dus het loont om kieskeurig te zijn. De game accepteert een foto in <strong>JPEG of PNG</strong>, van minimaal <strong>1280 × 720</strong> en kleiner dan <strong>20MB</strong>. Dat is de technische ondergrens. Het nuttige advies gaat verder:</p>
+<ul>
+<li><strong>Fotografeer vanaf de plek waar je zou zitten.</strong> De foto wordt het uitzicht vanaf de stek, dus een foto die je staand aan de oever op ooghoogte maakt, vist veel beter dan een foto vanaf een brug of een heuvel.</li>
+<li><strong>Liggend, en geef het water ruimte.</strong> Je hebt water in de onderste helft van het beeld nodig om iets te kunnen schilderen, en een zichtbare overkant of horizon om afstand aan af te meten.</li>
+<li><strong>Vlak licht is beter dan felle zon.</strong> Sterke schittering op het oppervlak verbergt de kenmerken die je wilt overtrekken.</li>
+<li><strong>Zet er iets op dat je kunt meten.</strong> Een overkant, een eiland, een aangemeerde boot, een veld waterlelies: alles waarvan je de afstand echt kent. Sectie 4 legt uit waarom dit belangrijker is dan wat dan ook op deze pagina.</li>
+</ul>
+<h3>De regels waarover niet te onderhandelen valt</h3>
+<p>Als je een afbeelding aanlevert, vraagt de game je te bevestigen dat je de eigenaar bent of toestemming hebt om hem te gebruiken, en dat er niets onwettigs op staat. Dat is een echte verklaring, en dit zijn de regels erachter. Ze komen uit onze <a href="/terms">Gebruiksvoorwaarden</a>, samengevat:</p>
+<ul>
+<li>De foto moet van <strong>jou</strong> zijn, of je moet toestemming hebben. Niet van internet, niet van de website van een viswater, niet van iemands sociale media.</li>
+<li>Geen <strong>herkenbare personen</strong>, tenzij ze ermee hebben ingestemd. <strong>Nooit</strong> een foto waarop een kind staat.</li>
+<li>Snijd privégegevens weg: <strong>kentekens, huisnamen, adressen, borden met telefoonnummers</strong>.</li>
+<li>Respecteer het viswater. Als een water privé is, of de eigenaar niet zou willen dat het wordt nagebouwd en gepubliceerd, publiceer het dan niet. De test die werkt: zou je de eigenaar met plezier laten zien wat je hebt gemaakt?</li>
+</ul>
+<div class="callout warn">Een water dat deze regels overtreedt, wordt bij de controle teruggestuurd, en de fotoregels zijn verreweg de meest voorkomende reden. Bijna alles is te voorkomen op het moment dat je de foto maakt.</div>
+<div class="pair">
+<figure>
+<img alt="Een goed gekozen stekfoto" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>Goed.</strong> Oeverhoogte, vlak licht, water over de onderste helft, een overkant om afstand aan af te meten.</figcaption>
+</figure>
+<figure>
+<img alt="Een slechte stekfoto met te veel voorgrond" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>Slecht.</strong> Te veel oever op de voorgrond: een gehaakte vis zou door de grond zwemmen voordat hij het net bereikt.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Een water met meerdere benoemde stekken" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>Geef je stekken de namen die het water ze geeft. “Gatehouse Peg” zegt een visser iets; “Stek 1” niet.</figcaption>
+</figure>
+<h2 id="peg">3. Een stek opzetten</h2>
+<p>Een water bestaat uit een of meer stekken, en elke stek is één foto met een eigen bodem, eigen kenmerken en eigen vissen. Een eerste water met <strong>één echt goede stek</strong> is altijd beter dan een met vier haastig gemaakte.</p>
+<ul>
+<li><strong>Noem het water zoals een visser het zou zeggen.</strong> "Leeds Castle Moat", niet "mijn stek 2". Tot 60 tekens, en in de locatieregel eronder past een plaats of graafschap.</li>
+<li><strong>Noem elke stek naar waar hij ligt</strong>: "Gatehouse Peg", "The Point", "Bottom Bend". Tot 40 tekens. Die namen verschijnen op de recordborden onder de vis, dus ze zijn even nadenken waard.</li>
+<li><strong>Namen van wateren, namen van stekken, beschrijvingen en visnamen worden gecontroleerd</strong> voordat ze worden opgeslagen. Houd het netjes en je merkt er nooit iets van.</li>
+</ul>
+<h2 id="calibrate">4. Kalibratie: de stap die mensen overslaan</h2>
+<p>Met kalibratie zet de game een platte afbeelding om in echte afstand. Je trekt de waterkant over, zet dan een <strong>nabije pin</strong> en een <strong>verre pin</strong> en geeft aan hoe ver elk daarvan echt weg is.</p>
+<p>Je kunt niet verder voordat elke stek is gekalibreerd, en dat is bewust: een niet-gekalibreerde stek vist verkeerd op een manier die niemand kan zien. Een worp die een eiland zou moeten halen, valt te kort, of een dobberhengel voor 40 yard haalt de overkant van een stuwmeer. Het water ziet er goed uit en vist als onzin.</p>
+<h3>Zo krijg je het goed zonder afstandsmeter</h3>
+<p>Er wordt niet van je gevraagd een afstand uit je geheugen op te noemen. Er wordt van je gevraagd er een te <strong>herkennen</strong>, en daar zijn vissers goed in:</p>
+<ul>
+<li>Denk in worpen. "Dat eiland is zo'n twee comfortabele feederworpen" is ongeveer 60 tot 70 yard, en dat is een veel beter antwoord dan een verzonnen getal.</li>
+<li>Gebruik wat je weet. De meeste stekken op commerciële wateren liggen 20 tot 40 yard van de overkant. Bij een groot grindgat of stuwmeer zijn het er honderden. Bij een kanaal 10 tot 15.</li>
+<li>Zet de nabije pin op iets dichtbij en duidelijks: het talud aan de oever, een nabij lelieblad, het einde van je vlonder.</li>
+<li>Als je het echt niet weet, bekijk het water dan op een kaart voordat je bouwt. Dat kost een minuut.</li>
+</ul>
+<div class="callout"><strong>Als je dit goed doet, klopt alles wat erop volgt.</strong> Beetafstanden, hoe ver je hengels reiken, waar de vissen echt zitten: het wordt allemaal gemeten vanaf deze twee pinnen.</div>
+<div class="pair">
+<figure>
+<img alt="De waterkant overtrekken in de watereditor" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>De waterkant overtrekken. De omtrek moet sluiten.</figcaption>
+</figure>
+<figure>
+<img alt="Nabije en verre afstandspinnen op een stek geplaatst" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>Beide pinnen geplaatst. Alles wat erop volgt, wordt vanaf deze twee gemeten.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. De bodem schilderen</h2>
+<p>Daarna schilder je wat er onder water zit: dieptezones vanaf de oever naar buiten, plus kenmerken zoals wier, grind, slib, obstakels en riet. Je moet minstens één vakje water schilderen om verder te kunnen, maar een goed geschilderde bodem is wat een water laat aanvoelen als echt water in plaats van een badkuip.</p>
+<ul>
+<li><strong>Volg de foto.</strong> Waar het oppervlak donker wordt, is het meestal dieper. Waar je de bodem kunt zien, schilder je het ondiep. Een rietkraag is een talud.</li>
+<li><strong>Ondiepe oevers, dieper in het midden</strong> is de standaardvorm voor de meeste stilstaande wateren, maar een grindgat is grillig en een kanaal heeft een vlakke vaargeul met ondiepe taluds aan weerszijden. Bouw het water dat je kent.</li>
+<li><strong>Kenmerken zijn waar vissers naar zoeken.</strong> Een kale, gelijkmatig geschilderde bodem geeft niemand een reden om ergens in het bijzonder in te werpen. Geef de stek twee of drie plekken die het vinden waard zijn: een grindbank, een slibgeul, een obstakel op het verre talud.</li>
+<li><strong>Zet niet overal obstakels neer.</strong> Ze zijn spannend waar je redelijkerwijs een vis kunt verliezen. Overal is gewoon frustrerend.</li>
+</ul>
+<div class="callout"><strong>Twee hiervan worden geteld, niet beoordeeld.</strong> Een stek heeft <strong>minstens drie verschillende dieptezones</strong> en <strong>minstens twee verschillende soorten kenmerken</strong> nodig, en <strong>nergens in bevisbaar water lege vakjes</strong>. Dat zijn de getallen die de controle nakijkt en waar de editor je aan houdt; al het andere in deze sectie is advies om een water te maken dat het bevissen waard is.</div>
+<div class="pair">
+<figure>
+<img alt="Een dieptekaart met meerdere duidelijke zones" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>Goedgekeurd.</strong> Meerdere duidelijke zones, oevers ondieper dan het open water, een bodem met echte vorm.</figcaption>
+</figure>
+<figure>
+<img alt="Een vlakke dieptekaart met één zone" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>Teruggestuurd.</strong> Eén vlakke zone over het hele water. Niets te vinden, niets te leren.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="Een gevarieerde kenmerkenkaart" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>Goedgekeurd.</strong> Wier in het ondiepe, slib in het diepe, grind op de bank, en geen ongeschilderde gaten.</figcaption>
+</figure>
+<figure>
+<img alt="Een kale kenmerkenkaart met ongeschilderde gaten" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>Teruggestuurd.</strong> Kaal, en met lege vakjes in bevisbaar water. Dat tweede punt is waar de meeste mensen over struikelen.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. Eerlijk uitzetten</h2>
+<p>Bij het uitzetten wordt een water gemaakt of verpest, en hier is de game het strengst. Er gelden drie limieten, en elk bestaat met een reden.</p>
+<div class="step">
+<span class="num">Limiet een</span><h3>Capaciteit: het water kan maar zoveel vis bevatten</h3>
+<p>De capaciteit wordt berekend op basis van het watervolume dat je hebt geschilderd en de moeilijkheid van het water. Een klein, ondiep plasje kan geen 400lb karper bevatten. Zet je te veel vis uit op een stek, dan wordt hij pas opgeslagen als je er wat uithaalt of het water makkelijker maakt.</p>
+</div>
+<div class="step">
+<span class="num">Limiet twee</span><h3>De moeilijkheid bepaalt zowel het formaat als de dichtheid</h3>
+<p>Moeilijkheid is geen schuifregelaar voor hoe moeilijk je het wilt laten voelen, en het verandert niet hoe de vissen zich gedragen. Het bepaalt hoeveel vis het water bevat en welke gewichtsklassen je mag gebruiken, verder niets. Een moeilijk water vist moeilijk omdat er minder in zit en wat erin zit groter is.</p>
+<table class="pass">
+<tr><th>Moeilijkheid</th><th>Wat het je geeft</th></tr>
+<tr><td>Makkelijk</td><td>Dicht bezet, veel aanbeten, kleine tot middelgrote vissen. Een water voor veel runs.</td></tr>
+<tr><td>Gemiddeld</td><td>Ongeveer half zoveel vis als Makkelijk. Minder aanbeten, beter gemiddeld formaat.</td></tr>
+<tr><td>Moeilijk</td><td>Licht bezet. Langer wachten, en wat aanbijt is groter, tot en met Specimen.</td></tr>
+<tr><td>Specimen</td><td>Zeer licht bezet, lang wachten is de bedoeling. De enige instelling die Groot specimen en Monster toestaat.</td></tr>
+</table>
+<p>Als een vis die je wilt te groot is voor de gekozen moeilijkheid, vertelt de game je welke minimale moeilijkheid erbij past. De moeilijkheid verhogen is een echte afweging: je krijgt de grote vis, en het water wordt stil.</p>
+</div>
+<div class="step">
+<span class="num">Limiet drie</span><h3>Niets gaat boven het nationale record</h3>
+<p>Elke soort is begrensd op het nationale record van het land waar het water ligt. Je kunt geen schubkarper van 90lb uitzetten in een boerenvijver in Kent, en de editor laat je het niet eens proberen. Er is ook een zachte waarschuwing voor een vis die wel mag maar wat ver gaat voor het water dat je hebt geschilderd: die blokkeert je niet, maar vertelt je dat een ervaren visser het zal opmerken.</p>
+</div>
+<h3>Benoemde vissen</h3>
+<p>Een benoemde vis is de vis waarvoor mensen komen. Geef hem een soort, een naam en een gewicht en hij gaat de stek in; voeg een foto van hem toe en hij verschijnt op het vangstscherm wanneer iemand hem eindelijk op de kant krijgt. Een water met twee of drie bekende bewoners heeft een verhaal. Een water met vijftien heeft er geen.</p>
+<h3>De bezetting die een goed water maakt</h3>
+<ul>
+<li><strong>Gemengde formaten.</strong> Een water met alleen maar dubbelcijferige vissen is saai, omdat niets wat je vangt een verrassing is. Kleine vissen zijn wat een stek opbouwt; zie de <a href="/nl/swim-confidence">Gids voor SWIM-vertrouwen</a>.</li>
+<li><strong>Soorten die bij elkaar horen.</strong> Blankvoorn, brasem, zeelt en karper in een boerenvijver, ja. Niet alles uit de lijst omdat de lijst er nu eenmaal was.</li>
+<li><strong>Laat ruimte over.</strong> Als je tot aan de capaciteit uitzet, heb je geen ruimte meer voor de vissen waar je volgende week aan denkt.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="Een stek met gemengde soorten en formaten" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>Gemengde soorten, gemengde formaten, en de capaciteitsmeter met ruimte over in plaats van tot de streep vol.</figcaption>
+</figure>
+<figure>
+<img alt="De waarschuwing voor overschreden capaciteit" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>Boven de limiet houdt de editor je tegen. Dit is rekenwerk, geen oordeel.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Een benoemde vis toegevoegd aan een stek" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>Een benoemde vis, uitgezet en bevestigd. Twee of drie per water, met gewichten die het water aankan: ze zijn de uitzondering, niet het visbestand.</figcaption>
+</figure>
+<h2 id="test">7. Vis erop voordat je het indient</h2>
+<p>De editor heeft een testmodus, en die is in de praktijk niet optioneel. Tien minuten op je eigen water brengen dingen aan het licht die je nooit vindt door alleen naar de kaart te kijken:</p>
+<ul>
+<li>Kun je de kenmerken die je hebt geschilderd echt <strong>bereiken</strong> met een redelijke hengel? Als al het goede buiten bereik ligt, klopt de kalibratie niet of liggen de kenmerken te ver weg.</li>
+<li>Komt de diepte onder de dobber <strong>overeen met hoe de foto eruitziet</strong>?</li>
+<li>Krijg je aanbeten in een tempo dat past bij de gekozen moeilijkheid?</li>
+<li>Is er een reden om te verplaatsen? Een stek waar één plek duidelijk goed is en de rest dood, is een stek met maar één worp erin.</li>
+</ul>
+<figure>
+<img alt="Testvissen op je eigen water in de editor" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>Testmodus. Tien minuten hier brengen aan het licht wat je nooit vindt door alleen naar de kaart te kijken.</figcaption>
+</figure>
+<h2 id="review">8. Waar de controle op let</h2>
+<p>Elk water wordt door een mens bekeken voordat het in de gedeelde bibliotheek komt. Die beoordeelt niet je kunstwerk, maar controleert een korte lijst, en het is elke keer dezelfde lijst:</p>
+<table class="pass">
+<tr><th>Gecontroleerd</th><th>Waardoor een water wordt teruggestuurd</th></tr>
+<tr><td>De foto</td><td>Niet van jou, bevat herkenbare personen of een kind, toont privégegevens, of is niet echt een visstek.</td></tr>
+<tr><td>De teksten</td><td>Naam van het water, beschrijving of visnamen die de communityrichtlijnen overtreden.</td></tr>
+<tr><td>Eerlijkheid</td><td>Bezetting of namen die een grap ten koste van de game zijn: een plasje volgepropt met recordvissen, een stek met een naam om de ranglijsten te bespelen.</td></tr>
+<tr><td>Speelbaarheid</td><td>Geen kalibratie die die naam verdient, een ongeschilderde bodem, of een water waarop duidelijk niet te vissen valt.</td></tr>
+<tr><td>De bodem, geteld</td><td>Minder dan <strong>drie verschillende dieptezones</strong> op een stek, minder dan <strong>twee verschillende soorten kenmerken</strong>, of <strong>een leeg vakje in bevisbaar water</strong>. Dit is rekenwerk en geen oordeel, dus het is het makkelijkst te halen en het makkelijkst om over te struikelen.</td></tr>
+</table>
+<p>Wat <strong>niet</strong> wordt gecontroleerd: of het mooi is, of het op dat van iemand anders lijkt, of de controleur er zelf graag op zou vissen. Een bescheiden water dat eerlijk is gebouwd, komt erdoor. Een spectaculair water gebouwd op de foto van iemand anders niet.</p>
+<figure>
+<img alt="Een gepubliceerd water in de gedeelde bibliotheek" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>Gepubliceerd. Dit is de kaart die elke andere visser ziet, en waar je water terechtkomt.</figcaption>
+</figure>
+<h2 id="after">9. Nadat het live staat</h2>
+<ul>
+<li><strong>Wijzigingen gaan opnieuw door de controle.</strong> Zodra een water is gepubliceerd, ligt de inhoud vast, en elke wijziging wordt klaargezet en opnieuw bekeken voordat andere spelers hem zien. Zorg dus dat het klopt voordat je het indient, in plaats van te plannen het later op te lappen.</li>
+<li><strong>Je kunt het terugtrekken.</strong> Terugtrekken haalt een water uit de bibliotheek, en de records ervan gaan mee van de borden, zonder dat er iets wordt verwijderd. Het is jouw schakelaar, en hij is omkeerbaar.</li>
+<li><strong>Records die daar worden gevestigd, dragen de naam van je water</strong>, en die van de stek, waar ze ook verschijnen. Daarom is het de moeite waard stekken meteen goed te benoemen.</li>
+</ul>
+<div class="callout"><strong>De korte versie.</strong> Gebruik je eigen foto. Kalibreer eerlijk. Schilder een bodem met plekken waar het de moeite waard is om in te werpen. Zet vis uit zoals in een echt water, niet als een verlanglijstje. Vis er zelf op voordat je het instuurt. Doe die vijf dingen en het komt erdoor.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Vragen, of vind je dat we een controlebesluit verkeerd hebben genomen? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/nl/">Home</a> · <a href="/nl/swim-confidence">Gids voor SWIM-vertrouwen</a> · <a href="/terms">Gebruiksvoorwaarden</a> · <a href="/privacy">Privacy</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Sluiten (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Vorige" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Volgende" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Nederlands</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a aria-current="true" href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

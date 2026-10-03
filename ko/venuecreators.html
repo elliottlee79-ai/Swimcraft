@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>낚시터 제작자 가이드 · Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="좋아하는 포인트 사진을 검토를 통과해 게시되는 Swimcraft 낚시터로 만드는 방법." name="description"/>
+<meta content="낚시터 제작자 가이드 · Swimcraft" property="og:title"/>
+<meta content="좋아하는 포인트 사진을 검토를 통과해 게시되는 Swimcraft 낚시터로 만드는 방법." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/ko/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/ko/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>낚시터 제작자 가이드</h1>
+<p class="meta"><strong>내가 아는 포인트의 사진을 다른 낚시꾼들이 낚시할 수 있는 낚시터로 만드는 방법.</strong></p>
+<p class="meta">최종 업데이트: 2026년 8월 18일</p>
+<div class="intro">낚시터 편집기 튜토리얼은 조작법을 알려 줘요. 이 페이지는 그 나머지예요. 사람들이 다시 찾는 낚시터가 될지를 가르는 판단, 그리고 검토 통과 여부를 가르는 몇 가지 규칙이요. 처음으로 제대로 된 낚시터를 만들기 전에 20분 정도 읽어 볼 만해요.</div>
+<ol class="toc">
+<li><a href="#life">초안, 제출, 게시: 실제로 어떻게 되나요</a></li>
+<li><a href="#photo">사진, 그리고 사진에 적용되는 규칙</a></li>
+<li><a href="#peg">자리 설정하기</a></li>
+<li><a href="#calibrate">보정: 사람들이 건너뛰고 후회하는 단계</a></li>
+<li><a href="#depth">바닥 칠하기</a></li>
+<li><a href="#stock">정직하게 방류하기</a></li>
+<li><a href="#test">제출하기 전에 직접 낚시해 보세요</a></li>
+<li><a href="#review">검토에서 보는 것, 그리고 낚시터가 반려되는 이유</a></li>
+<li><a href="#after">공개된 후</a></li>
+</ol>
+<h2 id="life">1. 초안, 제출, 게시</h2>
+<p>낚시터는 세 가지 상태를 거쳐요. 이걸 알아 두면 나중에 많은 혼란을 피할 수 있어요.</p>
+<table class="pass">
+<tr><th>상태</th><th>의미</th></tr>
+<tr><td>초안</td><td>나만의 것이에요. 다른 사람은 보거나 낚시할 수 없어요. 원하는 만큼 자주 무엇이든 편집할 수 있어요.</td></tr>
+<tr><td>제출됨</td><td>검토를 기다리는 중이에요. 여전히 비공개예요. 누군가 확인할 때까지 그대로 둬요.</td></tr>
+<tr><td>게시됨</td><td>공용 라이브러리에 올라가요. 다른 낚시꾼들이 낚시할 수 있고, 그곳의 조과가 기록판에 반영돼요.</td></tr>
+</table>
+<p>낚시터가 반려되면 <strong>무엇을 고쳐야 하는지 적힌 메모와 함께</strong> 초안으로 돌아와요.
+  그건 벌점이 아니에요. 처음 제출하는 낚시터는 대부분 작은 부분 하나를 고쳐야 해요. 고쳐서 다시 제출하세요.</p>
+<div class="callout"><strong>데모에서는 만든 모든 것이 초안으로 남아요.</strong> 공용 라이브러리에 게시하는 기능은
+    앞서 해보기에서 열리고, 레벨 5에서 얻는 낚시터 제작 토큰은 그때를 위해 보관돼요. 데모에서 만든 것은 하나도
+    버려지지 않으니, 지금 좋은 걸 만들어 두세요.</div>
+<h2 id="photo">2. 사진</h2>
+<p>나머지 모든 것이 이 한 장의 이미지 위에 만들어지니 까다롭게 고를 가치가 있어요. 게임은
+  <strong>JPEG 또는 PNG</strong>, 최소 <strong>1280 × 720</strong>, <strong>20MB</strong> 미만의 사진을 받아요. 이건
+  기술적인 최소 기준이에요. 도움이 되는 조언은 그 위에 있어요.</p>
+<ul>
+<li><strong>내가 앉을 자리에서 찍으세요.</strong> 사진이 곧 자리에서 보이는 풍경이 되니, 물가에 서서
+      눈높이로 찍은 사진이 다리나 언덕에서 찍은 사진보다 훨씬 잘 낚여요.</li>
+<li><strong>가로로 찍고, 물이 넉넉히 보이게 하세요.</strong> 칠할 거리가 있으려면 화면 아래쪽 절반에 물이 있어야 하고,
+      거리를 가늠할 맞은편 물가나 수평선이 보여야 해요.</li>
+<li><strong>강한 햇빛보다 은은한 빛이 나아요.</strong> 수면의 심한 반사는 따라 그리고 싶은 지형을 가려요.</li>
+<li><strong>잴 수 있는 걸 넣으세요.</strong> 맞은편 물가, 섬, 정박한 배, 수련 군락 등 실제로 거리를
+      아는 것이면 뭐든 좋아요. 4장에서 이게 왜 이 페이지의 무엇보다 중요한지 설명해요.</li>
+</ul>
+<h3>타협할 수 없는 규칙</h3>
+<p>이미지를 올리면 게임이 그 이미지를 소유하고 있거나 사용 허락을 받았는지, 그리고 불법적인 내용이 없는지
+  확인해 달라고 해요. 그건 진짜 선언이고, 그 뒤에는 이런 규칙이 있어요.
+  <a href="/terms">이용 약관</a>의 규칙을 요약한 거예요.</p>
+<ul>
+<li>사진은 <strong>내 것</strong>이거나 허락을 받은 것이어야 해요. 인터넷에서, 낚시터
+      웹사이트에서, 누군가의 SNS에서 가져온 것은 안 돼요.</li>
+<li>동의를 받지 않았다면 <strong>알아볼 수 있는 사람</strong>이 나오면 안 돼요. 아이가 나온 사진은 <strong>절대</strong> 안 돼요.</li>
+<li>개인 정보는 잘라 내세요. <strong>차량 번호판, 집 이름, 주소, 전화번호가 적힌 표지판</strong> 같은 것이요.</li>
+<li>낚시터를 존중하세요. 사유지 물이거나 주인이 재현되어 게시되기를 원하지 않을 곳이라면
+      게시하지 마세요. 써 볼 만한 기준은 이거예요. 만든 걸 주인에게 기쁘게 보여 줄 수 있나요?</li>
+</ul>
+<div class="callout warn">이 규칙을 어긴 낚시터는 검토에서 반려되고, 사진 규칙이 가장 흔한 이유예요.
+    거의 모두 사진을 찍는 순간에 피할 수 있어요.</div>
+<div class="pair">
+<figure>
+<img alt="잘 고른 포인트 사진" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>좋은 예.</strong> 물가 높이, 은은한 빛, 아래쪽 절반을 가로지르는 물, 거리를 가늠할 맞은편 물가.</figcaption>
+</figure>
+<figure>
+<img alt="앞쪽이 너무 많이 나온 나쁜 포인트 사진" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>나쁜 예.</strong> 앞쪽에 물가가 너무 많아요. 걸린 물고기가 뜰채에 닿기 전에 땅속을 헤엄쳐 지나가게 돼요.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="이름 붙은 자리가 여러 개 있는 낚시터" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>자리 이름은 그 낚시터에서 부르는 대로 지으세요. "게이트하우스 자리"는 낚시꾼에게 뭔가를 알려 주지만, "1번 자리"는 아무것도 알려 주지 않아요.</figcaption>
+</figure>
+<h2 id="peg">3. 자리 설정하기</h2>
+<p>낚시터는 하나 이상의 자리로 이루어지고, 각 자리는 자기만의 바닥, 지형, 물고기를 가진 사진 한 장이에요.
+  <strong>정말 좋은 자리 하나</strong>로 된 첫 낚시터가 급하게 만든 자리 네 개짜리보다 언제나 나아요.</p>
+<ul>
+<li><strong>낚시꾼이 부르는 대로 낚시터 이름을 지으세요.</strong> "my swim 2"가 아니라 "Leeds Castle Moat"처럼요. 최대 60자이고,
+      그 아래 위치 줄에는 도시나 주 이름을 넣어요.</li>
+<li><strong>각 자리는 위치에 따라 이름을 지으세요.</strong> "게이트하우스 자리", "곶", "아랫굽이"처럼요. 최대 40자예요.
+      이 이름은 기록판에서 물고기 아래에 표시되니 잠깐 고민할 가치가 있어요.</li>
+<li><strong>낚시터 이름, 자리 이름, 설명, 물고기 이름은 저장 전에 검사를 거쳐요.</strong>
+      깨끗하게 쓰면 문제될 일이 없어요.</li>
+</ul>
+<h2 id="calibrate">4. 보정: 사람들이 건너뛰는 단계</h2>
+<p>보정은 게임이 평평한 사진을 실제 거리로 바꾸는 방법이에요. 물가를 따라 그린 다음,
+  <strong>가까운 쪽 핀</strong>과 <strong>먼 쪽 핀</strong>을 꽂고 각각 실제로 얼마나 떨어져 있는지 알려 주세요.</p>
+<p>모든 자리를 보정해야 다음으로 넘어갈 수 있는데, 일부러 그렇게 했어요. 보정하지 않은 자리는 아무도 볼 수 없는
+  방식으로 잘못 낚여요. 섬까지 닿아야 할 캐스팅이 못 미치거나, 40야드짜리 찌낚싯대가 저수지 맞은편 물가까지
+  닿아요. 낚시터는 멀쩡해 보이는데 낚시는 엉망이 돼요.</p>
+<h3>거리 측정기 없이 제대로 하는 방법</h3>
+<p>기억에서 거리를 말하라는 게 아니에요. 거리를 <strong>알아보라는</strong> 거예요. 낚시꾼들이
+  잘하는 일이죠.</p>
+<ul>
+<li>캐스팅으로 생각하세요. "저 섬은 편하게 피더 캐스팅 두 번 거리쯤"이면 대략 60~70야드예요. 지어낸 숫자보다
+      훨씬 좋은 답이에요.</li>
+<li>아는 걸 활용하세요. 관리형 호수 자리는 대부분 맞은편 물가까지 20~40야드예요. 큰 자갈 채취장이나
+      저수지는 수백 야드예요. 운하는 10~15야드예요.</li>
+<li>가까운 쪽 핀은 가깝고 분명한 곳에 꽂으세요. 물가의 단차, 가까운 수련 잎, 발판 끝 같은 곳이요.</li>
+<li>정말 모르겠다면 만들기 전에 지도에서 그 물을 찾아보세요. 1분이면 돼요.</li>
+</ul>
+<div class="callout"><strong>이걸 제대로 하면 그 뒤의 모든 게 제대로 돼요.</strong> 입질 범위, 낚싯대가 닿는 거리, 물고기가
+    실제로 있는 곳이 모두 이 두 핀을 기준으로 측정돼요.</div>
+<div class="pair">
+<figure>
+<img alt="낚시터 편집기에서 물가를 따라 그리는 모습" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>물가를 따라 그리는 중이에요. 윤곽선은 닫혀야 해요.</figcaption>
+</figure>
+<figure>
+<img alt="포인트에 꽂은 가까운 쪽, 먼 쪽 거리 핀" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>두 핀을 모두 꽂았어요. 그 뒤의 모든 건 이 두 핀을 기준으로 측정돼요.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. 바닥 칠하기</h2>
+<p>다음은 물속에 있는 걸 칠할 차례예요. 물가에서부터 바깥쪽으로 수심대, 그리고 수초, 자갈, 진흙,
+  장애물, 갈대 같은 지형이요. 계속하려면 최소 한 칸은 물을 칠해야 하지만, 바닥을 제대로 칠해야 낚시터가
+  욕조가 아니라 진짜 물가처럼 느껴져요.</p>
+<ul>
+<li><strong>사진을 따라가세요.</strong> 수면이 어두운 곳은 대개 더 깊어요. 바닥이 보이는 곳은
+      얕게 칠하세요. 갈대 줄은 단차예요.</li>
+<li><strong>물가는 얕고 가운데는 깊게</strong>가 대부분의 고인 물의 기본 형태예요. 하지만 자갈 채취장은
+      울퉁불퉁하고, 운하는 평평한 배 수로 양쪽에 얕은 단차가 있어요. 내가 아는 물을 만드세요.</li>
+<li><strong>낚시꾼은 지형을 찾아다녀요.</strong> 아무 특징 없이 고르게 칠한 바닥은 어디에 캐스팅할
+      이유를 주지 않아요. 자리마다 찾을 만한 지점을 두세 군데 만들어 주세요. 자갈 둔덕, 진흙 골, 맞은편 단차의
+      장애물 같은 곳이요.</li>
+<li><strong>장애물을 사방에 두지 마세요.</strong> 물고기를 놓칠 법한 곳에 있어야 짜릿해요. 사방에
+      있으면 그냥 답답할 뿐이에요.</li>
+</ul>
+<div class="callout"><strong>이 중 두 가지는 판단이 아니라 개수로 세요.</strong> 자리에는 <strong>서로 다른 수심대가
+    최소 세 개</strong>, <strong>서로 다른 지형 유형이 최소 두 개</strong> 있어야 하고,
+    <strong>낚시 가능한 물에 빈칸이 하나도 없어야</strong> 해요. 이게 검토에서 확인하는 숫자이자
+    편집기가 요구하는 숫자예요. 이 섹션의 나머지는 낚시할 만한 물을 만들기 위한 조언이에요.</div>
+<div class="pair">
+<figure>
+<img alt="뚜렷한 수심대가 여러 개 있는 수심 지도" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>통과.</strong> 뚜렷한 수심대 여러 개, 탁 트인 물보다 얕은 물가, 실제 형태가 있는 바닥.</figcaption>
+</figure>
+<figure>
+<img alt="수심대가 하나뿐인 평평한 수심 지도" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>반려.</strong> 물 전체에 평평한 수심대 하나. 찾을 것도, 배울 것도 없어요.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="다양한 지형 지도" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>통과.</strong> 얕은 곳에 수초, 깊은 곳에 진흙, 둔덕에 자갈. 그리고 칠하지 않은 구멍이 없어요.</figcaption>
+</figure>
+<figure>
+<img alt="칠하지 않은 빈틈이 있는 휑한 지형 지도" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>반려.</strong> 휑하고, 낚시 가능한 물에 빈칸이 남아 있어요. 대부분 이 두 번째 부분에서 걸려요.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. 정직하게 방류하기</h2>
+<p>낚시터의 성패는 방류에서 갈리고, 게임이 가장 엄격한 부분도 여기예요. 세 가지 한도가 적용되고,
+  각각 이유가 있어요.</p>
+<div class="step">
+<span class="num">한도 1</span><h3>정원: 물이 담을 수 있는 물고기의 양에는 한계가 있어요</h3>
+<p>정원은 칠한 물의 부피와 낚시터 난이도로 계산돼요. 작고 얕은 웅덩이에는 잉어 400lb가
+    들어갈 수 없어요. 자리에 물고기를 너무 많이 넣으면 일부를 빼거나 낚시터를 쉽게 만들 때까지 저장되지 않아요.</p>
+</div>
+<div class="step">
+<span class="num">한도 2</span><h3>난이도가 물고기 크기와 밀도를 모두 정해요</h3>
+<p>난이도는 얼마나 어렵게 느끼고 싶은지 정하는 슬라이더가 아니고, 물고기의 행동도 바꾸지 않아요.
+    물에 얼마나 많은 물고기가 있는지, 어떤 크기 구간을 쓸 수 있는지만 정해요. 어려운 물이 어려운 건
+    물고기가 적고, 있는 물고기가 더 크기 때문이에요.</p>
+<table class="pass">
+<tr><th>난이도</th><th>제공하는 것</th></tr>
+<tr><td>쉬움</td><td>촘촘하게 방류, 잦은 입질, 소형~중형 물고기. 잘 나오는 물이에요.</td></tr>
+<tr><td>보통</td><td>쉬움의 약 절반 방류량. 입질은 적고, 평균 크기는 더 커요.</td></tr>
+<tr><td>어려움</td><td>적게 방류. 기다림이 길고, 무는 물고기는 더 커요. 대물까지.</td></tr>
+<tr><td>대물</td><td>아주 적게 방류, 일부러 기다림이 길어요. 초대물과 몬스터가 허용되는 유일한 설정이에요.</td></tr>
+</table>
+<p>원하는 물고기가 고른 난이도에 비해 너무 크면, 게임이 그 물고기가 들어갈 수 있는 최소 난이도를
+    알려 줘요. 난이도를 올리는 건 진짜 맞교환이에요. 큰 물고기를 얻는 대신 물이 조용해져요.</p>
+</div>
+<div class="step">
+<span class="num">한도 3</span><h3>국가 기록을 넘는 건 없어요</h3>
+<p>모든 어종은 낚시터가 있는 나라의 국가 기록으로 상한이 정해져요. 켄트의 농장 연못에 90lb 잉어를
+    방류할 수는 없고, 편집기는 시도조차 못 하게 해요. 규칙상 괜찮지만 칠한 물에 비해 무리인 물고기에는
+    부드러운 경고도 있어요. 그건 막지는 않고, 경험 많은 낚시꾼이라면 눈치챌 거라고 알려 줄 뿐이에요.</p>
+</div>
+<h3>이름 붙은 물고기</h3>
+<p>이름 붙은 물고기는 사람들이 그걸 노리고 찾아오는 물고기예요. 어종, 이름, 무게를 정하면 자리에 들어가고,
+  사진을 추가하면 누군가 마침내 랜딩했을 때 조과 화면에 나타나요. 잘 알려진 터줏대감이 두세 마리 있는
+  낚시터에는 이야기가 있어요. 열다섯 마리 있는 낚시터에는 없어요.</p>
+<h3>좋은 물을 만드는 방류</h3>
+<ul>
+<li><strong>다양한 크기.</strong> 10lb 넘는 물고기만 있는 물은 지루해요. 무엇을 낚아도 놀랍지 않으니까요.
+      포인트를 살리는 건 작은 물고기예요. <a href="/ko/swim-confidence">SWIM 자신감 가이드</a>를 참고하세요.</li>
+<li><strong>함께 어울리는 어종.</strong> 농장 연못에 로치, 브림, 텐치, 잉어는 좋아요. 목록에 있다고
+      다 넣는 건 아니에요.</li>
+<li><strong>여유를 남겨 두세요.</strong> 정원까지 꽉 채워 방류하면 다음 주에 떠오른 물고기를 넣을
+      자리가 없어요.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="다양한 어종과 크기로 방류된 자리" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>다양한 어종, 다양한 크기, 그리고 선까지 꽉 채우지 않고 여유를 남긴 정원 게이지.</figcaption>
+</figure>
+<figure>
+<img alt="정원 초과 경고" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>한도를 넘으면 편집기가 막아요. 이건 판단이 아니라 산수예요.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="자리에 추가된 이름 붙은 물고기" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>방류되고 확인된 이름 붙은 물고기. 낚시터마다 두세 마리, 물이 감당할 수 있는 무게로. 그들은 방류 물량이 아니라 예외예요.</figcaption>
+</figure>
+<h2 id="test">7. 제출하기 전에 직접 낚시해 보세요</h2>
+<p>편집기에는 테스트 모드가 있고, 사실상 선택 사항이 아니에요. 내 낚시터에서 10분만 낚시해 보면
+  지도를 아무리 들여다봐도 못 찾을 것들이 보여요.</p>
+<ul>
+<li>칠한 지형에 적당한 낚싯대로 실제로 <strong>닿을</strong> 수 있나요? 좋은 곳이 모두 사거리 밖이라면,
+      보정이 틀렸거나 지형이 너무 멀리 있는 거예요.</li>
+<li>찌 아래 수심이 <strong>사진에서 보이는 모습과 맞나요</strong>?</li>
+<li>고른 난이도에 맞는 빈도로 입질이 오나요?</li>
+<li>자리를 옮길 이유가 있나요? 한 지점만 확실히 좋고 나머지는 다 죽어 있는 자리는
+      캐스팅할 곳이 하나뿐인 자리예요.</li>
+</ul>
+<figure>
+<img alt="편집기 안에서 내 낚시터를 테스트 낚시하는 모습" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>테스트 모드. 여기서 10분이면 지도를 아무리 들여다봐도 못 찾을 것들이 보여요.</figcaption>
+</figure>
+<h2 id="review">8. 검토에서 보는 것</h2>
+<p>모든 낚시터는 공용 라이브러리에 들어가기 전에 사람이 확인해요. 작품성을 채점하는 게 아니에요.
+  짧은 목록을 확인하는 거고, 그 목록은 매번 같아요.</p>
+<table class="pass">
+<tr><th>확인 항목</th><th>낚시터가 반려되는 이유</th></tr>
+<tr><td>사진</td><td>내 것이 아니거나, 알아볼 수 있는 사람이나 아이가 나오거나, 개인 정보가 보이거나, 사실상 낚시 포인트가 아닌 경우.</td></tr>
+<tr><td>글</td><td>커뮤니티 가이드라인을 어기는 낚시터 이름, 설명, 물고기 이름.</td></tr>
+<tr><td>정직함</td><td>게임을 우습게 만드는 방류나 이름. 기록급 물고기로 꽉 채운 웅덩이, 순위표를 악용하려고 지은 자리 이름 같은 것.</td></tr>
+<tr><td>플레이 가능성</td><td>보정이라고 할 만한 게 없거나, 바닥을 칠하지 않았거나, 누가 봐도 낚시할 수 없는 낚시터.</td></tr>
+<tr><td>바닥, 개수 확인</td><td>자리에 <strong>서로 다른 수심대가 세 개</strong> 미만이거나, <strong>서로 다른 지형 유형이 두 개</strong> 미만이거나, <strong>낚시 가능한 물에 빈칸이 하나라도</strong> 있는 경우. 판단이 아니라 산수라서, 통과하기도 가장 쉽고 걸려 넘어지기도 가장 쉬워요.</td></tr>
+</table>
+<p>확인하지 <strong>않는</strong> 것: 예쁜지, 다른 사람 것과 비슷한지, 검토하는 사람이
+  낚시하며 즐거울지. 정직하게 만든 소박한 낚시터는 통과해요. 남의 사진으로 만든 화려한 낚시터는
+  통과하지 못해요.</p>
+<figure>
+<img alt="공용 라이브러리에 게시된 낚시터" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>게시됨. 다른 모든 낚시꾼이 보는 카드이자, 여러분의 물이 자리 잡는 곳이에요.</figcaption>
+</figure>
+<h2 id="after">9. 공개된 후</h2>
+<ul>
+<li><strong>수정하면 다시 검토를 거쳐요.</strong> 낚시터가 게시되면 내용이 잠기고, 어떤 변경이든
+      보류됐다가 다른 플레이어에게 닿기 전에 다시 확인돼요. 그러니 나중에 고칠 생각을 하기보다
+      제출하기 전에 제대로 해 두세요.</li>
+<li><strong>은퇴시킬 수 있어요.</strong> 은퇴시키면 낚시터가 라이브러리에서 빠지고, 그곳의 기록도 함께
+      순위표에서 빠지지만, 아무것도 삭제되지 않아요. 내가 켜고 끄는 스위치이고, 되돌릴 수 있어요.</li>
+<li><strong>그곳에서 세운 기록에는 낚시터 이름</strong>과 자리 이름이 어디서든 함께 표시돼요. 처음부터
+      자리 이름을 제대로 지어야 하는 이유예요.</li>
+</ul>
+<div class="callout"><strong>요약.</strong> 내 사진을 쓰세요. 정직하게 보정하세요. 캐스팅할 만한 곳이 있는 바닥을 칠하세요.
+    소원 목록이 아니라 진짜 물처럼 방류하세요. 보내기 전에 직접 낚시해 보세요. 이 다섯 가지를 하면
+    통과해요.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">질문이 있거나 검토 결정이 잘못됐다고 생각하세요? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/ko/">홈</a> · <a href="/ko/swim-confidence">SWIM 자신감 가이드</a> · <a href="/terms">이용 약관</a> · <a href="/privacy">개인정보 처리방침</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="닫기 (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="이전" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="다음" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 한국어</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a aria-current="true" href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

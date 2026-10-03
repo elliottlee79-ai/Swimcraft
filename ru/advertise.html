@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Реклама в Swimcraft</title>
+<meta content="Покажи свой рыболовный магазин, водоём или наживку рыболовам прямо в Swimcraft." name="description"/>
+<meta content="Реклама в Swimcraft" property="og:title"/>
+<meta content="Покажи свой рыболовный магазин, водоём или наживку рыболовам прямо в Swimcraft." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://swimcraft.harbledowndigital.com/ru/advertise" property="og:url"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url(/'/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --water2: #4A7A6D;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+
+  /* The in-game board, drawn at the game's own sizes (index.css .home-billboard) and enlarged for the page */
+  .board-wrap {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2.5rem 1.25rem 2.25rem;
+    margin: 0 0 0.5rem;
+    background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  }
+  .scene-mark {
+    font-family: var(--font-brand); font-size: 2.1rem; line-height: 1;
+
+  }
+  .scene-mark .swim { color: var(--brand-bone); }
+  .scene-mark .craft { color: var(--brand-olive); }
+  .scene-menu { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .scene-menu span {
+    font-size: 0.8rem; font-weight: 600; color: var(--brand-bone);
+    background: rgba(16,21,13,0.7); border: 1px solid rgba(143,170,107,0.3);
+    border-radius: 999px; padding: 0.25rem 0.8rem;
+  }
+  .board-scale { transform: scale(1.3); transform-origin: center top; margin-bottom: 1.4rem; width: 100%; display: flex; justify-content: center; }
+  .board {
+    position: relative; overflow: hidden;
+    width: 100%; max-width: 380px; min-height: 4.2rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+    padding: 0.7rem 1.2rem;
+    background: rgba(16,21,13,0.9);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.3);
+  }
+  .board::before {
+    content: ''; position: absolute; inset: 3px;
+    border: 1px solid rgba(201,168,76,0.55); border-radius: 7px; pointer-events: none;
+  }
+  .board::after {
+    content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
+    background: linear-gradient(100deg, transparent 0%, rgba(240,208,128,0.18) 50%, transparent 100%);
+    transform: skewX(-18deg);
+    animation: glint 1.6s 0.9s ease-out 1 both;
+    pointer-events: none;
+  }
+  @keyframes glint { from { left: -60%; } to { left: 130%; } }
+  @media (prefers-reduced-motion: reduce) { .board::after { animation: none; display: none; } }
+  .board-logo { flex: none; height: 2.6rem; width: auto; max-width: 5.5rem; display: block; }
+  .board-text { color: #f0e060; font-weight: 600; font-size: 0.95rem; line-height: 1.4; text-align: center; }
+  .board-flag {
+    display: inline-block; margin-right: 0.25rem; padding: 0 0.5rem;
+    font-size: 0.78rem; font-weight: 700; line-height: 1.45;
+    color: var(--brand-bone); background: rgba(230,220,198,0.12);
+    border: 1px solid rgba(230,220,198,0.3); border-radius: 999px; vertical-align: 0.1em;
+  }
+  @media (max-width: 520px) { .board-scale { transform: none; margin-bottom: 0; } .scene-mark { font-size: 1.7rem; } }
+  .caption { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.75rem; }
+  .specs { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.25rem; margin: 0 0 1.25rem; }
+  .specs dt { font-weight: 700; color: var(--brand-bone); }
+  .specs dd { margin: 0; }
+  @media (max-width: 480px) { .specs { grid-template-columns: 1fr; gap: 0.15rem; } .specs dd { margin-bottom: 0.6rem; } }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+<link href="https://swimcraft.harbledowndigital.com/ru/advertise" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/advertise" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/advertise" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/advertise" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/advertise" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/advertise" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/advertise" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/advertise" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/advertise" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/advertise" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/advertise" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/advertise" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/advertise" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/advertise" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/advertise" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/advertise" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/advertise" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/advertise" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/advertise" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/advertise" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/advertise" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/advertise" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="topbar">
+<div class="topbar-inner"><a aria-label="Swimcraft home" class="wordmark" href="/ru/"><span class="swim">swim</span><span class="craft">craft</span></a>
+<a class="back" href="/ru/">Назад на главную</a></div>
+</header>
+<div class="intro">
+<h1>Реклама в Swimcraft</h1>
+<p class="lede">Покажи свой рыболовный магазин, водоём или наживку рыболовам на первом экране, который они видят при каждом запуске игры.</p>
+</div>
+<main>
+<section aria-labelledby="board">
+<div aria-label="Пример рекламы вымышленного рыболовного магазина на доске под главным меню Swimcraft" class="board-wrap" role="img">
+<div class="scene-mark"><span class="swim">swim</span><span class="craft">craft</span></div>
+<div aria-hidden="true" class="scene-menu"><span>На рыбалку</span><span>Домик рыболова</span><span>Редактор водоёмов</span></div>
+<div class="board-scale">
+<div class="board">
+<svg aria-hidden="true" class="board-logo" viewbox="0 0 120 72">
+<defs>
+<lineargradient id="sg-bg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5d7f3a"></stop><stop offset="1" stop-color="#3a5024"></stop></lineargradient>
+<lineargradient id="sg-tip" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff7a3d"></stop><stop offset="1" stop-color="#d8431f"></stop></lineargradient>
+</defs>
+<rect fill="url(#sg-bg)" height="68" rx="12" stroke="#E6DCC6" stroke-width="3" width="116" x="2" y="2"></rect>
+<rect fill="none" height="56" opacity="0.8" rx="8" stroke="#C9A84C" stroke-width="1.5" width="104" x="8" y="8"></rect>
+<path d="M8 50 Q24 45 40 50 T72 50 T112 50 L112 56 Q112 64 104 64 L16 64 Q8 64 8 56 Z" fill="#2c4a52" opacity="0.9"></path>
+<line stroke="#E6DCC6" stroke-linecap="round" stroke-width="2.5" x1="24" x2="24" y1="12" y2="20"></line>
+<path d="M24 20 C18 30 18 42 24 52 C30 42 30 30 24 20 Z" fill="#E6DCC6"></path>
+<path d="M24 20 C20.5 25 20 28 20.2 30 L27.8 30 C28 28 27.5 25 24 20 Z" fill="url(#sg-tip)"></path>
+<text fill="#E6DCC6" font-family="'Alfa Slab One','Bitter',Georgia,serif" font-size="15" lengthadjust="spacingAndGlyphs" textlength="68" x="42" y="34">SEDGEWICK</text>
+<text fill="#F0D080" font-family="'Bitter',Georgia,serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" x="76" y="48">TACKLE</text>
+</svg>
+<div class="board-text"><span class="board-flag">Реклама</span> Sedgewick Tackle: скидка 20% на карповые оснастки в эти выходные</div>
+</div>
+</div>
+</div>
+<p class="caption">Пример рекламы вымышленного магазина, показан крупнее, чем в игре. Доска находится под главным меню на стартовом экране.</p>
+<h2 id="board">Что ты получаешь</h2>
+<ul>
+<li>Место на доске на стартовом экране Swimcraft, которое видит каждый игрок при каждом запуске игры.</li>
+<li>Твой логотип, короткая строка текста и ссылка. По клику твой сайт или магазин откроется в браузере игрока.</li>
+<li>На твоей рекламе стоит небольшая пометка «Реклама», как того требуют правила рекламы в Великобритании, чтобы её никогда не путали с нашими новостями.</li>
+<li>Доска по очереди показывает несколько объявлений, меняя их примерно каждые восемь секунд, и замирает, пока игрок наводит на неё курсор.</li>
+<li>При желании можно указать даты начала и окончания, чтобы размещение шло во время распродажи, соревнования или дня открытых дверей.</li>
+<li>Изменения появятся при следующем запуске игры, ничего скачивать не нужно.</li>
+</ul>
+</section>
+<section aria-labelledby="who">
+<h2 id="who">Кто это увидит</h2>
+<p>Swimcraft — симулятор рыбалки для карпятников, любителей поплавка и донки и морских рыболовов, в котором игроки превращают фотографии своих мест в водоёмы и ловят на них. Бесплатное демо доступно в Steam и на itch.io, а полная версия готовится к выходу в раннем доступе Steam.</p>
+<p>Это подходит бизнесу, которым рыболовы уже пользуются:</p>
+<ul>
+<li>Рыболовные магазины, онлайн и в городе</li>
+<li>Платные водоёмы, клубы и синдикаты</li>
+<li>Производители наживок и прикормок</li>
+<li>Рыболовные туры и гиды</li>
+</ul>
+</section>
+<section aria-labelledby="send">
+<h2 id="send">Что нам прислать</h2>
+<dl class="specs">
+<dt>Логотип</dt><dd>PNG с прозрачным фоном, не меньше 180 на 90 пикселей. Он отображается небольшим, поэтому лучше всего читается простой знак.</dd>
+<dt>Твоя строка</dt><dd>Примерно до 60 символов. На доску помещаются две короткие строки.</dd>
+<dt>Ссылка</dt><dd>Страница, на которую должны попадать игроки.</dd>
+<dt>Даты</dt><dd>Когда начать и закончить показ, если реклама к какому-то событию.</dd>
+</dl>
+</section>
+<section aria-labelledby="brands">
+<h2 id="brands">Бренды снастей</h2>
+<p>Настоящие удилища, катушки и мелкие снасти под своими названиями в ящике для снастей запланированы на ранний доступ. Если ты производишь снасти и хочешь в этом участвовать, напиши нам заранее.</p>
+</section>
+</main>
+<div class="cta">
+<div class="cta-panel">
+<p>Расскажи немного о своём бизнесе и о том, что хочешь продвигать, и мы ответим с расценками и датами.</p>
+<div class="buttons"><a class="button primary" href="mailto:info@harbledowndigital.com?subject=Advertising%20in%20Swimcraft">Написать нам о рекламе</a>
+<a class="button secondary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Попробовать демо</a></div>
+</div>
+</div>
+<footer>
+<div class="footer-inner">© 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Политика конфиденциальности</a> и <a href="https://swimcraft.harbledowndigital.com/terms">Условия использования</a>.</div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Русский</span></summary><ul><li><a href="/advertise" hreflang="en" lang="en">English</a></li><li><a href="/de/advertise" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/advertise" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/advertise" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/advertise" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/advertise" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/advertise" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/advertise" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/advertise" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/advertise" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/advertise" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/advertise" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/advertise" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/advertise" hreflang="cs" lang="cs">Čeština</a></li><li><a aria-current="true" href="/ru/advertise" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/advertise" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/advertise" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/advertise" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/advertise" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/advertise" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/advertise"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/advertise"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/advertise"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/advertise"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/advertise"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/advertise"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/advertise"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/advertise"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/advertise"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/advertise"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/advertise"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/advertise"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/advertise"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/advertise"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/advertise"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/advertise"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/advertise"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/advertise"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/advertise"}, {"c": "", "hl": "en", "n": "English", "u": "/advertise"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Swimcraftの新機能</title>
+<meta content="最初のビルドから、Swimcraft体験版で変わったことのすべて。" name="description"/>
+<meta content="Swimcraftの新機能" property="og:title"/>
+<meta content="最初のビルドから、Swimcraft体験版で変わったことのすべて。" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://swimcraft.harbledowndigital.com/ja/whats-new" property="og:url"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url(/'/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+<link href="https://swimcraft.harbledowndigital.com/ja/whats-new" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/whats-new" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/whats-new" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/whats-new" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/whats-new" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/whats-new" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/whats-new" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/whats-new" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/whats-new" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/whats-new" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/whats-new" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/whats-new" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/whats-new" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/whats-new" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/whats-new" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/whats-new" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/whats-new" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/whats-new" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/whats-new" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/whats-new" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="topbar">
+<div class="topbar-inner"><a aria-label="Swimcraft home" class="wordmark" href="/ja/"><span class="swim">swim</span><span class="craft">craft</span></a>
+<a class="back" href="/ja/">ホームページに戻る</a></div>
+</header>
+<div class="intro">
+<h1>新機能</h1>
+<div class="build">最新の体験版アップデート：0.111.530（2026年10月3日）</div>
+<p class="lede">最新の変更を先頭に、その後に最初の体験版ビルド（0.111.405）以降のすべての変更を載せています。遊んでみて気づいたことを教えてくださった皆さん、ありがとうございます。これから登場する内容は<a href="/ja/roadmap">ロードマップ</a>をご覧ください。</p>
+</div>
+<main>
+<section aria-labelledby="v530-languages">
+<h2 id="v530-languages"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12 H21"></path><path d="M12 3 C15 6 15 18 12 21 C9 18 9 6 12 3 Z"></path></svg>
+      0.111.530の新機能：あなたの言語でSwimcraftを</h2>
+<ul>
+<li>ゲーム全体を20の言語で遊べるようになりました：英語、ドイツ語、フランス語、スペイン語（スペイン）、スペイン語（中南米）、ポルトガル語（ブラジル）、イタリア語、オランダ語、デンマーク語、ノルウェー語、スウェーデン語、フィンランド語、ポーランド語、チェコ語、ロシア語、トルコ語、日本語、簡体字中国語、繁体字中国語、韓国語。</li>
+<li>すべての画面に対応しています：メニュー、チュートリアル、タックルボックスとエサ箱、釣り画面、釣果カード、記録、釣り場クリエイター、魚種クリエイター。</li>
+<li>初めてゲームを起動すると、Windowsの言語が自動で選ばれます。ホームメニューの「言語」からいつでも変更できます。</li>
+<li>翻訳はできたばかりなので、おかしな文があればF8を押してその文をクリックし、教えてください。報告はすべて読んでいます。</li>
+<li>小さな修正：セッションの集計で「fishs」と表示されなくなりました。</li>
+</ul>
+</section>
+<section aria-labelledby="v509-fixes">
+<h2 id="v509-fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      0.111.509の新機能：修正</h2>
+<ul>
+<li>1ドラムより軽い魚はいなくなりました。ごく小さな魚が0lb 0oz 0drと表示されることがありました。見つけてくれたDaveに感謝します。</li>
+<li>魚種クリエイターで、魚に名前を付ける前に選んだ写真を、名前を付けた後にもう一度選べるようになりました。</li>
+</ul>
+</section>
+<section aria-labelledby="v507-tackle">
+<h2 id="v507-tackle"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      0.111.507の新機能：タックルボックスとエサ箱</h2>
+<ul>
+<li>どちらの箱も一から作り直しました。ロッド、リール、ライン、フック、エサのすべてに専用の画像が付き、ブランドごとのセクションに並んでいます。</li>
+<li>まだアンロックしていないギアもはっきり表示されるので、レベルアップすると何が待っているのかがわかります。</li>
+<li>装備中のタックルは箱の上部にミニカードの列として並び、空いている枠にはそこに入れられるギアが表示されます。</li>
+<li>ウキ仕掛けの横には5種類すべてのウキの写真が並び、フィーダー仕掛けの画面は2列のレイアウトになりました。</li>
+<li>海の仕掛け画面がコイ仕掛けの画面とそろいました：3種類の海の仕掛けを、それぞれ図と釣り方の説明付きで。</li>
+<li>新しいエサ：Pineapple Wafter。Match T HatchはMatch T Hatch Pop-upという名前になりました。もともとポップアップだったからです。</li>
+</ul>
+</section>
+<section aria-labelledby="v507-species">
+<h2 id="v507-species"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      0.111.507の新機能：魚種クリエイター</h2>
+<ul>
+<li>自分だけの魚を作りましょう。どこに棲み、どう食べ、どう引き、どんなアタリを出すかについての簡単な質問にいくつか答え、写真を加えて保存するだけです。</li>
+<li>作った魚を申請して、みんなが遊べるようにゲームに追加する機能は早期アクセスで登場します。</li>
+</ul>
+</section>
+<section aria-labelledby="v507-fishing">
+<h2 id="v507-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      0.111.507の新機能：釣りと釣り場</h2>
+<ul>
+<li>チュートリアルの進行状況がアカウントに保存されるようになり、終えたチュートリアルは再サインインしても完了のままです。</li>
+<li>障害物にたどり着いた魚は、約10秒後にフックを外すようになりました。ラインを緩めてやれば、また動き出します。</li>
+<li>季節ガイドで、ヨーロッパスズキがアメリカのラージマウスバスの季節を借りるのではなく、英国の魚として冬には少なくなるように表示されるようになりました。</li>
+<li>湖底を広く塗った釣り場の保存がタイムアウトしなくなりました。</li>
+<li>釣り座の多い川で、最初の釣り座がリストの端に隠れなくなりました。</li>
+<li>釣りパネルのヘッダーが画面外に出たまま動かせなくなることがなくなりました。</li>
+<li>「この釣り場をテスト」は、釣り場の保存に失敗したときに黙って進まず、そのことを知らせるようになりました。</li>
+<li>「釣り場を読み込みました」のメッセージが必ず消えるようになりました。</li>
+<li>ダウンロードサイズが小さくなりました。</li>
+</ul>
+</section>
+<section aria-labelledby="latest-fishing">
+<h2 id="latest-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      0.111.478の新機能：釣り</h2>
+<ul>
+<li>ウキが沈んだ瞬間にアワセれば、魚が掛かります。素早い反応が不利になることはもうありません。小さな沈みや小突きでアワセると、今まで通りエサだけ抜かれます。</li>
+<li>リアルモード：釣りパネルのボタンで「今アワセて！」を含む画面上のガイドがすべてオフになり、魚はそれぞれ独自の時間だけエサをくわえてから放します。選んだ設定は記憶されます。</li>
+<li>キーボードショートカット：Zでアワセ、Bでベール、Lで撒きエサ、Gで寄せエサ、Rで巻き取り、Tでタックルボックス、Yでエサ箱、Mでサウンド。すべて操作カードに載っています。</li>
+<li>キャスト後、流れのある水域でウキ釣りをしているときはベールが開いたままになってウキが流れ、止水では閉じた状態になります。</li>
+<li>玉網の柄がまっすぐ網までつながるようになりました。</li>
+<li>エサ箱で、撒きエサや寄せエサのラベルにある×から外せるようになりました。</li>
+</ul>
+</section>
+<section aria-labelledby="latest-rivers">
+<h2 id="latest-rivers"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      0.111.478の新機能：川</h2>
+<ul>
+<li>新しい、いちばん遅い流速：ほぼ止水。</li>
+<li>釣り座ごとの「小さな水域」設定。細い川や小さな小川で流れを大きく遅くします。</li>
+</ul>
+</section>
+<section aria-labelledby="latest-creator">
+<h2 id="latest-creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      0.111.478の新機能：釣り場クリエイター</h2>
+<ul>
+<li>水面が画面の上のほうまで写っている写真でも、対岸まで釣れるようになりました。隠れた制限のせいで、キャストが画像の3分の1ほどの高さで止まっていました。</li>
+<li>距離ラインは、そこに届くロッドの名前で呼ばれるようになりました。淡水では「フロートロッドの届く距離」や「フィーダーロッドの届く距離」、海の釣り場では「桟橋竿の届く距離」や「投げ竿の届く距離」、さらに「至近距離」ラインもあります。ラインにマウスを乗せると距離が表示されます。</li>
+<li>マップの工程では、青い距離の色合いで水面の遠近感が表示されます。足元は濃く、対岸はかすんで見えます。</li>
+<li>ペイントの工程で水際と島の輪郭が表示されるようになり、どこを境に塗っているのかがわかります。</li>
+<li>マップとペイントの工程を切り替えても、描きかけの形が消えなくなりました。</li>
+</ul>
+</section>
+<section aria-labelledby="fight">
+<h2 id="fight"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 21 C9 15 13 8 20 4"></path><path d="M20 4 L20 13"></path><path d="M17.5 13 Q20 16 22.5 13"></path></svg>
+      ファイト</h2>
+<ul>
+<li>掛かった魚はアシ、スイレン、障害物などの隠れ場所へ向かうようになり、ファイトが毎回違う展開になります。そこへ行かせないのがあなたの仕事です。</li>
+<li>魚種ごとに独自のファイトを見せ、記録に近い魚ほど強く引きます。</li>
+<li>ドラグ設定が本当に重要になりました。うまく設定すれば、ラインの強度より重い魚も釣り上げられます。</li>
+<li>コイとテンチは走り、大きなブリームはラインを引き出していきます。アワセる前に、ウキやラインが動くのが見えます。</li>
+<li>取り込みを作り直し、コイの釣り場には本格的なカープネットが用意されました。</li>
+<li>マウスを動かすと竿先が上下し、右ボタンを押し続けると竿を立てます。仕掛けを投げている間、ロッドは置き竿になります。</li>
+<li>どのロッドも種類に応じて曲がります：海のロッドは硬く、マッチロッドとフィーダーロッドは柔らかめです。</li>
+</ul>
+</section>
+<section aria-labelledby="bites">
+<h2 id="bites"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 L12 6"></path><path d="M12 6 C9.5 9 9.5 13 12 16 C14.5 13 14.5 9 12 6 Z"></path><path d="M12 16 L12 19"></path><path d="M3 19 Q6 17.5 9 19 T15 19 T21 19"></path></svg>
+      アタリとポイント</h2>
+<ul>
+<li>4つの難易度を調整し直しました。「かんたん」の釣り場ではすぐにアタリが出て、「大物用」の釣り場では苦労してアタリを引き出す必要があります。</li>
+<li>ラインの強度が影響するようになりました。小さく警戒心の強い魚に太いラインを使うと、アタリが減ります。</li>
+<li>障害物の近くを釣ると報われます。開けた水域は公平ですが、釣れるペースは遅めです。</li>
+<li>ポイントバーに、ポイントが実際にどれだけ釣れる状態かが表示されるようになりました。</li>
+<li>タイガーナッツで、チャブやバーベルに加えて大きなテンチやブリームも釣れるようになりました。</li>
+<li>コイ用に大きめのフックを使っても、きちんとアタリが出るようになりました。</li>
+<li>ホワイティングやカレイ類向けに、小さめの海用フック（4号と6号）が使えるようになりました。</li>
+<li>仕掛けが釣果を左右するようになりました。オモリの重さ、ハリスの素材、ハリスの長さ、仕掛けの選択のそれぞれが魚のエサの食い方に影響するので、魚、底質、エサに仕掛けを合わせると報われます。すべての仕掛けは<a href="/ja/rigipedia">Rigipedia</a>で解説しています。</li>
+</ul>
+</section>
+<section aria-labelledby="screen">
+<h2 id="screen"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 9 L3 6 Q3 4 5 4 L19 4 Q21 4 21 6 L21 9"></path><rect height="11" rx="2" width="20" x="2" y="9"></rect><path d="M9 9 L9 7 L15 7 L15 9"></path></svg>
+      タックルと画面</h2>
+<ul>
+<li>ライン情報パネルに、仕掛けが何の上にあるかが表示されます。例：<q>泥 / アシ</q>。</li>
+<li>ウキが大きくなり、遠くでも見やすくなりました。</li>
+<li>タックルボックスやエサ箱を開いても、ラインが巻き取られなくなりました。</li>
+<li>釣り人の小屋のタックルボックスで、海釣り用のタックルを組めるようになりました。</li>
+<li>レベルアップすると、新しいギアは確認するまで印が付くようになりました。</li>
+<li>釣り場ページに<q>今日釣る</q>ボタンができ、日付と時刻が見つけやすくなりました。正確な時刻のスライダーで、釣りを始める時刻が本当に設定されるようになりました。</li>
+<li>釣果カードに、使ったエサが正確に表示されます。例えば<q>スイートコーン</q>ではなく<q>硬質トウモロコシ</q>。</li>
+<li>釣果カードや記録ボードの魚は実物大で表示され、さりげない3D効果が付きます。</li>
+<li>ホーム画面にニュースボードができ、「ガイド」からRigipediaへ行けるようになりました。ボード上のスポンサー項目にはスポンサーと表示されます。</li>
+<li>釣果をシェア：釣果カードにシェアボタンが付きました。自分の釣果、自己ベスト、自分が持つ世界記録で使えます。カードの画像を保存し（友達をSteamのSwimcraftページに案内するコード付き）、そのまま投稿できるキャプションをコピーします。</li>
+<li>タックルボックス、エサ箱、アカウントメニュー全体に新しい手描きアイコンを導入し、箱のメニューも読みやすくなりました。</li>
+</ul>
+</section>
+<section aria-labelledby="creator">
+<h2 id="creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 8 Q3 6.5 4.5 6.5 L7.5 6.5 L9 4 L15 4 L16.5 6.5 L19.5 6.5 Q21 6.5 21 8 L21 18 Q21 19.5 19.5 19.5 L4.5 19.5 Q3 19.5 3 18 Z"></path><circle cx="12" cy="12.5" r="3.8"></circle></svg>
+      釣り場クリエイター</h2>
+<ul>
+<li>放流バーが、難易度に対して水域にどれだけ魚がいるかを言葉で教えてくれます。</li>
+<li>魚の画像を追加するとライブプレビューが表示され、切り抜き画像の作り方ガイドも付きます。</li>
+<li>「モンスター」サイズ帯は「超大物」に統合され、サイズの上限は国内記録までになりました。</li>
+</ul>
+</section>
+<section aria-labelledby="fixes">
+<h2 id="fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      修正</h2>
+<ul>
+<li>ロッドのガイドがロッドの片側からもう片側へ飛ばなくなりました。</li>
+<li>魚が網の近くにいるとき、ロッドが逆向きに折れ返らなくなりました。</li>
+<li>釣りのチュートリアルの最後のカードが正しく動作するようになりました。</li>
+<li>画面に表示される仕掛けは、常に水中にある仕掛けと一致します。コイ仕掛けからウキに切り替えたときに、古い設定が引き継がれなくなりました。</li>
+<li>ポップアップメッセージが記録カードの裏ではなく、手前に表示されるようになりました。</li>
+</ul>
+</section>
+</main>
+<div class="cta">
+<div class="cta-panel">
+<p>SwimcraftはSteamの早期アクセスに向けて準備中です。リリースの知らせを受け取るには、ウィッシュリスト登録がいちばんです。</p>
+<div class="buttons"><a class="button primary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Steamでウィッシュリストに追加</a>
+<a class="button secondary" href="https://store.steampowered.com/app/4949860/Swimcraft/">体験版をプレイ</a></div>
+</div>
+</div>
+<footer>
+<div class="footer-inner">© 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">プライバシーポリシー</a>と<a href="https://swimcraft.harbledowndigital.com/terms">利用規約</a>。</div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 日本語</span></summary><ul><li><a href="/whats-new" hreflang="en" lang="en">English</a></li><li><a href="/de/whats-new" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/whats-new" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/whats-new" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/whats-new" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/whats-new" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/whats-new" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/whats-new" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/whats-new" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/whats-new" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/whats-new" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/whats-new" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/whats-new" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/whats-new" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/whats-new" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/whats-new" hreflang="tr" lang="tr">Türkçe</a></li><li><a aria-current="true" href="/ja/whats-new" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/whats-new" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/whats-new" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/whats-new" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/whats-new"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/whats-new"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/whats-new"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/whats-new"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/whats-new"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/whats-new"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/whats-new"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/whats-new"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/whats-new"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/whats-new"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/whats-new"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/whats-new"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/whats-new"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/whats-new"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/whats-new"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/whats-new"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/whats-new"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/whats-new"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/whats-new"}, {"c": "", "hl": "en", "n": "English", "u": "/whats-new"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

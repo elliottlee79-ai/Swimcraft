@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SWIM-vertrouwen — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Wat de balk voor SWIM-vertrouwen is, hoe je hem opbouwt, waardoor je hem verliest en wat een hete stek je echt oplevert." name="description"/>
+<meta content="SWIM-vertrouwen — Swimcraft" property="og:title"/>
+<meta content="Wat de balk voor SWIM-vertrouwen is, hoe je hem opbouwt, waardoor je hem verliest en wat een hete stek je echt oplevert." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/nl/swim-confidence" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .ladder{list-style:none;margin:1rem 0 1.4rem;padding:0;}
+  .ladder li{display:flex;gap:0.9rem;align-items:baseline;padding:0.55rem 0.9rem;margin-bottom:0.35rem;
+    background:var(--card-bg);border:1px solid var(--border);border-radius:8px;}
+  .ladder .rung{font-family:var(--font-display);font-weight:600;color:var(--brand-bone);min-width:8.5rem;}
+  .ladder .say{color:var(--muted);font-size:0.9rem;}
+  .gain td:first-child,.gain th:first-child{width:42%;}
+  .up{color:var(--accent);font-weight:700;}
+  .down{color:#d98a3a;font-weight:700;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/nl/swim-confidence" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/swim-confidence" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/swim-confidence" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/swim-confidence" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/swim-confidence" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/swim-confidence" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/swim-confidence" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/swim-confidence" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/swim-confidence" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/swim-confidence" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/swim-confidence" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/swim-confidence" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/swim-confidence" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/swim-confidence" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/swim-confidence" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/swim-confidence" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/swim-confidence" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/swim-confidence" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/swim-confidence" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/swim-confidence" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/swim-confidence" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/swim-confidence" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/nl/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>SWIM-vertrouwen</h1>
+<p class="meta"><strong>De balk onder je voerbalk: wat hem vult en wat hij waard is.</strong></p>
+<p class="meta">Laatst bijgewerkt: augustus 2026</p>
+<div class="intro">Elke visser kent het gevoel van een stek die aangaat: een uur niets, dan kleine vissen, dan betere vissen, en dan die ene waarvoor je kwam. Swimcraft bootst dat rechtstreeks na. De balk met <strong>Stek</strong> laat zien hoe opgewarmd het water voor je is, en het is het allergrootste wat tussen jou en een grote vis in staat.</div>
+<h2>Wat de balk je vertelt</h2>
+<p>Hij loopt van koud tot volledig aan, en geeft aan waar hij staat:</p>
+<ul class="ladder">
+<li><span class="rung">stil</span><span class="say">Er gebeurt nog niets. Hier begint elke stek.</span></li>
+<li><span class="rung">komt op gang</span><span class="say">Het aas ligt erin en er wordt iets wakker.</span></li>
+<li><span class="rung">aan het azen</span><span class="say">Vissen beconcurreren elkaar. Aanbeten komen makkelijker en het formaat begint te stijgen.</span></li>
+<li><span class="rung">zelfverzekerd</span><span class="say">Een goed voorbereide stek. De betere vissen zitten er nu echt in.</span></li>
+<li><span class="rung">razernij</span><span class="say">Heter wordt het niet. Hier zitten de grootste vissen, en de beloningen.</span></li>
+</ul>
+<div class="callout warn"><strong>Hij hoort bij de stek, niet bij jou.</strong> Verhuis naar een andere stek en je begint weer koud, en de nieuwe stek krijgt zijn eigen stemming voor die dag. Een uur geduldig voeren is een uur geïnvesteerd <em>hier</em>, en dat is precies de afweging die een echte visser maakt als hij overweegt te verkassen.</div>
+<div class="pair">
+<figure>
+<img alt="De balk voor SWIM-vertrouwen op stil" class="zoomable" loading="lazy" src="/gallery/sc-01-bar-quiet.webp"/>
+<figcaption><strong>Stil.</strong> Waar elke sessie begint.</figcaption>
+</figure>
+<figure>
+<img alt="De balk voor SWIM-vertrouwen op razernij" class="zoomable" loading="lazy" src="/gallery/sc-02-bar-frenzy.webp"/>
+<figcaption><strong>Razernij.</strong> Dezelfde twee balken, verdiend. Zelfde uitsnede, dus het verschil is het hele plaatje.</figcaption>
+</figure>
+</div>
+<h2>Voeren is de motor, niet vangen</h2>
+<p><strong>Vissen in het net bouwen een stek sneller op dan wat dan ook</strong>, maar aas is wat ze daar brengt, en het is het enige wat de balk überhaupt laat bewegen als er niets aanbijt. Het een werkt niet zonder het ander: aas zonder te vissen gaat langzaam, en vissen boven een lege stek levert de vissen niet op.</p>
+<ul>
+<li><strong>Elk aas in het water houdt de stek vast.</strong> Zolang de voerbalk boven nul staat, zakt de stek helemaal niet terug, en hij klimt. Hoe snel hij klimt, hangt af van hoe vol de balk is, dus een balk die hoog wordt gehouden, bouwt een stek een aantal keer sneller op dan een die laag blijft. Beide bouwen hem op.</li>
+<li><strong>Laat de balk leeglopen en de stek koelt snel af.</strong> Zonder iets in het water loopt het vertrouwen twee keer zo snel weg als het bij een volle balk klom. Weinig en vaak bijvoeren houdt je aan de goede kant daarvan.</li>
+<li>Je voer is na ongeveer <strong>vijf minuten op een koude stek</strong> weggespoeld, en na ongeveer <strong>één minuut bij razernij</strong>.</li>
+<li>En de valkuil: <strong>hoe heter de stek, hoe sneller je aas op is.</strong> Meer vissen, meer monden. Een razernij die je niet meer voert, is een razernij die eindigt.</li>
+</ul>
+<p>De twee regels hierboven werken bewust tegen elkaar in. Aas warmt de stek op, en een warme stek eet het aas sneller op. Dus hoe beter het vissen wordt, hoe harder je moet werken om het zo te houden.</p>
+<h3>Maar gooi het er niet allemaal in, en de balk waarschuwt je</h3>
+<p>Je kunt de stek niet per ongeluk overvoeren, want de voerbalk waarschuwt je eerst. Hij toont <strong>wordt gegeten</strong> in groen zolang er ruimte is, <strong>stek gevoerd</strong> in oranje als hij volloopt, en <strong>nog één en ze schrikken</strong> in rood als er geen ruimte meer is voor nog een worp. De rode zone betekent precies wat er staat, elke keer.</p>
+<p>Vanaf een lege balk zijn het drie worpen tot rood en een vierde om het te verpesten. Gooi je bij een rode balk, dan gaat het voer achteruit, krijgt de stek een flinke klap van bovenaf en duurt het ongeveer driekwart minuut voordat hij weer tot rust komt en goed vist. Blijf je bij rood gooien, dan blijft het je kosten.</p>
+<p>Voer langzaam genoeg en je kunt helemaal niet overdrijven: laat anderhalve minuut tussen de worpen en de vissen ruimen het aas net zo snel op als je het erin gooit. Weinig en vaak is echt het antwoord, en nu zegt de balk het ook.</p>
+<!-- ⚠ REVERTED 18 Aug 2026 TO THE TEXT ABOVE, WHICH IS TRUE OF THE SHIPPED BUILD. For part of
+       that day this page promised seasonal bait life, naming a summer figure and a longer winter
+       one, plus a winter overfeeding warning. Those figures are described rather than repeated
+       here, so the grep that proves them gone does not match this comment (rule 57 — the third
+       time in one session, and the third time it was caught by the delivery's own check). Both were written against P4-293 increment 2, which is BUILT
+       but deliberately switched off at FEED_BURN_READS_APPETITE until the seasonal shape is
+       agreed (P4-299 with P4-302 and P4-278). ⚠ AND THE JANUARY FIGURE WAS WRONG EVEN FOR THE
+       WIRED BUILD: 0.47 is a DAY AVERAGE and it was published as though it held at any hour,
+       when midday in January measures hungrier than midday in July. A page describing a mechanic
+       that is switched off is the fault rule 63 exists for, so it goes back rather than waits.
+       This block moves again in the delivery that turns the flag on, and not before. -->
+<div class="pair">
+<figure>
+<img alt="Een goed gevoerde stek" class="zoomable" loading="lazy" src="/gallery/sc-03-feed-baited.webp"/>
+<figcaption>Voer hoog en daar gehouden. Over deze toestand gaat de rest van deze pagina.</figcaption>
+</figure>
+<figure>
+<img alt="De waarschuwing voor overvoeren" class="zoomable" loading="lazy" src="/gallery/sc-04-overfeed.webp"/>
+<figcaption>Eén worp te veel, en de vissen in de stek schrikken. De balk waarschuwt je voordat het gebeurt, dus lees hem.</figcaption>
+</figure>
+</div>
+<h2>Wat de balk laat bewegen</h2>
+<table class="gain">
+<tr><th>Wat er gebeurt</th><th>Effect</th></tr>
+<tr><td>Aas in de stek op peil houden</td><td class="up">Een langzame, gestage klim, en het enige wat werkt als er niets aanbijt</td></tr>
+<tr><td>Een kleine vis landen</td><td class="up">Een stap die een aantal minuten perfect voeren waard is</td></tr>
+<tr><td>Een goede vis landen</td><td class="up">Een veel grotere stap: een twintigponder is een aantal kleintjes waard</td></tr>
+<tr><td>Niets doen, geen aas erin</td><td class="down">Loopt weg; een gevoerde stek loopt helemaal niet weg</td></tr>
+<tr><td>Een aanbeet verprutsen: te vroeg aanslaan, missen</td><td class="down">Een tik. Te herstellen.</td></tr>
+<tr><td><strong>Een gehaakte vis verliezen</strong></td><td class="down"><strong>Veruit de grootste klap in de game</strong></td></tr>
+<tr><td>Overvoeren: gooien bij een rode balk</td><td class="down">Een flink stuk er meteen vanaf, elke keer dat je het doet</td></tr>
+<tr><td>Een specimen landen</td><td class="down">Geeft er bewust wat van uit (zie hieronder)</td></tr>
+</table>
+<div class="callout"><strong>Een vis verliezen is degene om serieus te nemen.</strong> Een verloren tweeponder kost je ongeveer wat negen of tien kleine vissen je opleverden. De aanslag verprutsen is ongeveer een vijfde zo erg. Het loont om een gehaakte vis geduldig te drillen in plaats van hem te forceren, niet omdat de vis zo kostbaar is, maar omdat je met hem ook de stek verliest.</div>
+<h3>Waarom een monster landen de balk omlaag haalt</h3>
+<p>Die dip is de bedoeling, en het is geen straf. Een grote vangst brengt een stek tot rust: de commotie, de vis die van de plek is verdwenen. Een specimen landen kost tot de helft van wat je had opgebouwd, dus <strong>monsters kun je niet aan elkaar rijgen</strong>. Je bouwt opnieuw op en verdient de volgende. (De balk toont de daling zonder waarschuwingsflits, want het is iets goeds.)</p>
+<h2>Wat een hete stek je echt oplevert</h2>
+<p>Twee dingen, en het tweede is het belangrijkste:</p>
+<ul>
+<li><strong>Een lichte verschuiving in formaat.</strong> Naarmate het vertrouwen groeit, worden de vissen die je haakt groter binnen wat het water bevat. Het is een duwtje, geen schakelaar: kleine vissen blijven altijd komen.</li>
+<li><strong>Of een specimen überhaupt toehapt.</strong> Dit is de grote. Vertrouwen is de doorslaggevende factor in of de echte vissen van het water je aas zelfs maar overwegen. Omstandigheden, materiaal en seizoen helpen een beetje mee, maar maar een beetje: <strong>goed aas alleen maakt een moeilijke vis niet makkelijk.</strong> Een kanjer vanuit een koude start vraagt om een voorbereide stek of een topdag.</li>
+</ul>
+<p>Koud water maakt vissen over het geheel moeilijker, maar maakt de grote vissen moediger: de winter is traag en zijn vissen zijn groot. En elke sessie heeft een stemming die je niet kunt zien: de ene dag gaat het, de andere dag niet. Dat is de game die eerlijk is over vissen, niet de game die oneerlijk is.</p>
+<h2>XP-boosttokens komen van de top van de balk</h2>
+<p>Land een <strong>specimen van 4lb of meer</strong> terwijl de stek helemaal bovenaan de balk staat, en er is een kans dat hij een <strong>XP-boosttoken</strong> oplevert. De drempel ligt precies waar het bijschrift <strong>razernij</strong> aangeeft; daaronder maakt een specimen nooit kans. Zelfs dan is de kans bewust klein, zodat een token een verrassing blijft.</p>
+<p>Dat geeft het hele systeem een doel: de stek die je geduldig hebt opgebouwd, is de stek die jou beloont.</p>
+<div class="pair">
+<figure>
+<img alt="Een vangst die een XP-boosttoken oplevert" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
+<figcaption>Een boost die van een goede vis komt. Het is een verrassing, geen zekerheid.</figcaption>
+</figure>
+<figure>
+<img alt="XP-boosttokens bewaard in de viskist" class="zoomable" loading="lazy" src="/gallery/tokensinbox.webp"/>
+<figcaption>Bewaard in de viskist tot je er een activeert. Bewaar hem voor een sessie die ertoe doet.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Een specimen bij het onthullen van de vangst" class="zoomable" loading="lazy" src="/gallery/sc-06-specimen.webp"/>
+<figcaption>Wat een geduldig opgebouwde stek je uiteindelijk oplevert.</figcaption>
+</figure>
+<h2>Zo vis je het in de praktijk</h2>
+<ol>
+<li><strong>Kies je stek en blijf erbij.</strong> Vertrouwen reist niet mee. Elke tien minuten van stek wisselen betekent elke keer koud beginnen.</li>
+<li><strong>Eerst voeren, en blijven voeren.</strong> Krijg de voerbalk hoog voordat je je over iets anders druk maakt, en vul daarna weinig en vaak bij: let op de balk en gooi nooit bij rood.</li>
+<li><strong>Neem de kleine vissen mee.</strong> Ze zijn geen verspilling van de stek, ze zijn de stek die wordt opgebouwd. Land alles.</li>
+<li><strong>Drill gehaakte vissen goed.</strong> Eén verloren vis maakt een lange periode van geduldig werk ongedaan.</li>
+<li><strong>Als hij de top bereikt, blijf daar.</strong> Blijf voeren, vis met je beste aas op je beste plek, en dan komt het specimen, en de token.</li>
+<li><strong>Verwacht na een grote vis de dip</strong> en begin meteen weer op te bouwen in plaats van te verkassen.</li>
+</ol>
+<div class="callout"><strong>De korte versie.</strong> Eén stek. Veel voeren en vaak voeren. Gooi niet alles er in één keer in. Land de kleintjes, verlies de groten niet, en de rest volgt vanzelf.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Bouw je je eigen wateren? De <a href="/nl/venuecreators">gids voor watermakers</a> legt uit hoe je een water zo bezet dat het überhaupt de moeite waard is om de stekken voor te bereiden.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/nl/">Home</a> · <a href="/nl/venuecreators">Gids voor watermakers</a> · <a href="/terms">Gebruiksvoorwaarden</a> · <a href="/privacy">Privacy</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Sluiten (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Vorige" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Volgende" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Nederlands</span></summary><ul><li><a href="/swim-confidence" hreflang="en" lang="en">English</a></li><li><a href="/de/swim-confidence" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/swim-confidence" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/swim-confidence" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/swim-confidence" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/swim-confidence" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/swim-confidence" hreflang="it" lang="it">Italiano</a></li><li><a aria-current="true" href="/nl/swim-confidence" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/swim-confidence" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/swim-confidence" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/swim-confidence" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/swim-confidence" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/swim-confidence" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/swim-confidence" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/swim-confidence" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/swim-confidence" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/swim-confidence" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/swim-confidence" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/swim-confidence" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/swim-confidence" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/swim-confidence"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/swim-confidence"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/swim-confidence"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/swim-confidence"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/swim-confidence"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/swim-confidence"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/swim-confidence"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/swim-confidence"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/swim-confidence"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/swim-confidence"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/swim-confidence"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/swim-confidence"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/swim-confidence"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/swim-confidence"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/swim-confidence"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/swim-confidence"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/swim-confidence"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/swim-confidence"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/swim-confidence"}, {"c": "", "hl": "en", "n": "English", "u": "/swim-confidence"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

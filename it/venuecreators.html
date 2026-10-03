@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guida per i creatori di spot · Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Come trasformare la foto della tua postazione preferita in uno spot di Swimcraft che superi la revisione e venga pubblicato." name="description"/>
+<meta content="Guida per i creatori di spot · Swimcraft" property="og:title"/>
+<meta content="Come trasformare la foto della tua postazione preferita in uno spot di Swimcraft che superi la revisione e venga pubblicato." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/it/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/it/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/it/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Guida per i creatori di spot</h1>
+<p class="meta"><strong>Come trasformare la foto di una postazione che conosci in uno spot in cui possano pescare altri pescatori.</strong></p>
+<p class="meta">Ultimo aggiornamento: 18 agosto 2026</p>
+<div class="intro">Il tutorial dell'editor di spot ti mostra i comandi. Questa pagina è tutto il resto: le scelte di buon senso che decidono se uno spot è uno in cui la gente torna, e le poche regole che decidono se supera la revisione. Vale la pena dedicarle venti minuti prima di costruire la tua prima acqua seria.</div>
+<ol class="toc">
+<li><a href="#life">Bozza, inviato, pubblicato: cosa succede davvero</a></li>
+<li><a href="#photo">La fotografia e le regole che la riguardano</a></li>
+<li><a href="#peg">Preparare una postazione</a></li>
+<li><a href="#calibrate">Calibrazione: il passaggio che si salta e poi si rimpiange</a></li>
+<li><a href="#depth">Dipingere il fondale</a></li>
+<li><a href="#stock">Popolarlo onestamente</a></li>
+<li><a href="#test">Peschici prima di inviarlo</a></li>
+<li><a href="#review">Cosa guarda la revisione, e perché gli spot vengono rimandati indietro</a></li>
+<li><a href="#after">Dopo la pubblicazione</a></li>
+</ol>
+<h2 id="life">1. Bozza, inviato, pubblicato</h2>
+<p>Uno spot passa per tre stati, e conoscerli ti risparmia parecchia confusione più avanti.</p>
+<table class="pass">
+<tr><th>Stato</th><th>Cosa significa</th></tr>
+<tr><td>Bozza</td><td>È solo tuo. Nessun altro può vederlo né pescarci. Puoi modificare qualsiasi cosa, tutte le volte che vuoi.</td></tr>
+<tr><td>Inviato</td><td>In attesa di revisione. Ancora privato. Resta così finché qualcuno non l'ha guardato.</td></tr>
+<tr><td>Pubblicato</td><td>Nella libreria condivisa. Altri pescatori possono pescarci, e le catture fatte lì contano per le classifiche dei record.</td></tr>
+</table>
+<p>Se uno spot viene rimandato indietro, ti torna come bozza <strong>con una nota che dice cosa va sistemato</strong>. Non è una macchia sul curriculum: la maggior parte dei primi invii ha bisogno di una piccola correzione. Sistemala e invialo di nuovo.</p>
+<div class="callout"><strong>Nella demo, tutto ciò che costruisci resta in bozza.</strong> La pubblicazione nella libreria condivisa si apre con l'Accesso anticipato, e il gettone di creazione spot che guadagni al livello 5 resta da parte, pronto per allora. Niente di ciò che crei nella demo va perso, quindi costruisci adesso quello buono.</div>
+<h2 id="photo">2. La fotografia</h2>
+<p>Tutto il resto si costruisce su questa immagine, quindi vale la pena essere pignoli. Il gioco accetta una foto in <strong>JPEG o PNG</strong>, di almeno <strong>1280 × 720</strong> e sotto i <strong>20MB</strong>. Questo è il minimo tecnico. I consigli utili vanno oltre:</p>
+<ul>
+<li><strong>Scatta da dove ti siederesti.</strong> La foto diventa la vista dalla postazione, quindi un'immagine scattata in piedi sulla riva, ad altezza d'occhi, pesca molto meglio di una scattata da un ponte o da una collina.</li>
+<li><strong>In orizzontale, e lascia respirare l'acqua.</strong> Ti serve acqua nella metà inferiore dell'inquadratura per avere qualcosa da dipingere, e una riva opposta o un orizzonte visibili per valutare la distanza.</li>
+<li><strong>La luce piatta batte il sole forte.</strong> I riflessi intensi sulla superficie nascondono i dettagli che vuoi ricalcare.</li>
+<li><strong>Includi qualcosa che puoi misurare.</strong> Una riva opposta, un'isola, una barca ormeggiata, un tappeto di ninfee: qualsiasi cosa di cui conosci davvero la distanza. La sezione 4 spiega perché questo conta più di qualsiasi altra cosa in questa pagina.</li>
+</ul>
+<h3>Le regole non negoziabili</h3>
+<p>Quando carichi un'immagine, il gioco ti chiede di confermare che è tua o che hai il permesso di usarla, e che non contiene nulla di illecito. È una dichiarazione vera, e queste sono le regole che ci stanno dietro. Sono quelle dei nostri <a href="/terms">Termini d'uso</a>, riassunte:</p>
+<ul>
+<li>La foto deve essere <strong>tua</strong>, oppure devi avere il permesso. Non presa da internet, non dal sito di un laghetto, non dai social di qualcun altro.</li>
+<li>Nessuna <strong>persona riconoscibile</strong>, a meno che non abbia dato il consenso. <strong>Mai</strong> una foto con un bambino.</li>
+<li>Ritaglia i dettagli privati: <strong>targhe, nomi di case, indirizzi, cartelli con numeri di telefono</strong>.</li>
+<li>Rispetta il laghetto. Se un'acqua è privata, o il proprietario non vorrebbe vederla ricreata e pubblicata, non pubblicarla. Il test che vale la pena usare: saresti contento di mostrare al proprietario quello che hai fatto?</li>
+</ul>
+<div class="callout warn">Uno spot che viola queste regole viene rimandato indietro in revisione, e le regole sulla foto sono il motivo più comune in assoluto. Quasi tutto si può evitare nel momento in cui scatti la foto.</div>
+<div class="pair">
+<figure>
+<img alt="Una foto della postazione scelta bene" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>Buona.</strong> Altezza della riva, luce piatta, acqua in tutta la metà inferiore, una riva opposta per valutare la distanza.</figcaption>
+</figure>
+<figure>
+<img alt="Una foto della postazione scarsa, con troppo primo piano" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>Scarsa.</strong> Troppa riva in primo piano: un pesce allamato nuoterebbe attraverso il terreno prima di arrivare al guadino.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Uno spot con diverse postazioni con nome" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>Dai alle postazioni il nome che hanno sul posto. "Postazione del Corpo di Guardia" dice qualcosa a un pescatore; "Postazione 1" no.</figcaption>
+</figure>
+<h2 id="peg">3. Preparare una postazione</h2>
+<p>Uno spot è fatto di una o più postazioni, e ogni postazione è una foto con il suo fondale, le sue caratteristiche e i suoi pesci. Un primo spot con <strong>una postazione davvero buona</strong> batte sempre uno con quattro fatte di fretta.</p>
+<ul>
+<li><strong>Chiama lo spot come lo chiamerebbe un pescatore.</strong> "Fossato del castello di Leeds", non "la mia postazione 2". Fino a 60 caratteri, e la riga della località sotto accetta una città o una contea.</li>
+<li><strong>Chiama ogni postazione in base a dove si trova</strong>: "Postazione del Corpo di Guardia", "La Punta", "L'Ansa in fondo". Fino a 40 caratteri. Quei nomi compaiono nelle classifiche dei record sotto il pesce, quindi meritano un momento di riflessione.</li>
+<li><strong>I nomi degli spot, delle postazioni, le descrizioni e i nomi dei pesci vengono controllati</strong> prima del salvataggio. Usa un linguaggio pulito e non sarà mai un problema.</li>
+</ul>
+<h2 id="calibrate">4. Calibrazione: il passaggio che si salta</h2>
+<p>La calibrazione è il modo in cui il gioco trasforma un'immagine piatta in distanze reali. Ricalchi il contorno dell'acqua, poi posizioni una <strong>puntina vicina</strong> e una <strong>puntina lontana</strong> e indichi a che distanza si trova davvero ciascuna.</p>
+<p>Non puoi andare avanti finché ogni postazione non è calibrata, ed è voluto: una postazione non calibrata pesca male in un modo che nessuno vede. Un lancio che dovrebbe arrivare a un'isola resta corto, oppure una canna da galleggiante da 40 iarde arriva alla riva opposta di un bacino. Lo spot sembra a posto e pesca in modo assurdo.</p>
+<h3>Come farla bene senza un telemetro</h3>
+<p>Non ti si chiede di dire una distanza a memoria. Ti si chiede di <strong>riconoscerla</strong>, e in questo i pescatori sono bravi:</p>
+<ul>
+<li>Ragiona in lanci. "Quell'isola è a circa due lanci di feeder comodi" vuol dire più o meno 60–70 iarde, ed è una risposta molto migliore di un numero inventato.</li>
+<li>Usa quello che sai. La maggior parte delle postazioni dei laghetti commerciali ha 20–40 iarde fino alla riva opposta. Una grande cava di ghiaia o un bacino arriva a centinaia. Un canale fa 10–15.</li>
+<li>Metti la puntina vicina su qualcosa di vicino e ben definito: lo scalino sottoriva, una ninfea vicina, la fine della tua pedana.</li>
+<li>Se davvero non lo sai, guarda l'acqua su una mappa prima di costruire. Ci vuole un minuto.</li>
+</ul>
+<div class="callout"><strong>Se fai bene questo, tutto ciò che viene dopo sarà giusto.</strong> Le distanze delle abboccate, fin dove arrivano le tue canne, dove stanno davvero i pesci: tutto si misura a partire da queste due puntine.</div>
+<div class="pair">
+<figure>
+<img alt="Il contorno dell'acqua ricalcato nell'editor di spot" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>Il contorno dell'acqua ricalcato. Il contorno deve chiudersi.</figcaption>
+</figure>
+<figure>
+<img alt="Puntine della distanza vicina e lontana posizionate su una postazione" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>Entrambe le puntine posizionate. Tutto ciò che viene dopo si misura a partire da queste due.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. Dipingere il fondale</h2>
+<p>Poi dipingi cosa c'è sott'acqua: fasce di profondità dalla riva verso il largo, più le caratteristiche del fondale: alghe, ghiaia, limo, incagli, canne. Per continuare ti serve almeno un quadretto d'acqua dipinto, ma è un fondale dipinto bene a far sembrare uno spot un'acqua vera invece di una vasca da bagno.</p>
+<ul>
+<li><strong>Segui l'immagine.</strong> Dove la superficie si scurisce, di solito è più profondo. Dove vedi il fondo, dipingilo basso. Una fila di canne indica uno scalino.</li>
+<li><strong>Sponde basse, centro più profondo</strong> è la forma di base della maggior parte delle acque ferme, ma una cava di ghiaia è irregolare e un canale ha un canale navigabile piatto con scalini bassi su entrambi i lati. Costruisci l'acqua che conosci.</li>
+<li><strong>Le caratteristiche del fondale sono ciò che i pescatori cercano.</strong> Un fondale spoglio e dipinto in modo uniforme non dà a nessuno un motivo per lanciare in un punto preciso. Dai alla postazione due o tre punti che valga la pena trovare: una barra di ghiaia, un canalone di limo, un incaglio sullo scalino lontano.</li>
+<li><strong>Non mettere incagli dappertutto.</strong> Sono emozionanti dove è ragionevole perdere un pesce. Dappertutto sono solo frustranti.</li>
+</ul>
+<div class="callout"><strong>Due di queste cose si contano, non si giudicano.</strong> Una postazione ha bisogno di <strong>almeno tre fasce di profondità distinte</strong> e <strong>almeno due tipi diversi di caratteristiche del fondale</strong>, e di <strong>nessuna cella vuota nell'acqua pescabile</strong>. Questi sono i numeri che la revisione controlla e che l'editor ti farà rispettare; tutto il resto di questa sezione sono consigli per rendere un'acqua degna di essere pescata.</div>
+<div class="pair">
+<figure>
+<img alt="Una mappa delle profondità con diverse fasce distinte" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>Approvato.</strong> Diverse fasce distinte, sponde più basse dell'acqua aperta, un fondale con una forma vera.</figcaption>
+</figure>
+<figure>
+<img alt="Una mappa delle profondità piatta, con una sola fascia" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>Rimandato indietro.</strong> Una sola fascia piatta su tutta l'acqua. Niente da trovare, niente da imparare.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="Una mappa del fondale varia" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>Approvato.</strong> Alghe nelle zone basse, limo nelle zone profonde, ghiaia sulla barra, e nessun buco non dipinto.</figcaption>
+</figure>
+<figure>
+<img alt="Una mappa del fondale spoglia, con buchi non dipinti" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>Rimandato indietro.</strong> Spoglio, e con celle vuote lasciate nell'acqua pescabile. È questa seconda parte a fregare la maggior parte delle persone.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. Popolarlo onestamente</h2>
+<p>L'immissione dei pesci è il punto in cui uno spot si fa o si rovina, ed è dove il gioco è più severo con te. Valgono tre limiti, e ognuno esiste per un motivo.</p>
+<div class="step">
+<span class="num">Limite uno</span><h3>Capienza: l'acqua può contenere solo una certa quantità di pesce</h3>
+<p>La capienza si calcola dal volume d'acqua che hai dipinto e dalla difficoltà dello spot. Una piccola pozza bassa non può contenere 400lb di carpe. Se popoli troppo una postazione, non si salverà finché non togli qualche pesce o non rendi lo spot più facile.</p>
+</div>
+<div class="step">
+<span class="num">Limite due</span><h3>La difficoltà decide sia la taglia sia la densità</h3>
+<p>La difficoltà non è un cursore per quanto difficile vuoi che sembri, e non cambia il comportamento dei pesci. Stabilisce quanto pesce contiene l'acqua e quali fasce di taglia puoi usare, nient'altro. Un'acqua difficile pesca in modo difficile perché c'è meno pesce, e quello che c'è è più grosso.</p>
+<table class="pass">
+<tr><th>Difficoltà</th><th>Cosa ti dà</th></tr>
+<tr><td>Facile</td><td>Molto popolato, abboccate frequenti, pesci da piccoli a medi. Un'acqua da tante partenze.</td></tr>
+<tr><td>Intermedio</td><td>Circa la metà del pesce di Facile. Meno abboccate, taglia media migliore.</td></tr>
+<tr><td>Difficile</td><td>Poco popolato. Attese più lunghe, e quello che abbocca è più grosso, fino a Trofeo.</td></tr>
+<tr><td>Trofeo</td><td>Popolato molto poco, attese lunghe per scelta. L'unica impostazione che permette Grande trofeo e Mostro.</td></tr>
+</table>
+<p>Se un pesce che vuoi è troppo grosso per la difficoltà che hai scelto, il gioco ti indica la difficoltà minima adatta. Alzare la difficoltà è un vero compromesso: ottieni il pesce grosso, e l'acqua si fa silenziosa.</p>
+</div>
+<div class="step">
+<span class="num">Limite tre</span><h3>Niente supera il record nazionale</h3>
+<p>Ogni specie ha come tetto il record nazionale del paese in cui si trova lo spot. Non puoi immettere una carpa regina di 90lb in uno stagno di una fattoria del Kent, e l'editor non te lo lascia nemmeno provare. C'è anche un avviso leggero per un pesce consentito ma esagerato per l'acqua che hai dipinto: quello non ti blocca, ti dice solo che un pescatore esperto se ne accorgerà.</p>
+</div>
+<h3>Pesci con nome</h3>
+<p>Un pesce con nome è quello per cui la gente viene. Dagli una specie, un nome e un peso e va nella postazione; aggiungi una sua foto e comparirà nella schermata della cattura quando qualcuno riuscirà finalmente a prenderlo. Uno spot con due o tre residenti noti ha una storia. Uno spot con quindici non ne ha nessuna.</p>
+<h3>L'immissione che fa una buona acqua</h3>
+<ul>
+<li><strong>Taglie miste.</strong> Un'acqua piena solo di pesci a due cifre è noiosa, perché niente di ciò che prendi è una sorpresa. Sono i pesci piccoli a costruire una postazione: vedi la <a href="/it/swim-confidence">guida alla fiducia SWIM</a>.</li>
+<li><strong>Specie che stanno bene insieme.</strong> Rutili, abramidi, tinche e carpe in uno stagno di campagna, sì. Non tutto ciò che c'è nell'elenco solo perché c'era.</li>
+<li><strong>Lascia margine.</strong> Popolare fino alla capienza massima non ti lascia spazio per aggiungere i pesci che ti verranno in mente la settimana dopo.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="Una postazione popolata con specie e taglie miste" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>Specie miste, taglie miste, e l'indicatore della capienza lasciato con un po' di margine invece che spinto fino al limite.</figcaption>
+</figure>
+<figure>
+<img alt="L'avviso di capienza superata" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>Oltre il limite l'editor ti ferma. Questa è aritmetica, non un giudizio.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Un pesce con nome aggiunto a una postazione" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>Un pesce con nome, immesso e confermato. Due o tre per spot, a pesi che l'acqua potrebbe sostenere: sono l'eccezione, non la popolazione.</figcaption>
+</figure>
+<h2 id="test">7. Peschici prima di inviarlo</h2>
+<p>L'editor ha una modalità di prova, e in pratica non è facoltativa. Dieci minuti nel tuo spot troveranno cose che nessuna occhiata alla mappa troverà:</p>
+<ul>
+<li>Riesci davvero a <strong>raggiungere</strong> le caratteristiche che hai dipinto con una canna sensata? Se tutto ciò che c'è di buono è fuori portata, la calibrazione è sbagliata o le caratteristiche sono troppo lontane.</li>
+<li>La profondità sotto il galleggiante <strong>corrisponde a quello che mostra l'immagine</strong>?</li>
+<li>Le abboccate arrivano a un ritmo adatto alla difficoltà che hai scelto?</li>
+<li>C'è un motivo per spostarsi? Una postazione in cui un punto è ovviamente quello giusto e tutto il resto è morto è una postazione con un solo lancio.</li>
+</ul>
+<figure>
+<img alt="Pesca di prova nel tuo spot dentro l'editor" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>Modalità di prova. Dieci minuti qui trovano quello che nessuna occhiata alla mappa troverà.</figcaption>
+</figure>
+<h2 id="review">8. Cosa guarda la revisione</h2>
+<p>Ogni spot viene guardato da una persona prima di entrare nella libreria condivisa. Non sta dando un voto alla tua opera d'arte. Sta controllando un breve elenco, ed è sempre lo stesso:</p>
+<table class="pass">
+<tr><th>Controllato</th><th>Cosa fa rimandare indietro uno spot</th></tr>
+<tr><td>La fotografia</td><td>Non è tua, contiene persone riconoscibili o un bambino, mostra dettagli privati, oppure non è davvero una postazione di pesca.</td></tr>
+<tr><td>Le parole</td><td>Nome dello spot, descrizione o nomi dei pesci che violano le linee guida della community.</td></tr>
+<tr><td>Onestà</td><td>Immissioni o nomi che prendono in giro il gioco: una pozzanghera piena di pesci da record, una postazione chiamata in un certo modo per truccare le classifiche.</td></tr>
+<tr><td>Giocabilità</td><td>Nessuna calibrazione degna di questo nome, un fondale non dipinto, o uno spot in cui chiaramente non si può pescare.</td></tr>
+<tr><td>Il fondale, contato</td><td>Meno di <strong>tre fasce di profondità distinte</strong> in una postazione, meno di <strong>due tipi diversi di caratteristiche del fondale</strong>, oppure <strong>una qualsiasi cella vuota nell'acqua pescabile</strong>. Sono aritmetica più che giudizio, quindi sono i più facili da superare e i più facili su cui inciampare.</td></tr>
+</table>
+<p>Cosa <strong>non</strong> si controlla: se è bello, se somiglia a quello di qualcun altro, o se a chi lo revisiona piacerebbe pescarci. Uno spot modesto costruito onestamente passa. Uno spettacolare costruito sulla foto di qualcun altro no.</p>
+<figure>
+<img alt="Uno spot pubblicato nella libreria condivisa" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>Pubblicato. Questa è la scheda che vedono tutti gli altri pescatori, ed è lì che finisce la tua acqua.</figcaption>
+</figure>
+<h2 id="after">9. Dopo la pubblicazione</h2>
+<ul>
+<li><strong>Le modifiche ripassano dalla revisione.</strong> Una volta pubblicato uno spot, il suo contenuto è bloccato, e ogni modifica che fai viene messa in attesa e riesaminata prima di arrivare agli altri giocatori. Quindi fallo bene prima di inviarlo, invece di pensare di correggerlo dopo.</li>
+<li><strong>Puoi ritirarlo.</strong> Ritirare uno spot lo toglie dalla libreria, e i suoi record spariscono dalle classifiche insieme a lui, senza cancellare nulla. L'interruttore è tuo, e si può tornare indietro.</li>
+<li><strong>I record fatti lì portano il nome del tuo spot</strong>, e quello della postazione, ovunque compaiano. È questo il motivo per dare un buon nome alle postazioni fin dall'inizio.</li>
+</ul>
+<div class="callout"><strong>In breve.</strong> Usa una tua foto. Calibrala onestamente. Dipingi un fondale con punti in cui valga la pena lanciare. Popolalo come un'acqua vera invece che come una lista dei desideri. Peschici tu prima di inviarlo. Fai queste cinque cose e passerà.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Domande, o pensi che abbiamo sbagliato una decisione di revisione? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/it/">Home</a> · <a href="/it/swim-confidence">Guida alla fiducia SWIM</a> · <a href="/terms">Termini d'uso</a> · <a href="/privacy">Privacy</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Chiudi (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Precedente" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Successiva" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Italiano</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a aria-current="true" href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

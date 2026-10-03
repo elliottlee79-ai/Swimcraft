@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="nb">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SWIM-tillit – Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Hva SWIM-tillitsmåleren er, hvordan du bygger den opp, hva som får den til å falle, og hva en het fiskeplass faktisk gir deg." name="description"/>
+<meta content="SWIM-tillit – Swimcraft" property="og:title"/>
+<meta content="Hva SWIM-tillitsmåleren er, hvordan du bygger den opp, hva som får den til å falle, og hva en het fiskeplass faktisk gir deg." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/no/swim-confidence" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .ladder{list-style:none;margin:1rem 0 1.4rem;padding:0;}
+  .ladder li{display:flex;gap:0.9rem;align-items:baseline;padding:0.55rem 0.9rem;margin-bottom:0.35rem;
+    background:var(--card-bg);border:1px solid var(--border);border-radius:8px;}
+  .ladder .rung{font-family:var(--font-display);font-weight:600;color:var(--brand-bone);min-width:8.5rem;}
+  .ladder .say{color:var(--muted);font-size:0.9rem;}
+  .gain td:first-child,.gain th:first-child{width:42%;}
+  .up{color:var(--accent);font-weight:700;}
+  .down{color:#d98a3a;font-weight:700;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/no/swim-confidence" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/swim-confidence" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/swim-confidence" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/swim-confidence" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/swim-confidence" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/swim-confidence" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/swim-confidence" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/swim-confidence" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/swim-confidence" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/swim-confidence" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/swim-confidence" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/swim-confidence" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/swim-confidence" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/swim-confidence" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/swim-confidence" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/swim-confidence" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/swim-confidence" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/swim-confidence" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/swim-confidence" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/swim-confidence" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/swim-confidence" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/swim-confidence" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/no/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>SWIM-tillit</h1>
+<p class="meta"><strong>Måleren under fôrmåleren, hva som fyller den, og hva den er verdt.</strong></p>
+<p class="meta">Sist oppdatert: august 2026</p>
+<div class="intro">Alle fiskere kjenner følelsen av at en fiskeplass våkner – en time med ingenting, så småfisk, så bedre fisk,
+    så den du kom for. Swimcraft modellerer akkurat det. Måleren merket <strong>Swim</strong> viser hvor varmt
+    vannet foran deg er, og den er den aller største enkeltfaktoren mellom deg og en stor fisk.</div>
+<h2>Hva måleren forteller deg</h2>
+<p>Den går fra kald til fullt våken, og den sier hvor den står:</p>
+<ul class="ladder">
+<li><span class="rung">stille</span><span class="say">Ingenting skjer ennå. Det er her hver fiskeplass starter.</span></li>
+<li><span class="rung">tar seg opp</span><span class="say">Agnet ligger ute, og noe begynner å legge merke til det.</span></li>
+<li><span class="rung">på beite</span><span class="say">Fisken konkurrerer. Nappene kommer lettere, og størrelsen begynner å øke.</span></li>
+<li><span class="rung">trygg</span><span class="say">En skikkelig forberedt fiskeplass. De bedre fiskene er nå virkelig innen rekkevidde.</span></li>
+<li><span class="rung">beitefest</span><span class="say">Så hett som det blir. Det er her de største fiskene – og belønningene – holder til.</span></li>
+</ul>
+<div class="callout warn"><strong>Den tilhører plassen, ikke deg.</strong> Flytter du til en annen fiskeplass, starter du kald igjen, og den nye plassen
+    får sitt eget humør for dagen. En time med tålmodig fôring er en time investert <em>her</em> – og det er akkurat den
+    avgjørelsen en ekte fisker tar når han vurderer å flytte.</div>
+<div class="pair">
+<figure>
+<img alt="SWIM-tillitsmåleren som viser stille" class="zoomable" loading="lazy" src="/gallery/sc-01-bar-quiet.webp"/>
+<figcaption><strong>Stille.</strong> Der hver økt starter.</figcaption>
+</figure>
+<figure>
+<img alt="SWIM-tillitsmåleren som viser beitefest" class="zoomable" loading="lazy" src="/gallery/sc-02-bar-frenzy.webp"/>
+<figcaption><strong>Beitefest.</strong> De samme to målerne, opptjent. Samme utsnitt, så forskjellen er hele bildet.</figcaption>
+</figure>
+</div>
+<h2>Fôring er motoren – ikke fangst</h2>
+<p><strong>Fisk i håven bygger opp en fiskeplass raskere enn noe annet</strong> – men agnet er det som får dem dit, og
+  det er det eneste som i det hele tatt flytter måleren når ingenting tar. Ingen av dem virker uten den andre: agn uten
+  fiske går sakte, og fiske over en tom fiskeplass gir ikke fisk.</p>
+<ul>
+<li><strong>Alt agn i vannet holder fiskeplassen.</strong> Så lenge fôrmåleren er over null, glir fiskeplassen ikke
+      bakover i det hele tatt – og den stiger. Hvor raskt den stiger, avhenger av hvor full måleren er, så en måler som holdes
+      høyt, bygger opp en fiskeplass flere ganger raskere enn en som holdes lavt. Begge bygger den opp.</li>
+<li><strong>Lar du måleren gå tom, blir fiskeplassen raskt kald.</strong> Uten noe i vannet lekker tilliten
+      dobbelt så raskt som den steg med full måler. Å fylle på lite og ofte er det som
+      holder deg på riktig side av det.</li>
+<li>Fôret ditt vaskes ut på omtrent <strong>fem minutter på en kald fiskeplass</strong>, og på omtrent
+      <strong>ett minutt under beitefest</strong>.</li>
+<li>Og fella: <strong>Jo hetere fiskeplassen blir, jo raskere forsvinner agnet ditt.</strong> Mer fisk, flere munner.
+      En beitefest du slutter å fôre, er en beitefest som tar slutt.</li>
+</ul>
+<p>De to reglene over trekker mot hverandre med vilje. Agn varmer opp fiskeplassen, og en varm fiskeplass spiser agnet
+  raskere – så jo bedre fisket blir, jo hardere må du jobbe for å holde det der.</p>
+<h3>Men ikke lemp det ut – og måleren sier fra</h3>
+<p>Du kan ikke overfôre fiskeplassen ved et uhell, for fôrmåleren advarer deg først. Den viser
+  <strong>beiter</strong> i grønt mens det er plass, <strong>plassen fôret</strong> i gult når den fylles, og
+  <strong>én til skremmer dem</strong> i rødt når det ikke er plass til flere kast. Det røde feltet betyr
+  akkurat det det sier, hver gang.</p>
+<p>Fra tom måler er det tre kast for å nå rødt og et fjerde for å ødelegge. Kaster du på rød måler, går
+  fôret bakover, fiskeplassen får en hard smell fra toppen, og det tar omtrent tre kvarter minutt
+  før den roer seg og fisker skikkelig igjen. Fortsetter du å kaste på rødt, fortsetter det å koste deg.</p>
+<p>Fôrer du sakte nok, kan du ikke overdrive i det hele tatt – la det gå halvannet minutt mellom kastene, så rydder fisken
+  unna agnet like fort som du legger det ut. Lite og ofte er virkelig svaret, og nå sier måleren det.</p>
+<!-- ⚠ REVERTED 18 Aug 2026 TO THE TEXT ABOVE, WHICH IS TRUE OF THE SHIPPED BUILD. For part of
+       that day this page promised seasonal bait life, naming a summer figure and a longer winter
+       one, plus a winter overfeeding warning. Those figures are described rather than repeated
+       here, so the grep that proves them gone does not match this comment (rule 57 — the third
+       time in one session, and the third time it was caught by the delivery's own check). Both were written against P4-293 increment 2, which is BUILT
+       but deliberately switched off at FEED_BURN_READS_APPETITE until the seasonal shape is
+       agreed (P4-299 with P4-302 and P4-278). ⚠ AND THE JANUARY FIGURE WAS WRONG EVEN FOR THE
+       WIRED BUILD: 0.47 is a DAY AVERAGE and it was published as though it held at any hour,
+       when midday in January measures hungrier than midday in July. A page describing a mechanic
+       that is switched off is the fault rule 63 exists for, so it goes back rather than waits.
+       This block moves again in the delivery that turns the flag on, and not before. -->
+<div class="pair">
+<figure>
+<img alt="En godt fôret fiskeplass" class="zoomable" loading="lazy" src="/gallery/sc-03-feed-baited.webp"/>
+<figcaption>Fôret høyt og holdt der. Det er denne tilstanden resten av siden handler om.</figcaption>
+</figure>
+<figure>
+<img alt="Advarselen om overfôring" class="zoomable" loading="lazy" src="/gallery/sc-04-overfeed.webp"/>
+<figcaption>Ett kast for mye, og fiskeplassen blir skremt. Måleren advarer deg før det skjer – les den.</figcaption>
+</figure>
+</div>
+<h2>Hva som flytter måleren</h2>
+<table class="gain">
+<tr><th>Hva som skjer</th><th>Effekt</th></tr>
+<tr><td>Agn som holdes påfylt på fiskeplassen</td><td class="up">En langsom, jevn stigning – og det eneste som virker når ingenting tar</td></tr>
+<tr><td>Å lande en liten fisk</td><td class="up">Et steg verdt flere minutter med perfekt fôring</td></tr>
+<tr><td>Å lande en god fisk</td><td class="up">Et mye større steg – en på tjue pund er verdt flere små</td></tr>
+<tr><td>Å ikke gjøre noe, uten agn ute</td><td class="down">Lekker bort – en fôret fiskeplass lekker ikke i det hele tatt</td></tr>
+<tr><td>Å rote bort et napp – slå til for tidlig, bomme</td><td class="down">Et stikk. Kan hentes inn igjen.</td></tr>
+<tr><td><strong>Å miste en kroket fisk</strong></td><td class="down"><strong>Det klart største enkeltslaget i spillet</strong></td></tr>
+<tr><td>Overfôring – å kaste på rød måler</td><td class="down">En bit rett fra toppen, hver gang du gjør det</td></tr>
+<tr><td>Å lande en storfisk</td><td class="down">Bruker opp noe av den igjen – med vilje (se nedenfor)</td></tr>
+</table>
+<div class="callout"><strong>Å miste en fisk er den du skal ta på alvor.</strong> En mistet fisk på to pund koster deg omtrent det ni eller ti
+    småfisk ga deg. Å rote bort tilslaget er omtrent en femtedel så ille. Det lønner seg å kjøre en kroket fisk tålmodig
+    i stedet for å tvinge den – ikke fordi fisken er dyrebar, men fordi du mister fiskeplassen sammen med den.</div>
+<h3>Hvorfor det å lande et monster slår måleren ned</h3>
+<p>Det fallet er tilsiktet, og det er ingen straff. En stor fangst roer ned en fiskeplass – oppstyret, fisken som er borte fra
+  stedet. Å lande en storfisk bruker opp til halvparten av det du hadde bygget opp, så <strong>monstre kan ikke tas på rad</strong>.
+  Du bygger opp igjen, og du gjør deg fortjent til den neste. (Måleren viser fallet uten varselblink, fordi det er en god ting.)</p>
+<h2>Hva en het fiskeplass faktisk gir deg</h2>
+<p>To ting, og den andre er den viktige:</p>
+<ul>
+<li><strong>En forsiktig vridning i størrelse.</strong> Når tilliten bygges opp, blir fiskene du kroker større innenfor det
+      fiskevannet rommer. Det er et dytt, ikke en bryter – småfisken slutter aldri å dukke opp.</li>
+<li><strong>Om en storfisk i det hele tatt vil ta.</strong> Dette er den store. Tilliten er den avgjørende faktoren for
+      om fiskevannets skikkelige fisk i det hele tatt vurderer agnet ditt. Forhold, utstyr og årstid gir litt i tillegg, men
+      bare litt – <strong>godt agn alene kan ikke gjøre en vanskelig fisk lett.</strong> En kjempe fra kald start trenger en forberedt
+      fiskeplass eller en helt spesiell dag.</li>
+</ul>
+<p>Kaldt vann gjør fisket vanskeligere totalt sett, men det gjør de store modigere – vinteren er treg, og fisken er stor.
+  Og hver økt har et humør du ikke kan se: Noen dager går det, noen dager går det ikke. Det er spillet som er ærlig
+  om fiske, ikke spillet som er urettferdig.</p>
+<h2>XP-boost-tokens kommer fra toppen av måleren</h2>
+<p>Land en <strong>storfisk på 4 lb eller mer</strong> mens fiskeplassen er helt på toppen av måleren, så er det en
+  sjanse for at den gir et <strong>XP-boost-token</strong>. Grensen ligger akkurat der teksten viser <strong>beitefest</strong> –
+  under det slår en storfisk aldri ut i det hele tatt. Sjansen er bevisst lav selv da, så et funn forblir en overraskelse.</p>
+<p>Det gir hele systemet en mening: Fiskeplassen du tålmodig bygde opp, er fiskeplassen som betaler deg.</p>
+<div class="pair">
+<figure>
+<img alt="En fangst som gir et XP-boost-merke" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
+<figcaption>En boost som faller fra en god fisk. Det er en overraskelse, ikke en sikkerhet.</figcaption>
+</figure>
+<figure>
+<img alt="XP-boost-tokens lagret i utstyrskassen" class="zoomable" loading="lazy" src="/gallery/tokensinbox.webp"/>
+<figcaption>Lagret i utstyrskassen til du aktiverer en. Spar den til en økt som teller.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="En storfisk på fangstvisningen" class="zoomable" loading="lazy" src="/gallery/sc-06-specimen.webp"/>
+<figcaption>Det en tålmodig oppbygd fiskeplass til slutt gir deg.</figcaption>
+</figure>
+<h2>Slik fisker du det i praksis</h2>
+<ol>
+<li><strong>Velg plassen din og hold deg til den.</strong> Tilliten flytter ikke med deg. Bytter du fiskeplass hvert tiende minutt,
+      starter du fra kaldt hver gang.</li>
+<li><strong>Agn først, og fortsett å fôre.</strong> Få fôrmåleren høyt før du bekymrer deg for noe annet, og fyll så
+      på lite og ofte – følg med på måleren og kast aldri på rødt.</li>
+<li><strong>Ta småfisken.</strong> Den er ikke bortkastet for fiskeplassen, den er fiskeplassen som bygges opp. Land
+      alt.</li>
+<li><strong>Kjør kroket fisk skikkelig.</strong> Én mistet fisk visker ut en lang periode med tålmodig arbeid.</li>
+<li><strong>Når den når toppen, bli der.</strong> Fortsett å fôre, fisk med det beste agnet og på det beste stedet, og det er
+      da storfisken – og tokenet – kommer.</li>
+<li><strong>Etter en stor en, regn med fallet</strong> og begynn å bygge opp igjen med en gang i stedet for å flytte.</li>
+</ol>
+<div class="callout"><strong>Kortversjonen.</strong> Én plass. Fôr høyt og fôr ofte. Ikke lemp ut alt. Land de små,
+    ikke mist de store, så følger resten.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Bygger du dine egne vann? <a href="/no/venuecreators">Veiledningen for vannbyggere</a> dekker utsetting av fisk i et fiskevann, så
+    fiskeplassene er verdt å forberede i utgangspunktet.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/no/">Forside</a> · <a href="/no/venuecreators">Veiledning for vannbyggere</a> · <a href="/terms">Vilkår for bruk</a> · <a href="/privacy">Personvern</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Lukk (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Forrige" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Neste" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Norsk</span></summary><ul><li><a href="/swim-confidence" hreflang="en" lang="en">English</a></li><li><a href="/de/swim-confidence" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/swim-confidence" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/swim-confidence" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/swim-confidence" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/swim-confidence" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/swim-confidence" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/swim-confidence" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/swim-confidence" hreflang="da" lang="da">Dansk</a></li><li><a aria-current="true" href="/no/swim-confidence" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/swim-confidence" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/swim-confidence" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/swim-confidence" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/swim-confidence" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/swim-confidence" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/swim-confidence" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/swim-confidence" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/swim-confidence" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/swim-confidence" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/swim-confidence" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/swim-confidence"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/swim-confidence"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/swim-confidence"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/swim-confidence"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/swim-confidence"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/swim-confidence"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/swim-confidence"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/swim-confidence"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/swim-confidence"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/swim-confidence"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/swim-confidence"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/swim-confidence"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/swim-confidence"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/swim-confidence"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/swim-confidence"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/swim-confidence"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/swim-confidence"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/swim-confidence"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/swim-confidence"}, {"c": "", "hl": "en", "n": "English", "u": "/swim-confidence"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

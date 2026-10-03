@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Poradnik twórcy łowisk — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Jak zamienić zdjęcie ulubionego stanowiska w łowisko Swimcraft, które przejdzie weryfikację i zostanie opublikowane." name="description"/>
+<meta content="Poradnik twórcy łowisk — Swimcraft" property="og:title"/>
+<meta content="Jak zamienić zdjęcie ulubionego stanowiska w łowisko Swimcraft, które przejdzie weryfikację i zostanie opublikowane." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/pl/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/pl/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Poradnik twórcy łowisk</h1>
+<p class="meta"><strong>Jak zamienić zdjęcie znanego ci stanowiska w łowisko, na którym mogą łowić inni wędkarze.</strong></p>
+<p class="meta">Ostatnia aktualizacja: 18 sierpnia 2026</p>
+<div class="intro">Samouczek kreatora łowisk pokazuje ci sterowanie. Ta strona to cała reszta — decyzje, od których zależy, czy do łowiska ludzie będą wracać, i garść zasad, od których zależy, czy przejdzie weryfikację. Warto poświęcić jej dwadzieścia minut, zanim zbudujesz swoją pierwszą porządną wodę.</div>
+<ol class="toc">
+<li><a href="#life">Szkic, zgłoszone, opublikowane — co naprawdę się dzieje</a></li>
+<li><a href="#photo">Zdjęcie i zasady, które go dotyczą</a></li>
+<li><a href="#peg">Przygotowanie stanowiska</a></li>
+<li><a href="#calibrate">Kalibracja — krok, który ludzie pomijają i potem żałują</a></li>
+<li><a href="#depth">Malowanie dna</a></li>
+<li><a href="#stock">Uczciwe zarybianie</a></li>
+<li><a href="#test">Połów na nim, zanim je zgłosisz</a></li>
+<li><a href="#review">Na co patrzy weryfikacja i dlaczego łowiska wracają</a></li>
+<li><a href="#after">Po publikacji</a></li>
+</ol>
+<h2 id="life">1. Szkic, zgłoszone, opublikowane</h2>
+<p>Łowisko przechodzi przez trzy stany, a ich znajomość oszczędzi ci później wiele zamieszania.</p>
+<table class="pass">
+<tr><th>Stan</th><th>Co oznacza</th></tr>
+<tr><td>Szkic</td><td>Tylko twoje. Nikt inny nie może go zobaczyć ani na nim łowić. Możesz edytować wszystko, ile razy chcesz.</td></tr>
+<tr><td>Zgłoszone</td><td>Czeka na weryfikację. Nadal prywatne. Pozostaje nietknięte, dopóki ktoś go nie obejrzy.</td></tr>
+<tr><td>Opublikowane</td><td>We wspólnej bibliotece. Inni wędkarze mogą na nim łowić, a złowione tam ryby liczą się do tablic rekordów.</td></tr>
+</table>
+<p>Jeśli łowisko zostanie odesłane, wraca do ciebie jako szkic <strong>z notatką, co trzeba poprawić</strong>. To nie jest czarny punkt — większość pierwszych zgłoszeń wymaga jednej drobnej rzeczy. Popraw ją i zgłoś ponownie.</p>
+<div class="callout"><strong>W demo wszystko, co zbudujesz, zostaje w szkicach.</strong> Publikowanie we wspólnej bibliotece ruszy we wczesnym dostępie, a żeton tworzenia łowiska, który zdobędziesz na poziomie 5, zostaje odłożony właśnie na tę chwilę. Nic, co zrobisz w demo, nie przepadnie — więc zbuduj to dobre łowisko już teraz.</div>
+<h2 id="photo">2. Zdjęcie</h2>
+<p>Wszystko inne powstaje na podstawie tego jednego obrazu, więc warto być wybrednym. Gra przyjmie zdjęcie w formacie <strong>JPEG lub PNG</strong>, o rozdzielczości co najmniej <strong>1280 × 720</strong> i mniejsze niż <strong>20MB</strong>. To minimum techniczne. Przydatne rady są ponad nim:</p>
+<ul>
+<li><strong>Rób zdjęcie z miejsca, w którym byś siedział.</strong> Zdjęcie staje się widokiem ze stanowiska, więc ujęcie zrobione na brzegu na wysokości oczu łowi się o wiele lepiej niż zrobione z mostu czy wzgórza.</li>
+<li><strong>Poziomo, i daj wodzie przestrzeń.</strong> Potrzebujesz wody w dolnej połowie kadru, żeby było co malować, oraz widocznego przeciwległego brzegu lub horyzontu, żeby ocenić odległość.</li>
+<li><strong>Rozproszone światło jest lepsze niż ostre słońce.</strong> Mocne odblaski na powierzchni ukrywają elementy, które chcesz odrysować.</li>
+<li><strong>Uwzględnij coś, co da się zmierzyć.</strong> Przeciwległy brzeg, wyspę, zacumowaną łódź, kępę grążeli — cokolwiek, czego odległość naprawdę znasz. Sekcja 4 wyjaśnia, dlaczego to ważniejsze niż cokolwiek innego na tej stronie.</li>
+</ul>
+<h3>Zasady, które nie podlegają dyskusji</h3>
+<p>Gdy przekazujesz obraz, gra prosi cię o potwierdzenie, że jesteś jego właścicielem lub masz zgodę na jego użycie i że nie zawiera niczego niezgodnego z prawem. To prawdziwe oświadczenie, a oto zasady, które za nim stoją. Pochodzą z naszych <a href="/terms">Warunków korzystania</a>, w skrócie:</p>
+<ul>
+<li>Zdjęcie musi być <strong>twoje</strong> albo musisz mieć zgodę. Nie z internetu, nie ze strony łowiska, nie z czyichś mediów społecznościowych.</li>
+<li>Żadnych <strong>rozpoznawalnych osób</strong>, chyba że się zgodziły. <strong>Nigdy</strong> zdjęcie, na którym jest dziecko.</li>
+<li>Wytnij prywatne szczegóły — <strong>tablice rejestracyjne, nazwy domów, adresy, znaki z numerami telefonów</strong>.</li>
+<li>Szanuj łowisko. Jeśli woda jest prywatna albo jej właściciel nie chciałby, żeby ją odtworzono i opublikowano, nie publikuj jej. Dobry test: czy z przyjemnością pokazałbyś właścicielowi to, co zrobiłeś?</li>
+</ul>
+<div class="callout warn">Łowisko, które łamie te zasady, zostaje odesłane podczas weryfikacji, a zasady dotyczące zdjęć to najczęstszy powód. Prawie wszystkiego da się uniknąć już w chwili robienia zdjęcia.</div>
+<div class="pair">
+<figure>
+<img alt="Dobrze wybrane zdjęcie stanowiska" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>Dobre.</strong> Wysokość brzegu, rozproszone światło, woda w dolnej połowie, przeciwległy brzeg do oceny odległości.</figcaption>
+</figure>
+<figure>
+<img alt="Słabe zdjęcie stanowiska ze zbyt dużym pierwszym planem" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>Słabe.</strong> Za dużo brzegu na pierwszym planie — zacięta ryba przepłynęłaby przez ziemię, zanim dotarłaby do podbieraka.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Łowisko z kilkoma nazwanymi stanowiskami" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>Nazywaj stanowiska tak, jak nazywa je ta woda. „Stanowisko przy Bramie” coś wędkarzowi mówi; „Stanowisko 1” nie.</figcaption>
+</figure>
+<h2 id="peg">3. Przygotowanie stanowiska</h2>
+<p>Łowisko to jedno lub więcej stanowisk, a każde stanowisko to jedno zdjęcie z własnym dnem, własnymi elementami i własnymi rybami. Pierwsze łowisko z <strong>jednym naprawdę dobrym stanowiskiem</strong> zawsze wygrywa z takim, które ma cztery zrobione w pośpiechu.</p>
+<ul>
+<li><strong>Nazwij łowisko tak, jak powiedziałby wędkarz.</strong> „Fosa zamku Leeds”, a nie „moje stanowisko 2”. Do 60 znaków, a w linijce lokalizacji pod spodem wpisz miasto lub hrabstwo.</li>
+<li><strong>Nazwij każde stanowisko od miejsca, w którym jest</strong> — „Stanowisko przy Bramie”, „Cypel”, „Dolny Zakręt”. Do 40 znaków. Te nazwy pojawiają się na tablicach rekordów pod rybą, więc warto poświęcić im chwilę.</li>
+<li><strong>Nazwy łowisk, nazwy stanowisk, opisy i nazwy ryb są sprawdzane</strong>, zanim zostaną zapisane. Pisz kulturalnie, a nigdy cię to nie dotknie.</li>
+</ul>
+<h2 id="calibrate">4. Kalibracja — krok, który ludzie pomijają</h2>
+<p>Kalibracja to sposób, w jaki gra zamienia płaski obraz w rzeczywistą odległość. Odrysowujesz linię brzegową, a potem stawiasz <strong>bliski znacznik</strong> i <strong>daleki znacznik</strong> i podajesz, jak daleko naprawdę jest każdy z nich.</p>
+<p>Nie możesz przejść dalej, dopóki każde stanowisko nie zostanie skalibrowane, i to celowe: nieskalibrowane stanowisko łowi źle w sposób, którego nikt nie widzi. Rzut, który powinien sięgnąć wyspy, jest za krótki, albo wędka spławikowa na 40 jardów sięga przeciwległego brzegu zbiornika zaporowego. Łowisko wygląda dobrze, a łowi się na nim bez sensu.</p>
+<h3>Jak zrobić to dobrze bez dalmierza</h3>
+<p>Nikt nie prosi cię o podanie odległości z pamięci. Prosimy cię, żebyś ją <strong>rozpoznał</strong>, a w tym wędkarze są dobrzy:</p>
+<ul>
+<li>Myśl rzutami. „Do tej wyspy są mniej więcej dwa wygodne rzuty feederem” to około 60–70 jardów, a to znacznie lepsza odpowiedź niż wymyślona liczba.</li>
+<li>Korzystaj z tego, co wiesz. Na większości stanowisk na łowiskach komercyjnych do przeciwległego brzegu jest 20–40 jardów. Na dużym wyrobisku żwirowym czy zbiorniku zaporowym setki. Na kanale 10–15.</li>
+<li>Postaw bliski znacznik na czymś bliskim i wyraźnym — przybrzeżnej półce, bliskim liściu grążela, końcu twojego podestu.</li>
+<li>Jeśli naprawdę nie wiesz, zanim zaczniesz budować, obejrzyj wodę na mapie. To zajmie minutę.</li>
+</ul>
+<div class="callout"><strong>Zrób to dobrze, a wszystko dalej będzie dobrze.</strong> Zasięg brań, jak daleko sięgają twoje wędki, gdzie naprawdę stoją ryby — wszystko to jest mierzone od tych dwóch znaczników.</div>
+<div class="pair">
+<figure>
+<img alt="Odrysowywanie linii brzegowej w edytorze łowisk" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>Odrysowywanie linii brzegowej. Obrys musi się zamknąć.</figcaption>
+</figure>
+<figure>
+<img alt="Bliski i daleki znacznik odległości postawione na stanowisku" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>Oba znaczniki postawione. Wszystko dalej jest mierzone od tych dwóch.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. Malowanie dna</h2>
+<p>Następnie malujesz to, co jest pod wodą: strefy głębokości od brzegu na zewnątrz oraz elementy dna — zielsko, żwir, muł, zaczepy, trzciny. Aby przejść dalej, musisz pomalować co najmniej jeden kwadrat wody, ale to porządnie pomalowane dno sprawia, że łowisko przypomina prawdziwą wodę, a nie wannę.</p>
+<ul>
+<li><strong>Podążaj za zdjęciem.</strong> Tam, gdzie powierzchnia ciemnieje, zwykle jest głębiej. Tam, gdzie widać dno, maluj płytko. Linia trzcin to półka.</li>
+<li><strong>Płytko przy brzegach, głębiej na środku</strong> to domyślny kształt większości wód stojących — ale wyrobisko żwirowe jest nierówne, a kanał ma płaski tor żeglugowy z płytkimi półkami po obu stronach. Zbuduj wodę, którą znasz.</li>
+<li><strong>Elementy dna to to, czego szukają wędkarze.</strong> Gołe, równo pomalowane dno nie daje nikomu powodu, żeby rzucać w jakieś konkretne miejsce. Daj stanowisku dwa lub trzy miejsca warte znalezienia — żwirową górkę, mulisty rów, zaczep na dalekiej półce.</li>
+<li><strong>Nie wstawiaj zaczepów wszędzie.</strong> Są emocjonujące tam, gdzie rybę można rozsądnie stracić. Wszędzie są po prostu frustrujące.</li>
+</ul>
+<div class="callout"><strong>Dwie z tych rzeczy są liczone, a nie oceniane.</strong> Stanowisko potrzebuje <strong>co najmniej trzech różnych stref głębokości</strong> i <strong>co najmniej dwóch różnych rodzajów elementów dna</strong> oraz <strong>żadnych pustych pól w łowialnej wodzie</strong>. To liczby, które sprawdza weryfikacja, i liczby, których będzie się trzymał edytor — wszystko inne w tej sekcji to rady, jak zrobić wodę wartą łowienia.</div>
+<div class="pair">
+<figure>
+<img alt="Mapa głębokości z kilkoma różnymi strefami" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>Przechodzi.</strong> Kilka różnych stref, brzegi płytsze niż otwarta woda, dno o prawdziwym kształcie.</figcaption>
+</figure>
+<figure>
+<img alt="Płaska mapa głębokości z jedną strefą" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>Odesłane.</strong> Jedna płaska strefa na całej wodzie. Nic do znalezienia, nic do nauczenia się.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="Urozmaicona mapa elementów dna" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>Przechodzi.</strong> Zielsko na płyciznach, muł w głębinach, żwir na górce — i żadnych niepomalowanych dziur.</figcaption>
+</figure>
+<figure>
+<img alt="Goła mapa elementów dna z niepomalowanymi lukami" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>Odesłane.</strong> Gołe, z pustymi polami w łowialnej wodzie. Na tej drugiej części potyka się większość ludzi.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. Uczciwe zarybianie</h2>
+<p>Zarybienie to moment, w którym łowisko powstaje albo się psuje, i tutaj gra jest dla ciebie najsurowsza. Obowiązują trzy limity i każdy istnieje z jakiegoś powodu.</p>
+<div class="step">
+<span class="num">Limit pierwszy</span><h3>Pojemność — woda pomieści tylko określoną ilość ryb</h3>
+<p>Pojemność jest wyliczana z objętości pomalowanej wody i poziomu trudności łowiska. Mała, płytka kałuża nie pomieści 400lb karpi. Jeśli przerybisz stanowisko, nie zapisze się, dopóki nie wyjmiesz części ryb albo nie ułatwisz łowiska.</p>
+</div>
+<div class="step">
+<span class="num">Limit drugi</span><h3>Poziom trudności decyduje zarówno o wielkości, jak i o gęstości</h3>
+<p>Poziom trudności nie jest suwakiem tego, jak trudno ma się łowić, i nie zmienia zachowania ryb. Ustala, ile ryb mieści woda i jakich przedziałów rozmiaru możesz użyć — nic więcej. Trudna woda łowi się trudno, bo jest w niej mniej ryb, a te, które są, są większe.</p>
+<table class="pass">
+<tr><th>Poziom trudności</th><th>Co daje</th></tr>
+<tr><td>Łatwy</td><td>Gęsto zarybiona, częste brania, ryby od małych do średnich. Woda na częste odjazdy.</td></tr>
+<tr><td>Średni</td><td>Mniej więcej połowa zarybienia z poziomu Łatwy. Mniej brań, lepsza średnia wielkość.</td></tr>
+<tr><td>Trudny</td><td>Słabo zarybiona. Dłuższe czekanie, a to, co bierze, jest większe — aż do Okazowych.</td></tr>
+<tr><td>Okazowe</td><td>Bardzo słabo zarybiona, długie czekanie z założenia. Jedyne ustawienie, które pozwala na Wielkie okazowe i Potwory.</td></tr>
+</table>
+<p>Jeśli ryba, którą chcesz, jest za duża dla wybranego poziomu trudności, gra powie ci, jaki minimalny poziom by ją zmieścił. Podniesienie poziomu trudności to prawdziwy kompromis: dostajesz dużą rybę, a woda cichnie.</p>
+</div>
+<div class="step">
+<span class="num">Limit trzeci</span><h3>Nic nie przebije rekordu krajowego</h3>
+<p>Każdy gatunek jest ograniczony do rekordu krajowego kraju, w którym leży łowisko. Nie wpuścisz karpia pełnołuskiego 90lb do stawu na farmie w Kent, a edytor nie pozwoli ci nawet spróbować. Jest też łagodne ostrzeżenie dla ryby, która jest dozwolona, ale naciągana jak na wodę, którą pomalowałeś — ono cię nie blokuje, tylko mówi, że doświadczony wędkarz to zauważy.</p>
+</div>
+<h3>Nazwane ryby</h3>
+<p>Nazwana ryba to ta, dla której ludzie przyjeżdżają. Nadaj jej gatunek, imię i wagę, a trafi na stanowisko; dodaj jej zdjęcie, a pojawi się na ekranie połowu, gdy ktoś w końcu ją wyholuje. Łowisko z dwiema lub trzema znanymi rezydentkami ma swoją historię. Łowisko z piętnastoma nie ma żadnej.</p>
+<h3>Zarybienie, które tworzy dobrą wodę</h3>
+<ul>
+<li><strong>Mieszane rozmiary.</strong> Woda pełna samych dwucyfrówek jest nudna, bo nic, co złowisz, nie jest niespodzianką. To małe ryby rozkręcają stanowisko — zobacz <a href="/pl/swim-confidence">Poradnik pewności SWIM</a>.</li>
+<li><strong>Gatunki, które do siebie pasują.</strong> Płocie, leszcze, liny i karpie w stawie na farmie, tak. Ale nie wszystko z listy tylko dlatego, że lista była pod ręką.</li>
+<li><strong>Zostaw zapas.</strong> Zarybienie do pełna nie zostawia ci miejsca na ryby, które wymyślisz w przyszłym tygodniu.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="Stanowisko zarybione mieszanymi gatunkami i rozmiarami" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>Mieszane gatunki, mieszane rozmiary, a wskaźnik pojemności z zapasem, zamiast dociśniętego do kreski.</figcaption>
+</figure>
+<figure>
+<img alt="Ostrzeżenie o przekroczeniu pojemności" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>Po przekroczeniu limitu edytor cię zatrzymuje. To arytmetyka, a nie ocena.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Nazwana ryba dodana do stanowiska" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>Nazwana ryba, zarybiona i potwierdzona. Dwie lub trzy na łowisko, o wagach, które woda mogłaby utrzymać — to wyjątki, a nie zarybienie.</figcaption>
+</figure>
+<h2 id="test">7. Połów na nim, zanim je zgłosisz</h2>
+<p>Edytor ma tryb testowy i w praktyce nie jest on opcjonalny. Dziesięć minut na własnym łowisku znajdzie rzeczy, których nie znajdzie żadne patrzenie na mapę:</p>
+<ul>
+<li>Czy rozsądną wędką naprawdę <strong>sięgasz</strong> do elementów dna, które pomalowałeś? Jeśli wszystko, co dobre, jest poza zasięgiem, kalibracja jest zła albo elementy są za daleko.</li>
+<li>Czy głębokość pod spławikiem <strong>pasuje do tego, jak wygląda zdjęcie</strong>?</li>
+<li>Czy brania przychodzą w tempie pasującym do wybranego poziomu trudności?</li>
+<li>Czy jest powód, żeby się przemieszczać? Stanowisko, na którym jedno miejsce jest oczywiście właściwe, a wszędzie indziej jest martwo, to stanowisko na jeden rzut.</li>
+</ul>
+<figure>
+<img alt="Testowe łowienie na własnym łowisku w edytorze" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>Tryb testowy. Dziesięć minut tutaj znajdzie to, czego nie znajdzie żadne patrzenie na mapę.</figcaption>
+</figure>
+<h2 id="review">8. Na co patrzy weryfikacja</h2>
+<p>Każde łowisko ogląda człowiek, zanim trafi do wspólnej biblioteki. Nie ocenia twojej grafiki. Sprawdza krótką listę i za każdym razem jest to ta sama lista:</p>
+<table class="pass">
+<tr><th>Sprawdzane</th><th>Co powoduje odesłanie łowiska</th></tr>
+<tr><td>Zdjęcie</td><td>Nie twoje, zawiera rozpoznawalne osoby lub dziecko, pokazuje prywatne szczegóły albo tak naprawdę nie jest stanowiskiem wędkarskim.</td></tr>
+<tr><td>Słowa</td><td>Nazwa łowiska, opis lub nazwy ryb, które łamią zasady społeczności.</td></tr>
+<tr><td>Uczciwość</td><td>Zarybienie lub nazewnictwo, które jest żartem kosztem gry — kałuża wypchana rekordowymi rybami, stanowisko nazwane tak, by oszukać tablice.</td></tr>
+<tr><td>Grywalność</td><td>Brak kalibracji z prawdziwego zdarzenia, niepomalowane dno albo łowisko, na którym ewidentnie nie da się łowić.</td></tr>
+<tr><td>Dno, policzone</td><td>Mniej niż <strong>trzy różne strefy głębokości</strong> na stanowisku, mniej niż <strong>dwa różne rodzaje elementów dna</strong> lub <strong>jakiekolwiek puste pole w łowialnej wodzie</strong>. To arytmetyka, a nie ocena, więc najłatwiej je spełnić i najłatwiej się na nich potknąć.</td></tr>
+</table>
+<p>Co <strong>nie</strong> jest sprawdzane: czy jest ładne, czy przypomina czyjeś inne i czy weryfikujący miałby przyjemność na nim łowić. Skromne łowisko zbudowane uczciwie przechodzi. Spektakularne, zbudowane na cudzym zdjęciu, nie.</p>
+<figure>
+<img alt="Opublikowane łowisko we wspólnej bibliotece" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>Opublikowane. To karta, którą widzi każdy inny wędkarz — i miejsce, gdzie ląduje twoja woda.</figcaption>
+</figure>
+<h2 id="after">9. Po publikacji</h2>
+<ul>
+<li><strong>Zmiany wracają do weryfikacji.</strong> Gdy łowisko zostanie opublikowane, jego zawartość jest zablokowana, a każda wprowadzona zmiana jest odkładana i ponownie sprawdzana, zanim dotrze do innych graczy. Więc zrób to dobrze przed zgłoszeniem, zamiast planować łatki.</li>
+<li><strong>Możesz je wycofać.</strong> Wycofanie zdejmuje łowisko z biblioteki — a razem z nim z tablic znikają jego rekordy — bez usuwania czegokolwiek. To twój przełącznik i da się go cofnąć.</li>
+<li><strong>Rekordy ustanowione na łowisku noszą jego nazwę</strong>, a także nazwę stanowiska, gdziekolwiek się pojawiają. Dlatego warto od początku porządnie nazwać stanowiska.</li>
+</ul>
+<div class="callout"><strong>W skrócie.</strong> Użyj własnego zdjęcia. Skalibruj je uczciwie. Pomaluj dno tak, żeby było gdzie rzucać. Zarybiaj jak prawdziwą wodę, a nie listę życzeń. Połów na nim sam, zanim je wyślesz. Zrób te pięć rzeczy, a przejdzie.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Masz pytania albo uważasz, że źle podjęliśmy decyzję podczas weryfikacji? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/pl/">Strona główna</a> · <a href="/pl/swim-confidence">Poradnik pewności SWIM</a> · <a href="/terms">Warunki korzystania</a> · <a href="/privacy">Prywatność</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Zamknij (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Poprzednie" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Następne" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Polski</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a aria-current="true" href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

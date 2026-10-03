@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Novità di Swimcraft</title>
+<meta content="Tutto quello che è cambiato nella demo di Swimcraft dalla prima build." name="description"/>
+<meta content="Novità di Swimcraft" property="og:title"/>
+<meta content="Tutto quello che è cambiato nella demo di Swimcraft dalla prima build." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://swimcraft.harbledowndigital.com/it/whats-new" property="og:url"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url(/'/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+<link href="https://swimcraft.harbledowndigital.com/it/whats-new" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/whats-new" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/whats-new" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/whats-new" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/whats-new" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/whats-new" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/whats-new" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/whats-new" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/whats-new" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/whats-new" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/whats-new" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/whats-new" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/whats-new" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/whats-new" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/whats-new" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/whats-new" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/whats-new" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/whats-new" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/whats-new" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/whats-new" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="topbar">
+<div class="topbar-inner"><a aria-label="Swimcraft home" class="wordmark" href="/it/"><span class="swim">swim</span><span class="craft">craft</span></a>
+<a class="back" href="/it/">Torna alla home page</a></div>
+</header>
+<div class="intro">
+<h1>Novità</h1>
+<div class="build">Ultimo aggiornamento della demo: 0.111.530, 3 ottobre 2026</div>
+<p class="lede">Prima le modifiche più recenti, poi tutto quello che è cambiato dalla prima build della demo (0.111.405). Grazie a tutti quelli che ci hanno pescato e ci hanno detto cosa hanno trovato. Scopri cosa arriverà nella <a href="/it/roadmap">roadmap</a>.</p>
+</div>
+<main>
+<section aria-labelledby="v530-languages">
+<h2 id="v530-languages"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12 H21"></path><path d="M12 3 C15 6 15 18 12 21 C9 18 9 6 12 3 Z"></path></svg>
+      Novità della 0.111.530: Swimcraft nella tua lingua</h2>
+<ul>
+<li>Ora l'intero gioco si può giocare in 20 lingue: inglese, tedesco, francese, spagnolo (Spagna), spagnolo (America Latina), portoghese (Brasile), italiano, olandese, danese, norvegese, svedese, finlandese, polacco, ceco, russo, turco, giapponese, cinese semplificato, cinese tradizionale e coreano.</li>
+<li>È tradotta ogni schermata: menu, tutorial, cassetta da pesca e scatola delle esche, schermata di pesca, schede delle catture, record, editor di spot e creatore di specie.</li>
+<li>La prima volta che avvii il gioco, viene scelta la lingua di Windows. Puoi cambiarla quando vuoi da Lingua nel menu principale.</li>
+<li>Le traduzioni sono nuove, quindi se una frase non suona bene, premi F8 e cliccaci sopra per segnalarcelo. Leggiamo ogni segnalazione.</li>
+<li>Piccola correzione: il conteggio della sessione non scrive più "fishs".</li>
+</ul>
+</section>
+<section aria-labelledby="v509-fixes">
+<h2 id="v509-fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      Novità della 0.111.509: correzioni</h2>
+<ul>
+<li>Ora nessun pesce pesa meno di una dramma. I pesci più piccoli potevano risultare di 0lb 0oz 0dr. Grazie a Dave per averlo notato.</li>
+<li>Nel creatore di specie, una foto scelta prima di aver dato un nome al pesce ora si può scegliere di nuovo dopo averglielo dato.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-tackle">
+<h2 id="v507-tackle"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Novità della 0.111.507: la cassetta da pesca e la scatola delle esche</h2>
+<ul>
+<li>Entrambe le scatole sono state ricostruite da zero. Ogni canna, mulinello, lenza, amo ed esca ora ha la sua immagine, disposta in sezioni per marca.</li>
+<li>L'attrezzatura che non hai ancora sbloccato è mostrata chiaramente, così vedi cosa ti aspetta salendo di livello.</li>
+<li>La tua dotazione corre lungo la parte alta della scatola come una fila di schede in miniatura, e gli slot vuoti mostrano l'attrezzatura che ci potrebbe andare.</li>
+<li>Le foto di tutti e cinque i tipi di galleggiante sono accanto alla montatura a galleggiante, e la schermata della montatura a feeder è disposta su due colonne.</li>
+<li>La schermata delle montature da mare ora è come quella delle montature da carpa: tre montature da mare, ognuna disegnata, con una descrizione di come pesca.</li>
+<li>Una nuova esca: Pineapple Wafter. Match T Hatch ora si chiama Match T Hatch Pop-up, che è quello che è sempre stata.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-species">
+<h2 id="v507-species"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Novità della 0.111.507: creatore di specie</h2>
+<ul>
+<li>Crea i tuoi pesci. Rispondi a una breve serie di domande semplici su dove vive e su come si alimenta, combatte e abbocca, aggiungi una foto e salvalo.</li>
+<li>La possibilità di proporre il tuo pesce per aggiungerlo al gioco per tutti arriva con l'Accesso anticipato.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-fishing">
+<h2 id="v507-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Novità della 0.111.507: pesca e spot</h2>
+<ul>
+<li>I progressi dei tutorial ora vengono salvati sul tuo account, quindi un tutorial completato resta completato quando accedi di nuovo.</li>
+<li>Un pesce che raggiunge un incaglio ora si slama dopo circa 10 secondi. Dagli lenza per farlo muovere di nuovo.</li>
+<li>La guida alle stagioni ora mostra la spigola per quello che è, un pesce del Regno Unito che scarseggia d'inverno, invece di prendere in prestito le stagioni del persico trota americano.</li>
+<li>Salvare uno spot con molto fondale dipinto non va più in timeout.</li>
+<li>Sui fiumi con molte postazioni, le prime postazioni non restano più nascoste oltre il bordo dell'elenco.</li>
+<li>Il pannello di pesca non può più restare bloccato con l'intestazione fuori dallo schermo.</li>
+<li>Prova questo spot ora ti avvisa se il salvataggio dello spot non è riuscito, invece di andare avanti in silenzio.</li>
+<li>Il messaggio "spot caricati" ora sparisce sempre.</li>
+<li>Un download più leggero.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-fishing">
+<h2 id="latest-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Novità della 0.111.478: pesca</h2>
+<ul>
+<li>Ferra nel momento in cui il galleggiante va sotto e allamerai il pesce. Una reazione rapida non viene più punita; ferrare su un piccolo tocco o una toccata leggera fa ancora saltare l'esca.</li>
+<li>Modalità realistica: un pulsante nel pannello di pesca disattiva ogni indicazione a schermo, compreso FERRA ORA, e ogni pesce tiene l'esca per il suo tempo prima di lasciarla. La tua scelta viene ricordata.</li>
+<li>Scorciatoie da tastiera: Z per ferrare, B per l'archetto, L per la pasturazione sciolta, G per la pastura, R per recuperare, T per la cassetta da pesca, Y per la scatola delle esche e M per l'audio. Sono tutte nella scheda dei comandi.</li>
+<li>Dopo il lancio, l'archetto è aperto quando peschi a galleggiante in acqua corrente, così il galleggiante va in passata, e chiuso in acqua ferma.</li>
+<li>Il manico del guadino ora arriva dritto fino alla rete.</li>
+<li>Puoi togliere la pasturazione sciolta o la pastura dalla scatola delle esche con la × sulla sua etichetta.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-rivers">
+<h2 id="latest-rivers"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Novità della 0.111.478: fiumi</h2>
+<ul>
+<li>Una nuova velocità della corrente, la più lenta: Quasi ferma.</li>
+<li>Un'impostazione Acqua piccola per ogni postazione, che rallenta molto la corrente nei fiumi stretti e nei piccoli torrenti.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-creator">
+<h2 id="latest-creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Novità della 0.111.478: editor di spot</h2>
+<ul>
+<li>Ora puoi pescare fino alla riva opposta nelle foto scattate con l'acqua in alto nell'inquadratura. Un limite nascosto fermava i lanci a circa un terzo dell'altezza dell'immagine.</li>
+<li>Le linee della distanza prendono il nome dalla canna che le raggiunge, come Portata canna da galleggiante e Portata canna da feeder nelle acque interne, e Portata canna da molo e Portata canna da surfcasting negli spot di mare, più una linea Sottoriva. Passa il mouse su una linea per vederne la distanza.</li>
+<li>Una sfumatura blu della distanza mostra la prospettiva della tua acqua nel passaggio Mappa, profonda ai tuoi piedi e velata sulla riva opposta.</li>
+<li>Il passaggio Pittura ora traccia il contorno della riva e delle isole, così vedi il confine entro cui stai dipingendo.</li>
+<li>Passare dal passaggio Mappa a Pittura e viceversa non fa più perdere una forma che stavi disegnando.</li>
+</ul>
+</section>
+<section aria-labelledby="fight">
+<h2 id="fight"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 21 C9 15 13 8 20 4"></path><path d="M20 4 L20 13"></path><path d="M17.5 13 Q20 16 22.5 13"></path></svg>
+      Il combattimento</h2>
+<ul>
+<li>I pesci allamati ora cercano riparo, per esempio tra canne, ninfee e incagli, quindi ogni combattimento va in modo diverso. Il tuo compito è impedirgli di arrivarci.</li>
+<li>Ogni specie combatte a modo suo, e i pesci vicini al loro record combattono più duramente.</li>
+<li>La regolazione della frizione ora conta davvero. Regolala bene e puoi prendere un pesce più pesante della resistenza della tua lenza.</li>
+<li>Carpe e tinche partono, e le abramidi grosse portano via la lenza. Vedrai muoversi il galleggiante o la lenza prima di ferrare.</li>
+<li>Il guadinaggio è stato rifatto, e gli spot da carpa ora hanno un vero guadino da carpa.</li>
+<li>Muovi il mouse per alzare e abbassare la punta della canna, e tieni premuto il tasto destro per sollevare. La canna resta appoggiata mentre sei in pesca.</li>
+<li>Ogni canna si piega secondo il suo tipo: le canne da mare sono rigide, quelle da match e da feeder sono morbide.</li>
+</ul>
+</section>
+<section aria-labelledby="bites">
+<h2 id="bites"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 L12 6"></path><path d="M12 6 C9.5 9 9.5 13 12 16 C14.5 13 14.5 9 12 6 Z"></path><path d="M12 16 L12 19"></path><path d="M3 19 Q6 17.5 9 19 T15 19 T21 19"></path></svg>
+      Abboccate e postazioni</h2>
+<ul>
+<li>I quattro livelli di difficoltà sono stati ritarati. Gli spot facili danno abboccate veloci e quelli da trofeo te le fanno sudare.</li>
+<li>La resistenza della lenza ora conta. Una lenza grossa per pesci piccoli e sospettosi ti farà perdere abboccate.</li>
+<li>Pescare vicino ai ripari viene premiato, mentre l'acqua aperta è onesta ma più lenta.</li>
+<li>La barra della postazione ora mostra quanto sta rendendo davvero la tua postazione.</li>
+<li>Le tiger nut ora prendono tinche e abramidi grosse, oltre a cavedani e barbi.</li>
+<li>Le abboccate arrivano come devono quando peschi con ami più grandi per le carpe.</li>
+<li>Ora sono disponibili ami da mare più piccoli, misure 4 e 6, per merlani e pesci piatti.</li>
+<li>La tua montatura ora conta. Peso del piombo, materiale del terminale, lunghezza del terminale e tipo di montatura influiscono su come i pesci prendono l'esca, quindi abbinare la montatura al pesce, al fondale e all'esca paga. La <a href="/it/rigipedia">Rigipedia</a> spiega ogni montatura.</li>
+</ul>
+</section>
+<section aria-labelledby="screen">
+<h2 id="screen"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 9 L3 6 Q3 4 5 4 L19 4 Q21 4 21 6 L21 9"></path><rect height="11" rx="2" width="20" x="2" y="9"></rect><path d="M9 9 L9 7 L15 7 L15 9"></path></svg>
+      Attrezzatura e schermo</h2>
+<ul>
+<li>Il pannello della lenza in acqua ti dice su cosa poggia la tua montatura, per esempio <q>limo / canne</q>.</li>
+<li>I galleggianti sono più grandi e più facili da vedere a distanza.</li>
+<li>Aprire la cassetta da pesca o la scatola delle esche non recupera più la lenza.</li>
+<li>La cassetta da pesca nel Rifugio del pescatore ora può preparare una dotazione da mare.</li>
+<li>Quando sali di livello, la nuova attrezzatura resta segnalata finché non le hai dato un'occhiata.</li>
+<li>La pagina dello spot ha un pulsante <q>Pesca oggi</q>, e la data e l'ora sono più facili da trovare. Il cursore dell'ora esatta ora imposta davvero l'ora in cui inizi a pescare.</li>
+<li>Le schede delle catture indicano l'esca esatta che hai usato, per esempio <q>Granturco</q> invece di <q>Mais dolce</q>.</li>
+<li>I pesci sulle schede delle catture e nelle bacheche dei record sono mostrati nelle loro vere dimensioni, con un leggero effetto 3D.</li>
+<li>La schermata iniziale ha una bacheca delle notizie, e Guide ora porta alla Rigipedia. I contenuti sponsorizzati sulla bacheca sono etichettati come tali.</li>
+<li>Condividi la mia cattura: un pulsante Condividi sulla scheda della cattura, per le tue catture e i tuoi record personali, e per i record mondiali che detieni. Salva un'immagine della scheda, con un codice che porta i tuoi amici a Swimcraft su Steam, e copia una didascalia pronta da pubblicare.</li>
+<li>Nuove icone disegnate nella cassetta da pesca, nella scatola delle esche e nel menu dell'account, e i menu delle scatole sono più facili da leggere.</li>
+</ul>
+</section>
+<section aria-labelledby="creator">
+<h2 id="creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 8 Q3 6.5 4.5 6.5 L7.5 6.5 L9 4 L15 4 L16.5 6.5 L19.5 6.5 Q21 6.5 21 8 L21 18 Q21 19.5 19.5 19.5 L4.5 19.5 Q3 19.5 3 18 Z"></path><circle cx="12" cy="12.5" r="3.8"></circle></svg>
+      Editor di spot</h2>
+<ul>
+<li>La barra dell'immissione ti dice a parole quanto è popolata la tua acqua rispetto alla sua difficoltà.</li>
+<li>Aggiungendo immagini dei pesci vedi un'anteprima in tempo reale, con una guida per fare i ritagli.</li>
+<li>La fascia di taglia Mostro è stata accorpata a Grande trofeo, e le taglie si fermano al record nazionale.</li>
+</ul>
+</section>
+<section aria-labelledby="fixes">
+<h2 id="fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      Correzioni</h2>
+<ul>
+<li>Gli anelli della canna non saltano più da un lato all'altro della canna.</li>
+<li>La canna non si ripiega più su se stessa quando un pesce è vicino al guadino.</li>
+<li>L'ultima scheda del tutorial di pesca ora funziona come dovrebbe.</li>
+<li>La montatura indicata sullo schermo è sempre quella in acqua. Passare da una montatura da carpa al galleggiante non si porta più dietro le vecchie impostazioni.</li>
+<li>I messaggi a comparsa ora appaiono davanti alle schede dei record invece che dietro.</li>
+</ul>
+</section>
+</main>
+<div class="cta">
+<div class="cta-panel">
+<p>Swimcraft è in arrivo in Accesso anticipato su Steam. Aggiungerlo alla lista dei desideri è il modo migliore per sapere quando esce.</p>
+<div class="buttons"><a class="button primary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Aggiungi alla lista dei desideri su Steam</a>
+<a class="button secondary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Gioca la demo</a></div>
+</div>
+</div>
+<footer>
+<div class="footer-inner">© 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Informativa sulla privacy</a> e <a href="https://swimcraft.harbledowndigital.com/terms">Termini d'uso</a>.</div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Italiano</span></summary><ul><li><a href="/whats-new" hreflang="en" lang="en">English</a></li><li><a href="/de/whats-new" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/whats-new" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/whats-new" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/whats-new" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/whats-new" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a aria-current="true" href="/it/whats-new" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/whats-new" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/whats-new" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/whats-new" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/whats-new" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/whats-new" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/whats-new" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/whats-new" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/whats-new" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/whats-new" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/whats-new" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/whats-new" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/whats-new" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/whats-new" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/whats-new"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/whats-new"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/whats-new"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/whats-new"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/whats-new"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/whats-new"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/whats-new"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/whats-new"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/whats-new"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/whats-new"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/whats-new"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/whats-new"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/whats-new"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/whats-new"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/whats-new"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/whats-new"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/whats-new"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/whats-new"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/whats-new"}, {"c": "", "hl": "en", "n": "English", "u": "/whats-new"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

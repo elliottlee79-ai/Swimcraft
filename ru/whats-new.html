@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Что нового в Swimcraft</title>
+<meta content="Всё, что изменилось в демо Swimcraft с первой сборки." name="description"/>
+<meta content="Что нового в Swimcraft" property="og:title"/>
+<meta content="Всё, что изменилось в демо Swimcraft с первой сборки." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://swimcraft.harbledowndigital.com/ru/whats-new" property="og:url"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url(/'/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+<link href="https://swimcraft.harbledowndigital.com/ru/whats-new" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/whats-new" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/whats-new" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/whats-new" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/whats-new" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/whats-new" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/whats-new" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/whats-new" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/whats-new" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/whats-new" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/whats-new" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/whats-new" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/whats-new" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/whats-new" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/whats-new" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/whats-new" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/whats-new" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/whats-new" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/whats-new" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/whats-new" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="topbar">
+<div class="topbar-inner"><a aria-label="Swimcraft home" class="wordmark" href="/ru/"><span class="swim">swim</span><span class="craft">craft</span></a>
+<a class="back" href="/ru/">Назад на главную</a></div>
+</header>
+<div class="intro">
+<h1>Что нового</h1>
+<div class="build">Последнее обновление демо: 0.111.530, 3 октября 2026</div>
+<p class="lede">Сначала самые свежие изменения, затем всё, что изменилось с первой сборки демо (0.111.405). Спасибо всем, кто порыбачил и рассказал нам, что нашёл. Что будет дальше, смотри в <a href="/ru/roadmap">дорожной карте</a>.</p>
+</div>
+<main>
+<section aria-labelledby="v530-languages">
+<h2 id="v530-languages"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12 H21"></path><path d="M12 3 C15 6 15 18 12 21 C9 18 9 6 12 3 Z"></path></svg>
+      Новое в 0.111.530: Swimcraft на твоём языке</h2>
+<ul>
+<li>Теперь в игру можно играть на 20 языках: английском, немецком, французском, испанском (Испания), испанском (Латинская Америка), португальском (Бразилия), итальянском, нидерландском, датском, норвежском, шведском, финском, польском, чешском, русском, турецком, японском, упрощённом китайском, традиционном китайском и корейском.</li>
+<li>Переведены все экраны: меню, обучение, ящик для снастей и коробка с наживкой, экран рыбалки, карточки улова, рекорды, редактор водоёмов и редактор видов.</li>
+<li>При первом запуске игра выбирает язык Windows. Его можно сменить в любой момент в пункте «Язык» главного меню.</li>
+<li>Переводы новые, так что если какая-то строка звучит неправильно, нажми F8 и кликни по ней, чтобы сообщить нам. Мы читаем каждый отчёт.</li>
+<li>Мелкое исправление: счётчик за сессию больше не пишет «fishs».</li>
+</ul>
+</section>
+<section aria-labelledby="v509-fixes">
+<h2 id="v509-fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      Новое в 0.111.509: исправления</h2>
+<ul>
+<li>Больше ни одна рыба не весит меньше драхмы. Самые мелкие рыбы могли показываться как 0lb 0oz 0dr. Спасибо Dave, что заметил.</li>
+<li>В редакторе видов фото, выбранное до того, как ты дал рыбе имя, теперь можно выбрать снова после этого.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-tackle">
+<h2 id="v507-tackle"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Новое в 0.111.507: ящик для снастей и коробка с наживкой</h2>
+<ul>
+<li>Обе коробки переделаны с нуля. У каждого удилища, катушки, лески, крючка и наживки теперь своя картинка, всё разложено по разделам по брендам.</li>
+<li>Снаряжение, которое ты ещё не открыл, хорошо видно, так что ты знаешь, что ждёт тебя с новыми уровнями.</li>
+<li>Твой комплект идёт по верху коробки рядом миниатюрных карточек, а в пустых слотах показано снаряжение, которое туда можно поставить.</li>
+<li>Рядом с поплавочной оснасткой теперь есть фотографии всех пяти типов поплавков, а экран фидерной оснастки разбит на две колонки.</li>
+<li>Экран морских оснасток теперь такой же, как экран карповых: три морские оснастки, у каждой рисунок и описание того, как она ловит.</li>
+<li>Новая наживка: Pineapple Wafter. Match T Hatch теперь называется Match T Hatch Pop-up, чем он всегда и был.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-species">
+<h2 id="v507-species"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Новое в 0.111.507: редактор видов</h2>
+<ul>
+<li>Создай свою рыбу. Ответь на несколько простых вопросов о том, где она живёт, как кормится, сопротивляется и клюёт, добавь фото и сохрани.</li>
+<li>Отправка рыбы на добавление в игру для всех появится в раннем доступе.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-fishing">
+<h2 id="v507-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Новое в 0.111.507: рыбалка и водоёмы</h2>
+<ul>
+<li>Прогресс обучения теперь сохраняется в аккаунте, так что пройденное обучение остаётся пройденным, когда ты снова входишь в игру.</li>
+<li>Рыба, добравшаяся до коряги, теперь сходит с крючка примерно через 10 секунд. Дай ей слабину, чтобы она снова двинулась.</li>
+<li>Справочник по сезонам теперь показывает лаврака как британскую рыбу, которой он и является, редкую зимой, а не берёт сезоны американского большеротого окуня.</li>
+<li>Сохранение водоёма с большим количеством раскрашенного дна больше не обрывается по тайм-ауту.</li>
+<li>На реках с большим количеством мест первые места больше не уходят за край списка.</li>
+<li>Панель рыбалки больше не может застрять с заголовком за пределами экрана.</li>
+<li>«Тест водоёма» теперь сообщает, если водоём не удалось сохранить, а не продолжает молча.</li>
+<li>Сообщение «водоёмы загружены» теперь всегда исчезает.</li>
+<li>Меньший объём загрузки.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-fishing">
+<h2 id="latest-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Новое в 0.111.478: рыбалка</h2>
+<ul>
+<li>Подсекай в тот момент, когда поплавок уходит под воду, и рыба засечётся. Быстрая реакция больше не наказывается; подсечка на лёгкое притапливание или толчок по-прежнему выдёргивает наживку.</li>
+<li>Реалистичный режим: кнопка на панели рыбалки отключает все подсказки на экране, включая ПОДСЕКАЙ, и каждая рыба держит наживку своё время, прежде чем бросить её. Твой выбор запоминается.</li>
+<li>Горячие клавиши: Z для подсечки, B для дужки, L для прикормки россыпью, G для прикормочной смеси, R чтобы смотать, T для ящика для снастей, Y для коробки с наживкой и M для звука. Все они есть на карточке управления.</li>
+<li>После заброса при ловле на поплавок в проточной воде дужка открыта, чтобы поплавок шёл по течению, а на стоячей воде закрыта.</li>
+<li>Ручка подсачека теперь идёт прямо к сетке.</li>
+<li>Прикормку россыпью или прикормочную смесь можно убрать из коробки с наживкой крестиком × на её плашке.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-rivers">
+<h2 id="latest-rivers"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Новое в 0.111.478: реки</h2>
+<ul>
+<li>Новая, самая медленная скорость течения: «Едва движется».</li>
+<li>Настройка «Маленький водоём» для каждого места, которая сильно замедляет течение на узких реках и ручьях.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-creator">
+<h2 id="latest-creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Новое в 0.111.478: редактор водоёмов</h2>
+<ul>
+<li>Теперь можно ловить до самого дальнего берега на фотографиях, где вода находится высоко в кадре. Скрытое ограничение обрывало заброс примерно на трети высоты снимка.</li>
+<li>Линии дистанции названы по удилищу, которое до них добрасывает, например «Дальность поплавочного удилища» и «Дальность фидерного удилища» на пресных водоёмах и «Дальность удилища для пирса» и «Дальность сёрфового удилища» на морских, плюс линия «У берега». Наведи курсор на линию, чтобы увидеть её дистанцию.</li>
+<li>Синий оттенок дистанции показывает перспективу твоего водоёма на шаге «Карта»: глубокий у ног и дымчатый у дальнего берега.</li>
+<li>Шаг «Рисование» теперь обводит береговую линию и острова, так что видно границу, по которой ты рисуешь.</li>
+<li>Переключение между шагами «Карта» и «Рисование» больше не теряет фигуру, которую ты рисовал.</li>
+</ul>
+</section>
+<section aria-labelledby="fight">
+<h2 id="fight"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 21 C9 15 13 8 20 4"></path><path d="M20 4 L20 13"></path><path d="M17.5 13 Q20 16 22.5 13"></path></svg>
+      Вываживание</h2>
+<ul>
+<li>Засечённая рыба теперь идёт в укрытие, в тростник, кувшинки и коряги, так что каждое вываживание проходит по-своему. Тебе нужно не дать ей туда добраться.</li>
+<li>Каждый вид сопротивляется по-своему, а рыба, близкая к рекорду, борется сильнее.</li>
+<li>Настройка фрикциона теперь действительно важна. Настрой его правильно, и ты сможешь вытащить рыбу тяжелее, чем держит твоя леска.</li>
+<li>Карп и линь уходят в проводку, а крупный лещ тянет леску в сторону. Ты увидишь движение поплавка или лески до подсечки.</li>
+<li>Подсачивание переработано, и на карповых водоёмах теперь есть настоящий карповый подсачек.</li>
+<li>Двигай мышь, чтобы поднимать и опускать кончик удилища, и удерживай правую кнопку, чтобы поднять удилище. Пока снасть заброшена, удилище лежит на подставке.</li>
+<li>Каждое удилище гнётся в соответствии со своим типом: морские жёсткие, матчевые и фидерные мягкие.</li>
+</ul>
+</section>
+<section aria-labelledby="bites">
+<h2 id="bites"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 L12 6"></path><path d="M12 6 C9.5 9 9.5 13 12 16 C14.5 13 14.5 9 12 6 Z"></path><path d="M12 16 L12 19"></path><path d="M3 19 Q6 17.5 9 19 T15 19 T21 19"></path></svg>
+      Поклёвки и места</h2>
+<ul>
+<li>Четыре уровня сложности перенастроены. Лёгкие водоёмы дают быстрые поклёвки, а на трофейных придётся потрудиться.</li>
+<li>Прочность лески теперь имеет значение. Толстая леска на мелкую осторожную рыбу будет стоить тебе поклёвок.</li>
+<li>Ловля рядом с укрытиями вознаграждается, а открытая вода честная, но медленнее.</li>
+<li>Шкала места теперь показывает, насколько хорошо твоё место ловит на самом деле.</li>
+<li>Тигровый орех теперь ловит крупного линя и леща, а также голавля и усача.</li>
+<li>При ловле карпа на крючки покрупнее поклёвки идут как положено.</li>
+<li>Для мерланга и камбалы теперь есть морские крючки помельче, размеры 4 и 6.</li>
+<li>Твоя оснастка теперь имеет значение. Вес груза, поводковый материал, длина поводка и выбор оснастки влияют на то, как рыба берёт наживку, так что подбор оснастки под рыбу, дно и наживку окупается. В <a href="/ru/rigipedia">Rigipedia</a> объясняется каждая оснастка.</li>
+</ul>
+</section>
+<section aria-labelledby="screen">
+<h2 id="screen"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 9 L3 6 Q3 4 5 4 L19 4 Q21 4 21 6 L21 9"></path><rect height="11" rx="2" width="20" x="2" y="9"></rect><path d="M9 9 L9 7 L15 7 L15 9"></path></svg>
+      Снасти и экран</h2>
+<ul>
+<li>Панель размотанной лески показывает, над чем лежит твоя оснастка, например <q>ил / тростник</q>.</li>
+<li>Поплавки стали крупнее, их лучше видно на дистанции.</li>
+<li>Открытие ящика для снастей или коробки с наживкой больше не сматывает леску.</li>
+<li>В ящике для снастей в Домике рыболова теперь можно собрать морской комплект.</li>
+<li>При повышении уровня новое снаряжение помечается, пока ты его не посмотришь.</li>
+<li>На странице водоёма есть кнопка <q>Рыбачить сегодня</q>, а дату и время стало проще найти. Ползунок точного времени теперь действительно задаёт время начала рыбалки.</li>
+<li>Карточки улова называют точную наживку, например <q>Твёрдая кукуруза</q>, а не <q>Сладкая кукуруза</q>.</li>
+<li>Рыба на карточках улова и досках рекордов показана в истинном размере, с лёгким 3D-эффектом.</li>
+<li>На стартовом экране появилась доска новостей, а раздел «Руководства» теперь ведёт в Rigipedia. Рекламные объявления на доске помечены как реклама.</li>
+<li>Поделиться уловом: кнопка «Поделиться» на карточке улова, на твоих уловах и личных рекордах и на мировых рекордах, которые принадлежат тебе. Она сохраняет картинку карточки с кодом, который ведёт друзей на страницу Swimcraft в Steam, и копирует подпись, готовую к публикации.</li>
+<li>Новые нарисованные иконки в ящике для снастей, коробке с наживкой и меню аккаунта, а меню коробок стало легче читать.</li>
+</ul>
+</section>
+<section aria-labelledby="creator">
+<h2 id="creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 8 Q3 6.5 4.5 6.5 L7.5 6.5 L9 4 L15 4 L16.5 6.5 L19.5 6.5 Q21 6.5 21 8 L21 18 Q21 19.5 19.5 19.5 L4.5 19.5 Q3 19.5 3 18 Z"></path><circle cx="12" cy="12.5" r="3.8"></circle></svg>
+      Редактор водоёмов</h2>
+<ul>
+<li>Шкала зарыбления словами сообщает, насколько хорошо зарыблен водоём для его сложности.</li>
+<li>При добавлении изображений рыб показывается живое превью и руководство по вырезанию.</li>
+<li>Размерная категория «Монстр» объединена с «Крупным трофеем», а размеры ограничены национальным рекордом.</li>
+</ul>
+</section>
+<section aria-labelledby="fixes">
+<h2 id="fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      Исправления</h2>
+<ul>
+<li>Кольца удилища больше не перескакивают с одной стороны удилища на другую.</li>
+<li>Удилище больше не загибается петлёй, когда рыба у подсачека.</li>
+<li>Последняя карточка обучения рыбалке теперь работает как надо.</li>
+<li>Оснастка, указанная на экране, всегда та, что в воде. При переходе с карповой оснастки на поплавок старые настройки больше не переносятся.</li>
+<li>Всплывающие сообщения теперь появляются поверх карточек рекордов, а не за ними.</li>
+</ul>
+</section>
+</main>
+<div class="cta">
+<div class="cta-panel">
+<p>Swimcraft готовится к выходу в раннем доступе Steam. Добавь игру в список желаемого, это лучший способ узнать о выходе.</p>
+<div class="buttons"><a class="button primary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Добавить в список желаемого в Steam</a>
+<a class="button secondary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Играть в демо</a></div>
+</div>
+</div>
+<footer>
+<div class="footer-inner">© 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Политика конфиденциальности</a> и <a href="https://swimcraft.harbledowndigital.com/terms">Условия использования</a>.</div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Русский</span></summary><ul><li><a href="/whats-new" hreflang="en" lang="en">English</a></li><li><a href="/de/whats-new" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/whats-new" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/whats-new" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/whats-new" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/whats-new" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/whats-new" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/whats-new" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/whats-new" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/whats-new" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/whats-new" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/whats-new" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/whats-new" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/whats-new" hreflang="cs" lang="cs">Čeština</a></li><li><a aria-current="true" href="/ru/whats-new" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/whats-new" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/whats-new" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/whats-new" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/whats-new" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/whats-new" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/whats-new"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/whats-new"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/whats-new"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/whats-new"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/whats-new"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/whats-new"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/whats-new"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/whats-new"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/whats-new"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/whats-new"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/whats-new"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/whats-new"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/whats-new"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/whats-new"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/whats-new"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/whats-new"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/whats-new"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/whats-new"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/whats-new"}, {"c": "", "hl": "en", "n": "English", "u": "/whats-new"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Der Leitfaden für Gewässer-Ersteller – Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Wie du ein Foto deines Lieblingsangelplatzes in ein Swimcraft-Gewässer verwandelst, das die Prüfung besteht und veröffentlicht wird." name="description"/>
+<meta content="Der Leitfaden für Gewässer-Ersteller – Swimcraft" property="og:title"/>
+<meta content="Wie du ein Foto deines Lieblingsangelplatzes in ein Swimcraft-Gewässer verwandelst, das die Prüfung besteht und veröffentlicht wird." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/de/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/de/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/de/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Der Leitfaden für Gewässer-Ersteller</h1>
+<p class="meta"><strong>Wie du aus dem Foto eines Angelplatzes, den du kennst, ein Gewässer machst, an dem andere Angler fischen können.</strong></p>
+<p class="meta">Zuletzt aktualisiert: 18. August 2026</p>
+<div class="intro">Das Tutorial zum Gewässer-Editor zeigt dir die Bedienung. Diese Seite ist der Rest: die Ermessensfragen, die entscheiden, ob ein Gewässer eines ist, an das die Leute zurückkommen, und die Handvoll Regeln, die entscheiden, ob es die Prüfung besteht. Es lohnt sich, zwanzig Minuten zu investieren, bevor du dein erstes richtiges Gewässer baust.</div>
+<ol class="toc">
+<li><a href="#life">Entwurf, eingereicht, veröffentlicht: was wirklich passiert</a></li>
+<li><a href="#photo">Das Foto und die Regeln, die dafür gelten</a></li>
+<li><a href="#peg">Einen Angelplatz einrichten</a></li>
+<li><a href="#calibrate">Kalibrierung: der Schritt, den man überspringt und bereut</a></li>
+<li><a href="#depth">Den Grund malen</a></li>
+<li><a href="#stock">Ehrlich besetzen</a></li>
+<li><a href="#test">Befisch es, bevor du es einreichst</a></li>
+<li><a href="#review">Worauf die Prüfung achtet und warum Gewässer zurückkommen</a></li>
+<li><a href="#after">Nach der Veröffentlichung</a></li>
+</ol>
+<h2 id="life">1. Entwurf, eingereicht, veröffentlicht</h2>
+<p>Ein Gewässer durchläuft drei Zustände, und wenn du sie kennst, ersparst du dir später viel Verwirrung.</p>
+<table class="pass">
+<tr><th>Zustand</th><th>Was es bedeutet</th></tr>
+<tr><td>Entwurf</td><td>Gehört nur dir. Niemand sonst kann es sehen oder befischen. Du kannst alles bearbeiten, so oft du willst.</td></tr>
+<tr><td>Eingereicht</td><td>Wartet auf die Prüfung. Immer noch privat. Bleibt unangetastet, bis jemand es sich angesehen hat.</td></tr>
+<tr><td>Veröffentlicht</td><td>In der gemeinsamen Bibliothek. Andere Angler können es befischen, und Fänge dort zählen für die Rekordtafeln.</td></tr>
+</table>
+<p>Wenn ein Gewässer zurückgeschickt wird, kommt es als Entwurf zu dir zurück, <strong>mit einer Notiz, was behoben werden muss</strong>. Das ist kein schwarzer Punkt: Die meisten ersten Einreichungen brauchen eine Kleinigkeit. Behebe sie und reiche erneut ein.</p>
+<div class="callout"><strong>In der Demo bleibt alles, was du baust, im Entwurf.</strong> Das Veröffentlichen in der gemeinsamen Bibliothek öffnet sich im Early Access, und der Gewässer-Token, den du auf Level 5 verdienst, liegt dafür bereit. Nichts, was du in der Demo machst, wird weggeworfen, also bau jetzt das gute.</div>
+<h2 id="photo">2. Das Foto</h2>
+<p>Alles andere baut auf diesem einen Bild auf, also lohnt es sich, wählerisch zu sein. Das Spiel nimmt ein Foto als <strong>JPEG oder PNG</strong>, mindestens <strong>1280 × 720</strong> und unter <strong>20MB</strong>. Das ist das technische Minimum. Die hilfreichen Tipps gehen darüber hinaus:</p>
+<ul>
+<li><strong>Fotografier von dort, wo du sitzen würdest.</strong> Das Foto wird zum Blick vom Angelplatz, also fischt sich ein Bild, das stehend am Ufer auf Augenhöhe aufgenommen wurde, viel besser als eines von einer Brücke oder einem Hügel.</li>
+<li><strong>Querformat, und lass dem Wasser Raum.</strong> Du brauchst Wasser in der unteren Bildhälfte, damit es etwas zu malen gibt, und ein sichtbares gegenüberliegendes Ufer oder einen Horizont, an dem du Entfernungen einschätzen kannst.</li>
+<li><strong>Gleichmäßiges Licht schlägt pralle Sonne.</strong> Starke Spiegelungen auf der Oberfläche verdecken die Strukturen, die du nachzeichnen willst.</li>
+<li><strong>Nimm etwas mit ins Bild, das du messen kannst.</strong> Ein gegenüberliegendes Ufer, eine Insel, ein vertäutes Boot, ein Seerosenfeld: alles, dessen Entfernung du wirklich kennst. Abschnitt 4 erklärt, warum das wichtiger ist als alles andere auf dieser Seite.</li>
+</ul>
+<h3>Die Regeln, über die nicht verhandelt wird</h3>
+<p>Wenn du ein Bild hochlädst, bittet dich das Spiel zu bestätigen, dass es dir gehört oder du die Erlaubnis hast, es zu verwenden, und dass es nichts Rechtswidriges enthält. Das ist eine echte Erklärung, und das sind die Regeln dahinter. Sie stammen aus unseren <a href="/terms">Nutzungsbedingungen</a>, hier zusammengefasst:</p>
+<ul>
+<li>Das Foto muss <strong>dir</strong> gehören, oder du brauchst die Erlaubnis. Nicht aus dem Internet, nicht von der Website eines Angelparks, nicht aus den sozialen Medien von irgendwem.</li>
+<li>Keine <strong>erkennbaren Personen</strong>, außer sie haben zugestimmt. <strong>Niemals</strong> ein Foto, auf dem ein Kind zu sehen ist.</li>
+<li>Schneide private Details weg: <strong>Nummernschilder, Hausnamen, Adressen, Schilder mit Telefonnummern</strong>.</li>
+<li>Respektiere den Angelpark. Wenn ein Gewässer privat ist oder sein Besitzer nicht möchte, dass es nachgebaut und veröffentlicht wird, veröffentliche es nicht. Der Test, der sich lohnt: Würdest du dem Besitzer gern zeigen, was du gemacht hast?</li>
+</ul>
+<div class="callout warn">Ein Gewässer, das dagegen verstößt, wird bei der Prüfung zurückgeschickt, und die Fotoregeln sind der häufigste Grund dafür. Fast alles davon lässt sich schon in dem Moment vermeiden, in dem du das Bild machst.</div>
+<div class="pair">
+<figure>
+<img alt="Ein gut gewähltes Foto eines Angelplatzes" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>Gut.</strong> Uferhöhe, gleichmäßiges Licht, Wasser über die ganze untere Hälfte, ein gegenüberliegendes Ufer zum Einschätzen der Entfernung.</figcaption>
+</figure>
+<figure>
+<img alt="Ein schlechtes Foto eines Angelplatzes mit zu viel Vordergrund" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>Schlecht.</strong> Zu viel Ufer im Vordergrund: Ein gehakter Fisch würde durch den Boden schwimmen, bevor er den Kescher erreicht.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Ein Gewässer mit mehreren benannten Angelplätzen" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>Benenne deine Angelplätze so, wie das Gewässer sie nennt. „Gatehouse Peg“ sagt einem Angler etwas, „Peg 1“ nicht.</figcaption>
+</figure>
+<h2 id="peg">3. Einen Angelplatz einrichten</h2>
+<p>Ein Gewässer besteht aus einem oder mehreren Angelplätzen, und jeder Angelplatz ist ein Foto mit eigenem Grund, eigenen Strukturen und eigenen Fischen. Ein erstes Gewässer mit <strong>einem richtig guten Angelplatz</strong> schlägt eines mit vier hingeschluderten, jedes Mal.</p>
+<ul>
+<li><strong>Benenne das Gewässer so, wie ein Angler es sagen würde.</strong> „Leeds Castle Moat“, nicht „mein Platz 2“. Bis zu 60 Zeichen, und die Ortszeile darunter nimmt eine Stadt oder Grafschaft auf.</li>
+<li><strong>Benenne jeden Angelplatz danach, wo er liegt</strong>: „Gatehouse Peg“, „The Point“, „Bottom Bend“. Bis zu 40 Zeichen. Diese Namen erscheinen auf den Rekordtafeln unter dem Fisch, also lohnt sich ein kurzer Gedanke.</li>
+<li><strong>Gewässernamen, Angelplatznamen, Beschreibungen und Fischnamen werden geprüft</strong>, bevor sie gespeichert werden. Bleib sauber, dann ist das nie ein Thema.</li>
+</ul>
+<h2 id="calibrate">4. Kalibrierung: der Schritt, den man überspringt</h2>
+<p>Mit der Kalibrierung macht das Spiel aus einem flachen Bild echte Entfernungen. Du zeichnest die Uferlinie nach, setzt dann einen <strong>nahen Pin</strong> und einen <strong>fernen Pin</strong> und sagst ihm, wie weit jeder wirklich entfernt ist.</p>
+<p>Du kommst erst weiter, wenn jeder Angelplatz kalibriert ist, und das ist Absicht: Ein unkalibrierter Angelplatz fischt falsch, und zwar so, dass es niemand sieht. Ein Wurf, der eine Insel erreichen sollte, fällt zu kurz, oder eine Posenrute für 40 Yards reicht bis ans gegenüberliegende Ufer eines Stausees. Das Gewässer sieht gut aus und fischt sich wie Unsinn.</p>
+<h3>So machst du es richtig, ohne Entfernungsmesser</h3>
+<p>Du sollst keine Entfernung aus dem Gedächtnis nennen. Du sollst eine <strong>erkennen</strong>, und darin sind Angler gut:</p>
+<ul>
+<li>Denk in Würfen. „Die Insel ist etwa zwei bequeme Feederwürfe entfernt“ sind ungefähr 60–70 Yards, und das ist eine viel bessere Antwort als eine erfundene Zahl.</li>
+<li>Nutz, was du weißt. Die meisten Angelplätze an Commercial-Seen liegen 20–40 Yards vom gegenüberliegenden Ufer entfernt. Ein großer Baggersee oder Stausee hat Hunderte. Ein Kanal 10–15.</li>
+<li>Setz den nahen Pin auf etwas Nahes und Eindeutiges: die Uferkante, ein nahes Seerosenblatt, das Ende deines Stegs.</li>
+<li>Wenn du es wirklich nicht weißt, schau dir das Gewässer auf einer Karte an, bevor du baust. Das dauert eine Minute.</li>
+</ul>
+<div class="callout"><strong>Mach das richtig, und alles, was darauf aufbaut, stimmt.</strong> Bissbereiche, wie weit deine Ruten reichen, wo die Fische tatsächlich stehen: Alles wird an diesen zwei Pins gemessen.</div>
+<div class="pair">
+<figure>
+<img alt="Nachzeichnen der Uferlinie im Gewässer-Editor" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>Nachzeichnen der Uferlinie. Die Umrisslinie muss sich schließen.</figcaption>
+</figure>
+<figure>
+<img alt="Nahe und ferne Entfernungs-Pins an einem Angelplatz gesetzt" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>Beide Pins gesetzt. Alles, was darauf aufbaut, wird an diesen beiden gemessen.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. Den Grund malen</h2>
+<p>Als Nächstes malst du, was unter dem Wasser ist: Tiefenbänder vom Ufer nach draußen, dazu Strukturen wie Kraut, Kies, Schlamm, Hindernisse und Schilf. Du musst mindestens ein Feld Wasser bemalen, um weiterzumachen, aber erst ein richtig gemalter Grund lässt ein Gewässer wie echtes Wasser wirken statt wie eine Badewanne.</p>
+<ul>
+<li><strong>Folge dem Bild.</strong> Wo die Oberfläche dunkel wird, ist es meist tiefer. Wo du den Grund sehen kannst, mal ihn flach. Eine Schilfkante ist eine Kante.</li>
+<li><strong>Ufer flach, Mitte tiefer</strong> ist die Grundform der meisten Stillgewässer, aber ein Baggersee ist uneben, und ein Kanal hat eine flache Fahrrinne mit flachen Kanten auf beiden Seiten. Bau das Gewässer, das du kennst.</li>
+<li><strong>Strukturen sind das, wonach Angler suchen.</strong> Ein kahler, gleichmäßig gemalter Grund gibt niemandem einen Grund, irgendwo Bestimmtes hinzuwerfen. Gib dem Angelplatz zwei oder drei Stellen, die es wert sind, gefunden zu werden: ein Kiesplateau, eine Schlammrinne, ein Hindernis an der gegenüberliegenden Kante.</li>
+<li><strong>Setz nicht überall Hindernisse.</strong> Spannend sind sie dort, wo man einen Fisch plausibel verlieren könnte. Überall sind sie nur frustrierend.</li>
+</ul>
+<div class="callout"><strong>Zwei davon werden gezählt, nicht beurteilt.</strong> Ein Angelplatz braucht <strong>mindestens drei verschiedene Tiefenbänder</strong> und <strong>mindestens zwei verschiedene Strukturarten</strong>, und er darf <strong>nirgends im befischbaren Wasser leere Felder</strong> haben. Das sind die Zahlen, die die Prüfung kontrolliert und an die dich der Editor hält. Alles andere in diesem Abschnitt sind Ratschläge, wie ein Gewässer das Befischen wert wird.</div>
+<div class="pair">
+<figure>
+<img alt="Eine Tiefenkarte mit mehreren klar getrennten Bändern" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>Besteht.</strong> Mehrere klar getrennte Bänder, Ufer flacher als das offene Wasser, ein Grund mit echter Form.</figcaption>
+</figure>
+<figure>
+<img alt="Eine flache Tiefenkarte mit nur einem Band" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>Zurückgeschickt.</strong> Ein flaches Band über das ganze Gewässer. Nichts zu finden, nichts zu lernen.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="Eine abwechslungsreiche Strukturkarte" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>Besteht.</strong> Kraut im Flachen, Schlamm in der Tiefe, Kies auf dem Plateau, und keine unbemalten Löcher.</figcaption>
+</figure>
+<figure>
+<img alt="Eine kahle Strukturkarte mit unbemalten Lücken" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>Zurückgeschickt.</strong> Kahl, und mit leeren Feldern im befischbaren Wasser. Über die zweite Hälfte stolpern die meisten.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. Ehrlich besetzen</h2>
+<p>Beim Besatz wird ein Gewässer gemacht oder ruiniert, und hier ist das Spiel am strengsten mit dir. Es gelten drei Grenzen, und jede hat ihren Grund.</p>
+<div class="step">
+<span class="num">Grenze eins</span><h3>Kapazität: Das Wasser kann nur so viel Fisch tragen</h3>
+<p>Die Kapazität ergibt sich aus dem Wasservolumen, das du gemalt hast, und dem Schwierigkeitsgrad des Gewässers. Eine kleine, flache Pfütze kann keine 400lb Karpfen tragen. Besetzt du einen Angelplatz zu stark, lässt er sich erst speichern, wenn du welche herausnimmst oder das Gewässer leichter machst.</p>
+</div>
+<div class="step">
+<span class="num">Grenze zwei</span><h3>Der Schwierigkeitsgrad bestimmt Größe und Dichte</h3>
+<p>Der Schwierigkeitsgrad ist kein Regler dafür, wie schwer es sich anfühlen soll, und er ändert nicht, wie sich die Fische verhalten. Er legt fest, wie viel Besatz das Wasser trägt und welche Größenklassen du verwenden darfst, sonst nichts. Ein schweres Gewässer fischt sich schwer, weil weniger drin ist und das, was drin ist, größer ist.</p>
+<table class="pass">
+<tr><th>Schwierigkeitsgrad</th><th>Was du bekommst</th></tr>
+<tr><td>Leicht</td><td>Dicht besetzt, häufige Bisse, kleine bis mittlere Fische. Ein Gewässer mit viel Action.</td></tr>
+<tr><td>Fortgeschritten</td><td>Etwa halb so viel Besatz wie Leicht. Weniger Bisse, bessere Durchschnittsgröße.</td></tr>
+<tr><td>Schwer</td><td>Wenig besetzt. Längeres Warten, und was beißt, ist größer, bis hin zu Großfisch.</td></tr>
+<tr><td>Großfisch</td><td>Sehr wenig besetzt, lange Wartezeiten mit Absicht. Die einzige Stufe, die Kapitaler Großfisch und Monster erlaubt.</td></tr>
+</table>
+<p>Wenn ein Fisch, den du willst, zu groß für den gewählten Schwierigkeitsgrad ist, sagt dir das Spiel, welcher Schwierigkeitsgrad mindestens passen würde. Den Schwierigkeitsgrad zu erhöhen ist ein echter Tausch: Du bekommst den großen Fisch, und das Wasser wird ruhig.</p>
+</div>
+<div class="step">
+<span class="num">Grenze drei</span><h3>Nichts schlägt den Landesrekord</h3>
+<p>Jede Art ist beim Landesrekord des Landes gedeckelt, in dem das Gewässer liegt. Du kannst keinen Schuppenkarpfen mit 90lb in einen Bauernteich in Kent setzen, und der Editor lässt es dich nicht einmal versuchen. Es gibt außerdem eine sanfte Warnung für einen Fisch, der erlaubt, aber für das gemalte Gewässer grenzwertig ist. Die blockiert dich nicht, sie sagt dir nur, dass es einem erfahrenen Angler auffallen wird.</p>
+</div>
+<h3>Benannte Fische</h3>
+<p>Ein benannter Fisch ist der, wegen dem die Leute kommen. Gib ihm eine Art, einen Namen und ein Gewicht, und er kommt an den Angelplatz; füg ein Foto von ihm hinzu, und es erscheint auf dem Fangbildschirm, wenn ihn endlich jemand landet. Ein Gewässer mit zwei oder drei bekannten Bewohnern hat eine Geschichte. Eines mit fünfzehn hat keine.</p>
+<h3>Der Besatz, der ein gutes Gewässer ausmacht</h3>
+<ul>
+<li><strong>Gemischte Größen.</strong> Ein Gewässer nur mit zweistelligen Fischen ist langweilig, weil nichts, was du fängst, eine Überraschung ist. Kleine Fische sind das, was einen Angelplatz aufbaut, siehe den <a href="/de/swim-confidence">Leitfaden zu SWIM-Vertrauen</a>.</li>
+<li><strong>Arten, die zusammengehören.</strong> Rotaugen, Brassen, Schleien und Karpfen im Bauernteich, ja. Nicht alles aus der Liste, nur weil die Liste da war.</li>
+<li><strong>Lass Luft nach oben.</strong> Wer bis an die Kapazitätsgrenze besetzt, hat keinen Platz mehr für die Fische, die ihm nächste Woche einfallen.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="Ein Angelplatz, besetzt mit gemischten Arten und Größen" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>Gemischte Arten, gemischte Größen, und die Kapazitätsanzeige mit Luft nach oben statt bis an die Grenze ausgereizt.</figcaption>
+</figure>
+<figure>
+<img alt="Die Warnung bei Überbesatz" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>Über der Grenze stoppt dich der Editor. Das ist Rechnen, kein Ermessen.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Ein benannter Fisch, einem Angelplatz hinzugefügt" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>Ein benannter Fisch, eingesetzt und bestätigt. Zwei oder drei pro Gewässer, mit Gewichten, die das Wasser tragen kann: Sie sind die Ausnahme, nicht der Besatz.</figcaption>
+</figure>
+<h2 id="test">7. Befisch es, bevor du es einreichst</h2>
+<p>Der Editor hat einen Testmodus, und praktisch gesehen ist der nicht optional. Zehn Minuten an deinem eigenen Gewässer finden Dinge, die kein noch so langes Starren auf die Karte findet:</p>
+<ul>
+<li>Kannst du die gemalten Strukturen mit einer vernünftigen Rute überhaupt <strong>erreichen</strong>? Wenn alles Gute außer Reichweite ist, stimmt die Kalibrierung nicht, oder die Strukturen liegen zu weit draußen.</li>
+<li>Passt die Tiefe unter der Pose <strong>zu dem, wie das Bild aussieht</strong>?</li>
+<li>Bekommst du Bisse in einem Takt, der zum gewählten Schwierigkeitsgrad passt?</li>
+<li>Gibt es einen Grund, umzuziehen? Ein Angelplatz, an dem eine Stelle offensichtlich richtig und alles andere tot ist, ist ein Angelplatz mit nur einem Wurf.</li>
+</ul>
+<figure>
+<img alt="Probeangeln an deinem eigenen Gewässer im Editor" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>Testmodus. Zehn Minuten hier finden, was kein noch so langes Starren auf die Karte findet.</figcaption>
+</figure>
+<h2 id="review">8. Worauf die Prüfung achtet</h2>
+<p>Jedes Gewässer wird von einem Menschen angesehen, bevor es in die gemeinsame Bibliothek kommt. Er bewertet nicht dein Kunstwerk. Er prüft eine kurze Liste, und es ist jedes Mal dieselbe Liste:</p>
+<table class="pass">
+<tr><th>Geprüft</th><th>Was ein Gewässer zurückschickt</th></tr>
+<tr><td>Das Foto</td><td>Nicht deins, zeigt erkennbare Personen oder ein Kind, zeigt private Details oder ist eigentlich gar kein Angelplatz.</td></tr>
+<tr><td>Die Texte</td><td>Gewässername, Beschreibung oder Fischnamen, die gegen die Community-Richtlinien verstoßen.</td></tr>
+<tr><td>Ehrlichkeit</td><td>Besatz oder Namen, die sich über das Spiel lustig machen: eine Pfütze voller Rekordfische, ein Angelplatz, dessen Name die Bestenlisten austricksen soll.</td></tr>
+<tr><td>Spielbarkeit</td><td>Keine nennenswerte Kalibrierung, ein unbemalter Grund oder ein Gewässer, das sich offensichtlich nicht befischen lässt.</td></tr>
+<tr><td>Der Grund, gezählt</td><td>Weniger als <strong>drei verschiedene Tiefenbänder</strong> an einem Angelplatz, weniger als <strong>zwei verschiedene Strukturarten</strong> oder <strong>irgendein leeres Feld im befischbaren Wasser</strong>. Das ist Rechnen statt Ermessen, also am leichtesten zu bestehen und am leichtesten, darüber zu stolpern.</td></tr>
+</table>
+<p>Was <strong>nicht</strong> geprüft wird: ob es hübsch ist, ob es dem von jemand anderem ähnelt oder ob der Prüfer selbst gern dort angeln würde. Ein bescheidenes, ehrlich gebautes Gewässer besteht. Ein spektakuläres, gebaut auf dem Foto von jemand anderem, nicht.</p>
+<figure>
+<img alt="Ein veröffentlichtes Gewässer in der gemeinsamen Bibliothek" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>Veröffentlicht. Das ist die Karte, die jeder andere Angler sieht, und wo dein Gewässer landet.</figcaption>
+</figure>
+<h2 id="after">9. Nach der Veröffentlichung</h2>
+<ul>
+<li><strong>Änderungen gehen erneut durch die Prüfung.</strong> Sobald ein Gewässer veröffentlicht ist, ist sein Inhalt gesperrt, und jede Änderung wird vorgemerkt und noch einmal angesehen, bevor sie andere Spieler erreicht. Mach es also richtig, bevor du es einreichst, statt später nachbessern zu wollen.</li>
+<li><strong>Du kannst es zurückziehen.</strong> Zurückziehen nimmt ein Gewässer aus der Bibliothek, und seine Rekorde verschwinden mit ihm von den Tafeln, ohne dass etwas gelöscht wird. Es ist dein Schalter, und er lässt sich rückgängig machen.</li>
+<li><strong>Rekorde, die dort aufgestellt werden, tragen den Namen deines Gewässers</strong> und den des Angelplatzes, wo immer sie erscheinen. Deshalb solltest du Angelplätze von Anfang an richtig benennen.</li>
+</ul>
+<div class="callout"><strong>Die Kurzfassung.</strong> Nimm dein eigenes Foto. Kalibrier es ehrlich. Mal einen Grund mit Stellen, an die sich ein Wurf lohnt. Besetz es wie ein echtes Gewässer, nicht wie einen Wunschzettel. Befisch es selbst, bevor du es abschickst. Mach diese fünf Dinge, und es besteht.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Fragen, oder findest du, wir haben bei einer Prüfung falsch entschieden? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/de/">Startseite</a> · <a href="/de/swim-confidence">Leitfaden zu SWIM-Vertrauen</a> · <a href="/terms">Nutzungsbedingungen</a> · <a href="/privacy">Datenschutz</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Schließen (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Zurück" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Weiter" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Deutsch</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a aria-current="true" href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

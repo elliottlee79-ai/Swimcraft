@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Swimcraft｜把你最愛的釣點變成虛擬釣場</title>
+<!-- Social preview (absolute URLs so cards render on every platform) -->
+<meta content="Swimcraft｜把你最愛的釣點變成虛擬釣場" property="og:title"/>
+<meta content="一款釣魚模擬遊戲，讓你把最愛釣點的真實照片變成完整可玩的釣場。" property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/zh-tw/" property="og:url"/>
+<meta content="website" property="og:type"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Swimcraft｜把你最愛的釣點變成虛擬釣場" name="twitter:title"/>
+<meta content="用你自己釣點的真實照片，打造完整可玩的釣場。" name="twitter:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" name="twitter:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror SWIMCRAFT_BRAND.md so the site and the game read one vocabulary */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+  /* ── HERO ── */
+  header.hero{
+    position:relative;min-height:74vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem;
+    background:url('/hero.jpg') no-repeat center center/cover;
+  }
+  header.hero::before{content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(16,21,13,0.5) 0%,rgba(16,21,13,0.72) 55%,var(--deep) 100%);}
+  .hero-inner{position:relative;z-index:1;max-width:780px;}
+  .eyebrow{font-size:0.72rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:clamp(3rem,12vw,6rem);line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+  .tagline{font-family:var(--font-display);font-weight:600;font-size:clamp(1.1rem,3.2vw,1.65rem);color:var(--text);margin-top:1.15rem;}
+  .hero-cta{display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
+  .btn{font-family:var(--font-ui);font-weight:700;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;
+    padding:0.85rem 1.6rem;border-radius:8px;cursor:pointer;border:1px solid transparent;text-decoration:none;
+    display:inline-flex;align-items:center;gap:0.5rem;transition:all .2s;}
+  .btn-primary{background:var(--brand-olive);border-color:var(--brand-olive);color:var(--brand-bone);}
+  .btn-primary:hover{background:#5c8039;transform:translateY(-1px);}
+  /* Brand gold — the demo CTA. Ink text, not bone: bone on gold fails contrast (SWIMCRAFT_BRAND.md §2). */
+  .btn-gold{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+  .btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-1px);}
+  .btn-ghost{background:rgba(230,220,198,0.06);border-color:var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);color:#fff;}
+
+  /* ── CONTENT ── */
+  .content{max-width:900px;margin:0 auto;padding:3.5rem 1.5rem 1rem;text-align:center;}
+  .content h2{font-family:var(--font-display);font-weight:700;font-size:1.9rem;margin-bottom:1rem;}
+  .lead{font-size:1.05rem;max-width:680px;margin:0 auto 1rem;}
+  .lead.muted{color:var(--muted);font-size:0.95rem;}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:2rem auto 0;max-width:780px;text-align:left;}
+  .feature{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem;}
+  .feature h3{font-family:var(--font-display);font-weight:700;font-size:1.02rem;color:var(--brand-bone);margin-bottom:0.35rem;}
+  .feature p{font-size:0.85rem;color:var(--muted);line-height:1.55;}
+  .tag-planned{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);
+    border:1px solid rgba(201,168,76,0.4);border-radius:50px;padding:0.1rem 0.5rem;margin-left:0.4rem;vertical-align:middle;}
+
+  /* ── SIGNUP (secondary) ── */
+  .signup{max-width:520px;margin:2.5rem auto 0;background:var(--card-bg);border:1px solid var(--border);
+    border-radius:12px;padding:1.5rem;text-align:center;}
+  .signup h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin-bottom:0.35rem;}
+  .signup p{font-size:0.85rem;color:var(--muted);margin-bottom:1rem;}
+  .signup form{display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;}
+  .signup input[type=email]{flex:1;min-width:200px;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    border-radius:6px;color:var(--text);font-family:var(--font-ui);font-size:0.9rem;padding:0.7rem 1rem;}
+  .signup input::placeholder{color:rgba(138,168,128,0.5);}
+
+  /* ── TRAILER ── */
+  .trailer{max-width:900px;margin:0 auto;padding:3rem 1.5rem 0.5rem;text-align:center;}
+  .trailer h2{font-family:var(--font-display);font-weight:700;font-size:1.9rem;margin-bottom:1rem;}
+  .video-facade{position:relative;max-width:780px;margin:0 auto;aspect-ratio:16/9;border-radius:12px;
+    overflow:hidden;border:1px solid var(--border);cursor:pointer;background:#000;
+    -webkit-tap-highlight-color:transparent;}
+  .video-facade img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s,opacity .2s;}
+  .video-facade:hover img{transform:scale(1.03);opacity:0.85;}
+  .video-facade .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:76px;height:76px;border-radius:50%;background:var(--brand-olive);border:2px solid var(--brand-bone);
+    display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;pointer-events:none;
+    box-shadow:0 4px 18px rgba(0,0,0,0.4);}
+  .video-facade:hover .play{background:#5c8039;transform:translate(-50%,-50%) scale(1.08);}
+  .video-facade .play::after{content:'';border-style:solid;border-width:13px 0 13px 22px;
+    border-color:transparent transparent transparent var(--brand-bone);margin-left:5px;}
+  .video-facade:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  .video-facade iframe{width:100%;height:100%;border:0;display:block;}
+
+  /* ── SCREENSHOTS ── */
+  .shots{max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem 3rem;}
+  .shots h2{font-family:var(--font-display);font-weight:700;font-size:1.6rem;text-align:center;margin-bottom:0.4rem;}
+  .shots-sub{text-align:center;color:var(--muted);font-size:0.9rem;margin:0 auto 1.6rem;}
+  .shot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
+  /* Every tile is a fixed 16:9 box and every image is CONTAINED in it, never cropped.
+     Two of the shots (the token drop and the specimen reveal) are portrait modal crops at
+     their native size — 459x558 and 418x559 — because the blurred game behind them adds
+     nothing. Left at width:100% they would each stretch their whole grid row to 1.2x its
+     width and wreck the rhythm of the page. `contain` letterboxes them against the ink
+     background so they read as deliberate; a 16:9 game shot fills the tile exactly and is
+     untouched. `cover` was the other option and was rejected: it would crop the modal,
+     which is the only thing those two images contain. */
+  .shot-grid img{width:100%;aspect-ratio:16/9;object-fit:contain;background:var(--ink);
+    border-radius:8px;border:1px solid var(--border);cursor:pointer;display:block;
+    transition:transform .2s,border-color .2s;}
+  .shot-grid img:hover{transform:scale(1.02);border-color:rgba(143,170,107,0.45);}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+
+  /* ── SITE NAV (news, advertise) — quiet text links over the hero, so the CTAs stay the loudest thing ── */
+  .site-nav{position:absolute;top:0;right:0;z-index:2;display:flex;gap:1.4rem;padding:1.1rem 1.5rem;}
+  .site-nav a{color:var(--brand-bone);font-family:var(--font-ui);font-weight:600;font-size:0.95rem;text-decoration:none;
+    text-shadow:0 1px 6px rgba(0,0,0,0.6);}
+  .site-nav a:hover{color:var(--gold-light);text-decoration:underline;text-underline-offset:3px;}
+  .site-nav a:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;border-radius:4px;}
+  @media (max-width:600px){ .site-nav{left:0;justify-content:center;padding-top:0.9rem;} }
+
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/zh-tw/" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="hero">
+<nav aria-label="網站" class="site-nav"><a href="/zh-tw/news">最新消息</a>
+<a href="/zh-tw/advertise">廣告合作</a>
+<a href="/zh-tw/swimcraft-influencers">創作者合作</a>
+<a href="/zh-tw/press">媒體專區</a></nav>
+<div class="hero-inner">
+<div class="eyebrow">Harbledown Digital · 開發中</div>
+<div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
+<p class="tagline">把你最愛的釣點變成虛擬釣場</p>
+<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">在 Steam 上加入願望清單</a>
+<a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">玩試玩版</a>
+<a class="btn btn-ghost" href="#updates">訂閱電子郵件通知</a></div>
+</div>
+</header>
+<section class="trailer">
+<h2>看看實際遊玩</h2>
+<!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
+<div aria-label="播放 Swimcraft 遊戲影片" class="video-facade" data-id="7L82M1So4co" id="video-facade" role="button" tabindex="0">
+<img alt="觀看 Swimcraft 遊戲影片" loading="lazy"/>
+<div aria-hidden="true" class="play"></div>
+</div>
+</section>
+<section class="content">
+<h2>Swimcraft 是什麼？</h2>
+<p class="lead">Swimcraft 是一款與眾不同的釣魚模擬遊戲：把你最愛釣點的真實照片變成完整可玩的釣場，然後下竿開釣。</p>
+<p class="lead">粗釣、路亞和海釣，三種釣法集結在一款遊戲裡，每個釣場都來自你熟悉的地方。</p>
+<p class="lead muted">遊戲正積極開發中。以下是現在就能玩到的內容，以及即將推出的功能。</p>
+<div class="features">
+<div class="feature"><h3>照片變釣場</h3><p>用你自己拍的照片描出一個釣點：水域、小島、水深和地形特徵，它就會變成可以下竿的釣位。</p></div>
+<div class="feature"><h3>真實的拋投與搏魚</h3><p>誠實的拋投、出線控制，加上依魚種精準還原的搏魚過程：魚會衝、會累，也會考驗你的釣具。</p></div>
+<div class="feature"><h3>釣具與餌料</h3><p>釣竿、捲線器、釣線、魚鉤、釣組和魚餌都有實際影響，從簡單開始，隨著進度逐步解鎖。</p></div>
+<div class="feature"><h3>釣手成長</h3><p>每次漁獲都能賺 XP，提升等級，一路解鎖釣具和餌料。大物有機會掉落 XP 加成，留到重要的釣行再用吧。更高的等級和獎勵將在搶先體驗期間陸續推出。</p></div>
+<div class="feature"><h3>錦標賽 <span class="tag-planned">規劃中</span></h3><p>線上錦標賽和共用的比賽行事曆規劃在正式推出後加入，目前遊戲中還沒有。</p></div>
+<div class="feature"><h3>排行榜</h3><p>記錄你的漁獲，衝上釣場和全球排行榜，每項紀錄都綁定在你締造紀錄的那個釣點。</p></div>
+</div>
+<div class="signup" id="updates">
+<h3>比較喜歡用電子郵件？</h3>
+<p>在 Steam 上加入願望清單是上市時第一時間得知消息的最佳方式，不過你也可以留下電子郵件，偶爾收到最新消息。</p>
+<form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
+<button class="btn btn-primary" type="submit">通知我</button></form>
+</div>
+</section>
+<section class="shots">
+<h2>遊戲截圖</h2>
+<p class="shots-sub">取自目前的開發版本，仍在製作中。</p>
+<div class="shot-grid">
+<img alt="魚上鉤了，竿身彎曲，張力計不斷攀升" class="zoomable" loading="lazy" src="/gallery/the-fight.webp"/>
+<img alt="釣具箱：真實裝備依品牌陳列" class="zoomable" loading="lazy" src="/gallery/tackle-box.webp"/>
+<img alt="餌料盒：波麗和浮餌" class="zoomable" loading="lazy" src="/gallery/bait-box.webp"/>
+<img alt="海釣釣組畫面：三種釣組的圖解與說明" class="zoomable" loading="lazy" src="/gallery/sea-rig.webp"/>
+<img alt="魚種編輯器：描述一條真實的魚" class="zoomable" loading="lazy" src="/gallery/species-creator.webp"/>
+<img alt="在完成的釣場上釣魚" class="zoomable" loading="lazy" src="/gallery/vc-01-finished-venue.webp"/>
+<img alt="選擇社群打造的釣場" class="zoomable" loading="lazy" src="/gallery/venue-chooser.webp"/>
+<img alt="在 Westbere 夜釣鯉魚" class="zoomable" loading="lazy" src="/gallery/westbere-night.webp"/>
+<img alt="遠距離投料器釣法" class="zoomable" loading="lazy" src="/gallery/feeder.webp"/>
+<img alt="岸邊海釣" class="zoomable" loading="lazy" src="/gallery/sea_fishing.webp"/>
+<img alt="釣魚人小屋" class="zoomable" loading="lazy" src="/gallery/anglers_lodge.webp"/>
+<img alt="在釣場編輯器中描出水岸線" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<img alt="在釣點上設定距離標記" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<img alt="在釣場編輯器中繪製等深線和湖底物件" class="zoomable" loading="lazy" src="/gallery/venue-creator-objects.webp"/>
+<img alt="在水底繪製水草、淤泥和礫石" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<img alt="漁獲掉落 XP 加成道具" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
+<img alt="漁獲卡上的一條 25lb 鯉魚" class="zoomable" loading="lazy" src="/gallery/carp-catch-card.webp"/>
+</div>
+</section>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="關閉（Esc）" class="modal-btn" id="modal-close">×</button>
+<button aria-label="上一張" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="下一張" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<script>
+  // Trailer facade: load YouTube thumbnail from the video ID, swap in the player on click.
+  (function () {
+    const facade = document.getElementById('video-facade');
+    if (!facade) return;
+    const id = facade.dataset.id;
+    const thumb = facade.querySelector('img');
+
+    // Prefer the HD thumbnail; fall back to the always-present standard one.
+    thumb.src = 'https://img.youtube.com/vi/' + id + '/maxresdefault.jpg';
+    thumb.onerror = function () { thumb.onerror = null; thumb.src = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg'; };
+
+    function play() {
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.title = 'Swimcraft gameplay video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      facade.innerHTML = '';
+      facade.appendChild(iframe);
+      facade.style.cursor = 'default';
+      facade.removeAttribute('role');
+      facade.removeAttribute('tabindex');
+    }
+
+    facade.addEventListener('click', play);
+    facade.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+  })();
+</script>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/zh-tw/news" style="color:var(--muted);text-decoration:underline;">最新消息</a> · <a href="/zh-tw/advertise" style="color:var(--muted);text-decoration:underline;">廣告合作</a> · <a href="/zh-tw/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">創作者合作</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">隱私權政策</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">使用條款</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 繁體中文</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a aria-current="true" href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

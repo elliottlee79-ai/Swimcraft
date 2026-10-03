@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wat is er nieuw in Swimcraft</title>
+<meta content="Alles wat er in de Swimcraft-demo is veranderd sinds de eerste build." name="description"/>
+<meta content="Wat is er nieuw in Swimcraft" property="og:title"/>
+<meta content="Alles wat er in de Swimcraft-demo is veranderd sinds de eerste build." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://swimcraft.harbledowndigital.com/nl/whats-new" property="og:url"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url(/'/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+</style>
+<link href="https://swimcraft.harbledowndigital.com/nl/whats-new" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/whats-new" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/whats-new" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/whats-new" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/whats-new" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/whats-new" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/whats-new" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/whats-new" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/whats-new" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/whats-new" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/whats-new" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/whats-new" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/whats-new" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/whats-new" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/whats-new" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/whats-new" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/whats-new" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/whats-new" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/whats-new" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/whats-new" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/whats-new" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="topbar">
+<div class="topbar-inner"><a aria-label="Swimcraft home" class="wordmark" href="/nl/"><span class="swim">swim</span><span class="craft">craft</span></a>
+<a class="back" href="/nl/">Terug naar de startpagina</a></div>
+</header>
+<div class="intro">
+<h1>Wat is er nieuw</h1>
+<div class="build">Nieuwste demo-update: 0.111.530, 3 oktober 2026</div>
+<p class="lede">De nieuwste wijzigingen staan bovenaan, daarna alles wat er is veranderd sinds de eerste demobuild (0.111.405). Bedankt aan iedereen die erop heeft gevist en ons heeft verteld wat ze tegenkwamen. Bekijk wat er hierna komt op de <a href="/nl/roadmap">roadmap</a>.</p>
+</div>
+<main>
+<section aria-labelledby="v530-languages">
+<h2 id="v530-languages"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12 H21"></path><path d="M12 3 C15 6 15 18 12 21 C9 18 9 6 12 3 Z"></path></svg>
+      Nieuw in 0.111.530: Swimcraft in jouw taal</h2>
+<ul>
+<li>De hele game is nu speelbaar in 20 talen: Engels, Duits, Frans, Spaans (Spanje), Spaans (Latijns-Amerika), Portugees (Brazilië), Italiaans, Nederlands, Deens, Noors, Zweeds, Fins, Pools, Tsjechisch, Russisch, Turks, Japans, Vereenvoudigd Chinees, Traditioneel Chinees en Koreaans.</li>
+<li>Elk scherm is vertaald: menu's, de tutorial, de viskist en de aasdoos, het visscherm, vangstkaarten, records, de watereditor en de soortenmaker.</li>
+<li>De eerste keer dat je de game start, kiest hij je Windows-taal. Je kunt die op elk moment wijzigen via Taal in het startmenu.</li>
+<li>De vertalingen zijn nieuw, dus als een regel niet goed leest, druk dan op F8 en klik erop om het ons te laten weten. Elke melding wordt gelezen.</li>
+<li>Kleine reparatie: de sessieteller zegt niet meer "fishs".</li>
+</ul>
+</section>
+<section aria-labelledby="v509-fixes">
+<h2 id="v509-fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      Nieuw in 0.111.509: reparaties</h2>
+<ul>
+<li>Geen enkele vis weegt nog minder dan een dram. De allerkleinste vissen konden als 0lb 0oz 0dr verschijnen. Dank aan Dave, die het opmerkte.</li>
+<li>In de soortenmaker kun je een foto die je koos voordat je je vis een naam gaf, nu opnieuw kiezen zodra je dat wel hebt gedaan.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-tackle">
+<h2 id="v507-tackle"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nieuw in 0.111.507: de viskist en de aasdoos</h2>
+<ul>
+<li>Beide kisten zijn van de grond af opnieuw opgebouwd. Elke hengel, molen, lijn, haak en elk aas heeft nu een eigen afbeelding, in vakken gesorteerd op merk.</li>
+<li>Materiaal dat je nog niet hebt ontgrendeld, wordt duidelijk getoond, zodat je ziet wat er op je wacht naarmate je in niveau stijgt.</li>
+<li>Je uitrusting staat bovenaan de kist als een rij miniatuurkaarten, en lege vakken tonen het materiaal dat erin zou kunnen.</li>
+<li>Foto's van alle vijf dobbertypes staan naast de dobbermontage, en het scherm voor de feedermontage is in twee kolommen ingedeeld.</li>
+<li>Het scherm voor zeemontages past nu bij dat voor karpermontages: drie zeemontages, elk getekend, met een beschrijving van hoe hij vist.</li>
+<li>Een nieuw aas: Pineapple Wafter. Match T Hatch heet nu Match T Hatch Pop-up, want dat was het altijd al.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-species">
+<h2 id="v507-species"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nieuw in 0.111.507: soortenmaker</h2>
+<ul>
+<li>Maak je eigen vis. Beantwoord een korte reeks eenvoudige vragen over waar hij leeft en hoe hij aast, vecht en aanbijt, voeg een foto toe en sla hem op.</li>
+<li>Je vis indienen zodat hij voor iedereen aan de game wordt toegevoegd, komt in Early Access.</li>
+</ul>
+</section>
+<section aria-labelledby="v507-fishing">
+<h2 id="v507-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nieuw in 0.111.507: vissen en wateren</h2>
+<ul>
+<li>Je voortgang in de tutorial wordt nu in je account opgeslagen, dus een afgeronde tutorial blijft afgerond als je opnieuw inlogt.</li>
+<li>Een vis die een obstakel bereikt, schudt de haak nu na ongeveer 10 seconden af. Geef hem lijn om hem weer in beweging te krijgen.</li>
+<li>De seizoensgids toont zeebaars nu als de Britse vis die het is, schaars in de winter, in plaats van de seizoenen van de Amerikaanse forelbaars te lenen.</li>
+<li>Een water opslaan met veel beschilderde bodem loopt niet meer vast op een time-out.</li>
+<li>Op rivieren met veel stekken verdwijnen de eerste stekken niet meer buiten de rand van de lijst.</li>
+<li>Het vispaneel kan niet meer vastlopen met zijn kop buiten het scherm.</li>
+<li>Dit water testen vertelt je nu als je water niet kon worden opgeslagen, in plaats van stilletjes door te gaan.</li>
+<li>De melding "wateren geladen" verdwijnt nu altijd.</li>
+<li>Een kleinere download.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-fishing">
+<h2 id="latest-fishing"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nieuw in 0.111.478: vissen</h2>
+<ul>
+<li>Sla aan op het moment dat je dobber onder gaat en je haakt de vis. Snel reageren wordt niet meer bestraft; aanslaan op een kleine dip of tik trekt het aas nog steeds weg.</li>
+<li>Realistische modus: een knop op het vispaneel zet alle aanwijzingen op het scherm uit, ook NU AANSLAAN, en elke vis houdt het aas zijn eigen tijd vast voordat hij het loslaat. Je keuze wordt onthouden.</li>
+<li>Sneltoetsen: Z om aan te slaan, B voor de beugel, L voor los voer, G voor lokvoer, R om binnen te draaien, T voor de viskist, Y voor de aasdoos en M voor geluid. Ze staan allemaal op de kaart Besturing.</li>
+<li>Na het inwerpen staat de beugel open als je met de dobber in stromend water vist, zodat de dobber meedrijft, en dicht op stilstaand water.</li>
+<li>De steel van het schepnet loopt nu recht omhoog naar het net.</li>
+<li>Je kunt je los voer of lokvoer uit de aasdoos halen met de × op het label.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-rivers">
+<h2 id="latest-rivers"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nieuw in 0.111.478: rivieren</h2>
+<ul>
+<li>Een nieuwe, langzaamste stroomsnelheid: Bijna stil.</li>
+<li>Een instelling Klein water voor elke stek, die de stroming flink vertraagt op smalle rivieren en kleine beken.</li>
+</ul>
+</section>
+<section aria-labelledby="latest-creator">
+<h2 id="latest-creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 3 L14.5 9 L21 9.5 L16 13.8 L17.6 20.5 L12 17 L6.4 20.5 L8 13.8 L3 9.5 L9.5 9 Z"></path></svg>
+      Nieuw in 0.111.478: watereditor</h2>
+<ul>
+<li>Je kunt nu helemaal tot aan de overkant vissen op foto's waarop het water hoog in beeld staat. Een verborgen limiet stopte worpen op ongeveer een derde van de hoogte van de foto.</li>
+<li>De afstandslijnen zijn genoemd naar de hengel die ze bereikt, zoals Bereik dobberhengel en Bereik feederhengel op witviswateren, en Pierhengel en Bereik beachcaster op zeewateren, plus een lijn Dichterbij. Beweeg over een lijn om de afstand te zien.</li>
+<li>Een blauwe afstandstint toont het perspectief van je water in de stap Kaart: diep aan je voeten en wazig aan de overkant.</li>
+<li>De stap Schilderen omlijnt nu de rand van je water en je eilanden, zodat je de grens ziet waartegen je schildert.</li>
+<li>Wisselen tussen de stappen Kaart en Schilderen laat een vorm die je half getekend had niet meer verdwijnen.</li>
+</ul>
+</section>
+<section aria-labelledby="fight">
+<h2 id="fight"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 21 C9 15 13 8 20 4"></path><path d="M20 4 L20 13"></path><path d="M17.5 13 Q20 16 22.5 13"></path></svg>
+      De dril</h2>
+<ul>
+<li>Gehaakte vissen zoeken nu dekking op, zoals riet, lelies en obstakels, dus elke dril verloopt anders. Het is jouw taak om ze daar weg te houden.</li>
+<li>Elke soort vecht op zijn eigen manier, en vissen die dicht bij hun record zitten, vechten harder.</li>
+<li>Je slipinstelling doet er nu echt toe. Stel hem goed af en je kunt een vis landen die zwaarder is dan je lijn.</li>
+<li>Karper en zeelt trekken weg, en grote brasems trekken de lijn mee. Je ziet de dobber of de lijn bewegen voordat je aanslaat.</li>
+<li>Het scheppen is herzien, en karperwateren hebben nu een echt karperschepnet.</li>
+<li>Beweeg de muis om de hengeltop te heffen en te laten zakken, en houd de rechtermuisknop ingedrukt om op te tillen. De hengel rust terwijl je ingeworpen hebt.</li>
+<li>Elke hengel buigt zoals zijn type: zeehengels zijn stijf, match- en feederhengels zijn zacht.</li>
+</ul>
+</section>
+<section aria-labelledby="bites">
+<h2 id="bites"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M12 2 L12 6"></path><path d="M12 6 C9.5 9 9.5 13 12 16 C14.5 13 14.5 9 12 6 Z"></path><path d="M12 16 L12 19"></path><path d="M3 19 Q6 17.5 9 19 T15 19 T21 19"></path></svg>
+      Aanbeten en stekken</h2>
+<ul>
+<li>De vier moeilijkheidsniveaus zijn opnieuw afgesteld. Makkelijke wateren geven snel aanbeten en Specimen-wateren laten je ervoor werken.</li>
+<li>Lijnsterkte telt nu. Zware lijn voor kleine, schuwe vissen kost je aanbeten.</li>
+<li>Dicht bij dekking vissen wordt beloond, terwijl open water eerlijk maar trager is.</li>
+<li>De stekbalk toont nu hoe goed je stek echt vist.</li>
+<li>Tijgernoten vangen nu grote zeelt en brasem, naast kopvoorn en barbeel.</li>
+<li>Aanbeten komen zoals het hoort als je met grotere haken op karper vist.</li>
+<li>Kleinere zeehaken, maat 4 en 6, zijn nu beschikbaar voor wijting en platvis.</li>
+<li>Je montage telt nu. Loodgewicht, onderlijnmateriaal, onderlijnlengte en montagekeuze bepalen elk hoe vissen je aas pakken, dus je montage afstemmen op de vis, de bodem en het aas loont. De <a href="/nl/rigipedia">Rigipedia</a> legt elke montage uit.</li>
+</ul>
+</section>
+<section aria-labelledby="screen">
+<h2 id="screen"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 9 L3 6 Q3 4 5 4 L19 4 Q21 4 21 6 L21 9"></path><rect height="11" rx="2" width="20" x="2" y="9"></rect><path d="M9 9 L9 7 L15 7 L15 9"></path></svg>
+      Materiaal en het scherm</h2>
+<ul>
+<li>Het lijnpaneel vertelt je waar je montage boven ligt, bijvoorbeeld <q>slib / riet</q>.</li>
+<li>Dobbers zijn groter en beter te zien op afstand.</li>
+<li>Je viskist of aasdoos openen draait je lijn niet meer binnen.</li>
+<li>De viskist in De Vissershut kan nu een zee-uitrusting samenstellen.</li>
+<li>Als je een niveau omhoog gaat, blijft nieuw materiaal gemarkeerd tot je het hebt bekeken.</li>
+<li>De waterpagina heeft een knop <q>Vandaag vissen</q>, en datum en tijd zijn makkelijker te vinden. De schuifregelaar voor de exacte tijd stelt nu echt het tijdstip in waarop je begint te vissen.</li>
+<li>Vangstkaarten noemen het exacte aas dat je gebruikte, bijvoorbeeld <q>Voermaïs</q> in plaats van <q>Suikermaïs</q>.</li>
+<li>Vissen op vangstkaarten en recordborden worden op hun echte grootte getoond, met een subtiel 3D-effect.</li>
+<li>Het startscherm heeft een nieuwsbord, en Gidsen linkt nu naar de Rigipedia. Gesponsorde items op het bord zijn als gesponsord gelabeld.</li>
+<li>Deel mijn vangst: een knop Delen op je vangstkaart, bij je eigen vangsten en persoonlijke records, en bij wereldrecords die je in handen hebt. Hij slaat een afbeelding van de kaart op, met een code die vrienden naar Swimcraft op Steam brengt, en kopieert een bijschrift dat klaar is om te posten.</li>
+<li>Nieuwe getekende pictogrammen in de viskist, de aasdoos en het accountmenu, en de menu's van de kisten zijn beter leesbaar.</li>
+</ul>
+</section>
+<section aria-labelledby="creator">
+<h2 id="creator"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M3 8 Q3 6.5 4.5 6.5 L7.5 6.5 L9 4 L15 4 L16.5 6.5 L19.5 6.5 Q21 6.5 21 8 L21 18 Q21 19.5 19.5 19.5 L4.5 19.5 Q3 19.5 3 18 Z"></path><circle cx="12" cy="12.5" r="3.8"></circle></svg>
+      Watereditor</h2>
+<ul>
+<li>De bezettingsbalk vertelt je in woorden hoe goed je water is bezet voor zijn moeilijkheidsgraad.</li>
+<li>Bij het toevoegen van visafbeeldingen zie je een live voorbeeld, met een gids voor het maken van uitsnedes.</li>
+<li>De gewichtsklasse Monster is opgegaan in Groot specimen, en groottes stoppen bij het nationale record.</li>
+</ul>
+</section>
+<section aria-labelledby="fixes">
+<h2 id="fixes"><svg aria-hidden="true" fill="none" stroke="#C9A84C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M14.5 5.5 A4 4 0 0 0 19 11 L21 9 A6 6 0 0 1 13 3 Z"></path><path d="M15 9 L4.5 19.5"></path><circle cx="4" cy="20" r="1.2"></circle></svg>
+      Reparaties</h2>
+<ul>
+<li>De hengelogen springen niet meer van de ene kant van de hengel naar de andere.</li>
+<li>De hengel krult niet meer terug op zichzelf als een vis vlak bij het net is.</li>
+<li>De laatste kaart van de vistutorial werkt nu zoals het hoort.</li>
+<li>De montage die op het scherm staat, is altijd de montage in het water. Overstappen van een karpermontage naar een dobber neemt geen oude instellingen meer mee.</li>
+<li>Pop-upmeldingen verschijnen nu vóór recordkaarten in plaats van erachter.</li>
+</ul>
+</section>
+</main>
+<div class="cta">
+<div class="cta-panel">
+<p>Swimcraft komt naar Steam Early Access. Zet het op je verlanglijst, dat is de beste manier om te horen wanneer het uitkomt.</p>
+<div class="buttons"><a class="button primary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Zet op je verlanglijst op Steam</a>
+<a class="button secondary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Speel de demo</a></div>
+</div>
+</div>
+<footer>
+<div class="footer-inner">© 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Privacybeleid</a> en <a href="https://swimcraft.harbledowndigital.com/terms">Gebruiksvoorwaarden</a>.</div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Nederlands</span></summary><ul><li><a href="/whats-new" hreflang="en" lang="en">English</a></li><li><a href="/de/whats-new" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/whats-new" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/whats-new" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/whats-new" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/whats-new" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/whats-new" hreflang="it" lang="it">Italiano</a></li><li><a aria-current="true" href="/nl/whats-new" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/whats-new" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/whats-new" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/whats-new" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/whats-new" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/whats-new" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/whats-new" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/whats-new" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/whats-new" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/whats-new" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/whats-new" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/whats-new" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/whats-new" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/whats-new"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/whats-new"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/whats-new"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/whats-new"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/whats-new"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/whats-new"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/whats-new"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/whats-new"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/whats-new"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/whats-new"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/whats-new"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/whats-new"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/whats-new"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/whats-new"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/whats-new"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/whats-new"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/whats-new"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/whats-new"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/whats-new"}, {"c": "", "hl": "en", "n": "English", "u": "/whats-new"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

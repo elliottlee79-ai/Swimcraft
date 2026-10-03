@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Руководство создателя водоёмов — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Как превратить фотографию любимого места в водоём Swimcraft, который пройдёт проверку и будет опубликован." name="description"/>
+<meta content="Руководство создателя водоёмов — Swimcraft" property="og:title"/>
+<meta content="Как превратить фотографию любимого места в водоём Swimcraft, который пройдёт проверку и будет опубликован." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/ru/venuecreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/venuecreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/venuecreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/venuecreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/venuecreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/venuecreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/venuecreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/venuecreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/venuecreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/venuecreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/venuecreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/venuecreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/venuecreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/venuecreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/venuecreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/venuecreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/venuecreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/venuecreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/venuecreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/venuecreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/venuecreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/ru/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Руководство создателя водоёмов</h1>
+<p class="meta"><strong>Как превратить фотографию знакомого места в водоём, на котором смогут ловить другие рыболовы.</strong></p>
+<p class="meta">Последнее обновление: 18 августа 2026</p>
+<div class="intro">Обучение в редакторе водоёмов показывает управление. Эта страница — всё остальное: решения, от которых зависит, будут ли люди возвращаться на водоём, и несколько правил, от которых зависит, пройдёт ли он проверку. Потрать на неё двадцать минут, прежде чем строить свой первый настоящий водоём.</div>
+<ol class="toc">
+<li><a href="#life">Черновик, на проверке, опубликован: что происходит на самом деле</a></li>
+<li><a href="#photo">Фотография и правила для неё</a></li>
+<li><a href="#peg">Настройка места</a></li>
+<li><a href="#calibrate">Калибровка: шаг, который пропускают, а потом жалеют</a></li>
+<li><a href="#depth">Рисование дна</a></li>
+<li><a href="#stock">Честное зарыбление</a></li>
+<li><a href="#test">Порыбачь, прежде чем отправлять</a></li>
+<li><a href="#review">Что смотрят на проверке и почему водоёмы возвращают</a></li>
+<li><a href="#after">После публикации</a></li>
+</ol>
+<h2 id="life">1. Черновик, на проверке, опубликован</h2>
+<p>Водоём проходит через три состояния, и если их знать, потом будет намного меньше путаницы.</p>
+<table class="pass">
+<tr><th>Состояние</th><th>Что это значит</th></tr>
+<tr><td>Черновик</td><td>Только твой. Никто другой не может его видеть или ловить на нём. Можно редактировать что угодно и сколько угодно.</td></tr>
+<tr><td>На проверке</td><td>Ждёт проверки. По-прежнему закрыт. Никто его не трогает, пока кто-нибудь его не посмотрит.</td></tr>
+<tr><td>Опубликован</td><td>В общей библиотеке. Другие рыболовы могут на нём ловить, а пойманная там рыба идёт в зачёт досок рекордов.</td></tr>
+</table>
+<p>Если водоём возвращают, он приходит к тебе черновиком <strong>с заметкой о том, что нужно исправить</strong>. Это не чёрная метка: большинству первых заявок нужна одна мелочь. Исправь и отправь снова.</p>
+<div class="callout"><strong>В демо всё, что ты строишь, остаётся в черновиках.</strong> Публикация в общую библиотеку откроется в раннем доступе, а жетон создания водоёма, который ты получаешь на 5-м уровне, сохраняется до этого момента. Ничего из сделанного в демо не пропадёт, так что строй хороший водоём уже сейчас.</div>
+<h2 id="photo">2. Фотография</h2>
+<p>Всё остальное строится на одном этом снимке, так что стоит быть придирчивым. Игра примет фотографию в формате <strong>JPEG или PNG</strong>, не меньше <strong>1280 × 720</strong> и меньше <strong>20MB</strong>. Это технический минимум. Полезные советы начинаются выше него:</p>
+<ul>
+<li><strong>Снимай оттуда, где бы ты сидел.</strong> Фотография становится видом с места, поэтому снимок, сделанный стоя на берегу на уровне глаз, ловится гораздо лучше, чем снятый с моста или холма.</li>
+<li><strong>Горизонтальный кадр, и пусть воды будет много.</strong> Вода нужна в нижней половине кадра, иначе нечего будет рисовать, а видимый дальний берег или горизонт нужен, чтобы оценивать дистанцию.</li>
+<li><strong>Рассеянный свет лучше яркого солнца.</strong> Сильные блики на поверхности скрывают особенности, которые ты хочешь обвести.</li>
+<li><strong>Включи в кадр что-то, что можно измерить.</strong> Дальний берег, остров, пришвартованную лодку, заросли кувшинок, что угодно, расстояние до чего ты действительно знаешь. В разделе 4 объясняется, почему это важнее всего остального на этой странице.</li>
+</ul>
+<h3>Правила, которые не обсуждаются</h3>
+<p>Когда ты загружаешь изображение, игра просит подтвердить, что оно принадлежит тебе или у тебя есть разрешение на его использование и что в нём нет ничего незаконного. Это настоящее заявление, и вот какие правила за ним стоят. Это правила из наших <a href="/terms">Условий использования</a>, вкратце:</p>
+<ul>
+<li>Фотография должна быть <strong>твоей</strong>, или у тебя должно быть разрешение. Не из интернета, не с сайта водоёма, не из чьих-то соцсетей.</li>
+<li>Никаких <strong>узнаваемых людей</strong> без их согласия. <strong>Никогда</strong> никаких фотографий с детьми.</li>
+<li>Обрезай личные детали: <strong>номерные знаки, названия домов, адреса, вывески с телефонами</strong>.</li>
+<li>Уважай водоём. Если водоём частный или его владелец не хотел бы, чтобы его воссоздавали и публиковали, не публикуй его. Хорошая проверка: тебе было бы комфортно показать владельцу, что ты сделал?</li>
+</ul>
+<div class="callout warn">Водоём, нарушающий эти правила, возвращают на проверке, и чаще всего причина в правилах о фотографии. Почти всего этого можно избежать в момент съёмки.</div>
+<div class="pair">
+<figure>
+<img alt="Удачно выбранная фотография места" class="zoomable" loading="lazy" src="/gallery/vc-02-photo-good.webp"/>
+<figcaption><strong>Хорошо.</strong> Высота берега, рассеянный свет, вода по всей нижней половине, дальний берег для оценки дистанции.</figcaption>
+</figure>
+<figure>
+<img alt="Неудачная фотография места со слишком большим передним планом" class="zoomable" loading="lazy" src="/gallery/vc-03-photo-poor.webp"/>
+<figcaption><strong>Плохо.</strong> Слишком много берега на переднем плане: засечённая рыба проплыла бы сквозь землю, не добравшись до подсачека.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Водоём с несколькими именованными местами" class="zoomable" loading="lazy" src="/gallery/vc-15-peg-list.webp"/>
+<figcaption>Называй места так, как их называют на водоёме. «Место у сторожки» что-то говорит рыболову, а «Место 1» ничего не говорит.</figcaption>
+</figure>
+<h2 id="peg">3. Настройка места</h2>
+<p>Водоём состоит из одного или нескольких мест, и каждое место — это одна фотография со своим дном, своими особенностями и своей рыбой. Первый водоём с <strong>одним действительно хорошим местом</strong> всегда лучше, чем с четырьмя сделанными наспех.</p>
+<ul>
+<li><strong>Называй водоём так, как его назвал бы рыболов.</strong> «Ров замка Лидс», а не «моё место 2». До 60 символов, а в строке местоположения ниже указывается город или графство.</li>
+<li><strong>Называй каждое место по тому, где оно находится</strong>: «Место у сторожки», «Мыс», «Нижний изгиб». До 40 символов. Эти названия появляются на досках рекордов под рыбой, так что над ними стоит подумать.</li>
+<li><strong>Названия водоёмов, мест, описания и имена рыб проверяются фильтром</strong>, прежде чем их можно будет сохранить. Пиши без грубостей, и проблем не будет.</li>
+</ul>
+<h2 id="calibrate">4. Калибровка: шаг, который пропускают</h2>
+<p>Калибровка — это то, как игра превращает плоскую картинку в реальную дистанцию. Ты обводишь береговую линию, затем ставишь <strong>ближнюю метку</strong> и <strong>дальнюю метку</strong> и указываешь, на каком расстоянии каждая из них находится на самом деле.</p>
+<p>Дальше не пройти, пока каждое место не откалибровано, и это сделано намеренно: неоткалиброванное место ловит неправильно, и никто этого не видит. Заброс, который должен доставать до острова, не долетает, или 40-ярдовое поплавочное удилище добрасывает до дальнего берега водохранилища. Водоём выглядит нормально, а ловит как попало.</p>
+<h3>Как сделать всё правильно без дальномера</h3>
+<p>От тебя не требуется назвать расстояние по памяти. Нужно его <strong>узнать</strong>, а это рыболовы умеют:</p>
+<ul>
+<li>Думай забросами. «До того острова примерно два спокойных фидерных заброса» — это примерно 60–70 ярдов, и такой ответ гораздо лучше выдуманного числа.</li>
+<li>Используй то, что знаешь. На большинстве коммерческих прудов до дальнего берега 20–40 ярдов. Большой гравийный карьер или водохранилище — сотни. Канал — 10–15.</li>
+<li>Ставь ближнюю метку на что-то близкое и чёткое: прибрежную бровку, ближний лист кувшинки, край своих мостков.</li>
+<li>Если ты правда не знаешь, посмотри водоём на карте, прежде чем строить. Это займёт минуту.</li>
+</ul>
+<div class="callout"><strong>Сделай это правильно, и всё остальное будет правильно.</strong> Дальность поклёвок, докуда добрасывают удилища, где на самом деле стоит рыба: всё это отмеряется от этих двух меток.</div>
+<div class="pair">
+<figure>
+<img alt="Обводка береговой линии в редакторе водоёмов" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
+<figcaption>Обводка береговой линии. Контур должен быть замкнут.</figcaption>
+</figure>
+<figure>
+<img alt="Ближняя и дальняя метки дистанции, расставленные на месте" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
+<figcaption>Обе метки расставлены. Всё остальное отмеряется от этих двух.</figcaption>
+</figure>
+</div>
+<h2 id="depth">5. Рисование дна</h2>
+<p>Дальше ты рисуешь то, что под водой: зоны глубин от берега и дальше, плюс особенности: траву, гравий, ил, коряги, тростник. Чтобы продолжить, нужно нарисовать хотя бы одну клетку воды, но именно хорошо нарисованное дно делает водоём похожим на настоящий, а не на ванну.</p>
+<ul>
+<li><strong>Следуй картинке.</strong> Где поверхность темнее, там обычно глубже. Где видно дно, рисуй мелко. Линия тростника — это бровка.</li>
+<li><strong>У берегов мелко, в середине глубже</strong> — стандартная форма для большинства стоячих водоёмов, но гравийный карьер бугристый, а у канала плоское судовое русло с мелкими бровками по обе стороны. Строй тот водоём, который знаешь.</li>
+<li><strong>Особенности — это то, что ищут рыболовы.</strong> Голое, равномерно нарисованное дно не даёт никакой причины забрасывать в какое-то конкретное место. Дай месту две-три точки, которые стоит найти: гравийную гряду, иловую ложбину, корягу на дальней бровке.</li>
+<li><strong>Не ставь коряги везде.</strong> Они интересны там, где рыбу действительно можно потерять. Повсюду они просто раздражают.</li>
+</ul>
+<div class="callout"><strong>Две вещи здесь считаются, а не оцениваются.</strong> Месту нужны <strong>как минимум три разные зоны глубин</strong> и <strong>как минимум два разных типа особенностей</strong>, и <strong>нигде в пригодной для ловли воде не должно быть пустых клеток</strong>. Именно эти цифры проверяют на проверке и именно их требует редактор, а всё остальное в этом разделе — советы о том, как сделать водоём, на котором стоит ловить.</div>
+<div class="pair">
+<figure>
+<img alt="Карта глубин с несколькими разными зонами" class="zoomable" loading="lazy" src="/gallery/vc-06-depth-good.webp"/>
+<figcaption><strong>Проходит.</strong> Несколько разных зон, у берегов мельче, чем на открытой воде, у дна есть настоящий рельеф.</figcaption>
+</figure>
+<figure>
+<img alt="Плоская карта глубин с одной зоной" class="zoomable" loading="lazy" src="/gallery/vc-07-depth-reject.webp"/>
+<figcaption><strong>Возвращают.</strong> Одна плоская зона по всему водоёму. Нечего искать, нечему учиться.</figcaption>
+</figure>
+</div>
+<div class="pair">
+<figure>
+<img alt="Разнообразная карта особенностей" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
+<figcaption><strong>Проходит.</strong> Трава на мелководье, ил на глубине, гравий на гряде, и никаких незакрашенных дыр.</figcaption>
+</figure>
+<figure>
+<img alt="Голая карта особенностей с незакрашенными пробелами" class="zoomable" loading="lazy" src="/gallery/vc-09-features-reject.webp"/>
+<figcaption><strong>Возвращают.</strong> Голое дно и пустые клетки в пригодной для ловли воде. На второй части спотыкается большинство.</figcaption>
+</figure>
+</div>
+<h2 id="stock">6. Честное зарыбление</h2>
+<p>Зарыбление делает водоём или губит его, и здесь игра строже всего к тебе. Действуют три ограничения, и у каждого есть причина.</p>
+<div class="step">
+<span class="num">Ограничение первое</span><h3>Ёмкость: водоём может вместить не так уж много рыбы</h3>
+<p>Ёмкость рассчитывается по объёму нарисованной воды и сложности водоёма. Маленькая мелкая лужа не может вместить 400lb карпа. Если перезарыбить место, оно не сохранится, пока ты не уберёшь часть рыбы или не сделаешь водоём проще.</p>
+</div>
+<div class="step">
+<span class="num">Ограничение второе</span><h3>Сложность определяет и размер рыбы, и плотность</h3>
+<p>Сложность — это не ползунок того, насколько трудно тебе хочется, и она не меняет поведение рыбы. Она задаёт, сколько рыбы вмещает водоём и какие размерные категории можно использовать, и ничего больше. Сложный водоём ловится трудно, потому что рыбы в нём меньше, а та, что есть, крупнее.</p>
+<table class="pass">
+<tr><th>Сложность</th><th>Что она даёт</th></tr>
+<tr><td>Лёгкая</td><td>Плотное зарыбление, частые поклёвки, рыба от мелкой до средней. Водоём, где всё время клюёт.</td></tr>
+<tr><td>Средняя</td><td>Примерно половина зарыбления «Лёгкой». Меньше поклёвок, больше средний размер.</td></tr>
+<tr><td>Сложная</td><td>Слабое зарыбление. Ждать дольше, а то, что клюёт, крупнее, вплоть до трофейной рыбы.</td></tr>
+<tr><td>Трофейный</td><td>Очень слабое зарыбление, долгое ожидание задумано специально. Единственная настройка, разрешающая «Крупный трофей» и «Монстр».</td></tr>
+</table>
+<p>Если нужная рыба слишком крупная для выбранной сложности, игра подскажет минимальную сложность, при которой она подойдёт. Повышение сложности означает настоящий компромисс: ты получаешь крупную рыбу, но водоём затихает.</p>
+</div>
+<div class="step">
+<span class="num">Ограничение третье</span><h3>Больше национального рекорда нельзя</h3>
+<p>Каждый вид ограничен национальным рекордом страны, где находится водоём. Нельзя запустить карпа на 90lb в фермерский пруд в Кенте, и редактор даже не даст попробовать. Есть и мягкое предупреждение для рыбы, которая допустима, но с натяжкой для нарисованного тобой водоёма: оно не блокирует, а просто сообщает, что опытный рыболов это заметит.</p>
+</div>
+<h3>Именная рыба</h3>
+<p>Именная рыба — та, ради которой приезжают. Задай ей вид, имя и вес, и она появится на месте; добавь её фотографию, и она покажется на экране улова, когда кто-нибудь наконец её вытащит. У водоёма с двумя-тремя известными обитателями есть история. У водоёма с пятнадцатью её нет.</p>
+<h3>Зарыбление, которое делает водоём хорошим</h3>
+<ul>
+<li><strong>Разные размеры.</strong> Водоём, где только рыба за 10lb, скучен, потому что ни один улов не становится сюрпризом. Именно мелкая рыба раскармливает место, смотри <a href="/ru/swim-confidence">руководство по SWIM confidence</a>.</li>
+<li><strong>Виды, которые уживаются вместе.</strong> Плотва, лещ, линь и карп в фермерском пруду, да. А не всё подряд из списка только потому, что список есть.</li>
+<li><strong>Оставь запас.</strong> Если зарыбить до самого предела, не останется места для рыбы, которую ты придумаешь на следующей неделе.</li>
+</ul>
+<div class="pair">
+<figure>
+<img alt="Место, зарыбленное разными видами и размерами" class="zoomable" loading="lazy" src="/gallery/vc-11-stocking-good.webp"/>
+<figcaption>Разные виды, разные размеры, и на шкале ёмкости остался запас, а не всё до предела.</figcaption>
+</figure>
+<figure>
+<img alt="Предупреждение о превышении ёмкости" class="zoomable" loading="lazy" src="/gallery/vc-12-stocking-overcap.webp"/>
+<figcaption>За пределом редактор тебя остановит. Здесь арифметика, а не оценка.</figcaption>
+</figure>
+</div>
+<figure>
+<img alt="Именная рыба, добавленная на место" class="zoomable" loading="lazy" src="/gallery/vc-13-named-fish.webp"/>
+<figcaption>Именная рыба запущена и подтверждена. Две-три на водоём, с весом, который водоём может выдержать: это исключение, а не основное зарыбление.</figcaption>
+</figure>
+<h2 id="test">7. Порыбачь, прежде чем отправлять</h2>
+<p>В редакторе есть тестовый режим, и на практике он обязателен. Десять минут на собственном водоёме найдут то, чего не найдёт никакое разглядывание карты:</p>
+<ul>
+<li>Можно ли вообще <strong>добросить</strong> до нарисованных особенностей разумным удилищем? Если всё интересное вне досягаемости, неправильная калибровка или особенности слишком далеко.</li>
+<li>Совпадает ли глубина под поплавком <strong>с тем, как выглядит картинка</strong>?</li>
+<li>Клюёт ли с частотой, соответствующей выбранной сложности?</li>
+<li>Есть ли причина перемещаться? Место, где одна точка очевидно правильная, а всё остальное мёртвое, годится только на один заброс.</li>
+</ul>
+<figure>
+<img alt="Тестовая рыбалка на собственном водоёме в редакторе" class="zoomable" loading="lazy" src="/gallery/vc-14-test-mode.webp"/>
+<figcaption>Тестовый режим. Десять минут здесь найдут то, чего не найдёт никакое разглядывание карты.</figcaption>
+</figure>
+<h2 id="review">8. Что смотрят на проверке</h2>
+<p>Каждый водоём смотрит человек, прежде чем он попадёт в общую библиотеку. Он не оценивает твоё творчество. Он проверяет короткий список, и это всегда один и тот же список:</p>
+<table class="pass">
+<tr><th>Что проверяется</th><th>За что водоём возвращают</th></tr>
+<tr><td>Фотография</td><td>Не твоя, на ней узнаваемые люди или ребёнок, видны личные детали, или это на самом деле не рыбацкое место.</td></tr>
+<tr><td>Тексты</td><td>Название водоёма, описание или имена рыб, нарушающие правила сообщества.</td></tr>
+<tr><td>Честность</td><td>Зарыбление или названия, которые высмеивают игру: лужа, набитая рекордной рыбой, место, названное, чтобы обмануть доски рекордов.</td></tr>
+<tr><td>Играбельность</td><td>Никакой толковой калибровки, незакрашенное дно или водоём, на котором явно невозможно ловить.</td></tr>
+<tr><td>Дно, по цифрам</td><td>Меньше <strong>трёх разных зон глубин</strong> на месте, меньше <strong>двух разных типов особенностей</strong> или <strong>хотя бы одна пустая клетка в пригодной для ловли воде</strong>. Это арифметика, а не оценка, поэтому это проще всего пройти и проще всего на этом споткнуться.</td></tr>
+</table>
+<p>Что <strong>не</strong> проверяется: красиво ли это, похоже ли на чей-то ещё водоём и понравилось ли бы проверяющему на нём ловить. Скромный водоём, построенный честно, проходит. Эффектный водоём на чужой фотографии не пройдёт.</p>
+<figure>
+<img alt="Опубликованный водоём в общей библиотеке" class="zoomable" loading="lazy" src="/gallery/vc-16-library-card.webp"/>
+<figcaption>Опубликован. Эту карточку видят все остальные рыболовы, и здесь в итоге оказывается твой водоём.</figcaption>
+</figure>
+<h2 id="after">9. После публикации</h2>
+<ul>
+<li><strong>Правки снова проходят проверку.</strong> После публикации содержимое водоёма блокируется, и любое изменение ставится в очередь и снова проверяется, прежде чем дойдёт до других игроков. Так что сделай всё правильно до отправки, а не рассчитывай подлатать потом.</li>
+<li><strong>Водоём можно снять.</strong> Снятие убирает водоём из библиотеки, а вместе с ним и его рекорды с досок, но ничего не удаляет. Это твой переключатель, и его можно вернуть обратно.</li>
+<li><strong>Рекорды, установленные там, несут название твоего водоёма</strong> и места, где бы они ни появлялись. Вот почему места стоит назвать правильно с самого начала.</li>
+</ul>
+<div class="callout"><strong>Коротко.</strong> Используй свою фотографию. Честно её откалибруй. Нарисуй дно, где есть куда забросить. Зарыби его как настоящий водоём, а не как список желаний. Порыбачь на нём сам, прежде чем отправлять. Сделай эти пять вещей, и он пройдёт.</div>
+<p style="margin-top:2rem;color:var(--muted);font-size:0.9rem;">Есть вопросы или считаешь, что мы ошиблись с решением по проверке? <a href="mailto:info@harbledowndigital.com">info@harbledowndigital.com</a>.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/ru/">Главная</a> · <a href="/ru/swim-confidence">Руководство по SWIM confidence</a> · <a href="/terms">Условия использования</a> · <a href="/privacy">Конфиденциальность</a></footer>
+<!-- Lightbox gallery -->
+<div aria-hidden="true" id="modal">
+<button aria-label="Закрыть (Esc)" class="modal-btn" id="modal-close">×</button>
+<button aria-label="Назад" class="modal-btn" id="modal-prev">‹</button>
+<img alt="" id="modal-img"/>
+<button aria-label="Далее" class="modal-btn" id="modal-next">›</button>
+<div id="modal-counter"></div>
+</div>
+<script>
+  (function () {
+    const modal    = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const counter  = document.getElementById('modal-counter');
+    const shots    = Array.from(document.querySelectorAll('.zoomable'));
+    let index = 0;
+
+    function render() {
+      const img = shots[index];
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      counter.textContent = (index + 1) + ' / ' + shots.length;
+    }
+    function open(i) {
+      index = i;
+      render();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    function step(dir) {
+      index = (index + dir + shots.length) % shots.length;  // wraps around
+      render();
+    }
+
+    shots.forEach((img, i) => img.addEventListener('click', () => open(i)));
+    document.getElementById('modal-prev').addEventListener('click',  e => { e.stopPropagation(); step(-1); });
+    document.getElementById('modal-next').addEventListener('click',  e => { e.stopPropagation(); step(1);  });
+    document.getElementById('modal-close').addEventListener('click', e => { e.stopPropagation(); close();  });
+    modalImg.addEventListener('click', e => e.stopPropagation());  // clicking the photo doesn't close
+    modal.addEventListener('click', close);                       // clicking the backdrop closes
+
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowRight')      step(1);
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'Escape')     close();
+    });
+
+    // swipe left/right on touch devices
+    let startX = null;
+    modal.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+    modal.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+      startX = null;
+    }, {passive:true});
+  })();
+</script>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Русский</span></summary><ul><li><a href="/venuecreators" hreflang="en" lang="en">English</a></li><li><a href="/de/venuecreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/venuecreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/venuecreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/venuecreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/venuecreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/venuecreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/venuecreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/venuecreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/venuecreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/venuecreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/venuecreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/venuecreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/venuecreators" hreflang="cs" lang="cs">Čeština</a></li><li><a aria-current="true" href="/ru/venuecreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/venuecreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/venuecreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/venuecreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/venuecreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/venuecreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/venuecreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/venuecreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/venuecreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/venuecreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/venuecreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/venuecreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/venuecreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/venuecreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/venuecreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/venuecreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/venuecreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/venuecreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/venuecreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/venuecreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/venuecreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/venuecreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/venuecreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/venuecreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/venuecreators"}, {"c": "", "hl": "en", "n": "English", "u": "/venuecreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

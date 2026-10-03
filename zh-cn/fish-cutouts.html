@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<!-- Swimcraft website — fish-cutouts · v1 · P4-448, 10 Sep 2026
+     The how-to behind the venue creator's "Fish pictures" panel. Linked from three doors in the
+     game (the panel, its refusal message, the Guides menu) through SITE_URLS.fishCutoutGuide.
+     ⚠ EVERY RULE ON THIS PAGE IS A CLAIM ABOUT THE GAME, SO EACH ONE IS READ FROM THE CODE:
+       PNG or WebP only, JPG refused by type · the edges must be see-through and the solid part
+       must not be a rectangle (fishDepth.js cutoutVerdict) · pictures are shrunk to 1,024 px on
+       the long side (VenueCreator FISH_MAX_EDGE) · location data is removed on upload
+       (reencodeImage) · the three refusal sentences are quoted from CUTOUT_REFUSAL.
+       If any of those change in the game, this page is wrong until it is edited to match. -->
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>抠出你的鱼 · Swimcraft</title>
+<meta content="如何把鱼从照片里抠出来，让 Swimcraft 以 3D 形式显示它：用手机、用免费工具，或者在画图里手动抠。" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --brand-bone: #E6DCC6; --brand-olive: #4E6B30; --ink: #10150D;
+    --gold: #C9A84C; --gold-light: #F0D080; --accent: #8FAA6B;
+    --text: #E8F0E0; --muted: #8AA880; --deep: #1A1F14; --mid: #2A3420; --surface: #344A28;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+    --warn: #E08A50;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--deep); color: var(--text);
+    font-family: var(--font-ui); font-size: 1.0625rem; line-height: 1.75;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; border-radius: 3px; }
+
+  .bar { background: var(--ink); border-bottom: 1px solid var(--border); }
+  .bar-in { max-width: 1040px; margin: 0 auto; padding: 0.9rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .mark { font-family: var(--font-brand); font-size: 1.45rem; text-decoration: none; letter-spacing: 0.01em; }
+  .mark .s { color: var(--brand-bone); } .mark .c { color: var(--accent); }
+  .bar nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; margin-left: 1.25rem; }
+  .bar nav a:hover { color: var(--text); }
+
+  /* THE ONE BOLD THING: the whole guide in a picture — what you took, and what the game needs. */
+  .hero { max-width: 1040px; margin: 0 auto; padding: 3.25rem 1.25rem 1rem; }
+  .hero h1 { font-family: var(--font-brand); font-weight: 400; font-size: clamp(2.3rem, 5.5vw, 3.6rem); line-height: 1.08; margin: 0 0 1rem; color: var(--brand-bone); max-width: 18ch; }
+  .hero p.lede { font-size: 1.2rem; line-height: 1.6; color: var(--text); max-width: 60ch; margin: 0 0 2rem; }
+  .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
+  .pair figure { margin: 0; }
+  .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
+  .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pane.photo { background:
+      repeating-linear-gradient(115deg, rgba(0,0,0,0.13) 0 14px, rgba(0,0,0,0) 14px 30px),
+      radial-gradient(ellipse at 30% 30%, #4d6a3a, #2c3b22 70%); }
+  .pane.cut { background-color: #d8d8d8;
+      background-image: conic-gradient(#f4f4f4 25%, #d0d0d0 0 50%, #f4f4f4 0 75%, #d0d0d0 0);
+      background-size: 26px 26px; }
+  .arrow { font-family: var(--font-brand); color: var(--gold); font-size: 2rem; line-height: 1; }
+
+  /* One left edge for the whole page: the reading column sits under the hero's text rather
+     than floating in the middle beneath a wider hero. */
+  main { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  main > * { max-width: 720px; }
+  h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; line-height: 1.25; color: var(--brand-bone); margin: 3.25rem 0 0.75rem; }
+  h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; color: var(--gold-light); margin: 2rem 0 0.35rem; }
+  p { margin: 0 0 1rem; }
+  .muted { color: var(--muted); }
+
+  ul.needs { list-style: none; padding: 0; margin: 1rem 0 1.25rem; }
+  ul.needs li { padding: 0.55rem 0 0.55rem 2rem; border-top: 1px solid var(--border); position: relative; }
+  ul.needs li:last-child { border-bottom: 1px solid var(--border); }
+  ul.needs li::before { content: ''; position: absolute; left: 0.35rem; top: 1.15rem; width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--accent); }
+  ul.needs strong { color: var(--text); }
+
+  ol.steps { padding-left: 1.4rem; margin: 0.5rem 0 1.25rem; }
+  ol.steps li { padding-left: 0.35rem; margin-bottom: 0.45rem; }
+  ol.steps li::marker { color: var(--gold); font-weight: 700; }
+  kbd { font-family: var(--font-ui); font-size: 0.9em; background: var(--mid); border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px; padding: 0.02rem 0.4rem; color: var(--text); white-space: nowrap; }
+  .ui { color: var(--text); font-weight: 600; }
+
+  .note { background: var(--mid); border-left: 3px solid var(--gold); padding: 0.9rem 1.1rem; border-radius: 0 10px 10px 0; margin: 1.25rem 0; }
+  .note p:last-child { margin-bottom: 0; }
+
+  .refusal { margin: 1rem 0 1.5rem; }
+  .refusal dt { color: var(--warn); font-weight: 600; margin-top: 1.1rem; }
+  .refusal dd { margin: 0.25rem 0 0; }
+
+  footer { border-top: 1px solid var(--border); background: var(--ink); }
+  footer div { max-width: 1040px; margin: 0 auto; padding: 1.5rem 1.25rem; color: var(--muted); font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 640px) {
+    .pair { grid-template-columns: 1fr; }
+    .arrow { transform: rotate(90deg); justify-self: center; }
+    .bar nav a { margin-left: 0.8rem; }
+  }
+</style>
+<link href="https://swimcraft.harbledowndigital.com/zh-cn/fish-cutouts" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/fish-cutouts" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/fish-cutouts" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/fish-cutouts" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/fish-cutouts" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/fish-cutouts" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/fish-cutouts" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/fish-cutouts" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/fish-cutouts" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/fish-cutouts" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/fish-cutouts" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/fish-cutouts" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/fish-cutouts" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/fish-cutouts" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/fish-cutouts" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/fish-cutouts" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/fish-cutouts" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/fish-cutouts" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/fish-cutouts" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/fish-cutouts" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/fish-cutouts" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fish-cutouts" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="bar">
+<div class="bar-in">
+<a aria-label="Swimcraft home" class="mark" href="/zh-cn/"><span class="s">Swim</span><span class="c">craft</span></a><nav aria-label="指南"><a href="/zh-cn/venuecreators">钓场创建者指南</a>
+<a href="/zh-cn/">首页</a></nav>
+</div>
+</header>
+<section class="hero">
+<h1>抠出你的鱼</h1>
+<p class="lede">当你用自己的鱼图放养钓场时，Swimcraft 会在渔获卡片和纪录榜上以 3D 形式显示它们。为此，它需要单独的鱼，背后什么都没有。无论你是让手机代劳还是亲手来，这一页都会教你怎么做。</p>
+<div aria-label="左边是一张躺在垫子上的鱼的照片。右边是同一条鱼单独放在透明背景上，透明背景显示为灰白相间的棋盘格。" class="pair" role="img">
+<figure>
+<div class="pane photo">
+<svg aria-hidden="true" viewbox="0 0 320 180">
+<g transform="translate(26 36)">
+<path d="M14 58 C 40 20, 120 8, 176 22 C 200 28, 214 40, 222 52 L 262 24 C 270 40, 270 76, 262 92 L 222 64 C 214 78, 196 92, 172 98 C 116 112, 40 100, 14 58 Z" fill="#b08a3e"></path>
+<path d="M78 24 C 96 -4, 146 -10, 170 24 C 140 16, 104 16, 78 24 Z" fill="#8f6c2c"></path>
+<path d="M118 100 C 126 118, 146 122, 150 102 Z" fill="#8f6c2c"></path>
+<circle cx="44" cy="52" fill="#1c1a12" r="5"></circle>
+<path d="M40 66 C 70 74, 110 76, 150 70" fill="none" stroke="#e9d49a" stroke-opacity="0.45" stroke-width="3"></path>
+</g>
+</svg>
+</div>
+<figcaption>你拍的照片</figcaption>
+</figure>
+<div aria-hidden="true" class="arrow">&gt;</div>
+<figure>
+<div class="pane cut">
+<svg aria-hidden="true" viewbox="0 0 320 180">
+<g transform="translate(26 36)">
+<path d="M14 58 C 40 20, 120 8, 176 22 C 200 28, 214 40, 222 52 L 262 24 C 270 40, 270 76, 262 92 L 222 64 C 214 78, 196 92, 172 98 C 116 112, 40 100, 14 58 Z" fill="#b08a3e"></path>
+<path d="M78 24 C 96 -4, 146 -10, 170 24 C 140 16, 104 16, 78 24 Z" fill="#8f6c2c"></path>
+<path d="M118 100 C 126 118, 146 122, 150 102 Z" fill="#8f6c2c"></path>
+<circle cx="44" cy="52" fill="#1c1a12" r="5"></circle>
+<path d="M40 66 C 70 74, 110 76, 150 70" fill="none" stroke="#e9d49a" stroke-opacity="0.45" stroke-width="3"></path>
+</g>
+</svg>
+</div>
+<figcaption>游戏需要的：只有鱼</figcaption>
+</figure>
+</div>
+</section>
+<main>
+<h2>游戏需要什么</h2>
+<ul class="needs">
+<li><strong>只有鱼。</strong>不要垫子，不要草，不要抄网，不要手，也不要人。每个钓场上线前都会经过检查，含有以上任何东西的图片都不会被批准。</li>
+<li><strong>存成 PNG。</strong>PNG 可以有透明背景，JPG 不行，所以游戏会拒收 JPG。WebP 图片也可以用。</li>
+<li><strong>整条鱼，侧面拍，</strong>鳍和尾巴都不能在边缘被裁掉。</li>
+<li><strong>尺寸要够大。</strong>鱼的长度尽量至少有 1,000 像素。游戏会把更大的图片按最长边缩小到 1,024 像素，所以图片大一点没有坏处。</li>
+<li><strong>你自己的照片。</strong>上传时会要求你确认这一点。</li>
+</ul>
+<p class="muted">你不需要事先删除照片里的位置信息。游戏在保存图片时会把这些信息去掉。</p>
+<h2>从合适的照片开始</h2>
+<p>好的抠图始于好的照片，在岸边多花几秒钟，能省去之后很多修整功夫。</p>
+<ul class="needs">
+<li><strong>把鱼平放在护鱼垫上</strong>，从正上方侧面拍摄。</li>
+<li>如果能安全地做到，拍照时<strong>手别碰鱼</strong>。横在鱼身侧面的手指是最难整齐抠掉的。</li>
+<li><strong>把整条鱼都拍进去，</strong>四周都露出一点垫子。</li>
+<li><strong>选一个素净、对比鲜明的背景。</strong>深色垫子上的银色鱼，对任何工具来说都比草地上的绿色丁鱥容易得多。</li>
+</ul>
+<p>经典的捧鱼合影，把鱼举向镜头，是最难用的照片。鱼会因透视而缩短，导致形状失真，而且钓手的手还盖在鱼身上。</p>
+<h2>快捷方法：让工具来做</h2>
+<p>现在大多数手机和电脑都能帮你把鱼从背景中抠出来。这些工具很快，但它们是在猜。一定要仔细检查结果，因为它们经常会留下一根拇指、一角抄网或一块垫子。之后你可以手动修整，<a href="#by-hand">方法见下文</a>。</p>
+<h3>iPhone</h3>
+<ol class="steps">
+<li>在<span class="ui">照片</span>中打开照片，轻点<span class="ui">共享</span>，然后选<span class="ui">存储到“文件”</span>。</li>
+<li>打开<span class="ui">文件</span> App，找到这张照片。不要打开它。</li>
+<li>按住照片，然后轻点<span class="ui">快速操作</span>和<span class="ui">移除背景</span>。</li>
+<li>同一个文件夹里会出现一张只有主体的新 PNG。上传的就是这个文件。</li>
+</ol>
+<p class="muted">在“照片”App 里按住鱼也能把它抠出来，但这样生成的副本不一定保留透明背景。走“文件”这条路才能存出正规的 PNG。</p>
+<h3>Samsung Galaxy</h3>
+<ol class="steps">
+<li>在<span class="ui">相册</span> App 中打开照片。</li>
+<li>按住鱼，直到它周围出现轮廓，然后松开。</li>
+<li>轻点<span class="ui">另存为图片</span>。抠图会以 PNG 格式保存到你的相册。</li>
+</ol>
+<p class="muted">其他安卓手机的相册应用里可能也有类似功能。如果你的没有，就用下面的电脑方法之一，或者手动抠。</p>
+<h3>Windows 11：画图</h3>
+<ol class="steps">
+<li>右键点击照片，选择<span class="ui">打开方式</span>，然后选<span class="ui">画图</span>。</li>
+<li>点击工具栏上的<span class="ui">删除背景</span>。</li>
+<li>放大检查边缘。用橡皮擦清理残留的部分，<a href="#paint">方法见下文</a>。</li>
+<li>选择<span class="ui">文件</span>、<span class="ui">另存为</span>、<span class="ui">PNG 图片</span>，并起一个新名字。</li>
+</ol>
+<p class="muted">如果你看不到<span class="ui">删除背景</span>，请通过 Microsoft Store 更新画图。Windows 10 上的画图根本无法制作透明图片；请改用下面介绍的免费编辑器之一。</p>
+<h3>任何电脑：免费网站</h3>
+<p>Adobe Express 等免费的去背景网站，可以让你上传照片并下载主体的 PNG。选之前，先看看免费下载的尺寸。有些网站免费只给一张小预览图，通常宽约 600 像素，在渔获卡片上会显得模糊。</p>
+<h2 id="by-hand">细致方法：手动抠图</h2>
+<p>如果你想让每一根鳍条都分毫不差，或者干脆不想把照片交给 AI 工具，自己抠鱼其实很简单。只需要十到十五分钟，效果取决于你的耐心。</p>
+<h3 id="paint">在 Windows 11 的画图中</h3>
+<p>你需要较新版本的画图。检查方法：用橡皮擦擦一下照片的一角，如果看到灰白相间的棋盘格，就没问题。如果擦过的地方变成白色，说明你用的是旧版画图，它无法保存透明图片；请改用下面的免费编辑器之一。</p>
+<ol class="steps">
+<li>右键点击照片，选择<span class="ui">打开方式</span>，然后选<span class="ui">画图</span>。</li>
+<li>首先，裁小一点。选择<span class="ui">选择</span>，在鱼周围拖出一个矩形，留一点空隙，然后点击<span class="ui">裁剪</span>。这样要擦的东西就少多了。</li>
+<li>选择<span class="ui">橡皮擦</span>，并设成大尺寸。先把离鱼较远的背景擦干净。</li>
+<li>按住 <kbd>Ctrl</kbd> 滚动鼠标滚轮放大，越靠近鱼，橡皮擦就选得越小。</li>
+<li>沿着轮廓慢慢来。鳍和尾巴用短笔触处理，宁可留着鳍尖，也别把它削掉。</li>
+<li>擦错了？按 <kbd>Ctrl</kbd> + <kbd>Z</kbd> 撤销上一笔。</li>
+<li>可选：如果鱼头朝右，选择<span class="ui">旋转</span>，然后选<span class="ui">水平翻转</span>，让鱼头朝左，和游戏自带的鱼一样。</li>
+<li>选择<span class="ui">文件</span>、<span class="ui">另存为</span>、<span class="ui">PNG 图片</span>。不要选 JPEG：它会把你擦掉的地方全部填成白色。</li>
+</ol>
+<div class="note">
+<p>每隔几分钟就用新名字另存一份副本。如果之后哪一笔出了大错，你可以回到上一个好的副本，而不用从头再来。</p>
+</div>
+<h3>用免费的照片编辑器</h3>
+<p>对于非常繁琐的边缘，正规的编辑器可以让你沿着鱼画一圈，而不用把其他东西全擦掉。三款好用的免费软件是：Windows 上的 <a href="https://www.getpaint.net/">Paint.NET</a>、在网页浏览器中运行的 <a href="https://www.photopea.com/">Photopea</a>，以及任何电脑都能用的 <a href="https://www.gimp.org/">GIMP</a>。按钮略有不同，但三者的思路都一样：</p>
+<ol class="steps">
+<li>打开照片。</li>
+<li>用<span class="ui">套索</span>工具沿着鱼仔细地画一整圈。放大会有帮助。</li>
+<li>反选，让鱼以外的所有部分都被选中。</li>
+<li>按 <kbd>Delete</kbd>。背景应该会变成棋盘格。</li>
+<li>将图片导出或保存为 PNG。</li>
+</ol>
+<p class="muted">如果删除后背景变成白色而不是棋盘格，说明图片的图层被锁定了。在图层面板中解锁，或者在 GIMP 中给图层添加 Alpha 通道，然后再删除一次。</p>
+<h2>上传前先检查</h2>
+<ol class="steps">
+<li>在网页浏览器中打开你的 PNG，或者把它放到深色背景上。</li>
+<li>沿着边缘看一整圈，找找有没有白边、拇指，或者一点抄网、垫子的残留。</li>
+<li>确认没有鳍或尾巴被裁掉。</li>
+</ol>
+<p>然后在钓场编辑器中进入<span class="ui">放养</span>，在<span class="ui">鱼的图片</span>下使用<span class="ui">上传抠图</span>。你可以给整行放养设一张图片，愿意的话也可以给特定重量添加不同的图片。把指针移到预览图上，就能看到 3D 效果。</p>
+<h2>如果游戏拒收了你的图片</h2>
+<p>游戏会在你上传时检查每一张图片。如果拒收，提示信息会告诉你原因：</p>
+<dl class="refusal">
+<dt>“JPG 图片无法带透明背景。”</dt>
+<dd>文件是 JPG。重新打开你的抠图，存成 PNG。</dd>
+<dt>“这张图片还带着背景。”</dt>
+<dd>图片的边缘不透明，说明背景还在。最常见的原因是用旧版画图保存，它会把擦掉的地方变成白色。重新去除背景，并存成 PNG。</dd>
+<dt>“这看起来像是放在透明底板上的照片，而不是抠出来的鱼。”</dt>
+<dd>整张矩形照片被放在了透明背景上，鱼周围还留着垫子。要沿着鱼本身抠。</dd>
+<dt>“我们读不了这张图片。”</dt>
+<dd>文件可能已损坏，或者是游戏打不开的格式。用画图或你的编辑器打开它，重新存成 PNG。</dd>
+</dl>
+</main>
+<footer>
+<div><span>Swimcraft，出品方 Harbledown Digital</span>
+<span><a href="/zh-cn/venuecreators">钓场创建者指南</a> <a href="/terms">条款</a> <a href="/privacy">隐私</a></span></div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 简体中文</span></summary><ul><li><a href="/fish-cutouts" hreflang="en" lang="en">English</a></li><li><a href="/de/fish-cutouts" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/fish-cutouts" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/fish-cutouts" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/fish-cutouts" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/fish-cutouts" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/fish-cutouts" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/fish-cutouts" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/fish-cutouts" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/fish-cutouts" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/fish-cutouts" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/fish-cutouts" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/fish-cutouts" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/fish-cutouts" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/fish-cutouts" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/fish-cutouts" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/fish-cutouts" hreflang="ja" lang="ja">日本語</a></li><li><a aria-current="true" href="/zh-cn/fish-cutouts" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/fish-cutouts" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/fish-cutouts" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/fish-cutouts"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/fish-cutouts"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/fish-cutouts"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/fish-cutouts"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/fish-cutouts"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/fish-cutouts"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/fish-cutouts"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/fish-cutouts"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/fish-cutouts"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/fish-cutouts"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/fish-cutouts"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/fish-cutouts"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/fish-cutouts"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/fish-cutouts"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/fish-cutouts"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/fish-cutouts"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/fish-cutouts"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/fish-cutouts"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/fish-cutouts"}, {"c": "", "hl": "en", "n": "English", "u": "/fish-cutouts"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>
