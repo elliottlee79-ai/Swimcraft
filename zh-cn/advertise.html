@@ -234,7 +234,6 @@
   }
   @keyframes glint { from { left: -60%; } to { left: 130%; } }
   @media (prefers-reduced-motion: reduce) { .board::after { animation: none; display: none; } }
-  .board-logo { flex: none; height: 2.6rem; width: auto; max-width: 5.5rem; display: block; }
   .board-text { color: #f0e060; font-weight: 600; font-size: 0.95rem; line-height: 1.4; text-align: center; }
   .board-flag {
     display: inline-block; margin-right: 0.25rem; padding: 0 0.5rem;
@@ -242,6 +241,19 @@
     color: var(--brand-bone); background: rgba(230,220,198,0.12);
     border: 1px solid rgba(230,220,198,0.3); border-radius: 999px; vertical-align: 0.1em;
   }
+  /* The banner board, drawn as the game draws it (index.css v52 .home-billboard.banner): the picture covers the board and the
+     words sit on the right over a dark fade. */
+  .board.banner { padding: 0; min-height: 90px; justify-content: flex-end; }
+  .board-banner { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 9px; }
+  .board.banner::before { z-index: 3; }
+  .board.banner .board-text {
+    position: relative; z-index: 2; align-self: stretch; display: flex; align-items: center; justify-content: flex-end;
+    padding: 0.6rem 1rem 0.6rem 27%; margin: 0; width: 100%; box-sizing: border-box;
+    color: #fff; font-size: 0.9rem; font-weight: 700; line-height: 1.3; text-align: right; text-shadow: 0 1px 3px rgba(0,0,0,0.85);
+    background: linear-gradient(90deg, rgba(10,14,8,0) 0%, rgba(10,14,8,0.05) 22%, rgba(10,14,8,0.55) 45%, rgba(10,14,8,0.7) 100%);
+    border-radius: 9px;
+  }
+  .board-flag.gold { color: #F0D080; background: rgba(201,168,76,0.14); border-color: rgba(201,168,76,0.5); text-shadow: none; }
   @media (max-width: 520px) { .board-scale { transform: none; margin-bottom: 0; } .scene-mark { font-size: 1.7rem; } }
   .caption { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.75rem; }
   .specs { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.25rem; margin: 0 0 1.25rem; }
@@ -289,34 +301,21 @@
 </div>
 <main>
 <section aria-labelledby="board">
-<div aria-label="一则虚构渔具店的示例广告，位于 Swimcraft 主菜单下方的公告板上" class="board-wrap" role="img">
+<div aria-label="Swimcraft 主菜单下方告示板上的广告横幅（玩家看到的样子）" class="board-wrap" role="img">
 <div class="scene-mark"><span class="swim">swim</span><span class="craft">craft</span></div>
 <div aria-hidden="true" class="scene-menu"><span>去钓鱼</span><span>钓鱼人小屋</span><span>钓场编辑器</span></div>
 <div class="board-scale">
-<div class="board">
-<svg aria-hidden="true" class="board-logo" viewbox="0 0 120 72">
-<defs>
-<lineargradient id="sg-bg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5d7f3a"></stop><stop offset="1" stop-color="#3a5024"></stop></lineargradient>
-<lineargradient id="sg-tip" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff7a3d"></stop><stop offset="1" stop-color="#d8431f"></stop></lineargradient>
-</defs>
-<rect fill="url(#sg-bg)" height="68" rx="12" stroke="#E6DCC6" stroke-width="3" width="116" x="2" y="2"></rect>
-<rect fill="none" height="56" opacity="0.8" rx="8" stroke="#C9A84C" stroke-width="1.5" width="104" x="8" y="8"></rect>
-<path d="M8 50 Q24 45 40 50 T72 50 T112 50 L112 56 Q112 64 104 64 L16 64 Q8 64 8 56 Z" fill="#2c4a52" opacity="0.9"></path>
-<line stroke="#E6DCC6" stroke-linecap="round" stroke-width="2.5" x1="24" x2="24" y1="12" y2="20"></line>
-<path d="M24 20 C18 30 18 42 24 52 C30 42 30 30 24 20 Z" fill="#E6DCC6"></path>
-<path d="M24 20 C20.5 25 20 28 20.2 30 L27.8 30 C28 28 27.5 25 24 20 Z" fill="url(#sg-tip)"></path>
-<text fill="#E6DCC6" font-family="'Alfa Slab One','Bitter',Georgia,serif" font-size="15" lengthadjust="spacingAndGlyphs" textlength="68" x="42" y="34">SEDGEWICK</text>
-<text fill="#F0D080" font-family="'Bitter',Georgia,serif" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" x="76" y="48">TACKLE</text>
-</svg>
-<div class="board-text"><span class="board-flag">赞助</span> Sedgewick Tackle：本周末鲤鱼钓组八折</div>
+<div class="board banner">
+<img alt="" class="board-banner" src="/gallery/advertise-banner.jpg"/>
+<div class="board-text"><span class="t"><span class="board-flag gold">在此投放广告</span> 您的渔具优惠可以出现在这里 — 向钓友们做广告</span></div>
 </div>
 </div>
 </div>
-<p class="caption">一则虚构店铺的示例广告，显示尺寸比游戏中大。公告板位于主界面主菜单下方。</p>
+<p class="caption">玩家现在看到的告示板，显示得比游戏中更大。它位于主屏幕的主菜单下方。</p>
 <h2 id="board">你能得到什么</h2>
 <ul>
 <li>在 Swimcraft 主界面公告板上占一个位置，每位玩家每次启动游戏都会看到。</li>
-<li>你的标志、一行简短文字和一个链接。点击即可在玩家的浏览器中打开你的网站或网店。</li>
+<li>你的标志和一行简短文字，或铺满整块告示板的宽幅横幅图片，再加一个链接。点击即可在玩家的浏览器中打开你的网站或网店。</li>
 <li>你的广告会带一个小小的“赞助”标签，符合英国广告规定的要求，绝不会被误认为是我们自己的新闻。</li>
 <li>公告板会在几条内容之间轮播，大约每八秒切换一次，玩家把鼠标悬停在上面时会停住。</li>
 <li>可以设置开始和结束日期，让投放配合促销、比赛或开放日。</li>
