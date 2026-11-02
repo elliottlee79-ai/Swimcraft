@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>エサクリエイターガイド｜Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Swimcraftのエサクリエイターで自分だけのエサを作る方法。各質問が魚にとって何を意味するか、どの魚が食うか、モデレーターが何を確認するかを説明します。" name="description"/>
+<meta content="エサクリエイターガイド｜Swimcraft" property="og:title"/>
+<meta content="Swimcraftのエサクリエイターで自分だけのエサを作る方法。各質問が魚にとって何を意味するか、どの魚が食うか、モデレーターが何を確認するかを説明します。" property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/ja/baitcreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/ja/baitcreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/baitcreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/baitcreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/baitcreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/baitcreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/baitcreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/baitcreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/baitcreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/baitcreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/baitcreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/baitcreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/baitcreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/baitcreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/baitcreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/baitcreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/baitcreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/baitcreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/baitcreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/baitcreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/baitcreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/ja/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>エサクリエイターガイド</h1>
+<p class="meta"><strong>新しいフレーバーのボイリーから、まだ誰も釣りに使ったことのない果物まで、自分だけのエサを作る方法。</strong></p>
+<p class="meta">最終更新日：2026年10月18日</p>
+<div class="intro">エサクリエイターでは、エサについて3ページにわたって質問されます。魚はパッケージの名前を読みません。エサが何でできているか、どんな味と匂いか、どれくらいの大きさか、どう見えてどう動くかで判断します。あなたの答えはまさにその点なので、どの魚がどれだけよくあなたのエサを食うかが答えで決まります。このページでは、各質問の意味と、あなたのエサがみんなのエサ箱に入る前にモデレーターが確認することを説明します。</div>
+<ol class="toc">
+<li><a href="#life">下書き、申請、承認：あなたのエサに起こること</a></li>
+<li><a href="#start">既存のエサから始めるか、新しい種類を作るか</a></li>
+<li><a href="#bait">1ページ目：エサ</a></li>
+<li><a href="#senses">2ページ目：魚の感じ方</a></li>
+<li><a href="#hook">3ページ目：フックと確認</a></li>
+<li><a href="#which">どの魚が食う？</a></li>
+<li><a href="#box">エサ箱の中のあなたのエサとそのレベル</a></li>
+<li><a href="#review">モデレーターが見るポイント</a></li>
+</ol>
+<h2 id="life">1. 下書き、申請、承認</h2>
+<p>メインメニューから<strong>エサを作る</strong>を開きます。作ったものはまず下書きとして保存され、下書きはあなただけのものです。自分のエサはクリエイター上部の<strong>あなたのエサ</strong>リストにあるので、いつでも戻って続きができます。</p>
+<table class="pass">
+<tr><th>状態</th><th>意味</th></tr>
+<tr><td>下書き</td><td>見られるのはあなただけです。すべての質問に答えるとすぐに自分のエサ箱に入り、釣りに使ったり、何度でも好きなように変更したりできます。承認される前にこのエサで釣った魚は、記録に数えられることはありません。</td></tr>
+<tr><td>モデレーター確認中</td><td>申請済みです。判断を待っている間は変更できません。</td></tr>
+<tr><td>承認済み</td><td>みんなのエサ箱の該当する行に、<strong>*</strong>付きで表示されます。</td></tr>
+<tr><td>差し戻し</td><td>モデレーターが変更すべき点をメモに残しています。修正して、もう一度申請してください。</td></tr>
+</table>
+<h2 id="start">2. 既存のエサから始めるか、新しい種類を作るか</h2>
+<p>エサを一番早く作る方法は、1ページ目上部の<strong>ショートカット</strong>欄です。ゲーム内のエサからあなたのエサに一番近いものを選ぶと、すべての答えがそのエサの内容で埋まります。あとは違うところだけを変えましょう。</p>
+<p>イチゴのボイリーがよい例です。既存のボイリーから始めて、名前、味、色を変えれば、ほぼ完成です。変えずに残した項目は、元にしたエサとまったく同じように釣れます。</p>
+<p>ゲームにまだないものを作るなら、ショートカットを<strong>まったく新しい種類のエサ</strong>のままにしておきます。木から落ちる果物、草食の魚が食む植物、誰も思いつかなかった幼虫などです。新しい種類のエサは、すべての質問が空欄の状態から始まります。</p>
+<div class="callout">釣り場の各釣り座には、そこの魚を釣るのに使われるエサの種類が、ボイリーやコーン / パーティクルのように一覧になっています。既存のエサから作ったエサは、元にしたエサとして数えられます。まったく新しい種類のエサは、何でできているかで数えられます。果物なら釣り座の一覧にコーン / パーティクルがあればどこでも、新しい幼虫ならサシ / サナギがあればどこでも対象になります。</div>
+<h2 id="bait">3. 1ページ目：エサ</h2>
+<div class="step"><span class="num">名前</span><h3>プレイヤーがエサ箱で目にする名前</h3>
+<p>40文字までの短い名前です。既存のエサや、ほかのプレイヤーのエサと同じ名前は使えません。</p></div>
+<div class="step"><span class="num">説明文</span><h3>既存のエサと同じく一行で</h3>
+<p>エサ箱のエサには、名前の下に何のエサで何に向いているかを書いた一行があります。あなたのエサも同じように、70文字までで書きましょう：<em>甘くてオイリーな、夏のコイ用エサ。</em></p></div>
+<div class="step"><span class="num">行</span><h3>エサ箱のどの行に入るか</h3>
+<p>ボイリーやパーティクルなど既存の行から選ぶか、<strong>新しい行</strong>を選んで名前を付けます（例：果物）。新しい行は、エサ箱の既存の行の後に表示されます。</p></div>
+<div class="step"><span class="num">素材</span><h3>魚が最初に確かめること</h3>
+<p>穀物、種、果物、植物。ミミズ、幼虫、昆虫。貝類・甲殻類。魚。ミート。練りエサ、ボイリー、ペレット。または食べられないもの。植物を食べない魚は、どんなによい匂いでも果物は食いません。ミミズを主食にする魚は、ミミズのようなエサをよく食います。エサの本当の素材を選んでください。</p></div>
+<div class="step"><span class="num">使える場所</span><h3>淡水、海、または両方</h3>
+<p>淡水用のエサは海の釣り場では出てきません。その逆も同じです。</p></div>
+<div class="step"><span class="num">写真</span><h3>エサだけを写したもの</h3>
+<p>背景が透明なPNGまたはWebPで、エサだけを写したもの、5 MBまで。追加するまでは、エサ箱にはイラストが表示されます。</p></div>
+<h2 id="senses">4. 2ページ目：魚の感じ方</h2>
+<p>ここは魚が実際に使う答えです。どの答えも、ある魚には効き、別の魚には効きません。ひとつの正解はないので、どの魚を釣りたいかを考えましょう。</p>
+<table class="pass">
+<tr><th>質問</th><th>考えるポイント</th></tr>
+<tr><td>どんな味ですか？</td><td>フィッシュ系、スイート/フルーティー、スパイシー/セイボリー、ミート/ソルティ、クリーミー/ミルキー、ナチュラル、ナッツ/アーシー。魚によって好きな味は違い、暖かい水に合う味と冷たい水に合う味があります。2つ目の味は任意です。</td></tr>
+<tr><td>匂いの強さは？</td><td>ほのか、はっきり、強い、強烈。匂いで獲物を探す魚は、匂いの強いエサをより遠くから見つけます。ただし匂いが強すぎるエサは、大きな魚を警戒させます。</td></tr>
+<tr><td>油分はありますか？</td><td>油分の多いエサは暖かい水で最もよく効き、冷たい水ではあまり効果がありません。</td></tr>
+<tr><td>動きますか？</td><td>なし、揺らめく、くねる、泳ぐ。動きで獲物を探す魚は、動くエサを見つけやすくなります。</td></tr>
+<tr><td>大きさは？</td><td>ミリ単位のサイズです。ページには目安として既存のエサがいくつか表示されます。魚の口に対して大きすぎると、その魚は食いません。小さな魚は大きなエサを嫌います。</td></tr>
+<tr><td>見た目は？</td><td>色、目立ち具合（ナチュラル、明るい、蛍光）、光を反射するかどうか。明るいエサは濁った水でも見つけてもらえますが、澄んだ水では警戒心の強い魚を怖がらせることがあります。</td></tr>
+<tr><td>浮きますか、沈みますか？</td><td>沈む、ゆっくり沈む、底から浮き上がる、水面に浮く。水面で釣れるのは浮くエサだけです。</td></tr>
+</table>
+<h2 id="hook">5. 3ページ目：フックと確認</h2>
+<table class="pass">
+<tr><th>質問</th><th>考えるポイント</th></tr>
+<tr><td>フックに付けたときの柔らかさは？</td><td>硬い、硬め、柔らかい。柔らかいエサほどよく食いますが、フックから早く外れます。</td></tr>
+<tr><td>フックにどれくらい持ちますか？</td><td>外れやすい、しばらく持つ、よく持つ。</td></tr>
+<tr><td>撒きエサ専用</td><td>フックに付けられないエサのときだけチェックしてください。それ以外のエサは、撒きエサとして投げ入れることもできます。</td></tr>
+</table>
+<p>最後のページには、あなたのエサがエサ箱でどう見えるかも表示されます。足りないものがあれば、<strong>釣りに使う前に</strong>という欄に一覧で表示されます。項目をクリックすると、そこへ直接移動します。</p>
+<h2 id="which">6. どの魚が食う？</h2>
+<p>答えがそろうと、最後のページに、あなたのエサが使える場所にすむ魚と、それぞれが夏と冬にあなたのエサをどれだけ好むかが表示されます：<strong>よく食う</strong>、<strong>食う</strong>、<strong>たまに</strong>、<strong>食わない</strong>。</p>
+<p>これはゲーム自身の判定で、魚が水中で行うのと同じ確認を、その魚にほかの点では合った釣り座で行ったものです。その魚が普段釣れるエサと比べています。答えを変えると一覧も一緒に変わるので、サイズを大きくしたり匂いを強くしたりするとどうなるか、すぐにわかります。</p>
+<div class="callout">「食わない」の原因は、たいていエサの大きさか素材です。その魚の口には大きすぎるか、その魚が食べないものです。実際のポイントでは、水深、天気、時間帯、水中の撒きエサの量など、この一覧が考慮しないすべての要素が加わります。</div>
+<h2 id="box">7. エサ箱の中のあなたのエサとそのレベル</h2>
+<p>プレイヤーが作ったエサは既存のエサと同じ行に<strong>*</strong>付きで並び、エサ箱にその印の意味が表示されます。選ぶのも、フックに付けるのも、撒きエサとして投げ入れるのも、既存のエサとまったく同じです。</p>
+<p>どのエサにも、解放されるレベルがあります。モデレーターが釣れ具合に応じてレベルを設定するまでは、元にしたエサと同じレベル、まったく新しい種類のエサならレベル1で解放されます。承認時にモデレーターがレベルを設定することがあります。大きな魚が簡単に釣れるエサは、レベルが上がると思っておきましょう。</p>
+<h2 id="review">8. モデレーターが見るポイント</h2>
+<ul>
+<li><strong>実在するエサであること。</strong>釣り人が使っている、または使えそうなものを、ありのままに設定してください。まったく新しい種類のエサは歓迎ですが、何にでも完璧なエサは認められません。</li>
+<li><strong>正直な答えであること。</strong>20 mmのボイリーを2 mmと入力したり、ただの果物を強烈な匂いにしたりすると、差し戻されます。</li>
+<li><strong>わかりやすい名前と説明文であること。</strong>何のエサかがわかり、不快な内容を含まないこと。</li>
+<li><strong>きれいな写真であること。</strong>背景が透明で、エサだけが写っているもの。</li>
+</ul>
+<p>エサが差し戻されたら、メモに変更点が書かれています。修正して、もう一度申請してください。</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/ja/">ホーム</a> · <a href="/ja/venuecreators">釣り場クリエイターガイド</a> · <a href="/ja/speciescreators">魚種クリエイターガイド</a> · <a href="/terms">利用規約</a> · <a href="/privacy">プライバシー</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 日本語</span></summary><ul><li><a href="/baitcreators" hreflang="en" lang="en">English</a></li><li><a href="/de/baitcreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/baitcreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/baitcreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/baitcreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/baitcreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/baitcreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/baitcreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/baitcreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/baitcreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/baitcreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/baitcreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/baitcreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/baitcreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/baitcreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/baitcreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a aria-current="true" href="/ja/baitcreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/baitcreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/baitcreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/baitcreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/baitcreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/baitcreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/baitcreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/baitcreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/baitcreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/baitcreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/baitcreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/baitcreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/baitcreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/baitcreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/baitcreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/baitcreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/baitcreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/baitcreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/baitcreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/baitcreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/baitcreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/baitcreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/baitcreators"}, {"c": "", "hl": "en", "n": "English", "u": "/baitcreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

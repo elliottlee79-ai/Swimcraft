@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="es-ES">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guía del creador de especies: Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Cómo describir un pez real en el creador de especies de Swimcraft para que pase la revisión y cualquier creador de escenarios pueda repoblar con él." name="description"/>
+<meta content="Guía del creador de especies: Swimcraft" property="og:title"/>
+<meta content="Cómo describir un pez real en el creador de especies de Swimcraft para que pase la revisión y cualquier creador de escenarios pueda repoblar con él." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/es/speciescreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/es/speciescreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/speciescreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/speciescreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/speciescreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/speciescreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/speciescreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/speciescreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/speciescreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/speciescreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/speciescreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/speciescreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/speciescreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/speciescreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/speciescreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/speciescreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/speciescreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/speciescreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/speciescreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/speciescreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/speciescreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/speciescreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/speciescreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/es/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Guía del creador de especies</h1>
+<p class="meta"><strong>Cómo describir un pez real una sola vez para que cualquier creador de escenarios pueda repoblar con él.</strong></p>
+<p class="meta">Última actualización: 12 de octubre de 2026</p>
+<div class="intro">El creador de especies te hace tres páginas de preguntas sobre un pez. Tus respuestas definen cómo se comporta ese pez en el agua: cuándo come, qué acepta, cómo pica y cómo pelea. Esta página explica qué pregunta realmente cada pregunta y qué comprueba un moderador antes de que tu pez entre en la lista de repoblación de todo el mundo.</div>
+<ol class="toc">
+<li><a href="#life">Borrador, enviado, aprobado: qué le pasa a tu pez</a></li>
+<li><a href="#start">Partir de un pez que ya existe</a></li>
+<li><a href="#fish">Página 1: el pez</a></li>
+<li><a href="#water">En qué aguas vive</a></li>
+<li><a href="#behave">Página 2: cómo se comporta</a></li>
+<li><a href="#temp">Temperatura del agua, en grados</a></li>
+<li><a href="#check">Página 3: revisar y enviar</a></li>
+<li><a href="#review">Qué miran los moderadores</a></li>
+</ol>
+<h2 id="life">1. Borrador, enviado, aprobado</h2>
+<p>Abre <strong>Crear una especie</strong> desde el menú principal. Todo lo que crees se guarda primero como borrador, y un borrador es solo tuyo.</p>
+<table class="pass">
+<tr><th>Estado</th><th>Qué significa</th></tr>
+<tr><td>Borrador</td><td>Solo tú puedes verlo. Puedes repoblar con él tus propios escenarios en borrador y cambiar lo que quieras, tantas veces como quieras.</td></tr>
+<tr><td>Con los moderadores</td><td>Lo has enviado. No se puede cambiar mientras espera una decisión.</td></tr>
+<tr><td>Aprobado</td><td>Aparece en la lista de repoblación de todos los creadores de escenarios, con sus propias tablas de récords.</td></tr>
+<tr><td>Devuelto</td><td>Un moderador ha dejado una nota con lo que hay que cambiar. Corrígelo y vuelve a enviarlo.</td></tr>
+</table>
+<p>Un pez que guardas llega a tu propia lista de repoblación la próxima vez que se inicie el juego, no al momento.</p>
+<h2 id="start">2. Partir de un pez que ya existe</h2>
+<p>La forma más rápida de crear un pez es la casilla <strong>Atajo</strong> en la parte superior de la página 1. Elige el pez del juego que más se parezca al tuyo y todas las respuestas se rellenan a partir de él. Después, cambia solo lo que sea diferente.</p>
+<p>La carpa fantasma es un buen ejemplo: parte de la carpa común, cambia el nombre, la foto y los récords, y casi habrás terminado. La última página enumera todo lo que has cambiado e indica a partir de qué pez se creó el tuyo. El moderador también lo ve.</p>
+<div class="callout">Si ningún pez del juego comparte todas tus respuestas, algunos de los ajustes más finos se toman prestados del pez a partir del cual se creó el tuyo. La última página te avisa cuando ha pasado. Es normal en un pez poco común.</div>
+<h2 id="fish">3. Página 1: el pez</h2>
+<div class="step"><span class="num">Nombre y nombre latino</span><h3>Cómo lo llaman los pescadores</h3>
+<p>Usa el nombre que buscarían los pescadores. Ningún otro pez puede tenerlo ya. Añade también el nombre latino, para que un moderador sepa exactamente a qué pez te refieres. Los demás nombres por los que se conoce van en la casilla de abajo, separados por comas.</p></div>
+<div class="step"><span class="num">Foto</span><h3>Un recorte de perfil</h3>
+<p>Un PNG o WebP con fondo transparente, el pez de perfil con la cabeza a la izquierda, de hasta 5 MB. Hasta que añadas una, tu pez toma prestada la imagen del pez a partir del cual se creó. La <a href="/es/fish-cutouts">guía de recortes de peces</a> muestra formas gratuitas de recortar un pez de una foto.</p></div>
+<div class="step"><span class="num">Países y dónde se encuentra</span><h3>Dónde se lo encontraría un pescador</h3>
+<p>Marca todos los países en los que vive, y si se encuentra en aguas quietas, ríos lentos o ríos rápidos. Marca todo lo que corresponda.</p></div>
+<div class="step"><span class="num">Tamaño</span><h3>Récords, con enlace</h3>
+<p>Cada país que has marcado tiene una fila para su peso récord en libras, onzas y dracmas. Necesitas al menos un récord, y cada récord necesita un enlace a donde está registrado: un comité de récords, una federación de pesca o la página de un club que un moderador pueda abrir y comprobar. Deja un país vacío si no se conoce su récord.</p>
+<p>El peso adulto típico y el tamaño de trofeo se guardan con tu pez para más adelante. Rellénalos si los conoces.</p></div>
+<h2 id="water">4. En qué aguas vive</h2>
+<p>Marca <strong>Agua dulce</strong>, <strong>Estuario</strong> o <strong>Pesca en mar</strong>, todas las que correspondan. Tus marcas deciden en qué aguas se puede pescar el pez. Un pez nunca se pesca en un agua que no le corresponde, por bien que encaje todo lo demás.</p>
+<table class="pass">
+<tr><th>Marcas</th><th>Tu pez vive en</th></tr>
+<tr><td>Agua dulce</td><td>Solo agua dulce: lagos, estanques, ríos.</td></tr>
+<tr><td>Agua dulce y estuario</td><td>Agua dulce y agua salobre, hasta la desembocadura del río.</td></tr>
+<tr><td>Estuario, o mar</td><td>Estuarios y mar abierto, que es donde vive hoy cada pez de mar del juego.</td></tr>
+<tr><td>Agua dulce y mar</td><td>De todo, desde el agua dulce hasta el mar abierto, como la anguila.</td></tr>
+</table>
+<h2 id="behave">5. Página 2: cómo se comporta</h2>
+<p>Estas respuestas son lo que te contaría un pescador sobre el pez en la orilla. Responde como un pescador, no como un libro de texto.</p>
+<table class="pass">
+<tr><th>Pregunta</th><th>En qué pensar</th></tr>
+<tr><td>¿Dónde come?</td><td>Ordena En el fondo, A media agua y En superficie, lo más habitual primero.</td></tr>
+<tr><td>¿Qué come?</td><td>Plantas y partículas, insectos y gusanos, otros peces. Marca todo lo que corresponda.</td></tr>
+<tr><td>¿Con cuáles de nuestros cebos se pesca?</td><td>Añade los cebos del juego con los que se pesca y luego ordénalos, el mejor primero.</td></tr>
+<tr><td>¿Cuándo come mejor?</td><td>De día, al alba y al anochecer, o de noche.</td></tr>
+<tr><td>¿Dónde suele estar?</td><td>Aguas abiertas, algo de refugio, u obstáculos y algas.</td></tr>
+<tr><td>¿Agua clara o turbia?</td><td>Cuál prefiere.</td></tr>
+<tr><td>¿Cómo pica?</td><td>Toques delicados, levantadas decididas, o sale disparado con el cebo.</td></tr>
+<tr><td>¿Cuánto desconfía?</td><td>Atrevido, cauto o muy desconfiado.</td></tr>
+<tr><td>¿Cómo pelea?</td><td>Elige la pelea cuya descripción se parezca más al pez que tienes al otro lado del sedal.</td></tr>
+</table>
+<h2 id="temp">6. Temperatura del agua, en grados</h2>
+<p>Elige la etiqueta que más se parezca a tu pez. Rellena tres valores en °C, que puedes cambiar:</p>
+<ul>
+<li><strong>Come mejor a</strong>: la temperatura a la que está más activo.</li>
+<li><strong>Cómodo desde</strong> y <strong>cómodo hasta</strong>: el rango en el que todavía come bien.</li>
+</ul>
+<p>Los valores deben ir de bajo, a óptimo, a alto. Fuera de su rango cómodo, el pez deja de comer: unos grados más frío y la mayoría de los peces conservan solo un hilo de apetito; unos grados más cálido y paran del todo.</p>
+<div class="tablewrap"><table class="pass labels">
+<tr><th>Etiqueta</th><th>Óptimo</th><th>Cómodo</th><th>Qué significa</th></tr>
+<tr><td>Especialista de agua fría</td><td>12 °C</td><td>6 a 17 °C</td><td>Le encanta el agua fría y limpia; lo pasa mal cuando se calienta. Trucha, tímalo, salvelino, bacalao.</td></tr>
+<tr><td>Agua fresca</td><td>14 °C</td><td>8 a 20 °C</td><td>Prefiere el fresco, come bien todo el invierno, se ralentiza en pleno verano. Lucio, perca, cacho.</td></tr>
+<tr><td>Todoterreno templado</td><td>17 °C</td><td>9 a 23 °C</td><td>A gusto durante un año británico normal; mejor a finales de primavera y en otoño. Rutilo, cacho, brema.</td></tr>
+<tr><td>Agua cálida</td><td>22 °C</td><td>15 a 28 °C</td><td>Se activa en verano, tranquilo en invierno. Carpa, tenca, escardinio, siluro.</td></tr>
+<tr><td>Agua cálida (mar)</td><td>22 °C</td><td>15 a 28 °C</td><td>Como Agua cálida, pero sin apetito en invierno: un pez de mar de verano y otoño. Lubina.</td></tr>
+<tr><td>Resistente y adaptable</td><td>20 °C</td><td>8 a 28 °C</td><td>Aguanta igual el frío y el calor. Carpín, anguila.</td></tr>
+<tr><td>Subtropical</td><td>25 °C</td><td>19 a 30 °C</td><td>Cálido todo el año, se enfurruña por debajo de unos 15 °C. Black bass, tilapia.</td></tr>
+<tr><td>Tropical</td><td>29 °C</td><td>25 a 33 °C</td><td>Solo agua caliente; deja de comer cuando se enfría. Barramundi, tucunaré.</td></tr>
+</table></div>
+<div class="callout">Cambia los valores solo si sabes que tu pez se aparta de su etiqueta. El agua de un escenario se calienta y se enfría con las estaciones, y un escenario marcado en su lugar real de la Tierra sigue el clima de ese lugar. Un pez tropical repoblado en un agua fría casi nunca comerá, y eso es el pez comportándose con honestidad, no un fallo.</div>
+<h2 id="check">7. Página 3: revisar y enviar</h2>
+<p>La última página muestra tu pez tal como lo verán otros pescadores, con una breve descripción redactada a partir de tus respuestas y una lista de lo que es diferente respecto al pez a partir del cual se creó. Lee la descripción: si no suena a tu pez, alguna de tus respuestas está mal.</p>
+<p>Si falta algo, una casilla llamada <strong>Antes de poder enviar</strong> lo enumera. Haz clic en cualquier elemento para ir directamente a él. Cuando no falte nada, <strong>Enviar a los moderadores</strong> envía tu pez.</p>
+<h2 id="review">8. Qué miran los moderadores</h2>
+<ul>
+<li><strong>Un pez real.</strong> El creador de especies es para peces que pescan los pescadores, descritos tal como son.</li>
+<li><strong>Un récord que se pueda comprobar.</strong> El enlace debe abrirse y mostrar el peso que has introducido.</li>
+<li><strong>Una foto limpia.</strong> Un recorte, de perfil, con la cabeza a la izquierda y nada más en la imagen.</li>
+<li><strong>Respuestas que encajen con el pez.</strong> Un pez de mar marcado solo como de agua dulce, o una carpa que come mejor en agua helada, será devuelto.</li>
+</ul>
+<p>Si tu pez es devuelto, la nota te dice qué cambiar. Corrígelo y vuelve a enviarlo.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/es/">Inicio</a> · <a href="/es/venuecreators">Guía del creador de escenarios</a> · <a href="/terms">Condiciones de uso</a> · <a href="/privacy">Privacidad</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Español (España)</span></summary><ul><li><a href="/speciescreators" hreflang="en" lang="en">English</a></li><li><a href="/de/speciescreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/speciescreators" hreflang="fr" lang="fr">Français</a></li><li><a aria-current="true" href="/es/speciescreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/speciescreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/speciescreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/speciescreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/speciescreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/speciescreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/speciescreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/speciescreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/speciescreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/speciescreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/speciescreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/speciescreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/speciescreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/speciescreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/speciescreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/speciescreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/speciescreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/speciescreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/speciescreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/speciescreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/speciescreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/speciescreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/speciescreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/speciescreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/speciescreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/speciescreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/speciescreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/speciescreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/speciescreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/speciescreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/speciescreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/speciescreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/speciescreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/speciescreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/speciescreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/speciescreators"}, {"c": "", "hl": "en", "n": "English", "u": "/speciescreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

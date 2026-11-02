@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>미끼 제작자 가이드 · Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Swimcraft 미끼 제작기에서 나만의 미끼를 만드는 방법. 각 질문이 물고기에게 어떤 의미인지, 어떤 물고기가 물지, 운영자가 무엇을 확인하는지 알려 드려요." name="description"/>
+<meta content="미끼 제작자 가이드 · Swimcraft" property="og:title"/>
+<meta content="Swimcraft 미끼 제작기에서 나만의 미끼를 만드는 방법. 각 질문이 물고기에게 어떤 의미인지, 어떤 물고기가 물지, 운영자가 무엇을 확인하는지 알려 드려요." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/ko/baitcreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/ko/baitcreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/baitcreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/baitcreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/baitcreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/baitcreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/baitcreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/baitcreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/baitcreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/baitcreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/baitcreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/baitcreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/baitcreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/baitcreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/baitcreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/baitcreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/baitcreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/baitcreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/baitcreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/baitcreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/baitcreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/ko/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>미끼 제작자 가이드</h1>
+<p class="meta"><strong>새로운 맛의 보일리부터 아직 아무도 써 보지 않은 과일까지, 나만의 미끼를 만드는 방법.</strong></p>
+<p class="meta">최종 업데이트: 2026년 10월 18일</p>
+<div class="intro">미끼 제작기는 미끼에 대해 세 페이지에 걸쳐 질문해요. 물고기는 포장지의 이름을 읽지 않아요. 미끼가 무엇으로 만들어졌는지, 맛과 냄새는 어떤지, 크기는 얼마인지, 어떻게 보이고 어떻게 움직이는지로 판단하죠. 여러분의 답이 바로 그런 것들이라서, 어떤 물고기가 얼마나 적극적으로 미끼를 물지가 답에 따라 정해져요. 이 페이지에서는 각 질문의 의미와, 미끼가 모두의 미끼 상자에 들어가기 전에 운영자가 무엇을 확인하는지 설명해요.</div>
+<ol class="toc">
+<li><a href="#life">초안, 제출, 승인: 미끼에게 일어나는 일</a></li>
+<li><a href="#start">기존 미끼에서 시작하거나 새로운 종류 만들기</a></li>
+<li><a href="#bait">1페이지: 미끼</a></li>
+<li><a href="#senses">2페이지: 물고기가 감지하는 방식</a></li>
+<li><a href="#hook">3페이지: 바늘과 확인</a></li>
+<li><a href="#which">어떤 물고기가 물까요?</a></li>
+<li><a href="#box">미끼 상자 속 내 미끼와 레벨</a></li>
+<li><a href="#review">운영자가 보는 것</a></li>
+</ol>
+<h2 id="life">1. 초안, 제출, 승인</h2>
+<p>메인 메뉴에서 <strong>미끼 만들기</strong>를 여세요. 만든 것은 모두 먼저 초안으로 저장되고, 초안은 나만의 것이에요. 내가 만든 미끼는 제작기 맨 위의 <strong>내 미끼</strong> 목록에 있어서 언제든 다시 열 수 있어요.</p>
+<table class="pass">
+<tr><th>상태</th><th>의미</th></tr>
+<tr><td>초안</td><td>나만 볼 수 있어요. 모든 질문에 답하면 바로 내 미끼 상자에 들어가고, 낚시에 쓰거나 원하는 만큼 자주 바꿀 수 있어요. 승인 전에 이 미끼로 잡은 물고기는 기록에 들어가지 않아요.</td></tr>
+<tr><td>운영자 검토 중</td><td>제출한 상태예요. 결정을 기다리는 동안에는 바꿀 수 없어요.</td></tr>
+<tr><td>승인됨</td><td>모두의 미끼 상자에서 해당 줄에 <strong>*</strong> 표시와 함께 나타나요.</td></tr>
+<tr><td>반려됨</td><td>운영자가 무엇을 바꿔야 하는지 메모를 남겼어요. 고친 다음 다시 보내세요.</td></tr>
+</table>
+<h2 id="start">2. 기존 미끼에서 시작하거나 새로운 종류 만들기</h2>
+<p>미끼를 가장 빨리 만드는 방법은 1페이지 맨 위의 <strong>지름길</strong> 상자예요. 게임에 있는 미끼 중 내 미끼와 가장 비슷한 것을 고르면 모든 답이 그 미끼로 채워져요. 그다음 다른 부분만 바꾸면 돼요.</p>
+<p>딸기 보일리가 좋은 예예요. 기존 보일리에서 시작해 이름, 맛, 색만 바꾸면 거의 끝이에요. 그대로 둔 부분은 시작한 미끼와 똑같이 낚여요.</p>
+<p>게임에 아직 없는 것을 만들려면 지름길을 <strong>완전히 새로운 종류의 미끼</strong>로 두세요. 나무에서 떨어지는 열매, 초식 물고기가 뜯어 먹는 식물, 아무도 생각하지 못한 애벌레 같은 것들이요. 새로운 종류의 미끼는 모든 질문이 빈칸인 상태로 시작해요.</p>
+<div class="callout">낚시터의 각 자리에는 그곳 물고기를 낚을 때 쓰는 미끼 종류가 보일리나 옥수수 / 입자 미끼처럼 나열되어 있어요. 기존 미끼에서 시작한 미끼는 시작한 미끼로 취급돼요. 완전히 새로운 종류의 미끼는 무엇으로 만들어졌는지에 따라 취급돼요. 과일은 자리 목록에 옥수수 / 입자 미끼가 있는 곳이면 어디서든, 새로운 애벌레는 구더기 / 캐스터가 있는 곳이면 어디서든 목록에 들어가요.</div>
+<h2 id="bait">3. 1페이지: 미끼</h2>
+<div class="step"><span class="num">이름</span><h3>플레이어가 미끼 상자에서 보게 될 이름</h3>
+<p>최대 40자의 짧은 이름이에요. 기존 미끼나 다른 플레이어의 미끼와 같은 이름은 쓸 수 없어요.</p></div>
+<div class="step"><span class="num">설명 한 줄</span><h3>기존 미끼처럼 한 줄로</h3>
+<p>미끼 상자의 모든 미끼에는 이름 아래에 어떤 미끼이고 어디에 좋은지 알려 주는 한 줄이 있어요. 내 미끼도 최대 70자로 똑같이 써 보세요: <em>달콤하고 기름진 여름 잉어 미끼.</em></p></div>
+<div class="step"><span class="num">줄</span><h3>미끼 상자의 어느 줄에 들어가는지</h3>
+<p>보일리나 곡물 미끼 같은 기존 줄 중 하나를 고르거나, <strong>새 줄</strong>을 골라 이름을 지으세요. 예를 들면 과일이요. 새 줄은 미끼 상자에서 기존 줄 다음에 나타나요.</p></div>
+<div class="step"><span class="num">재료</span><h3>물고기가 가장 먼저 확인하는 것</h3>
+<p>곡물, 씨앗, 과일 또는 식물. 지렁이, 애벌레 또는 곤충. 조개류 또는 갑각류. 물고기. 고기. 페이스트, 보일리 또는 펠릿. 또는 먹을 수 없는 것. 식물을 먹지 않는 물고기는 냄새가 아무리 좋아도 과일을 물지 않고, 지렁이를 먹고 사는 물고기는 지렁이 같은 미끼를 잘 물어요. 미끼가 실제로 무엇인지 고르세요.</p></div>
+<div class="step"><span class="num">쓸 수 있는 곳</span><h3>민물, 바다 또는 둘 다</h3>
+<p>민물 미끼는 바다 낚시터에서 나오지 않고, 그 반대도 마찬가지예요.</p></div>
+<div class="step"><span class="num">사진</span><h3>미끼만 단독으로</h3>
+<p>배경이 투명한 PNG 또는 WebP로, 미끼만 보여 주는 사진이며 최대 5 MB예요. 사진을 넣기 전까지는 미끼 상자에 그림이 표시돼요.</p></div>
+<h2 id="senses">4. 2페이지: 물고기가 감지하는 방식</h2>
+<p>물고기가 실제로 쓰는 답들이에요. 각 답은 어떤 물고기에게는 도움이 되고 어떤 물고기에게는 그렇지 않아서, 하나의 정답은 없어요. 어떤 물고기를 낚고 싶은지 생각해 보세요.</p>
+<table class="pass">
+<tr><th>질문</th><th>생각해 볼 점</th></tr>
+<tr><td>어떤 맛인가요?</td><td>비린 맛, 달콤/과일향, 매콤/짭짤, 고기/짠맛, 크리미/우유향, 자연, 고소/흙내음. 물고기마다 더 좋아하는 맛이 있고, 따뜻한 물에 맞는 맛과 차가운 물에 맞는 맛이 있어요. 두 번째 맛은 선택이에요.</td></tr>
+<tr><td>냄새가 얼마나 강한가요?</td><td>거의 없음, 느껴짐, 강함, 지독함. 냄새로 먹이를 찾는 물고기는 냄새가 강한 미끼를 더 멀리서 찾아내지만, 냄새가 아주 강한 미끼는 큰 물고기를 더 경계하게 만들어요.</td></tr>
+<tr><td>기름진가요?</td><td>기름진 미끼는 따뜻한 물에서 가장 잘 통하고, 차가운 물에서는 효과가 별로 없어요.</td></tr>
+<tr><td>움직이나요?</td><td>정지, 하늘거림, 꿈틀거림, 헤엄침. 움직임으로 먹이를 찾는 물고기는 움직이는 미끼를 더 쉽게 찾아요.</td></tr>
+<tr><td>얼마나 큰가요?</td><td>밀리미터 단위의 크기예요. 페이지에 비교용으로 기존 미끼 몇 가지가 나와요. 물고기 입에 비해 너무 크면 그 물고기는 물지 않고, 작은 물고기는 큰 미끼를 꺼려요.</td></tr>
+<tr><td>어떻게 생겼나요?</td><td>색, 눈에 띄는 정도(자연, 밝음, 형광), 빛을 반사하는지 여부예요. 밝은 미끼는 탁한 물에서도 잘 보이지만, 맑은 물에서는 경계심 많은 물고기를 놀라게 할 수 있어요.</td></tr>
+<tr><td>뜨나요, 가라앉나요?</td><td>가라앉음, 천천히 가라앉음, 바닥에서 떠오름, 수면에 뜸. 수면에서 낚을 수 있는 건 뜨는 미끼뿐이에요.</td></tr>
+</table>
+<h2 id="hook">5. 3페이지: 바늘과 확인</h2>
+<table class="pass">
+<tr><th>질문</th><th>생각해 볼 점</th></tr>
+<tr><td>바늘에 꿰었을 때 얼마나 부드럽나요?</td><td>딱딱함, 단단함, 부드러움. 부드러운 미끼는 입질을 더 많이 받지만 바늘에서 더 빨리 빠져요.</td></tr>
+<tr><td>바늘에 얼마나 오래 붙어 있나요?</td><td>쉽게 빠짐, 한동안 붙어 있음, 잘 붙어 있음.</td></tr>
+<tr><td>밑밥 전용</td><td>바늘에 꿸 수 없는 미끼일 때만 체크하세요. 다른 미끼는 모두 밑밥으로 던져 넣을 수도 있어요.</td></tr>
+</table>
+<p>마지막 페이지에서는 미끼가 미끼 상자에서 어떻게 보일지도 보여 줘요. 빠진 것이 있으면 <strong>낚시에 쓰기 전에</strong>라는 상자에 목록으로 나와요. 항목을 클릭하면 바로 그곳으로 가요.</p>
+<h2 id="which">6. 어떤 물고기가 물까요?</h2>
+<p>답을 다 채우면 마지막 페이지에 미끼를 쓸 수 있는 곳에 사는 물고기들과, 각 물고기가 여름과 겨울에 내 미끼를 얼마나 좋아하는지가 나와요: <strong>잘 문다</strong>, <strong>문다</strong>, <strong>가끔</strong>, <strong>안 문다</strong>.</p>
+<p>이건 게임 자체의 판단이에요. 물고기가 물속에서 하는 것과 같은 확인을, 그 물고기에게 다른 조건은 다 맞는 자리에서 해 본 결과예요. 그 물고기가 보통 낚이는 미끼와 비교하죠. 답을 바꾸면 목록도 함께 바뀌어서, 크기를 키우거나 냄새를 강하게 하면 어떻게 되는지 바로 볼 수 있어요.</p>
+<div class="callout">"안 문다"는 대개 미끼의 크기나 재료 때문이에요. 그 물고기 입에 너무 크거나, 그 물고기가 먹지 않는 것이죠. 실제 포인트에서는 수심, 날씨, 시간대, 물속 밑밥의 양처럼 이 목록이 빠뜨린 모든 것이 더해져요.</div>
+<h2 id="box">7. 미끼 상자 속 내 미끼와 레벨</h2>
+<p>플레이어가 만든 미끼는 기존 미끼와 같은 줄에 <strong>*</strong> 표시와 함께 들어가고, 미끼 상자에 그 표시의 뜻이 나와요. 고르고, 바늘에 꿰고, 밑밥으로 던져 넣는 방법도 기존 미끼와 똑같아요.</p>
+<p>모든 미끼에는 열리는 레벨이 있어요. 운영자가 낚시 성과에 따라 레벨을 정하기 전까지는 시작한 미끼와 같은 레벨에, 완전히 새로운 종류의 미끼라면 레벨 1에 열려요. 승인할 때 운영자가 레벨을 정할 수 있어요. 큰 물고기가 쉽게 낚이는 미끼는 레벨이 올라갈 수 있어요.</p>
+<h2 id="review">8. 운영자가 보는 것</h2>
+<ul>
+<li><strong>실제 미끼.</strong> 낚시꾼이 쓰거나 쓸 법한 것을 있는 그대로 설명해 주세요. 완전히 새로운 종류의 미끼는 환영하지만, 모든 면에서 완벽한 미끼는 안 돼요.</li>
+<li><strong>정직한 답.</strong> 20 mm 보일리를 2 mm로 적거나, 평범한 과일을 지독한 냄새로 설정하면 반려돼요.</li>
+<li><strong>알기 쉬운 이름과 설명 한 줄.</strong> 어떤 미끼인지 알려 주고, 불쾌한 내용은 없어야 해요.</li>
+<li><strong>깔끔한 사진.</strong> 투명한 배경에 미끼만 있는 사진이요.</li>
+</ul>
+<p>미끼가 반려되면 메모에 무엇을 바꿔야 하는지 나와 있어요. 고친 다음 다시 보내세요.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/ko/">홈</a> · <a href="/ko/venuecreators">낚시터 제작자 가이드</a> · <a href="/ko/speciescreators">어종 제작자 가이드</a> · <a href="/terms">이용 약관</a> · <a href="/privacy">개인정보 처리방침</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 한국어</span></summary><ul><li><a href="/baitcreators" hreflang="en" lang="en">English</a></li><li><a href="/de/baitcreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/baitcreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/baitcreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/baitcreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/baitcreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/baitcreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/baitcreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/baitcreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/baitcreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/baitcreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/baitcreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/baitcreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/baitcreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/baitcreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/baitcreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/baitcreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/baitcreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/baitcreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a aria-current="true" href="/ko/baitcreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/baitcreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/baitcreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/baitcreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/baitcreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/baitcreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/baitcreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/baitcreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/baitcreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/baitcreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/baitcreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/baitcreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/baitcreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/baitcreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/baitcreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/baitcreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/baitcreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/baitcreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/baitcreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/baitcreators"}, {"c": "", "hl": "en", "n": "English", "u": "/baitcreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Průvodce tvůrce nástrah — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Jak si v editoru nástrah ve hře Swimcraft vyrobit vlastní nástrahu: co každá otázka znamená pro rybu, které ryby ji vezmou a co kontrolují moderátoři." name="description"/>
+<meta content="Průvodce tvůrce nástrah — Swimcraft" property="og:title"/>
+<meta content="Jak si v editoru nástrah ve hře Swimcraft vyrobit vlastní nástrahu: co každá otázka znamená pro rybu, které ryby ji vezmou a co kontrolují moderátoři." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/cs/baitcreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/cs/baitcreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/baitcreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/baitcreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/baitcreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/baitcreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/baitcreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/baitcreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/baitcreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/baitcreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/baitcreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/baitcreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/baitcreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/baitcreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/baitcreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/baitcreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/baitcreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/baitcreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/baitcreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/baitcreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/baitcreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/cs/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Průvodce tvůrce nástrah</h1>
+<p class="meta"><strong>Jak si vyrobit vlastní nástrahu, od nové příchutě boilies po ovoce, na které ještě nikdo nelovil.</strong></p>
+<p class="meta">Naposledy aktualizováno: 18. října 2026</p>
+<div class="intro">Editor nástrah se tě na třech stránkách ptá na nástrahu. Ryby nečtou název na obalu: posuzují nástrahu podle toho, z čeho je, jak chutná a voní, jak je velká, jak vypadá a jak se hýbe. Tvoje odpovědi jsou přesně tyhle věci, takže rozhodují o tom, které ryby tvou nástrahu vezmou a jak ochotně. Tahle stránka vysvětluje každou otázku a to, co moderátor zkontroluje, než se tvoje nástraha dostane do Krabičky s nástrahami všech hráčů.</div>
+<ol class="toc">
+<li><a href="#life">Koncept, odesláno, schváleno: co se děje s tvou nástrahou</a></li>
+<li><a href="#start">Začni od jedné z našich nástrah, nebo vytvoř nový druh</a></li>
+<li><a href="#bait">Stránka 1: nástraha</a></li>
+<li><a href="#senses">Stránka 2: jak ji ryba vnímá</a></li>
+<li><a href="#hook">Stránka 3: na háčku a kontrola</a></li>
+<li><a href="#which">Které ryby ji vezmou?</a></li>
+<li><a href="#box">Tvoje nástraha v Krabičce s nástrahami a její úroveň</a></li>
+<li><a href="#review">Na co se dívají moderátoři</a></li>
+</ol>
+<h2 id="life">1. Koncept, odesláno, schváleno</h2>
+<p>V hlavním menu otevři <strong>Vytvořit nástrahu</strong>. Cokoli vyrobíš, se nejdřív uloží jako koncept, a koncept patří jen tobě. Tvoje vlastní nástrahy jsou v seznamu <strong>Tvoje nástrahy</strong> nahoře v editoru, takže se můžeš ke kterékoli z nich vrátit.</p>
+<table class="pass">
+<tr><th>Stav</th><th>Co to znamená</th></tr>
+<tr><td>Koncept</td><td>Vidíš ji jen ty. Jakmile odpovíš na všechny otázky, je hned ve tvé Krabičce s nástrahami a můžeš s ní lovit a měnit ji, kolikrát chceš. Úlovky na ni před schválením se do rekordů nikdy nepočítají.</td></tr>
+<tr><td>U moderátorů</td><td>Odeslal jsi ji. Dokud čeká na rozhodnutí, nedá se měnit.</td></tr>
+<tr><td>Schváleno</td><td>Objeví se v Krabičce s nástrahami všech hráčů, ve svém řádku, označená <strong>*</strong>.</td></tr>
+<tr><td>Vráceno</td><td>Moderátor ti nechal poznámku, co změnit. Oprav to a pošli ji znovu.</td></tr>
+</table>
+<h2 id="start">2. Začni od jedné z našich nástrah, nebo vytvoř nový druh</h2>
+<p>Nejrychleji nástrahu vyrobíš pomocí pole <strong>Zkratka</strong> nahoře na stránce 1. Vyber nástrahu ze hry, která se té tvé nejvíc podobá, a všechny odpovědi se podle ní vyplní. Pak změň jen to, co je jinak.</p>
+<p>Dobrý příklad je jahodové boilie: začni od jednoho z našich boilies, změň název, chuť a barvu a máš skoro hotovo. Cokoli necháš beze změny, loví přesně jako nástraha, od které jsi začal.</p>
+<p>Nech ve zkratce <strong>Úplně nový druh nástrahy</strong>, když chceš popsat něco, co ve hře ještě není: ovoce, které padá ze stromu, rostlinu, kterou spásá býložravá ryba, larvu, na kterou nikdo nepomyslel. Nový druh nástrahy začíná se všemi otázkami prázdnými.</p>
+<div class="callout">Každé lovné místo na revíru uvádí druhy nástrah, na které se tamní ryby loví, například Boilies nebo Kukuřice / partikl. Nástraha, kterou jsi začal od jedné z našich, se počítá jako nástraha, ze které vznikla. Úplně nový druh nástrahy se počítá podle toho, z čeho je: ovoce je na seznamu všude, kde lovné místo uvádí Kukuřice / partikl, a nová larva všude, kde uvádí Červi / kukly.</div>
+<h2 id="bait">3. Stránka 1: nástraha</h2>
+<div class="step"><span class="num">Jméno</span><h3>Co hráči uvidí v Krabičce s nástrahami</h3>
+<p>Krátký název, nejvýš 40 znaků. Nesmí to být název žádné z našich nástrah ani nástrahy jiného hráče.</p></div>
+<div class="step"><span class="num">Řádek popisu</span><h3>Jeden řádek, jako mají naše nástrahy</h3>
+<p>Každá nástraha v Krabičce s nástrahami má pod názvem jeden řádek, který říká, co je zač a na co se hodí. Napiš ten svůj stejně, do 70 znaků: <em>Sladká a olejnatá, letní nástraha na kapry.</em></p></div>
+<div class="step"><span class="num">Řádek</span><h3>Ve kterém řádku Krabičky s nástrahami bude</h3>
+<p>Vyber jeden z našich řádků, třeba Boilies nebo Partikly, nebo zvol <strong>Nový řádek</strong> a pojmenuj ho, například Ovoce. Nový řádek se v Krabičce s nástrahami objeví za našimi.</p></div>
+<div class="step"><span class="num">Z čeho je</span><h3>První věc, kterou ryba kontroluje</h3>
+<p>Zrna, semena, ovoce nebo rostliny; červi, larvy nebo hmyz; měkkýši nebo korýši; ryba; maso; těsto, boilie nebo pelety; nebo nic jedlého. Ryba, která nikdy nejí rostliny, nevezme ovoce, ať voní sebelíp, a ryba, která žije z červů, ochotně vezme nástrahu podobnou červu. Vyber, čím nástraha doopravdy je.</p></div>
+<div class="step"><span class="num">Kde se dá použít</span><h3>Sladká voda, moře, nebo obojí</h3>
+<p>Sladkovodní nástraha se na mořském revíru nenabízí, a naopak.</p></div>
+<div class="step"><span class="num">Fotka</span><h3>Samotná nástraha</h3>
+<p>PNG nebo WebP s průhledným pozadím, do 5 MB, jen se samotnou nástrahou. Dokud ji nepřidáš, ukazuje Krabička s nástrahami kresbu.</p></div>
+<h2 id="senses">4. Stránka 2: jak ji ryba vnímá</h2>
+<p>Tohle jsou odpovědi, podle kterých se ryby opravdu řídí. Každá pomáhá některým rybám a jiným ne, takže jediná nejlepší odpověď neexistuje: přemýšlej, které ryby chceš chytat.</p>
+<table class="pass">
+<tr><th>Otázka</th><th>Na co myslet</th></tr>
+<tr><td>Jakou má chuť?</td><td>Rybí, Sladká/Ovocná, Kořeněná/Pikantní, Masová/Slaná, Krémová/Mléčná, Přírodní nebo Ořechová/Zemitá. Každá ryba má některé chutě raději než jiné a některé chutě se hodí do teplé vody, jiné do studené. Druhá chuť je volitelná.</td></tr>
+<tr><td>Jak silně voní?</td><td>Sotva, Znatelně, Silný nebo Páchne. Ryba, která loví čichem, najde silně vonící nástrahu z větší dálky, ale velmi silné nástrahy dělají velké ryby opatrnějšími.</td></tr>
+<tr><td>Je olejnatá?</td><td>Olejnaté nástrahy fungují nejlépe v teplé vodě a ve studené přidají málo.</td></tr>
+<tr><td>Hýbe se?</td><td>Nehybná, Vlní se, Kroutí se nebo Plave. Ryby, které loví podle pohybu, najdou pohyblivou nástrahu snáz.</td></tr>
+<tr><td>Jak je velká?</td><td>Její velikost v milimetrech. Stránka pro srovnání ukazuje některé naše nástrahy. Když je nástraha na tlamu ryby moc velká, ta ryba ji nevezme; malé ryby velké nástrahy odrazují.</td></tr>
+<tr><td>Jak vypadá?</td><td>Její barva, jak moc vyniká (Přírodní, Jasná nebo Fluo) a jestli se leskne. Jasné nástrahy ryby najdou v kalné vodě, ale v čisté vodě můžou opatrné ryby vyplašit.</td></tr>
+<tr><td>Plave, nebo klesá?</td><td>Klesá, klesá pomalu, vznáší se nad dnem, nebo plave na hladině. Na hladině se dá lovit jen s nástrahou, která plave.</td></tr>
+</table>
+<h2 id="hook">5. Stránka 3: na háčku a kontrola</h2>
+<table class="pass">
+<tr><th>Otázka</th><th>Na co myslet</th></tr>
+<tr><td>Jak je měkká na háčku?</td><td>Tvrdá, pevná, nebo měkká. Měkké nástrahy dostanou víc záběrů, ale dřív spadnou z háčku.</td></tr>
+<tr><td>Jak dlouho vydrží na háčku?</td><td>Snadno spadne, chvíli vydrží, nebo dobře drží.</td></tr>
+<tr><td>Jen volné vnadění</td><td>Zaškrtni to jen tehdy, když nástraha nejde nasadit na háček. Každou jinou nástrahu můžeš taky vhodit jako volné vnadění.</td></tr>
+</table>
+<p>Poslední stránka taky ukazuje, jak bude tvoje nástraha vypadat v Krabičce s nástrahami. Pokud něco chybí, vypíše to pole <strong>Než s ní budeš moct lovit</strong>. Klikni na kteroukoli položku a přejdeš rovnou k ní.</p>
+<h2 id="which">6. Které ryby ji vezmou?</h2>
+<p>Jakmile jsou tvoje odpovědi kompletní, poslední stránka ukáže každou rybu, která žije tam, kde se dá tvoje nástraha použít, a jak ochotně ji bere v létě a v zimě: <strong>Bere ochotně</strong>, <strong>Bere</strong>, <strong>Občas</strong> nebo <strong>Nikdy</strong>.</p>
+<p>Je to vlastní úsudek hry, udělaný stejnými kontrolami, jaké dělají ryby ve vodě, na lovném místě, které jinak každé rybě vyhovuje. Porovnává se s tím, na co se ta ryba obvykle chytá. Změň odpověď a seznam se změní s ní, takže hned vidíš, co udělá větší velikost nebo silnější vůně.</p>
+<div class="callout">„Nikdy“ je obvykle kvůli velikosti nástrahy nebo tomu, z čeho je: je moc velká na tlamu té ryby, nebo je to něco, co nejí. Skutečné lovné místo přidá všechno, co tenhle seznam vynechává, třeba hloubku, počasí, denní dobu a to, kolik krmení je ve vodě.</div>
+<h2 id="box">7. Tvoje nástraha v Krabičce s nástrahami a její úroveň</h2>
+<p>Nástrahy od hráčů jsou ve stejných řádcích jako naše, označené <strong>*</strong>, a Krabička s nástrahami vysvětluje, co ta značka znamená. Vybírají se, nasazují na háček a vhazují jako volné vnadění přesně jako naše.</p>
+<p>Každá nástraha má úroveň, na které se odemkne. Dokud moderátor nenastaví úroveň tvé nástrahy podle toho, jak dobře loví, odemkne se na úrovni nástrahy, od které jsi začal, nebo na úrovni 1, pokud jde o úplně nový druh nástrahy. Moderátor může při schválení nastavit její úroveň: nástraha, na kterou se snadno chytají velké ryby, může čekat vyšší úroveň.</p>
+<h2 id="review">8. Na co se dívají moderátoři</h2>
+<ul>
+<li><strong>Skutečná nástraha.</strong> Něco, co rybáři používají nebo by mohli používat, popsané tak, jak to je. Úplně nový druh nástrahy je vítaný; nástraha, která je dokonalá ve všem, ne.</li>
+<li><strong>Poctivé odpovědi.</strong> Boilie 20 mm zadané jako 2 mm nebo obyčejné ovoce, které páchne, se vrátí.</li>
+<li><strong>Jasný název a řádek popisu.</strong> Říkají, co je nástraha zač, a nic urážlivého.</li>
+<li><strong>Čistá fotka.</strong> Samotná nástraha na průhledném pozadí.</li>
+</ul>
+<p>Pokud se tvoje nástraha vrátí, poznámka ti řekne, co změnit. Oprav to a pak ji pošli znovu.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/cs/">Domů</a> · <a href="/cs/venuecreators">Průvodce tvůrce revírů</a> · <a href="/cs/speciescreators">Průvodce tvůrce druhů</a> · <a href="/terms">Podmínky použití</a> · <a href="/privacy">Soukromí</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Čeština</span></summary><ul><li><a href="/baitcreators" hreflang="en" lang="en">English</a></li><li><a href="/de/baitcreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/baitcreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/baitcreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/baitcreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/baitcreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/baitcreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/baitcreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/baitcreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/baitcreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/baitcreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/baitcreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/baitcreators" hreflang="pl" lang="pl">Polski</a></li><li><a aria-current="true" href="/cs/baitcreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/baitcreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/baitcreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/baitcreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/baitcreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/baitcreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/baitcreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/baitcreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/baitcreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/baitcreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/baitcreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/baitcreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/baitcreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/baitcreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/baitcreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/baitcreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/baitcreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/baitcreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/baitcreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/baitcreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/baitcreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/baitcreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/baitcreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/baitcreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/baitcreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/baitcreators"}, {"c": "", "hl": "en", "n": "English", "u": "/baitcreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guia do criador de iscas — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Como fazer sua própria isca no criador de iscas do Swimcraft: o que cada pergunta significa para um peixe, quais peixes vão pegá-la e o que os moderadores verificam." name="description"/>
+<meta content="Guia do criador de iscas — Swimcraft" property="og:title"/>
+<meta content="Como fazer sua própria isca no criador de iscas do Swimcraft: o que cada pergunta significa para um peixe, quais peixes vão pegá-la e o que os moderadores verificam." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/pt-br/baitcreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/pt-br/baitcreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/baitcreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/baitcreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/baitcreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/baitcreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/baitcreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/baitcreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/baitcreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/baitcreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/baitcreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/baitcreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/baitcreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/baitcreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/baitcreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/baitcreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/baitcreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/baitcreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/baitcreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/baitcreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/baitcreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/pt-br/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Guia do criador de iscas</h1>
+<p class="meta"><strong>Como fazer uma isca só sua, de um novo sabor de boilie até uma fruta com que ninguém pescou ainda.</strong></p>
+<p class="meta">Última atualização: 18 de outubro de 2026</p>
+<div class="intro">O criador de iscas faz três páginas de perguntas sobre uma isca. Os peixes não leem o nome na embalagem: eles julgam uma isca pelo que ela é feita, pelo sabor e pelo cheiro, pelo tamanho, pela aparência e pelo jeito que ela se mexe. Suas respostas são exatamente essas coisas, então são elas que decidem quais peixes pegam a sua isca e com quanta vontade. Esta página explica cada pergunta e o que um moderador confere antes de a sua isca entrar na caixa de iscas de todo mundo.</div>
+<ol class="toc">
+<li><a href="#life">Rascunho, enviada, aprovada: o que acontece com a sua isca</a></li>
+<li><a href="#start">Começar por uma das nossas iscas ou criar um tipo novo</a></li>
+<li><a href="#bait">Página 1: a isca</a></li>
+<li><a href="#senses">Página 2: como um peixe a percebe</a></li>
+<li><a href="#hook">Página 3: no anzol, e conferência</a></li>
+<li><a href="#which">Quais peixes vão pegá-la?</a></li>
+<li><a href="#box">Sua isca na caixa de iscas, e o nível dela</a></li>
+<li><a href="#review">O que os moderadores verificam</a></li>
+</ol>
+<h2 id="life">1. Rascunho, enviado, aprovado</h2>
+<p>Abra <strong>Criar uma isca</strong> no menu principal. Tudo o que você faz é salvo primeiro como rascunho, e um rascunho é só seu. Suas próprias iscas ficam na lista <strong>Suas iscas</strong> no topo do criador, então você pode voltar a qualquer uma delas.</p>
+<table class="pass">
+<tr><th>Estado</th><th>O que significa</th></tr>
+<tr><td>Rascunho</td><td>Só você pode vê-la. Assim que todas as perguntas tiverem resposta, ela já aparece na sua própria caixa de iscas, e você pode pescar com ela e mudá-la quantas vezes quiser. Capturas feitas com ela antes de ser aprovada nunca contam para recordes.</td></tr>
+<tr><td>Com os moderadores</td><td>Você enviou. Ele não pode ser alterado enquanto espera uma decisão.</td></tr>
+<tr><td>Aprovado</td><td>Ela aparece na caixa de iscas de todo mundo, na linha dela, marcada com um <strong>*</strong>.</td></tr>
+<tr><td>Devolvido</td><td>Um moderador deixou uma observação dizendo o que mudar. Corrija e envie de novo.</td></tr>
+</table>
+<h2 id="start">2. Começar por uma das nossas iscas ou criar um tipo novo</h2>
+<p>O jeito mais rápido de fazer uma isca é a caixa <strong>Atalho</strong> no topo da página 1. Escolha a isca do jogo mais parecida com a sua e todas as respostas são preenchidas a partir dela. Depois mude só o que for diferente.</p>
+<p>Um boilie de morango é um bom exemplo: comece por um dos nossos boilies, mude o nome, o sabor e a cor, e está quase pronto. Tudo o que você deixar como estava pesca exatamente como a isca de que você partiu.</p>
+<p>Deixe o atalho em <strong>Um tipo de isca totalmente novo</strong> para descrever algo que o jogo ainda não tem: uma fruta que cai de uma árvore, uma planta que um peixe vegetariano pasta, uma larva em que ninguém pensou. Um tipo de isca novo começa com todas as perguntas em branco.</p>
+<div class="callout">Cada ponto de pesca de um pesqueiro lista os tipos de isca com que seus peixes são pescados, como Boilies ou Milho / Partículas. Uma isca que parte de uma das nossas conta como a isca de que partiu. Um tipo de isca totalmente novo conta pelo que ele é feito: uma fruta entra na lista onde quer que um ponto de pesca mostre Milho / Partículas, e uma larva nova onde quer que mostre Larvas / Crisálidas.</div>
+<h2 id="bait">3. Página 1: a isca</h2>
+<div class="step"><span class="num">Nome</span><h3>O que os jogadores vão ver na caixa de iscas</h3>
+<p>Um nome curto, de até 40 caracteres. Não pode ser o nome de uma das nossas iscas nem da isca de outro jogador.</p></div>
+<div class="step"><span class="num">Linha de descrição</span><h3>Uma linha, como as nossas iscas têm</h3>
+<p>Toda isca na caixa de iscas tem uma linha abaixo do nome dizendo o que ela é e para que serve. Escreva a sua do mesmo jeito, em até 70 caracteres: <em>Doce e oleosa, uma isca de verão para carpas.</em></p></div>
+<div class="step"><span class="num">Linha</span><h3>Em que linha da caixa de iscas ela fica</h3>
+<p>Escolha uma das nossas linhas, como Boilies ou Partículas, ou escolha <strong>Uma linha nova</strong> e dê um nome a ela, por exemplo Frutas. Uma linha nova aparece na caixa de iscas depois das nossas.</p></div>
+<div class="step"><span class="num">Do que é feita</span><h3>A primeira coisa que um peixe confere</h3>
+<p>Grãos, sementes, frutas ou plantas; minhocas, larvas ou insetos; mariscos ou crustáceos; peixe; carne; massa, boilie ou pellet; ou nada comestível. Um peixe que nunca come plantas não vai pegar uma fruta, por melhor que seja o cheiro, e um peixe que vive de minhocas vai pegar com vontade uma isca parecida com minhoca. Escolha o que a isca realmente é.</p></div>
+<div class="step"><span class="num">Onde ela pode ser usada</span><h3>Água doce, mar ou ambos</h3>
+<p>Uma isca de água doce não é oferecida num pesqueiro de mar, e vice-versa.</p></div>
+<div class="step"><span class="num">Foto</span><h3>A isca sozinha</h3>
+<p>Um PNG ou WebP com fundo transparente, de até 5 MB, mostrando só a isca. Até você adicionar uma, a caixa de iscas mostra um desenho.</p></div>
+<h2 id="senses">4. Página 2: como um peixe a percebe</h2>
+<p>Estas são as respostas que os peixes realmente usam. Cada uma ajuda alguns peixes e outros não, então não existe uma única resposta melhor: pense em quais peixes você quer pegar.</p>
+<table class="pass">
+<tr><th>Pergunta</th><th>O que levar em conta</th></tr>
+<tr><td>Qual o sabor dela?</td><td>De peixe, Doce/Frutado, Picante/Condimentado, Carnudo/Salgado, Cremoso/Lácteo, Natural ou Amendoado/Terroso. Cada peixe gosta de alguns sabores mais do que de outros, e alguns sabores combinam com água quente e outros com água fria. Um segundo sabor é opcional.</td></tr>
+<tr><td>Qual a força do cheiro?</td><td>Quase nada, Perceptível, Forte ou Fede. Um peixe que caça pelo olfato encontra uma isca de cheiro forte de mais longe, mas iscas de cheiro muito forte deixam os peixes grandes mais desconfiados.</td></tr>
+<tr><td>Ela é oleosa?</td><td>Iscas oleosas funcionam melhor em água quente e acrescentam pouco em água fria.</td></tr>
+<tr><td>Ela se mexe?</td><td>Parada, Ondula, Se contorce ou Nada. Peixes que caçam pelo movimento encontram com mais facilidade uma isca que se mexe.</td></tr>
+<tr><td>Qual o tamanho dela?</td><td>O tamanho em milímetros. A página mostra algumas das nossas iscas para comparar. Se for grande demais para a boca de um peixe, esse peixe não vai pegá-la; peixes pequenos se afastam de iscas grandes.</td></tr>
+<tr><td>Qual a aparência dela?</td><td>A cor, o quanto ela se destaca (Natural, Chamativa ou Flúor) e se ela reflete a luz. Iscas chamativas são encontradas em água turva, mas podem espantar peixes desconfiados em água limpa.</td></tr>
+<tr><td>Ela flutua ou afunda?</td><td>Afunda, afunda devagar, sobe do fundo ou flutua na superfície. Só uma isca que flutua pode ser pescada na superfície.</td></tr>
+</table>
+<h2 id="hook">5. Página 3: no anzol, e conferência</h2>
+<table class="pass">
+<tr><th>Pergunta</th><th>O que levar em conta</th></tr>
+<tr><td>Quão macia ela é no anzol?</td><td>Dura, firme ou macia. Iscas macias recebem mais beliscadas, mas saem do anzol mais cedo.</td></tr>
+<tr><td>Quanto tempo ela fica no anzol?</td><td>Solta fácil, fica um tempo ou fica bem presa.</td></tr>
+<tr><td>Só ceva solta</td><td>Marque isto só se a isca não puder ir num anzol. Qualquer outra isca também pode ser jogada como ceva solta.</td></tr>
+</table>
+<p>A última página também mostra a sua isca como ela vai aparecer na caixa de iscas. Se faltar alguma coisa, uma caixa chamada <strong>Antes de você poder pescar com ela</strong> mostra o que é. Clique em qualquer item para ir direto a ele.</p>
+<h2 id="which">6. Quais peixes vão pegá-la?</h2>
+<p>Quando suas respostas estiverem completas, a última página mostra cada peixe que vive onde a sua isca pode ser usada, e a vontade que ele tem de pegá-la no verão e no inverno: <strong>Pega com vontade</strong>, <strong>Pega</strong>, <strong>De vez em quando</strong> ou <strong>Nunca</strong>.</p>
+<p>É o próprio julgamento do jogo, feito com as mesmas verificações que os peixes fazem na água, num ponto de pesca que de resto combina com cada peixe. Ele é comparado com aquilo com que esse peixe costuma ser pescado. Mude uma resposta e a lista muda junto, então você vê na hora o que um tamanho maior ou um cheiro mais forte faz.</p>
+<div class="callout">"Nunca" costuma ser o tamanho da isca ou aquilo de que ela é feita: grande demais para a boca desse peixe, ou algo que ele não come. Um ponto de pesca de verdade acrescenta tudo o que esta lista deixa de fora, como a profundidade, o tempo, a hora do dia e quanta ceva há na água.</div>
+<h2 id="box">7. Sua isca na caixa de iscas, e o nível dela</h2>
+<p>Iscas feitas por jogadores ficam nas mesmas linhas que as nossas, marcadas com um <strong>*</strong>, e a caixa de iscas diz o que a marca significa. Elas são escolhidas, colocadas no anzol e jogadas como ceva solta exatamente como as nossas.</p>
+<p>Toda isca tem um nível em que ela é liberada. Até um moderador definir o nível da sua isca conforme o quanto ela pesca bem, ela é liberada no nível da isca de que você partiu, ou no nível 1 se for um tipo de isca totalmente novo. Um moderador pode definir o nível dela na aprovação: uma isca que pega peixes grandes com facilidade pode esperar um nível mais alto.</p>
+<h2 id="review">8. O que os moderadores verificam</h2>
+<ul>
+<li><strong>Uma isca real.</strong> Algo que os pescadores usam ou poderiam usar, descrito como é. Um tipo de isca totalmente novo é bem-vindo; uma isca perfeita em tudo, não.</li>
+<li><strong>Respostas honestas.</strong> Um boilie de 20 mm informado como 2 mm, ou uma fruta comum que fede, vai voltar.</li>
+<li><strong>Um nome e uma linha de descrição claros.</strong> Dizendo o que a isca é, e nada ofensivo.</li>
+<li><strong>Uma foto limpa.</strong> A isca sozinha, com fundo transparente.</li>
+</ul>
+<p>Se a sua isca for devolvida, a observação diz o que mudar. Corrija e envie de novo.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/pt-br/">Início</a> · <a href="/pt-br/venuecreators">Guia do criador de pesqueiros</a> · <a href="/pt-br/speciescreators">Guia do criador de espécies</a> · <a href="/terms">Termos de Uso</a> · <a href="/privacy">Privacidade</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Português (Brasil)</span></summary><ul><li><a href="/baitcreators" hreflang="en" lang="en">English</a></li><li><a href="/de/baitcreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/baitcreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/baitcreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/baitcreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a aria-current="true" href="/pt-br/baitcreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/baitcreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/baitcreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/baitcreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/baitcreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/baitcreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/baitcreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/baitcreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/baitcreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/baitcreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/baitcreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/baitcreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/baitcreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/baitcreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/baitcreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/baitcreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/baitcreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/baitcreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/baitcreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/baitcreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/baitcreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/baitcreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/baitcreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/baitcreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/baitcreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/baitcreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/baitcreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/baitcreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/baitcreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/baitcreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/baitcreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/baitcreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/baitcreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/baitcreators"}, {"c": "", "hl": "en", "n": "English", "u": "/baitcreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

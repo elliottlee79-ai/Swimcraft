@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yem Editörü Rehberi · Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Swimcraft'ın yem editöründe kendi yemini nasıl yaparsın: her soru bir balık için ne anlama gelir, hangi balıklar onu alır ve moderatörler neyi kontrol eder." name="description"/>
+<meta content="Yem Editörü Rehberi · Swimcraft" property="og:title"/>
+<meta content="Swimcraft'ın yem editöründe kendi yemini nasıl yaparsın: her soru bir balık için ne anlama gelir, hangi balıklar onu alır ve moderatörler neyi kontrol eder." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/tr/baitcreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/tr/baitcreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/baitcreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/baitcreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/baitcreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/baitcreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/baitcreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/baitcreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/baitcreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/baitcreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/baitcreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/baitcreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/baitcreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/baitcreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/baitcreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/baitcreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/baitcreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/baitcreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/baitcreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/baitcreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/baitcreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/baitcreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/tr/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Yem Editörü Rehberi</h1>
+<p class="meta"><strong>Yeni bir boilie aromasından henüz kimsenin balık tutmadığı bir meyveye kadar, kendi yemini nasıl yaparsın.</strong></p>
+<p class="meta">Son güncelleme: 18 Ekim 2026</p>
+<div class="intro">Yem editörü bir yem hakkında üç sayfa soru sorar. Balıklar paketin üstündeki adı okumaz: bir yemi neyden yapıldığına, tadına ve kokusuna, büyüklüğüne, görünüşüne ve nasıl hareket ettiğine bakarak değerlendirir. Cevapların tam olarak bunlardır, bu yüzden yemini hangi balıkların ne kadar istekle alacağını onlar belirler. Bu sayfa her soruyu ve yemin herkesin Yem kutusuna girmeden önce bir moderatörün neyi kontrol ettiğini açıklar.</div>
+<ol class="toc">
+<li><a href="#life">Taslak, gönderildi, onaylandı: yemine ne olur</a></li>
+<li><a href="#start">Yemlerimizden biriyle başla ya da yeni bir tür yap</a></li>
+<li><a href="#bait">Sayfa 1: yem</a></li>
+<li><a href="#senses">Sayfa 2: balık onu nasıl algılar</a></li>
+<li><a href="#hook">Sayfa 3: iğnede ve kontrol</a></li>
+<li><a href="#which">Hangi balıklar alır?</a></li>
+<li><a href="#box">Yemin Yem kutusunda ve seviyesi</a></li>
+<li><a href="#review">Moderatörler neye bakar</a></li>
+</ol>
+<h2 id="life">1. Taslak, gönderildi, onaylandı</h2>
+<p>Ana menüden <strong>Yem oluştur</strong> ekranını aç. Ne yaparsan yap önce taslak olarak kaydedilir ve taslak yalnızca senindir. Kendi yemlerin editörün üstündeki <strong>Yemlerin</strong> listesindedir, böylece herhangi birine geri dönebilirsin.</p>
+<table class="pass">
+<tr><th>Durum</th><th>Anlamı</th></tr>
+<tr><td>Taslak</td><td>Onu yalnızca sen görebilirsin. Her soru cevaplandığında hemen kendi Yem kutuna girer; onunla balık tutabilir ve istediğin kadar değiştirebilirsin. Onaylanmadan önce onunla tutulan balıklar asla rekorlara sayılmaz.</td></tr>
+<tr><td>Moderatörlerde</td><td>Onu gönderdin. Karar beklerken değiştirilemez.</td></tr>
+<tr><td>Onaylandı</td><td>Herkesin Yem kutusunda, kendi satırında, <strong>*</strong> işaretiyle görünür.</td></tr>
+<tr><td>Geri gönderildi</td><td>Bir moderatör neyin değişmesi gerektiğini söyleyen bir not bıraktı. Düzelt ve yeniden gönder.</td></tr>
+</table>
+<h2 id="start">2. Yemlerimizden biriyle başla ya da yeni bir tür yap</h2>
+<p>Yem yapmanın en hızlı yolu 1. sayfanın üstündeki <strong>Kısayol</strong> kutusudur. Oyundaki yemlerden seninkine en çok benzeyeni seç, tüm cevaplar ondan doldurulur. Sonra yalnızca farklı olanı değiştir.</p>
+<p>Çilekli boilie iyi bir örnektir: boilie'lerimizden biriyle başla, adı, tadı ve rengi değiştir, neredeyse bitti. Olduğu gibi bıraktığın her şey, başladığın yemle tam olarak aynı şekilde avlar.</p>
+<p>Oyunda henüz olmayan bir şeyi tarif etmek için kısayolu <strong>Yepyeni bir yem türü</strong> olarak bırak: ağaçtan düşen bir meyve, otçul bir balığın otladığı bir bitki, kimsenin aklına gelmemiş bir kurtçuk. Yepyeni bir yem türünde tüm sorular boş başlar.</p>
+<div class="callout">Bir meradaki her kürsü, balıklarının hangi yem türleriyle avlandığını listeler, örneğin Boilie'ler ya da Mısır / Partikül. Bizim yemlerimizden biriyle başladığın bir yem, başladığı yem sayılır. Yepyeni bir yem türü ise neyden yapıldığına göre sayılır: bir meyve, kürsünün Mısır / Partikül listelediği her yerde listededir, yeni bir kurtçuk da Kurtçuk / Pupa listelediği her yerde.</div>
+<h2 id="bait">3. Sayfa 1: yem</h2>
+<div class="step"><span class="num">Ad</span><h3>Oyuncuların Yem kutusunda göreceği</h3>
+<p>En fazla 40 harflik kısa bir ad. Yemlerimizden birinin ya da başka bir oyuncunun yeminin adı olamaz.</p></div>
+<div class="step"><span class="num">Açıklama satırı</span><h3>Bizim yemlerimizdeki gibi tek satır</h3>
+<p>Yem kutusundaki her yemin adının altında ne olduğunu ve neye iyi geldiğini söyleyen tek bir satır vardır. Seninkini de aynı şekilde, en fazla 70 harfle yaz: <em>Tatlı ve yağlı, bir yaz sazan yemi.</em></p></div>
+<div class="step"><span class="num">Satır</span><h3>Yem kutusunun hangi satırında durur</h3>
+<p>Boilie'ler ya da Partiküller gibi satırlarımızdan birini seç ya da <strong>Yeni bir satır</strong> seçip ona bir ad ver, örneğin Meyve. Yeni bir satır Yem kutusunda bizimkilerden sonra görünür.</p></div>
+<div class="step"><span class="num">Neyden yapılmış</span><h3>Bir balığın kontrol ettiği ilk şey</h3>
+<p>Tahıl, tohum, meyve veya bitki; solucan, kurtçuk veya böcek; kabuklu deniz canlısı veya kerevit; balık; et; hamur, boilie veya pelet; ya da yenebilir bir şey değil. Hiç bitki yemeyen bir balık, kokusu ne kadar güzel olursa olsun bir meyveyi almaz; solucanla beslenen bir balık ise solucana benzeyen bir yemi seve seve alır. Yemin gerçekte ne olduğunu seç.</p></div>
+<div class="step"><span class="num">Nerede kullanılabileceği</span><h3>Tatlı su, deniz ya da ikisi de</h3>
+<p>Tatlı su yemi deniz merasında sunulmaz, tersi de geçerlidir.</p></div>
+<div class="step"><span class="num">Fotoğraf</span><h3>Yalnızca yem</h3>
+<p>Şeffaf arka planlı, en fazla 5 MB, yalnızca yemi gösteren bir PNG ya da WebP. Sen ekleyene kadar Yem kutusu bir çizim gösterir.</p></div>
+<h2 id="senses">4. Sayfa 2: balık onu nasıl algılar</h2>
+<p>Bunlar balıkların gerçekten kullandığı cevaplardır. Her biri bazı balıklara yardım eder, bazılarına etmez; yani tek bir en iyi cevap yoktur: hangi balıkları tutmak istediğini düşün.</p>
+<table class="pass">
+<tr><th>Soru</th><th>Neyi düşünmeli</th></tr>
+<tr><td>Tadı nasıl?</td><td>Balıksı, Tatlı/Meyveli, Baharatlı/Çeşnili, Etli/Tuzlu, Kremalı/Sütlü, Doğal ya da Fındıksı/Topraksı. Her balık bazı tatları diğerlerinden daha çok sever; bazı tatlar ılık suya, bazıları soğuk suya uyar. İkinci bir tat isteğe bağlıdır.</td></tr>
+<tr><td>Kokusu ne kadar güçlü?</td><td>Zar zor, Belirgin, Güçlü ya da Leş gibi kokar. Kokuyla avlanan bir balık güçlü kokulu bir yemi daha uzaktan bulur, ama çok güçlü yemler büyük balıkları daha temkinli yapar.</td></tr>
+<tr><td>Yağlı mı?</td><td>Yağlı yemler en iyi ılık suda işe yarar, soğuk suda pek katkı sağlamaz.</td></tr>
+<tr><td>Hareket ediyor mu?</td><td>Hareketsiz, Salınır, Kıvrılır ya da Yüzer. Hareketle avlanan balıklar hareket eden bir yemi daha kolay bulur.</td></tr>
+<tr><td>Ne kadar büyük?</td><td>Milimetre cinsinden boyutu. Sayfa, karşılaştırma için bazı yemlerimizi gösterir. Bir balığın ağzına fazla büyükse o balık onu almaz; küçük balıklar büyük yemlerden çekinir.</td></tr>
+<tr><td>Nasıl görünüyor?</td><td>Rengi, ne kadar dikkat çektiği (Doğal, Parlak ya da Floresan) ve ışığı yansıtıp yansıtmadığı. Parlak yemler bulanık suda kolay bulunur ama berrak suda temkinli balıkları ürkütebilir.</td></tr>
+<tr><td>Yüzüyor mu, batıyor mu?</td><td>Batar, yavaşça batar, dipten yukarı kalkar ya da yüzeyde yüzer. Yüzeyde yalnızca yüzen bir yemle avlanılabilir.</td></tr>
+</table>
+<h2 id="hook">5. Sayfa 3: iğnede ve kontrol</h2>
+<table class="pass">
+<tr><th>Soru</th><th>Neyi düşünmeli</th></tr>
+<tr><td>İğnede ne kadar yumuşak?</td><td>Katı, sert ya da yumuşak. Yumuşak yemler daha çok vuruş alır ama iğneden daha çabuk düşer.</td></tr>
+<tr><td>İğnede ne kadar süre kalıyor?</td><td>Kolayca düşer, bir süre kalır ya da iyi tutunur.</td></tr>
+<tr><td>Yalnızca serpme yem</td><td>Bunu yalnızca yem iğneye takılamıyorsa işaretle. Diğer her yem serpme yem olarak da atılabilir.</td></tr>
+</table>
+<p>Son sayfa, yeminin Yem kutusunda nasıl görüneceğini de gösterir. Eksik bir şey varsa <strong>Onunla avlanabilmeden önce</strong> adlı kutu onu listeler. Doğrudan oraya gitmek için herhangi bir maddeye tıkla.</p>
+<h2 id="which">6. Hangi balıklar alır?</h2>
+<p>Cevapların tamamlandığında son sayfa, yeminin kullanılabileceği yerde yaşayan her balığı ve o balığın yemine yazın ve kışın ne kadar istekli olduğunu gösterir: <strong>Seve seve alır</strong>, <strong>Alır</strong>, <strong>Arada bir</strong> ya da <strong>Asla</strong>.</p>
+<p>Bu, oyunun kendi değerlendirmesidir; balıkların suda yaptığı kontrollerin aynısıyla, her balığa başka açılardan uyan bir kürsüde yapılır. O balığın genellikle neyle tutulduğuyla karşılaştırılır. Bir cevabı değiştir, liste de onunla birlikte değişir; böylece daha büyük bir boyutun ya da daha güçlü bir kokunun ne yaptığını hemen görürsün.</p>
+<div class="callout">"Asla" genellikle yemin boyutundan ya da neyden yapıldığından kaynaklanır: o balığın ağzına fazla büyüktür ya da yemediği bir şeydir. Gerçek bir av noktası, bu listenin dışarıda bıraktığı her şeyi ekler: derinlik, hava, günün saati ve sudaki yem miktarı gibi.</div>
+<h2 id="box">7. Yemin Yem kutusunda ve seviyesi</h2>
+<p>Oyuncuların yaptığı yemler bizimkilerle aynı satırlarda, <strong>*</strong> işaretiyle durur ve Yem kutusu bu işaretin ne anlama geldiğini söyler. Tıpkı bizimkiler gibi seçilir, iğneye takılır ve serpme yem olarak atılır.</p>
+<p>Her yemin açıldığı bir seviye vardır. Bir moderatör yeminin seviyesini ne kadar iyi avladığına göre belirleyene kadar yemin, başladığın yemin seviyesinde, yepyeni bir yem türüyse 1. seviyede açılır. Bir moderatör onaylarken seviyesini belirleyebilir: büyük balıkları kolayca tutan bir yem daha yüksek bir seviye bekleyebilir.</p>
+<h2 id="review">8. Moderatörler neye bakar</h2>
+<ul>
+<li><strong>Gerçek bir yem.</strong> Balıkçıların kullandığı ya da kullanabileceği bir şey, olduğu gibi tarif edilmiş. Yepyeni bir yem türü memnuniyetle karşılanır; her konuda kusursuz bir yem ise karşılanmaz.</li>
+<li><strong>Dürüst cevaplar.</strong> 2 mm olarak girilmiş 20 mm'lik bir boilie ya da leş gibi kokan sıradan bir meyve geri gönderilir.</li>
+<li><strong>Açık bir ad ve açıklama satırı.</strong> Yemin ne olduğunu söyleyen ve saldırgan hiçbir şey içermeyen.</li>
+<li><strong>Temiz bir fotoğraf.</strong> Şeffaf bir arka plan üzerinde yalnızca yem.</li>
+</ul>
+<p>Yemin geri gönderilirse not sana neyi değiştireceğini söyler. Düzelt, sonra yeniden gönder.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/tr/">Ana sayfa</a> · <a href="/tr/venuecreators">Mera editörü rehberi</a> · <a href="/tr/speciescreators">Tür editörü rehberi</a> · <a href="/terms">Kullanım Koşulları</a> · <a href="/privacy">Gizlilik</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Türkçe</span></summary><ul><li><a href="/baitcreators" hreflang="en" lang="en">English</a></li><li><a href="/de/baitcreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/baitcreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/baitcreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/baitcreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/baitcreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/baitcreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/baitcreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/baitcreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/baitcreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/baitcreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/baitcreators" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/baitcreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/baitcreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/baitcreators" hreflang="ru" lang="ru">Русский</a></li><li><a aria-current="true" href="/tr/baitcreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/baitcreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/baitcreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/baitcreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/baitcreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/baitcreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/baitcreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/baitcreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/baitcreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/baitcreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/baitcreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/baitcreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/baitcreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/baitcreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/baitcreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/baitcreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/baitcreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/baitcreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/baitcreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/baitcreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/baitcreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/baitcreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/baitcreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/baitcreators"}, {"c": "", "hl": "en", "n": "English", "u": "/baitcreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

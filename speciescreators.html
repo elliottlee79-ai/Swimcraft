@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Species Creator's Guide — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="How to describe a real fish in Swimcraft's species creator so it passes review and every venue creator can stock it." name="description"/>
+<meta content="The Species Creator's Guide — Swimcraft" property="og:title"/>
+<meta content="How to describe a real fish in Swimcraft's species creator so it passes review and every venue creator can stock it." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/speciescreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="topbar">
+<a href="/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a>
+</div>
+
+
+
+
+
+<main>
+<h1>The Species Creator's Guide</h1>
+<p class="meta"><strong>How to describe a real fish once, so every venue creator can stock it.</strong></p>
+<p class="meta">Last updated: 12 October 2026</p>
+<div class="intro">
+    The species creator asks three pages of questions about a fish. Your answers become how that fish behaves in the
+    water: when it feeds, what it takes, how it bites and how it fights. This page explains what each question is
+    really asking, and what a moderator checks before your fish goes into everyone's stocking list.
+  </div>
+<ol class="toc">
+<li><a href="#life">Draft, submitted, approved: what happens to your fish</a></li>
+<li><a href="#start">Start from a fish that already exists</a></li>
+<li><a href="#fish">Page 1: the fish</a></li>
+<li><a href="#water">Which waters it lives in</a></li>
+<li><a href="#behave">Page 2: how it behaves</a></li>
+<li><a href="#temp">Water temperature, in degrees</a></li>
+<li><a href="#check">Page 3: check and submit</a></li>
+<li><a href="#review">What the moderators look for</a></li>
+</ol>
+<h2 id="life">1. Draft, submitted, approved</h2>
+<p>Open <strong>Create a species</strong> from the main menu. Whatever you build is saved as a draft first, and a draft is yours alone.</p>
+<table class="pass">
+<tr><th>State</th><th>What it means</th></tr>
+<tr><td>Draft</td><td>Only you can see it. You can stock it on your own draft venues and change anything, as often as you like.</td></tr>
+<tr><td>With the moderators</td><td>You have sent it in. It cannot be changed while it waits for a decision.</td></tr>
+<tr><td>Approved</td><td>It appears in every venue creator's stocking list, with its own record boards.</td></tr>
+<tr><td>Sent back</td><td>A moderator has left a note saying what to change. Fix it and send it again.</td></tr>
+</table>
+<p>A fish you save reaches your own stocking list the next time the game starts, not straight away.</p>
+<h2 id="start">2. Start from a fish that already exists</h2>
+<p>The quickest way to build a fish is the <strong>Shortcut</strong> box at the top of page 1. Pick the fish in the game that is most like yours and every answer is filled in from it. Then change only what is different.</p>
+<p>A ghost carp is a good example: start from common carp, change the name, the photo and the records, and you are nearly done. The last page lists everything you changed, and says which fish yours was built from. The moderator sees that too.</p>
+<div class="callout">If no fish in the game shares every one of your answers, a few of the finer settings are borrowed from the fish yours is built from. The last page tells you when this has happened. It is normal for an unusual fish.</div>
+<h2 id="fish">3. Page 1: the fish</h2>
+<div class="step"><span class="num">Name and Latin name</span>
+<h3>What anglers call it</h3>
+<p>Use the name anglers would search for. Another fish cannot already have it. Add the Latin name too, so a moderator can tell exactly which fish you mean. Any other names it goes by can go in the box below, separated by commas.</p></div>
+<div class="step"><span class="num">Photo</span>
+<h3>A side-on cut-out</h3>
+<p>A PNG or WebP with a clear background, the fish side-on with its head to the left, up to 5 MB. Until you add one, your fish borrows the picture of the fish it was built from. The <a href="/fish-cutouts">fish cut-out guide</a> shows free ways to cut a fish out of a photo.</p></div>
+<div class="step"><span class="num">Countries and where it is found</span>
+<h3>Where an angler would meet it</h3>
+<p>Tick every country it lives in, and whether it is found in still waters, slow rivers or fast rivers. Tick all that apply.</p></div>
+<div class="step"><span class="num">Size</span>
+<h3>Records, with a link</h3>
+<p>Each country you ticked gets a row for its record weight in pounds, ounces and drams. You need at least one record, and each record needs a link to where it is recorded: a record committee, an angling body or a club page that a moderator can open and check. Leave a country empty if its record is not known.</p>
+<p>The typical adult weight and the specimen size are stored with your fish for later. Fill them in if you know them.</p></div>
+<h2 id="water">4. Which waters it lives in</h2>
+<p>Tick <strong>fresh water</strong>, <strong>estuary</strong> or <strong>sea</strong>, as many as apply. Your ticks decide which waters the fish can be caught in. A fish is never caught in water that is wrong for it, however well everything else suits.</p>
+<table class="pass">
+<tr><th>You tick</th><th>Your fish lives in</th></tr>
+<tr><td>Fresh water</td><td>Fresh water only: lakes, ponds, rivers.</td></tr>
+<tr><td>Fresh water and estuary</td><td>Fresh water and brackish water, up to the mouth of the river.</td></tr>
+<tr><td>Estuary, or sea</td><td>Estuaries and the open sea, which is where every sea fish in the game lives today.</td></tr>
+<tr><td>Fresh water and sea</td><td>Everything from fresh water to the open sea, as an eel does.</td></tr>
+</table>
+<h2 id="behave">5. Page 2: how it behaves</h2>
+<p>These answers are what an angler would tell you about the fish on the bank. Answer them as an angler, not as a textbook.</p>
+<table class="pass">
+<tr><th>Question</th><th>What to think about</th></tr>
+<tr><td>Where does it feed?</td><td>Put on the bottom, in mid-water and at the surface in order, most often first.</td></tr>
+<tr><td>What does it eat?</td><td>Plants and particles, insects and worms, other fish. Tick all that apply.</td></tr>
+<tr><td>Which of our baits is it caught on?</td><td>Add the baits from the game it is caught on, then put them in order, best first.</td></tr>
+<tr><td>When does it feed best?</td><td>Daytime, dawn and dusk, or night.</td></tr>
+<tr><td>Where does it hang out?</td><td>Open water, some cover, or snags and weed.</td></tr>
+<tr><td>Clear or coloured water?</td><td>Which it prefers.</td></tr>
+<tr><td>How does it bite?</td><td>Delicate dips, confident lifts, or runs off with the bait.</td></tr>
+<tr><td>How wary is it?</td><td>Bold, cautious or very wary.</td></tr>
+<tr><td>How does it fight?</td><td>Pick the fight whose description sounds most like the fish on the end of your line.</td></tr>
+</table>
+<h2 id="temp">6. Water temperature, in degrees</h2>
+<p>Choose the label that sounds most like your fish. It fills in three numbers in °C, which you can change:</p>
+<ul>
+<li><strong>Feeds best at</strong>: the temperature it is keenest.</li>
+<li><strong>Comfortable from</strong> and <strong>comfortable to</strong>: the range it still feeds well in.</li>
+</ul>
+<p>The numbers must run from low, to best, to high. Outside its comfortable range the fish goes off the feed: a few degrees colder and most fish keep only a trickle of appetite; a few degrees warmer and they stop altogether.</p>
+<div class="tablewrap"><table class="pass labels">
+<tr><th>Label</th><th>Best</th><th>Comfortable</th><th>What it means</th></tr>
+<tr><td>Cold-water specialist</td><td>12 °C</td><td>6 to 17 °C</td><td>Loves cold, clean water; struggles once it warms. Trout, grayling, char, cod.</td></tr>
+<tr><td>Cool-water</td><td>14 °C</td><td>8 to 20 °C</td><td>Prefers it cool, feeds well through winter, slows in high summer. Pike, perch, dace.</td></tr>
+<tr><td>Temperate all-rounder</td><td>17 °C</td><td>9 to 23 °C</td><td>Happy across a normal UK year; best in late spring and autumn. Roach, chub, bream.</td></tr>
+<tr><td>Warm-water</td><td>22 °C</td><td>15 to 28 °C</td><td>Comes alive in summer, quiet in winter. Carp, tench, rudd, catfish.</td></tr>
+<tr><td>Warm-water (sea)</td><td>22 °C</td><td>15 to 28 °C</td><td>Like Warm-water, but no winter appetite: a summer-and-autumn sea fish. Bass.</td></tr>
+<tr><td>Hardy wide-range</td><td>20 °C</td><td>8 to 28 °C</td><td>Shrugs off cold and heat alike. Crucian carp, eel.</td></tr>
+<tr><td>Subtropical</td><td>25 °C</td><td>19 to 30 °C</td><td>Warm all year, sulks below about 15 °C. Largemouth bass, tilapia.</td></tr>
+<tr><td>Tropical</td><td>29 °C</td><td>25 to 33 °C</td><td>Hot water only; stops feeding when it cools. Barramundi, peacock bass.</td></tr>
+</table></div>
+<div class="callout">Only change the numbers if you know your fish differs from its label. A venue's water warms and cools through the seasons, and a venue pinned to its real place on Earth follows that place's climate. A tropical fish stocked on a cold water will hardly ever feed, and that is the fish behaving honestly, not a fault.</div>
+<h2 id="check">7. Page 3: check and submit</h2>
+<p>The last page shows your fish as other anglers will see it, with a short description written from your answers and a list of what is different from the fish it was built from. Read the description: if it does not sound like your fish, one of your answers is wrong.</p>
+<p>If anything is missing, a box called <strong>Before you can submit</strong> lists it. Click any item to go straight to it. When nothing is missing, <strong>Submit to the moderators</strong> sends your fish in.</p>
+<h2 id="review">8. What the moderators look for</h2>
+<ul>
+<li><strong>A real fish.</strong> The species creator is for fish anglers catch, described as they are.</li>
+<li><strong>A record that checks out.</strong> The link must open, and it must show the weight you entered.</li>
+<li><strong>A clean photo.</strong> A cut-out, side-on, head to the left, with nothing else in the picture.</li>
+<li><strong>Answers that fit the fish.</strong> A sea fish ticked as fresh water only, or a carp that feeds best in ice water, will come back.</li>
+</ul>
+<p>If your fish is sent back, the note tells you what to change. Fix it, then send it in again.</p>
+</main>
+<footer>
+  © 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/">Home</a> · <a href="/venuecreators">Venue creator's guide</a> · <a href="/terms">Terms of Use</a> · <a href="/privacy">Privacy</a>
+</footer>
+</body>
+</html>

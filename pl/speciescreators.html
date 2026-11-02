@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Poradnik twórcy gatunków — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Jak opisać prawdziwą rybę w kreatorze gatunków Swimcraft, żeby przeszła weryfikację i każdy twórca łowisk mógł nią zarybiać." name="description"/>
+<meta content="Poradnik twórcy gatunków — Swimcraft" property="og:title"/>
+<meta content="Jak opisać prawdziwą rybę w kreatorze gatunków Swimcraft, żeby przeszła weryfikację i każdy twórca łowisk mógł nią zarybiać." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/pl/speciescreators" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/pl/speciescreators" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/speciescreators" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/speciescreators" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/speciescreators" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/speciescreators" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/speciescreators" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/speciescreators" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/speciescreators" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/speciescreators" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/speciescreators" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/speciescreators" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/speciescreators" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/speciescreators" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/speciescreators" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/speciescreators" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/speciescreators" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/speciescreators" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/speciescreators" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/speciescreators" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/speciescreators" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/speciescreators" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/speciescreators" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/pl/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Poradnik twórcy gatunków</h1>
+<p class="meta"><strong>Opisz prawdziwą rybę raz, a każdy twórca łowisk będzie mógł nią zarybiać.</strong></p>
+<p class="meta">Ostatnia aktualizacja: 12 października 2026</p>
+<div class="intro">Kreator gatunków zadaje o rybie pytania na trzech stronach. Twoje odpowiedzi decydują o tym, jak ryba zachowuje się w wodzie: kiedy żeruje, co bierze, jak bierze i jak walczy. Ta strona wyjaśnia, o co tak naprawdę chodzi w każdym pytaniu i co sprawdza moderator, zanim twoja ryba trafi na listy zarybień wszystkich graczy.</div>
+<ol class="toc">
+<li><a href="#life">Szkic, wysłana, zatwierdzona: co dzieje się z twoją rybą</a></li>
+<li><a href="#start">Zacznij od ryby, która już istnieje</a></li>
+<li><a href="#fish">Strona 1: ryba</a></li>
+<li><a href="#water">W jakich wodach żyje</a></li>
+<li><a href="#behave">Strona 2: jak się zachowuje</a></li>
+<li><a href="#temp">Temperatura wody w stopniach</a></li>
+<li><a href="#check">Strona 3: sprawdź i wyślij</a></li>
+<li><a href="#review">Na co patrzą moderatorzy</a></li>
+</ol>
+<h2 id="life">1. Szkic, wysłana, zatwierdzona</h2>
+<p>Otwórz <strong>Stwórz gatunek</strong> z menu głównego. Wszystko, co zbudujesz, najpierw zapisuje się jako szkic, a szkic należy tylko do ciebie.</p>
+<table class="pass">
+<tr><th>Stan</th><th>Co oznacza</th></tr>
+<tr><td>Szkic</td><td>Widzisz go tylko ty. Możesz zarybiać nim własne łowiska w wersji szkicu i zmieniać wszystko, tak często, jak chcesz.</td></tr>
+<tr><td>U moderatorów</td><td>Ryba została wysłana. Nie można jej zmieniać, dopóki czeka na decyzję.</td></tr>
+<tr><td>Zatwierdzona</td><td>Pojawia się na liście zarybień każdego twórcy łowisk, z własnymi tablicami rekordów.</td></tr>
+<tr><td>Odesłana</td><td>Moderator zostawił uwagę, co trzeba zmienić. Popraw to i wyślij ponownie.</td></tr>
+</table>
+<p>Zapisana ryba trafia na twoją własną listę zarybień przy następnym uruchomieniu gry, a nie od razu.</p>
+<h2 id="start">2. Zacznij od ryby, która już istnieje</h2>
+<p>Najszybciej zbudujesz rybę za pomocą pola <strong>Skrót</strong> na górze strony 1. Wybierz rybę z gry, która najbardziej przypomina twoją, a wszystkie odpowiedzi zostaną wypełnione na jej podstawie. Potem zmień tylko to, co się różni.</p>
+<p>Dobrym przykładem jest karp duch: zacznij od karpia, zmień nazwę, zdjęcie i rekordy, i prawie gotowe. Ostatnia strona pokazuje wszystkie twoje zmiany i z jakiej ryby zbudowana jest twoja. Moderator też to widzi.</p>
+<div class="callout">Jeśli żadna ryba w grze nie ma dokładnie takich samych odpowiedzi jak twoja, kilka bardziej szczegółowych ustawień zostanie zapożyczonych od ryby, z której zbudowana jest twoja. Ostatnia strona poinformuje cię, gdy tak się stanie. To normalne w przypadku nietypowej ryby.</div>
+<h2 id="fish">3. Strona 1: ryba</h2>
+<div class="step"><span class="num">Nazwa i nazwa łacińska</span><h3>Jak nazywają ją wędkarze</h3>
+<p>Użyj nazwy, której wędkarze szukaliby w wyszukiwarce. Żadna inna ryba nie może już jej mieć. Dodaj też nazwę łacińską, żeby moderator dokładnie wiedział, o jaką rybę ci chodzi. Inne nazwy możesz wpisać w polu poniżej, rozdzielając je przecinkami.</p></div>
+<div class="step"><span class="num">Zdjęcie</span><h3>Wycięta ryba z boku</h3>
+<p>PNG lub WebP z przezroczystym tłem, ryba z boku, głową w lewo, do 5 MB. Dopóki go nie dodasz, twoja ryba pożycza zdjęcie od ryby, z której została zbudowana. <a href="/pl/fish-cutouts">Poradnik wycinania ryb</a> pokazuje darmowe sposoby wycięcia ryby ze zdjęcia.</p></div>
+<div class="step"><span class="num">Kraje i gdzie występuje</span><h3>Gdzie wędkarz by ją spotkał</h3>
+<p>Zaznacz każdy kraj, w którym żyje, oraz czy występuje w wodach stojących, wolnych rzekach czy szybkich rzekach. Zaznacz wszystkie pasujące.</p></div>
+<div class="step"><span class="num">Rozmiar</span><h3>Rekordy z linkiem</h3>
+<p>Każdy zaznaczony kraj dostaje wiersz na rekordową wagę w funtach, uncjach i dramach. Potrzebujesz co najmniej jednego rekordu, a każdy rekord wymaga linku do miejsca, gdzie jest zapisany: komisji rekordów, związku wędkarskiego albo strony klubu, którą moderator może otworzyć i sprawdzić. Zostaw kraj pusty, jeśli jego rekord nie jest znany.</p>
+<p>Typowa waga dorosłej ryby i rozmiar okazu zapisują się razem z twoją rybą na później. Wypełnij je, jeśli je znasz.</p></div>
+<h2 id="water">4. W jakich wodach żyje</h2>
+<p>Zaznacz <strong>Woda słodka</strong>, <strong>Ujście rzeki</strong> lub <strong>Morskie</strong>, tyle, ile pasuje. Twoje zaznaczenia decydują, w jakich wodach można złowić rybę. Ryby nigdy nie złowisz w wodzie, która jest dla niej niewłaściwa, choćby wszystko inne pasowało idealnie.</p>
+<table class="pass">
+<tr><th>Zaznaczasz</th><th>Twoja ryba żyje w</th></tr>
+<tr><td>Woda słodka</td><td>Tylko woda słodka: jeziora, stawy, rzeki.</td></tr>
+<tr><td>Woda słodka i ujście rzeki</td><td>Woda słodka i słonawa, aż po ujście rzeki.</td></tr>
+<tr><td>Ujście rzeki lub morze</td><td>Ujścia rzek i otwarte morze, gdzie dziś żyje każda ryba morska w grze.</td></tr>
+<tr><td>Woda słodka i morze</td><td>Wszystko od wody słodkiej po otwarte morze, tak jak węgorz.</td></tr>
+</table>
+<h2 id="behave">5. Strona 2: jak się zachowuje</h2>
+<p>Te odpowiedzi to to, co wędkarz opowiedziałby ci o rybie nad wodą. Odpowiadaj jak wędkarz, a nie jak podręcznik.</p>
+<table class="pass">
+<tr><th>Pytanie</th><th>Nad czym się zastanowić</th></tr>
+<tr><td>Gdzie żeruje?</td><td>Ustaw przy dnie, w toni i przy powierzchni w kolejności, najczęstsze najpierw.</td></tr>
+<tr><td>Czym się żywi?</td><td>Rośliny i ziarna, owady i robaki, inne ryby. Zaznacz wszystkie pasujące.</td></tr>
+<tr><td>Na które z naszych przynęt się łowi?</td><td>Dodaj przynęty z gry, na które się łowi, a potem ustaw je w kolejności, najlepsze najpierw.</td></tr>
+<tr><td>Kiedy najlepiej żeruje?</td><td>W dzień, o świcie i zmierzchu albo w nocy.</td></tr>
+<tr><td>Gdzie przebywa?</td><td>Otwarta woda, trochę kryjówek albo zaczepy i zielsko.</td></tr>
+<tr><td>Woda czysta czy mętna?</td><td>Którą woli.</td></tr>
+<tr><td>Jak bierze?</td><td>Delikatne podtopienia, pewne wyniesienia albo odjeżdża z przynętą.</td></tr>
+<tr><td>Jak bardzo jest płochliwa?</td><td>Śmiała, ostrożna lub bardzo płochliwa.</td></tr>
+<tr><td>Jak walczy?</td><td>Wybierz hol, którego opis najbardziej przypomina rybę na końcu twojej żyłki.</td></tr>
+</table>
+<h2 id="temp">6. Temperatura wody w stopniach</h2>
+<p>Wybierz etykietę, która najbardziej pasuje do twojej ryby. Wypełnia ona trzy liczby w °C, które możesz zmienić:</p>
+<ul>
+<li><strong>Najlepiej żeruje przy</strong>: temperatura, w której żeruje najchętniej.</li>
+<li><strong>Komfortowo od</strong> i <strong>komfortowo do</strong>: zakres, w którym nadal dobrze żeruje.</li>
+</ul>
+<p>Liczby muszą iść od najniższej, przez najlepszą, do najwyższej. Poza swoim komfortowym zakresem ryba przestaje żerować: kilka stopni zimniej i większości ryb zostaje tylko odrobina apetytu; kilka stopni cieplej i przestają całkiem.</p>
+<div class="tablewrap"><table class="pass labels">
+<tr><th>Etykieta</th><th>Najlepiej</th><th>Komfortowo</th><th>Co oznacza</th></tr>
+<tr><td>Specjalista zimnej wody</td><td>12 °C</td><td>od 6 do 17 °C</td><td>Kocha zimną, czystą wodę; męczy się, gdy się nagrzewa. Pstrąg, lipień, golec, dorsz.</td></tr>
+<tr><td>Chłodna woda</td><td>14 °C</td><td>od 8 do 20 °C</td><td>Woli chłód, dobrze żeruje przez zimę, zwalnia w pełni lata. Szczupak, okoń, jelec.</td></tr>
+<tr><td>Umiarkowany wszechstronny</td><td>17 °C</td><td>od 9 do 23 °C</td><td>Dobrze czuje się przez zwykły brytyjski rok; najlepiej późną wiosną i jesienią. Płoć, kleń, leszcz.</td></tr>
+<tr><td>Ciepła woda</td><td>22 °C</td><td>od 15 do 28 °C</td><td>Ożywa latem, spokojny zimą. Karp, lin, wzdręga, sum.</td></tr>
+<tr><td>Ciepła woda (morze)</td><td>22 °C</td><td>od 15 do 28 °C</td><td>Jak Ciepła woda, ale bez zimowego apetytu: ryba morska na lato i jesień. Labraks.</td></tr>
+<tr><td>Odporny i wszechstronny</td><td>20 °C</td><td>od 8 do 28 °C</td><td>Znosi zimno i upał tak samo. Karaś, węgorz.</td></tr>
+<tr><td>Subtropikalny</td><td>25 °C</td><td>od 19 do 30 °C</td><td>Ciepło przez cały rok, dąsa się poniżej ok. 15 °C. Bass wielkogębowy, tilapia.</td></tr>
+<tr><td>Tropikalny</td><td>29 °C</td><td>od 25 do 33 °C</td><td>Tylko ciepła woda; przestaje żerować, gdy się ochładza. Barramundi, peacock bass.</td></tr>
+</table></div>
+<div class="callout">Zmieniaj liczby tylko wtedy, gdy wiesz, że twoja ryba różni się od swojej etykiety. Woda na łowisku nagrzewa się i ochładza wraz z porami roku, a łowisko przypięte do swojego prawdziwego miejsca na Ziemi podąża za klimatem tego miejsca. Ryba tropikalna wpuszczona do zimnej wody prawie nigdy nie będzie żerować, i to jest uczciwe zachowanie ryby, a nie błąd.</div>
+<h2 id="check">7. Strona 3: sprawdź i wyślij</h2>
+<p>Ostatnia strona pokazuje twoją rybę tak, jak zobaczą ją inni wędkarze, z krótkim opisem napisanym na podstawie twoich odpowiedzi i listą tego, czym różni się od ryby, z której została zbudowana. Przeczytaj opis: jeśli nie brzmi jak twoja ryba, któraś z odpowiedzi jest błędna.</p>
+<p>Jeśli czegoś brakuje, wymienia to pole <strong>Zanim będzie można wysłać</strong>. Kliknij dowolną pozycję, żeby przejść prosto do niej. Gdy niczego nie brakuje, przycisk <strong>Wyślij do moderatorów</strong> wysyła twoją rybę.</p>
+<h2 id="review">8. Na co patrzą moderatorzy</h2>
+<ul>
+<li><strong>Prawdziwa ryba.</strong> Kreator gatunków jest dla ryb, które łowią wędkarze, opisanych takimi, jakie są.</li>
+<li><strong>Rekord, który się potwierdza.</strong> Link musi się otwierać i musi pokazywać wpisaną przez ciebie wagę.</li>
+<li><strong>Czyste zdjęcie.</strong> Wycięta ryba, z boku, głową w lewo, bez niczego innego na zdjęciu.</li>
+<li><strong>Odpowiedzi pasujące do ryby.</strong> Ryba morska zaznaczona jako tylko słodkowodna albo karp, który najlepiej żeruje w lodowatej wodzie, wrócą do ciebie.</li>
+</ul>
+<p>Jeśli twoja ryba zostanie odesłana, uwaga powie ci, co zmienić. Popraw to, a potem wyślij ją ponownie.</p>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/pl/">Strona główna</a> · <a href="/pl/venuecreators">Poradnik twórcy łowisk</a> · <a href="/terms">Warunki korzystania</a> · <a href="/privacy">Prywatność</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Polski</span></summary><ul><li><a href="/speciescreators" hreflang="en" lang="en">English</a></li><li><a href="/de/speciescreators" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/speciescreators" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/speciescreators" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/speciescreators" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/speciescreators" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/speciescreators" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/speciescreators" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/speciescreators" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/speciescreators" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/speciescreators" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/speciescreators" hreflang="fi" lang="fi">Suomi</a></li><li><a aria-current="true" href="/pl/speciescreators" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/speciescreators" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/speciescreators" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/speciescreators" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/speciescreators" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/speciescreators" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/speciescreators" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/speciescreators" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/speciescreators"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/speciescreators"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/speciescreators"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/speciescreators"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/speciescreators"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/speciescreators"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/speciescreators"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/speciescreators"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/speciescreators"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/speciescreators"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/speciescreators"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/speciescreators"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/speciescreators"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/speciescreators"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/speciescreators"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/speciescreators"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/speciescreators"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/speciescreators"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/speciescreators"}, {"c": "", "hl": "en", "n": "English", "u": "/speciescreators"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>
