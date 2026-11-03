@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>魚吃什麼 · Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Swimcraft 裡每種魚吃什麼、怎麼找食物、在哪裡覓食、有什麼習性：幫你替想釣的魚選對餌料的指南。" name="description"/>
+<meta content="魚吃什麼 · Swimcraft" property="og:title"/>
+<meta content="Swimcraft 裡每種魚吃什麼、怎麼找食物、在哪裡覓食、有什麼習性：幫你替想釣的魚選對餌料的指南。" property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/zh-tw/whateatswhat" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/zh-tw/whateatswhat" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/whateatswhat" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/whateatswhat" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/whateatswhat" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/whateatswhat" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/whateatswhat" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/whateatswhat" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/whateatswhat" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/whateatswhat" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/whateatswhat" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/whateatswhat" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/whateatswhat" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/whateatswhat" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/whateatswhat" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/whateatswhat" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/whateatswhat" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/whateatswhat" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/whateatswhat" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/whateatswhat" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/whateatswhat" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/whateatswhat" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/whateatswhat" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/zh-tw/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>魚吃什麼</h1>
+<p class="meta"><strong>每種魚吃什麼、怎麼找食物、有什麼習性，讓你為想釣的魚選對餌料。</strong></p>
+<p class="meta">最後更新：2026 年 11 月 3 日</p>
+<div class="intro">魚判斷餌料，首先看它是用什麼做的。鉤上掛的餌是魚根本不吃的東西，釣點選得再好也釣不到。本頁依類型介紹 Swimcraft 裡的魚，食物清單和遊戲中魚所用的完全一致。</div>
+<ol class="toc">
+<li><a href="#read">如何閱讀本頁</a></li>
+<li><a href="#carp">鯉魚與底棲覓食魚</a></li>
+<li><a href="#silver">銀色小魚</a></li>
+<li><a href="#predators">掠食魚</a></li>
+<li><a href="#game">鱒魚與茴魚</a></li>
+<li><a href="#sea">海釣魚種</a></li>
+</ol>
+<h2 id="read">1. 如何閱讀本頁</h2>
+<table class="pass">
+<tr><th>用語</th><th>釣魚時的意思</th></tr>
+<tr><td>主食</td><td>這種魚最想找的食物，最佳選擇。</td></tr>
+<tr><td>愛吃</td><td>很樂意吃，只是不如主食那麼積極。</td></tr>
+<tr><td>偶爾</td><td>有可能上鉤，但要等上久得多。</td></tr>
+<tr><td>從不</td><td>這種魚完全不會碰。</td></tr>
+</table>
+<p>偏好條件指魚最容易開口的時候，並不是牠唯一進食的時候。真正起作用的是水溫：這裡列的季節是以溫帶氣候為準，南半球請把季節倒過來看，水比你熟悉的更暖或更冷時也要自行調整。</p>
+<p>靠氣味找食的魚，會從更遠的地方游向氣味濃的餌。靠動作獵食的魚，更容易發現會動的餌；在河裡，水流會替你帶動餌，水底的餌和浮標下的餌都一樣。</p>
+<h2 id="carp">2. 鯉魚與底棲覓食魚</h2>
+<p>嘴大、有耐性的魚，會在水底翻找食物。牠們主要靠氣味找食，所以打窩的點比會動的餌更管用。</p>
+<h3 id="common-carp">鯉魚</h3>
+<p>聰明又謹慎，尤其是大魚。成小群巡游，會把打了窩的點吃光，然後又回來找更多。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>愛吃</td><td>貝類 · 肉類</td></tr>
+<tr><td>從不</td><td>魚 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 15 至 28°C，最佳約 22°C · 晚春至初秋 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 帶色的水</td></tr>
+<tr><td>水流</td><td>靜水或緩流</td></tr>
+</table>
+<h3 id="mirror-carp">鏡鯉</h3>
+<p>在這裡所有重要方面都跟鯉魚一樣：同樣的食量，同樣的謹慎，只是外皮不同。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>愛吃</td><td>貝類 · 肉類</td></tr>
+<tr><td>從不</td><td>魚 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 15 至 28°C，最佳約 22°C · 晚春至初秋 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 帶色的水</td></tr>
+<tr><td>水流</td><td>靜水或緩流</td></tr>
+</table>
+<h3 id="crucian-carp">歐洲鯽</h3>
+<p>體型小，出了名的敏感。口訊可能非常細微，所以用細緻的釣組最容易看出來。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲</td></tr>
+<tr><td>愛吃</td><td>肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>偶爾</td><td>貝類</td></tr>
+<tr><td>從不</td><td>魚 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 28°C，最佳約 20°C · 春至秋，冬季暖和時也行 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 帶色的水</td></tr>
+<tr><td>水流</td><td>靜水或緩流</td></tr>
+</table>
+<h3 id="tench">丁鱥</h3>
+<p>夏季出沒在多水草靜水的魚，黎明和黃昏最活躍。常常會冒出氣泡洩露行蹤。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>愛吃</td><td>貝類 · 肉類</td></tr>
+<tr><td>偶爾</td><td>魚</td></tr>
+<tr><td>從不</td><td>路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 15 至 28°C，最佳約 22°C · 晚春至初秋 · 黎明、黃昏和陰天 · 帶色的水</td></tr>
+<tr><td>水流</td><td>靜水或緩流</td></tr>
+</table>
+<h3 id="bream">歐鯿</h3>
+<p>成大群行動，在水底拼命進食，然後離開。窩打得夠好就能留住牠們。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲</td></tr>
+<tr><td>愛吃</td><td>波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>偶爾</td><td>貝類 · 魚 · 肉類</td></tr>
+<tr><td>從不</td><td>路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 夜晚 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 帶色的水</td></tr>
+<tr><td>水流</td><td>靜水或緩流</td></tr>
+</table>
+<h3 id="barbel">歐洲魮</h3>
+<p>天生適應水流，用鬍鬚沿著河床探摸食物。力氣大，一旦開始進食就很少膽怯。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲 · 肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>愛吃</td><td>貝類 · 魚</td></tr>
+<tr><td>從不</td><td>路亞餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 夜晚 · 光線弱、黃昏或深水 · 略帶顏色的水</td></tr>
+<tr><td>水流</td><td>流水</td></tr>
+</table>
+<h3 id="wels-catfish">歐洲鯰</h3>
+<p>體型巨大的夜間獵手，循著氣味和震動追蹤。幾乎什麼塞得進嘴的都吃。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚 · 肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>偶爾</td><td>路亞餌</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 28°C，最佳約 20°C · 春至秋，冬季暖和時也行 · 夜晚 · 光線弱、黃昏或深水 · 帶色的水</td></tr>
+<tr><td>水流</td><td>緩流，也能忍受一些水流</td></tr>
+</table>
+<h2 id="silver">3. 銀色小魚</h2>
+<p>動作敏捷、成群的魚，常在離底的水層進食，對動作很敏感。少量多次投餌能讓牠們一直有興趣。</p>
+<h3 id="roach">擬鯉</h3>
+<p>經典的全能型魚，湖裡河裡都過得自在。水清時警覺，水一變色就更愛咬。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲</td></tr>
+<tr><td>偶爾</td><td>貝類 · 肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>從不</td><td>魚 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>偏低水層 · 水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 黎明、黃昏和陰天 · 帶色的水 · 渾濁的水</td></tr>
+<tr><td>水流</td><td>穩定的中等水流</td></tr>
+</table>
+<h3 id="rudd">紅眼魚</h3>
+<p>棲息在水面和上層的魚，喜歡溫暖的靜水日子，也愛慢慢飄落的東西。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲</td></tr>
+<tr><td>偶爾</td><td>貝類 · 肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>從不</td><td>魚 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠動作</td></tr>
+<tr><td>覓食位置</td><td>近水面 · 偏低水層 · 水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 黎明、黃昏和陰天 · 強日照 · 帶色的水</td></tr>
+<tr><td>水流</td><td>靜水或緩流</td></tr>
+</table>
+<h3 id="dace">歐洲雅羅魚</h3>
+<p>體型小、游得快的河魚，喜歡乾淨的流水，順流放漂的餌上口很快。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲</td></tr>
+<tr><td>偶爾</td><td>貝類 · 肉類</td></tr>
+<tr><td>從不</td><td>魚 · 波麗、膏狀餌和顆粒餌 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠動作</td></tr>
+<tr><td>覓食位置</td><td>中層 · 偏低水層 · 水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 黎明、黃昏和陰天 · 強日照 · 略帶顏色的水</td></tr>
+<tr><td>水流</td><td>流水</td></tr>
+</table>
+<h3 id="bleak">歐白魚</h3>
+<p>體型很小，總在靠近水面處，什麼東西從水中落下都要搶。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲</td></tr>
+<tr><td>偶爾</td><td>穀物、種子和植物 · 肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>從不</td><td>貝類 · 魚 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠動作</td></tr>
+<tr><td>覓食位置</td><td>偏低水層</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 黎明、黃昏和陰天 · 強日照 · 略帶顏色的水</td></tr>
+<tr><td>水流</td><td>穩定的中等水流</td></tr>
+</table>
+<h3 id="gudgeon">鮈魚</h3>
+<p>帶鬍鬚的底棲小魚，個頭小膽子大，常常最先咬蚯蚓。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲</td></tr>
+<tr><td>偶爾</td><td>穀物、種子和植物 · 貝類 · 肉類</td></tr>
+<tr><td>從不</td><td>魚 · 波麗、膏狀餌和顆粒餌 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 帶色的水</td></tr>
+<tr><td>水流</td><td>穩定的中等水流</td></tr>
+</table>
+<h3 id="chub">圓鰭雅羅魚</h3>
+<p>既貪吃又多疑。幾乎什麼都吃，但一聲沉重的腳步聲就可能把牠嚇跑。</p>
+<table class="pass">
+<tr><td>主食</td><td>穀物、種子和植物 · 蚯蚓、幼蟲和昆蟲 · 貝類 · 肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>愛吃</td><td>魚</td></tr>
+<tr><td>偶爾</td><td>路亞餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>偏低水層 · 水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 光線弱、黃昏或深水 · 略帶顏色的水</td></tr>
+<tr><td>水流</td><td>穩定的中等水流</td></tr>
+</table>
+<h2 id="predators">4. 掠食魚</h2>
+<p>獵食其他魚的魚。動作會吸引牠們的目光，牠們要找的是路亞餌或死餌。</p>
+<h3 id="pike">白斑狗魚</h3>
+<p>埋伏型獵手，靜靜潛伏然後猛然出擊。牙齒鋒利：要用鋼絲前導線，否則會被咬斷。</p>
+<table class="pass">
+<tr><td>主食</td><td>魚</td></tr>
+<tr><td>愛吃</td><td>肉類 · 路亞餌</td></tr>
+<tr><td>偶爾</td><td>蚯蚓、幼蟲和昆蟲 · 貝類</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>中層</td></tr>
+<tr><td>偏好條件</td><td>水溫 6 至 17°C，最佳約 12°C · 秋至春 · 黎明、黃昏和陰天 · 強日照 · 清澈的水</td></tr>
+<tr><td>水流</td><td>緩流，也能忍受一些水流</td></tr>
+</table>
+<h3 id="perch">河鱸</h3>
+<p>帶條紋、膽大的獵手，吃小魚和蚯蚓。有成群的小魚，也有罕見的大魚，大的警覺得多。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>愛吃</td><td>路亞餌</td></tr>
+<tr><td>偶爾</td><td>肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>中層 · 偏低水層</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 20°C，最佳約 14°C · 春季和秋季 · 黎明、黃昏和陰天 · 強日照 · 略帶顏色的水</td></tr>
+<tr><td>水流</td><td>緩流，也能忍受一些水流</td></tr>
+</table>
+<h3 id="zander">梭鱸</h3>
+<p>在光線弱和帶色的水裡獵食，眼睛又大又像玻璃。牙齒像狗魚，不過咬斷線的次數少一些。</p>
+<table class="pass">
+<tr><td>主食</td><td>魚</td></tr>
+<tr><td>愛吃</td><td>路亞餌</td></tr>
+<tr><td>偶爾</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 肉類</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>中層</td></tr>
+<tr><td>偏好條件</td><td>水溫 15 至 28°C，最佳約 22°C · 晚春至初秋 · 夜晚 · 光線弱、黃昏或深水 · 略帶顏色的水</td></tr>
+<tr><td>水流</td><td>穩定的中等水流</td></tr>
+</table>
+<h3 id="eel">歐洲鰻</h3>
+<p>循著氣味沿水底獵食，大多在天黑後，從咬餌到入網都滑溜溜的。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>愛吃</td><td>肉類</td></tr>
+<tr><td>偶爾</td><td>波麗、膏狀餌和顆粒餌 · 路亞餌</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 28°C，最佳約 20°C · 春至秋，冬季暖和時也行 · 夜晚 · 光線弱、黃昏或深水 · 帶色的水</td></tr>
+<tr><td>水流</td><td>穩定的中等水流</td></tr>
+</table>
+<h2 id="game">5. 鱒魚與茴魚</h2>
+<p>生活在乾淨水域的魚，吃水流或水面帶來的東西，而且要看到它在動。</p>
+<h3 id="trout-brown">褐鱒</h3>
+<p>野性又謹慎的獵手，守住自己的位置，把經過的食物一一收下。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>愛吃</td><td>路亞餌</td></tr>
+<tr><td>偶爾</td><td>穀物、種子和植物 · 肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>主要靠動作</td></tr>
+<tr><td>覓食位置</td><td>近水面 · 偏低水層</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 20°C，最佳約 14°C · 春季和秋季 · 黎明、黃昏和陰天 · 強日照 · 清澈的水</td></tr>
+<tr><td>水流</td><td>流水</td></tr>
+</table>
+<h3 id="trout-rainbow">虹鱒</h3>
+<p>比褐鱒更大膽，更愛浮到水面，通常追餌也更快。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類</td></tr>
+<tr><td>愛吃</td><td>穀物、種子和植物 · 魚 · 路亞餌</td></tr>
+<tr><td>偶爾</td><td>肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>主要靠動作</td></tr>
+<tr><td>覓食位置</td><td>近水面 · 偏低水層</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 20°C，最佳約 14°C · 春季和秋季 · 強日照 · 清澈的水</td></tr>
+<tr><td>水流</td><td>穩定的中等水流</td></tr>
+</table>
+<h3 id="grayling">茴魚</h3>
+<p>溪流中的淑女：棲息在急流的群游魚，別的魚冷得不吃了牠還照樣進食。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲</td></tr>
+<tr><td>愛吃</td><td>貝類</td></tr>
+<tr><td>偶爾</td><td>穀物、種子和植物 · 肉類</td></tr>
+<tr><td>從不</td><td>魚 · 波麗、膏狀餌和顆粒餌 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>主要靠動作</td></tr>
+<tr><td>覓食位置</td><td>偏低水層</td></tr>
+<tr><td>偏好條件</td><td>水溫 6 至 17°C，最佳約 12°C · 秋至春 · 黎明、黃昏和陰天 · 強日照 · 清澈的水</td></tr>
+<tr><td>水流</td><td>流水</td></tr>
+</table>
+<h2 id="sea">6. 海釣魚種</h2>
+<p>海裡的進食跟著潮水走。獵手追逐會動的食物，底棲魚則循著水流翻攪出來的氣味找食。</p>
+<h3 id="bass">歐洲狼鱸</h3>
+<p>在浪濤和岩礁間巡游的獵手，在洶湧流動的水裡最活躍。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>愛吃</td><td>路亞餌</td></tr>
+<tr><td>偶爾</td><td>肉類</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>近水面 · 中層 · 偏低水層</td></tr>
+<tr><td>偏好條件</td><td>水溫 15 至 28°C，最佳約 22°C · 晚春至初秋 · 夜晚 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 清澈的水</td></tr>
+</table>
+<h3 id="pollock">青鱈</h3>
+<p>棲息在岩石和沉船附近，會浮上來搶任何游過的東西。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 魚</td></tr>
+<tr><td>愛吃</td><td>貝類 · 路亞餌</td></tr>
+<tr><td>偶爾</td><td>肉類</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>偏低水層 · 水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 20°C，最佳約 14°C · 春季和秋季 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 略帶顏色的水</td></tr>
+</table>
+<h3 id="mackerel">大西洋鯖</h3>
+<p>速度快、成群結隊，夏天總是飢餓，通常在水層偏高處。</p>
+<table class="pass">
+<tr><td>主食</td><td>魚</td></tr>
+<tr><td>愛吃</td><td>蚯蚓、幼蟲和昆蟲 · 路亞餌</td></tr>
+<tr><td>偶爾</td><td>貝類 · 肉類 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>中層</td></tr>
+<tr><td>偏好條件</td><td>水溫 15 至 28°C，最佳約 22°C · 晚春至初秋 · 黎明、黃昏和陰天 · 強日照 · 清澈的水</td></tr>
+</table>
+<h3 id="cod">鱈魚</h3>
+<p>嘴大的底棲覓食魚，喜歡較冷的水，循著氣味找到什麼就吃什麼。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>愛吃</td><td>肉類 · 路亞餌</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 6 至 17°C，最佳約 12°C · 秋至春 · 夜晚 · 光線弱、黃昏或深水 · 略帶顏色的水</td></tr>
+</table>
+<h3 id="whiting">牙鱈</h3>
+<p>體型小、食慾旺的群游魚，往往天黑後最忙。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 魚</td></tr>
+<tr><td>愛吃</td><td>貝類 · 路亞餌</td></tr>
+<tr><td>偶爾</td><td>肉類</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 帶色的水</td></tr>
+</table>
+<h3 id="conger-eel">康吉鰻</h3>
+<p>力氣大的夜間獵手，住在洞穴和沉船裡，循著濃烈的氣味而來。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>愛吃</td><td>肉類</td></tr>
+<tr><td>偶爾</td><td>路亞餌</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 20°C，最佳約 14°C · 春季和秋季 · 夜晚 · 帶色的水</td></tr>
+</table>
+<h3 id="dogfish">小點貓鯊</h3>
+<p>小型鯊魚，沿著海床嗅出獵物。很少挑食。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>愛吃</td><td>肉類</td></tr>
+<tr><td>偶爾</td><td>波麗、膏狀餌和顆粒餌 · 路亞餌</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物</td></tr>
+<tr><td>找食方式</td><td>主要靠氣味</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 9 至 23°C，最佳約 17°C · 春至秋 · 光線弱、黃昏或深水 · 帶色的水</td></tr>
+</table>
+<h3 id="flounder">歐洲川鰈</h3>
+<p>會潛入河口的比目魚，在水底靠視覺和嗅覺獵食。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>偶爾</td><td>肉類 · 路亞餌</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 8 至 20°C，最佳約 14°C · 春季和秋季 · 光線弱、黃昏或深水 · 帶色的水</td></tr>
+</table>
+<h3 id="plaice">歐洲鰈</h3>
+<p>棲息在沙地和貝殼底的比目魚，會拱出蚯蚓和貝類，對一點動靜也有反應。</p>
+<table class="pass">
+<tr><td>主食</td><td>蚯蚓、幼蟲和昆蟲 · 貝類 · 魚</td></tr>
+<tr><td>偶爾</td><td>肉類</td></tr>
+<tr><td>從不</td><td>穀物、種子和植物 · 波麗、膏狀餌和顆粒餌 · 路亞餌</td></tr>
+<tr><td>找食方式</td><td>靠氣味和動作</td></tr>
+<tr><td>覓食位置</td><td>水底</td></tr>
+<tr><td>偏好條件</td><td>水溫 6 至 17°C，最佳約 12°C · 秋至春 · 夜晚 · 光線弱、黃昏或深水 · 黎明、黃昏和陰天 · 帶色的水</td></tr>
+</table>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/zh-tw/">首頁</a> · <a href="/zh-tw/baitcreators">餌料創作指南</a> · <a href="/zh-tw/venuecreators">釣場創作指南</a> · <a href="/zh-tw/speciescreators">魚種創作指南</a> · <a href="/terms">使用條款</a> · <a href="/privacy">隱私權政策</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 繁體中文</span></summary><ul><li><a href="/whateatswhat" hreflang="en" lang="en">English</a></li><li><a href="/de/whateatswhat" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/whateatswhat" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/whateatswhat" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/whateatswhat" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/whateatswhat" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/whateatswhat" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/whateatswhat" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/whateatswhat" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/whateatswhat" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/whateatswhat" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/whateatswhat" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/whateatswhat" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/whateatswhat" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/whateatswhat" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/whateatswhat" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/whateatswhat" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/whateatswhat" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a aria-current="true" href="/zh-tw/whateatswhat" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/whateatswhat" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/whateatswhat"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/whateatswhat"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/whateatswhat"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/whateatswhat"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/whateatswhat"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/whateatswhat"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/whateatswhat"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/whateatswhat"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/whateatswhat"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/whateatswhat"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/whateatswhat"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/whateatswhat"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/whateatswhat"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/whateatswhat"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/whateatswhat"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/whateatswhat"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/whateatswhat"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/whateatswhat"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/whateatswhat"}, {"c": "", "hl": "en", "n": "English", "u": "/whateatswhat"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

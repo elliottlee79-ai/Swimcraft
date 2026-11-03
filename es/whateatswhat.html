@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="es-ES">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quién come qué - Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Qué come cada pez de Swimcraft, cómo encuentra su comida, dónde se alimenta y cómo se comporta: una guía para elegir el cebo adecuado para el pez que buscas." name="description"/>
+<meta content="Quién come qué - Swimcraft" property="og:title"/>
+<meta content="Qué come cada pez de Swimcraft, cómo encuentra su comida, dónde se alimenta y cómo se comporta: una guía para elegir el cebo adecuado para el pez que buscas." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/es/whateatswhat" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/es/whateatswhat" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/whateatswhat" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/whateatswhat" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/whateatswhat" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/whateatswhat" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/whateatswhat" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/whateatswhat" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/whateatswhat" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/whateatswhat" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/whateatswhat" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/whateatswhat" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/whateatswhat" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/whateatswhat" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/whateatswhat" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/whateatswhat" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/whateatswhat" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/whateatswhat" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/whateatswhat" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/whateatswhat" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/whateatswhat" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/whateatswhat" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/whateatswhat" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/es/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Quién come qué</h1>
+<p class="meta"><strong>Qué come cada pez, cómo encuentra su comida y cómo se comporta, para que elijas el cebo adecuado para el pez que buscas.</strong></p>
+<p class="meta">Última actualización: 3 de noviembre de 2026</p>
+<div class="intro">Los peces juzgan un cebo por lo que es antes que por cualquier otra cosa. Si pones en el anzuelo un cebo que ese pez nunca come, no lo vas a pescar, por muy bueno que sea tu puesto. Esta página repasa los peces de Swimcraft por tipos, y las listas de alimentos son las mismas que usan los peces en el juego.</div>
+<ol class="toc">
+<li><a href="#read">Cómo leer esta página</a></li>
+<li><a href="#carp">Carpas y peces de fondo</a></li>
+<li><a href="#silver">Pez blanco</a></li>
+<li><a href="#predators">Depredadores</a></li>
+<li><a href="#game">Trucha y tímalo</a></li>
+<li><a href="#sea">Peces de mar</a></li>
+</ol>
+<h2 id="read">1. Cómo leer esta página</h2>
+<table class="pass">
+<tr><th>Palabra</th><th>Qué significa cuando pescas</th></tr>
+<tr><td>Alimento principal</td><td>Lo que busca este pez. La mejor opción.</td></tr>
+<tr><td>Lo come</td><td>Lo toma con ganas, solo que algo menos que su alimento principal.</td></tr>
+<tr><td>De vez en cuando</td><td>Es posible, pero esperarás mucho más por una picada.</td></tr>
+<tr><td>Nunca</td><td>Este pez no lo toma en absoluto.</td></tr>
+</table>
+<p>Las condiciones preferidas son aquellas en las que un pez se alimenta mejor, no las únicas veces en que come. Lo que cuenta es la temperatura del agua: las estaciones indicadas son para un clima templado, así que en el hemisferio sur léelas al revés, y ten en cuenta que el agua puede ser más cálida o más fría que la que tú conoces.</p>
+<p>Un pez que encuentra la comida por el olfato acude desde más lejos a un cebo de olor fuerte. Un pez que caza por el movimiento localiza antes un cebo que se mueve, y en un río la corriente mueve tu cebo por ti, tanto en el fondo como bajo un flotador.</p>
+<h2 id="carp">2. Carpas y peces de fondo</h2>
+<p>Peces de boca grande y pacientes que hurgan en el fondo en busca de comida. La encuentran sobre todo por el olfato, así que una zona cebada cuenta más que un cebo en movimiento.</p>
+<h3 id="common-carp">Carpa común</h3>
+<p>Lista y cautelosa, sobre todo cuando es grande. Patrulla en grupos pequeños y limpia una zona cebada, y luego vuelve a por más.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos · Boilies, pastas y pellets</td></tr>
+<tr><td>Lo come</td><td>Marisco · Carne</td></tr>
+<tr><td>Nunca</td><td>Pez · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 15 a 28°C, mejor hacia los 22°C · De finales de primavera a principios de otoño · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Agua quieta o lenta</td></tr>
+</table>
+<h3 id="mirror-carp">Carpa espejo</h3>
+<p>Una carpa en todo lo que importa aquí: el mismo apetito y la misma cautela, con otra librea.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos · Boilies, pastas y pellets</td></tr>
+<tr><td>Lo come</td><td>Marisco · Carne</td></tr>
+<tr><td>Nunca</td><td>Pez · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 15 a 28°C, mejor hacia los 22°C · De finales de primavera a principios de otoño · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Agua quieta o lenta</td></tr>
+</table>
+<h3 id="crucian-carp">Carpín</h3>
+<p>Pequeño y famoso por su delicadeza. Las picadas pueden ser mínimas, así que un montaje fino las muestra mejor.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos</td></tr>
+<tr><td>Lo come</td><td>Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>De vez en cuando</td><td>Marisco</td></tr>
+<tr><td>Nunca</td><td>Pez · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 28°C, mejor hacia los 20°C · De primavera a otoño y rachas suaves en invierno · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Agua quieta o lenta</td></tr>
+</table>
+<h3 id="tench">Tenca</h3>
+<p>Un pez de verano de aguas quietas con vegetación, en su mejor momento al amanecer y al anochecer. Las burbujas suelen delatarla.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos · Boilies, pastas y pellets</td></tr>
+<tr><td>Lo come</td><td>Marisco · Carne</td></tr>
+<tr><td>De vez en cuando</td><td>Pez</td></tr>
+<tr><td>Nunca</td><td>Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 15 a 28°C, mejor hacia los 22°C · De finales de primavera a principios de otoño · Amanecer, anochecer y días grises · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Agua quieta o lenta</td></tr>
+</table>
+<h3 id="bream">Brema</h3>
+<p>Viaja en grandes bancos que comen con ganas por el fondo y luego siguen su camino. Si cebas bien, puedes retenerlos.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos</td></tr>
+<tr><td>Lo come</td><td>Boilies, pastas y pellets</td></tr>
+<tr><td>De vez en cuando</td><td>Marisco · Pez · Carne</td></tr>
+<tr><td>Nunca</td><td>Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Noche · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Agua quieta o lenta</td></tr>
+</table>
+<h3 id="barbel">Barbo</h3>
+<p>Hecho para la corriente, con barbillones que tantean la comida por el lecho del río. Fuerte y pocas veces tímido una vez que come.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos · Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Lo come</td><td>Marisco · Pez</td></tr>
+<tr><td>Nunca</td><td>Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Noche · Poca luz, anochecer o aguas profundas · Agua algo teñida</td></tr>
+<tr><td>Corriente</td><td>Agua en movimiento</td></tr>
+</table>
+<h3 id="wels-catfish">Siluro</h3>
+<p>Un enorme cazador nocturno que sigue el olor y la vibración. Se come casi cualquier cosa que le quepa en la boca.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez · Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>De vez en cuando</td><td>Señuelos</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 28°C, mejor hacia los 20°C · De primavera a otoño y rachas suaves en invierno · Noche · Poca luz, anochecer o aguas profundas · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Agua lenta, aguanta algo de corriente</td></tr>
+</table>
+<h2 id="silver">3. Pez blanco</h2>
+<p>Peces rápidos que van en banco, suelen comer por encima del fondo y se fijan en el movimiento. Poco y a menudo los mantiene interesados.</p>
+<h3 id="roach">Rutilo</h3>
+<p>El clásico todoterreno, a gusto en lagos y ríos. Receloso en aguas claras, más lanzado cuando el agua se tiñe.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos</td></tr>
+<tr><td>De vez en cuando</td><td>Marisco · Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Nunca</td><td>Pez · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca del fondo · En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Amanecer, anochecer y días grises · Agua teñida · Agua turbia</td></tr>
+<tr><td>Corriente</td><td>Corriente moderada y constante</td></tr>
+</table>
+<h3 id="rudd">Escardinio</h3>
+<p>Un pez de superficie y aguas altas que adora los días cálidos y quietos y todo lo que cae despacio.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos</td></tr>
+<tr><td>De vez en cuando</td><td>Marisco · Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Nunca</td><td>Pez · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca de la superficie · Cerca del fondo · En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Amanecer, anochecer y días grises · Pleno día · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Agua quieta o lenta</td></tr>
+</table>
+<h3 id="dace">Leucisco</h3>
+<p>Un pez de río pequeño y rápido que ama el agua limpia y en movimiento, y las picadas rápidas a un cebo a la deriva.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos</td></tr>
+<tr><td>De vez en cuando</td><td>Marisco · Carne</td></tr>
+<tr><td>Nunca</td><td>Pez · Boilies, pastas y pellets · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>A media agua · Cerca del fondo · En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Amanecer, anochecer y días grises · Pleno día · Agua algo teñida</td></tr>
+<tr><td>Corriente</td><td>Agua en movimiento</td></tr>
+</table>
+<h3 id="bleak">Alburno</h3>
+<p>Diminuto y siempre cerca de la superficie, se lanza a por cualquier cosa que cae por el agua.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos</td></tr>
+<tr><td>De vez en cuando</td><td>Cereales, semillas y plantas · Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Nunca</td><td>Marisco · Pez · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca del fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Amanecer, anochecer y días grises · Pleno día · Agua algo teñida</td></tr>
+<tr><td>Corriente</td><td>Corriente moderada y constante</td></tr>
+</table>
+<h3 id="gudgeon">Gobio</h3>
+<p>Un pequeño habitante del fondo con barbillones, atrevido para su tamaño y a menudo el primero en llegar a una lombriz.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos</td></tr>
+<tr><td>De vez en cuando</td><td>Cereales, semillas y plantas · Marisco · Carne</td></tr>
+<tr><td>Nunca</td><td>Pez · Boilies, pastas y pellets · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Corriente moderada y constante</td></tr>
+</table>
+<h3 id="chub">Cacho</h3>
+<p>Glotón y desconfiado a la vez. Come casi de todo, pero una pisada fuerte puede espantarlo.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Cereales, semillas y plantas · Lombrices, larvas e insectos · Marisco · Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Lo come</td><td>Pez</td></tr>
+<tr><td>De vez en cuando</td><td>Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca del fondo · En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Poca luz, anochecer o aguas profundas · Agua algo teñida</td></tr>
+<tr><td>Corriente</td><td>Corriente moderada y constante</td></tr>
+</table>
+<h2 id="predators">4. Depredadores</h2>
+<p>Peces que cazan a otros peces. El movimiento les llama la atención, y un señuelo o un pez muerto es lo que buscan.</p>
+<h3 id="pike">Lucio</h3>
+<p>Un cazador al acecho que espera inmóvil y ataca con fuerza. Dientes afilados: pesca con un bajo de acero o prepárate para que te corte la línea.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Pez</td></tr>
+<tr><td>Lo come</td><td>Carne · Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Lombrices, larvas e insectos · Marisco</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>A media agua</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 6 a 17°C, mejor hacia los 12°C · De otoño a primavera · Amanecer, anochecer y días grises · Pleno día · Agua clara</td></tr>
+<tr><td>Corriente</td><td>Agua lenta, aguanta algo de corriente</td></tr>
+</table>
+<h3 id="perch">Perca</h3>
+<p>Un cazador rayado y atrevido de peces pequeños y lombrices. Hay bancos de pequeñas y escasas grandes, mucho más recelosas.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>Lo come</td><td>Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>A media agua · Cerca del fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 20°C, mejor hacia los 14°C · Primavera y otoño · Amanecer, anochecer y días grises · Pleno día · Agua algo teñida</td></tr>
+<tr><td>Corriente</td><td>Agua lenta, aguanta algo de corriente</td></tr>
+</table>
+<h3 id="zander">Lucioperca</h3>
+<p>Caza con poca luz y en agua teñida con sus grandes ojos vidriosos. Dientes como los del lucio, aunque corta la línea con menos frecuencia.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Pez</td></tr>
+<tr><td>Lo come</td><td>Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Lombrices, larvas e insectos · Marisco · Carne</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>A media agua</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 15 a 28°C, mejor hacia los 22°C · De finales de primavera a principios de otoño · Noche · Poca luz, anochecer o aguas profundas · Agua algo teñida</td></tr>
+<tr><td>Corriente</td><td>Corriente moderada y constante</td></tr>
+</table>
+<h3 id="eel">Anguila</h3>
+<p>Caza por el olfato a lo largo del fondo, sobre todo de noche, y es resbaladiza desde la picada hasta la sacadera.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>Lo come</td><td>Carne</td></tr>
+<tr><td>De vez en cuando</td><td>Boilies, pastas y pellets · Señuelos</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 28°C, mejor hacia los 20°C · De primavera a otoño y rachas suaves en invierno · Noche · Poca luz, anochecer o aguas profundas · Agua teñida</td></tr>
+<tr><td>Corriente</td><td>Corriente moderada y constante</td></tr>
+</table>
+<h2 id="game">5. Trucha y tímalo</h2>
+<p>Peces de agua limpia que toman lo que les trae la corriente o la superficie, y necesitan ver que se mueve.</p>
+<h3 id="trout-brown">Trucha común</h3>
+<p>Un cazador salvaje y receloso que mantiene su posición y atrapa lo que pasa.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>Lo come</td><td>Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Cereales, semillas y plantas · Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca de la superficie · Cerca del fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 20°C, mejor hacia los 14°C · Primavera y otoño · Amanecer, anochecer y días grises · Pleno día · Agua clara</td></tr>
+<tr><td>Corriente</td><td>Agua en movimiento</td></tr>
+</table>
+<h3 id="trout-rainbow">Trucha arcoíris</h3>
+<p>Más atrevida y más dada a subir a la superficie que la común, y por lo general más rápida en perseguir.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco</td></tr>
+<tr><td>Lo come</td><td>Cereales, semillas y plantas · Pez · Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca de la superficie · Cerca del fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 20°C, mejor hacia los 14°C · Primavera y otoño · Pleno día · Agua clara</td></tr>
+<tr><td>Corriente</td><td>Corriente moderada y constante</td></tr>
+</table>
+<h3 id="grayling">Tímalo</h3>
+<p>La dama del arroyo: un pez de banco de aguas rápidas que sigue comiendo cuando el frío ha parado a los demás.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos</td></tr>
+<tr><td>Lo come</td><td>Marisco</td></tr>
+<tr><td>De vez en cuando</td><td>Cereales, semillas y plantas · Carne</td></tr>
+<tr><td>Nunca</td><td>Pez · Boilies, pastas y pellets · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca del fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 6 a 17°C, mejor hacia los 12°C · De otoño a primavera · Amanecer, anochecer y días grises · Pleno día · Agua clara</td></tr>
+<tr><td>Corriente</td><td>Agua en movimiento</td></tr>
+</table>
+<h2 id="sea">6. Peces de mar</h2>
+<p>La alimentación en el mar sigue la marea. Los cazadores persiguen comida en movimiento, y los peces de fondo siguen el rastro de lo que el agua remueve.</p>
+<h3 id="bass">Lubina</h3>
+<p>Una cazadora errante de la rompiente y las rocas, en su mejor momento con el agua agitada y en movimiento.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>Lo come</td><td>Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Carne</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca de la superficie · A media agua · Cerca del fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 15 a 28°C, mejor hacia los 22°C · De finales de primavera a principios de otoño · Noche · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua clara</td></tr>
+</table>
+<h3 id="pollock">Abadejo</h3>
+<p>Vive cerca de rocas y pecios y sube a atrapar cualquier cosa que pase.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Pez</td></tr>
+<tr><td>Lo come</td><td>Marisco · Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Carne</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>Cerca del fondo · En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 20°C, mejor hacia los 14°C · Primavera y otoño · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua algo teñida</td></tr>
+</table>
+<h3 id="mackerel">Caballa</h3>
+<p>Rápida, de banco y siempre hambrienta en verano, normalmente bien alta en el agua.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Pez</td></tr>
+<tr><td>Lo come</td><td>Lombrices, larvas e insectos · Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Marisco · Carne · Boilies, pastas y pellets</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>A media agua</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 15 a 28°C, mejor hacia los 22°C · De finales de primavera a principios de otoño · Amanecer, anochecer y días grises · Pleno día · Agua clara</td></tr>
+</table>
+<h3 id="cod">Bacalao</h3>
+<p>Un pez de fondo de boca grande y aguas más frías que sigue el olor y se come lo que encuentra.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>Lo come</td><td>Carne · Señuelos</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 6 a 17°C, mejor hacia los 12°C · De otoño a primavera · Noche · Poca luz, anochecer o aguas profundas · Agua algo teñida</td></tr>
+</table>
+<h3 id="whiting">Merlán</h3>
+<p>Un pez de banco pequeño y hambriento, a menudo más activo después del anochecer.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Pez</td></tr>
+<tr><td>Lo come</td><td>Marisco · Señuelos</td></tr>
+<tr><td>De vez en cuando</td><td>Carne</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua teñida</td></tr>
+</table>
+<h3 id="conger-eel">Congrio</h3>
+<p>Un poderoso cazador nocturno que vive en agujeros y pecios y sigue los olores fuertes.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>Lo come</td><td>Carne</td></tr>
+<tr><td>De vez en cuando</td><td>Señuelos</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 20°C, mejor hacia los 14°C · Primavera y otoño · Noche · Agua teñida</td></tr>
+</table>
+<h3 id="dogfish">Pintarroja</h3>
+<p>Un pequeño tiburón que olfatea su comida por el fondo marino. Pocas veces es exigente.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>Lo come</td><td>Carne</td></tr>
+<tr><td>De vez en cuando</td><td>Boilies, pastas y pellets · Señuelos</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas</td></tr>
+<tr><td>Encuentra la comida</td><td>Sobre todo por el olfato</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 9 a 23°C, mejor hacia los 17°C · De primavera a otoño · Poca luz, anochecer o aguas profundas · Agua teñida</td></tr>
+</table>
+<h3 id="flounder">Platija</h3>
+<p>Un pez plano que se cuela en los estuarios y caza por la vista y el olfato en el fondo.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>De vez en cuando</td><td>Carne · Señuelos</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 8 a 20°C, mejor hacia los 14°C · Primavera y otoño · Poca luz, anochecer o aguas profundas · Agua teñida</td></tr>
+</table>
+<h3 id="plaice">Solla</h3>
+<p>Un pez plano de arena y concha que olfatea lombrices y marisco, y se fija en un poco de movimiento.</p>
+<table class="pass">
+<tr><td>Alimento principal</td><td>Lombrices, larvas e insectos · Marisco · Pez</td></tr>
+<tr><td>De vez en cuando</td><td>Carne</td></tr>
+<tr><td>Nunca</td><td>Cereales, semillas y plantas · Boilies, pastas y pellets · Señuelos</td></tr>
+<tr><td>Encuentra la comida</td><td>Por el olfato y por el movimiento</td></tr>
+<tr><td>Se alimenta</td><td>En el fondo</td></tr>
+<tr><td>Condiciones preferidas</td><td>Agua de 6 a 17°C, mejor hacia los 12°C · De otoño a primavera · Noche · Poca luz, anochecer o aguas profundas · Amanecer, anochecer y días grises · Agua teñida</td></tr>
+</table>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/es/">Inicio</a> · <a href="/es/baitcreators">Guía del creador de cebos</a> · <a href="/es/venuecreators">Guía del creador de escenarios</a> · <a href="/es/speciescreators">Guía del creador de especies</a> · <a href="/terms">Condiciones de uso</a> · <a href="/privacy">Privacidad</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Español (España)</span></summary><ul><li><a href="/whateatswhat" hreflang="en" lang="en">English</a></li><li><a href="/de/whateatswhat" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/whateatswhat" hreflang="fr" lang="fr">Français</a></li><li><a aria-current="true" href="/es/whateatswhat" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/whateatswhat" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/whateatswhat" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/whateatswhat" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/whateatswhat" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/whateatswhat" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/whateatswhat" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/whateatswhat" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/whateatswhat" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/whateatswhat" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/whateatswhat" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/whateatswhat" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/whateatswhat" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/whateatswhat" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/whateatswhat" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/whateatswhat" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/whateatswhat" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/whateatswhat"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/whateatswhat"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/whateatswhat"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/whateatswhat"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/whateatswhat"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/whateatswhat"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/whateatswhat"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/whateatswhat"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/whateatswhat"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/whateatswhat"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/whateatswhat"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/whateatswhat"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/whateatswhat"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/whateatswhat"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/whateatswhat"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/whateatswhat"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/whateatswhat"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/whateatswhat"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/whateatswhat"}, {"c": "", "hl": "en", "n": "English", "u": "/whateatswhat"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>

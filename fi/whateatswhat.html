@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="fi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mikä syö mitä — Swimcraft</title>
+<meta content="index,follow" name="robots"/>
+<meta content="Mitä kukin Swimcraftin kala syö, miten se löytää ruokansa, missä se syö ja miten se käyttäytyy: opas oikean syötin valintaan sille kalalle, jota havittelet." name="description"/>
+<meta content="Mikä syö mitä — Swimcraft" property="og:title"/>
+<meta content="Mitä kukin Swimcraftin kala syö, miten se löytää ruokansa, missä se syö ja miten se käyttäytyy: opas oikean syötin valintaan sille kalalle, jota havittelet." property="og:description"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<meta content="https://swimcraft.harbledowndigital.com/fi/whateatswhat" property="og:url"/>
+<meta content="article" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Brand tokens — mirror the main site, privacy.html and terms.html */
+  :root{
+    --ink:#10150D; --deep:#1a1f14; --mid:#2a3420;
+    --brand-bone:#E6DCC6; --brand-olive:#4E6B30;
+    --accent:#8faa6b; --gold:#c9a84c; --gold-light:#f0d080;
+    --text:#e8f0e0; --muted:#8aa880;
+    --border:rgba(143,170,107,0.25); --card-bg:rgba(26,31,20,0.85);
+    --font-brand:'Alfa Slab One','Bitter',Georgia,serif;
+    --font-display:'Bitter',Georgia,serif;   /* was the high-contrast editorial serif — see SWIMCRAFT_BRAND.md §3. Named by description, not spelled: a comment that quotes what it records the removal of makes the grep proving the removal match the comment (rule 57). */
+    --font-ui:'Bitter',Georgia,serif;   /* was the humanist sans — one family across the whole site now; see SWIMCRAFT_BRAND.md §3 */
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font-ui);background:var(--deep);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+
+  .topbar{background:var(--ink);border-bottom:1px solid var(--border);padding:1.1rem 1.5rem;text-align:center;}
+  .topbar a{text-decoration:none;}
+  .wordmark{font-family:var(--font-brand);font-weight:400;font-size:1.7rem;line-height:1;letter-spacing:0.01em;}
+  .wordmark .swim{color:var(--brand-bone);}
+  .wordmark .craft{color:var(--brand-olive);}
+
+  main{max-width:820px;margin:0 auto;padding:3rem 1.5rem 2rem;}
+  h1{font-family:var(--font-display);font-weight:700;font-size:2.1rem;margin-bottom:0.4rem;color:var(--brand-bone);}
+  .meta{color:var(--muted);font-size:0.9rem;margin-bottom:0.4rem;}
+  .meta strong{color:var(--text);font-weight:700;}
+  .intro{color:var(--muted);font-size:0.95rem;margin:1.5rem 0 2rem;padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;}
+
+  h2{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--brand-bone);margin:2.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border);}
+  h3{font-family:var(--font-ui);font-weight:700;font-size:1rem;color:var(--accent);margin:1.3rem 0 0.4rem;}
+  p{margin-bottom:0.9rem;}
+  ul,ol{margin:0 0 1rem 1.3rem;}
+  li{margin-bottom:0.5rem;}
+  strong{color:var(--text);}
+  a{color:var(--gold-light);}
+  a:hover{color:var(--gold);}
+
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.4rem;font-size:0.9rem;}
+  th,td{text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--border);vertical-align:top;}
+  th{background:var(--card-bg);color:var(--brand-bone);font-family:var(--font-ui);font-weight:700;}
+
+  .callout{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:0.9rem 1.15rem;margin:1.2rem 0;font-size:0.92rem;}
+  .callout.warn{background:rgba(217,138,58,0.10);border-color:rgba(217,138,58,0.40);}
+
+  /* Guide-only additions, written in the same idiom as the tokens above */
+  .toc{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem 1rem 2.4rem;margin:0 0 2rem;}
+  .toc li{margin-bottom:0.3rem;font-size:0.92rem;}
+  .step{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--brand-olive);
+    border-radius:8px;padding:1rem 1.25rem;margin:1rem 0;}
+  .step h3{margin-top:0;}
+  .step .num{font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:0.8rem;letter-spacing:0.12em;
+    text-transform:uppercase;display:block;margin-bottom:0.15rem;}
+  figure{margin:1.2rem 0;}
+  figure img{width:100%;border-radius:8px;border:1px solid var(--border);display:block;
+    cursor:pointer;transition:transform .2s,border-color .2s;}
+  figure img:hover{transform:scale(1.01);border-color:rgba(143,170,107,0.45);}
+  figcaption{font-size:0.82rem;color:var(--muted);margin-top:0.45rem;line-height:1.5;}
+  /* A pair sits side by side because the COMPARISON is the content — a good photo beside a
+     poor one, a quiet bar beside a frenzied one. Stacked on a narrow screen, where two
+     half-width images would be too small to tell apart, which defeats the point of pairing. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin:1.2rem 0;}
+  .pair figure{margin:0;}
+  @media(max-width:640px){.pair{grid-template-columns:1fr;}}
+  figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
+  /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
+  .pass td:first-child{white-space:normal;min-width:6.5em;}
+  @media(max-width:640px){.labels{font-size:0.82rem;}.labels th,.labels td{padding:0.45rem 0.4rem;}.labels td:nth-child(2),.labels td:nth-child(3){white-space:nowrap;}.pass td:first-child{min-width:0;}.labels{hyphens:auto;}}
+  .tablewrap{overflow-x:auto;margin:1rem 0 1.4rem;} .tablewrap table{margin:0;}
+
+  /* ── MODAL ── */
+  #modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,10,6,0.94);
+    justify-content:center;align-items:center;padding:2rem;}
+  #modal.open{display:flex;}
+  #modal-img{max-width:90%;max-height:88%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);user-select:none;}
+  .modal-btn{position:absolute;background:rgba(16,21,13,0.6);border:1px solid var(--border);
+    color:var(--brand-bone);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;transition:background .15s,border-color .15s;-webkit-tap-highlight-color:transparent;}
+  .modal-btn:hover{background:var(--brand-olive);border-color:var(--brand-olive);}
+  #modal-prev,#modal-next{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:1.9rem;line-height:1;padding-bottom:4px;}
+  #modal-prev{left:2%;}
+  #modal-next{right:2%;}
+  #modal-close{top:1.2rem;right:1.4rem;width:42px;height:42px;font-size:1.5rem;line-height:1;}
+  #modal-counter{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.05em;}
+  @media (max-width:600px){
+    #modal-prev,#modal-next{width:44px;height:44px;font-size:1.6rem;}
+    #modal-img{max-width:94%;max-height:80%;}
+  }
+  footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
+    font-size:0.8rem;border-top:1px solid var(--border);margin-top:2rem;}
+  footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
+  footer .fw .craft{color:var(--brand-olive);}
+  footer a{color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+</style>
+<link href="https://swimcraft.harbledowndigital.com/fi/whateatswhat" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/whateatswhat" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/whateatswhat" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/whateatswhat" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/whateatswhat" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/whateatswhat" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/whateatswhat" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/whateatswhat" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/whateatswhat" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/whateatswhat" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/whateatswhat" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/whateatswhat" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/whateatswhat" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/whateatswhat" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/whateatswhat" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/whateatswhat" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/whateatswhat" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/whateatswhat" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/whateatswhat" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/whateatswhat" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/whateatswhat" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/whateatswhat" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<div class="topbar"><a href="/fi/"><span class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></span></a></div>
+<main>
+<h1>Mikä syö mitä</h1>
+<p class="meta"><strong>Mitä kukin kala syö, miten se löytää ruokansa ja miten se käyttäytyy, jotta osaat valita oikean syötin havittelemallesi kalalle.</strong></p>
+<p class="meta">Päivitetty viimeksi: 3. marraskuuta 2026</p>
+<div class="intro">Kala arvioi syötin ensin sen perusteella, mistä se on tehty. Jos koukkuun laitetaan syötti, jota kala ei koskaan syö, et saa sitä, vaikka kalapaikkasi olisi kuinka hyvä. Tällä sivulla kalat käydään läpi tyypeittäin, ja ruokalistat ovat samat, joita kalat käyttävät pelissä.</div>
+<ol class="toc">
+<li><a href="#read">Näin luet tätä sivua</a></li>
+<li><a href="#carp">Karpit ja pohjasyöjät</a></li>
+<li><a href="#silver">Valkokalat</a></li>
+<li><a href="#predators">Petokalat</a></li>
+<li><a href="#game">Taimen ja harjus</a></li>
+<li><a href="#sea">Merikalat</a></li>
+</ol>
+<h2 id="read">1. Näin luet tätä sivua</h2>
+<table class="pass">
+<tr><th>Sana</th><th>Mitä se tarkoittaa kalastaessa</th></tr>
+<tr><td>Pääravinto</td><td>Sitä tämä kala etsii. Paras valinta.</td></tr>
+<tr><td>Syö mielellään</td><td>Ottaa sen herkästi, hieman vähemmän innokkaasti kuin pääravintonsa.</td></tr>
+<tr><td>Silloin tällöin</td><td>Mahdollista, mutta odotat kalaa paljon pidempään.</td></tr>
+<tr><td>Ei koskaan</td><td>Tämä kala ei ota sitä lainkaan.</td></tr>
+</table>
+<p>Suosikkiolosuhteet ovat ne, joissa kala syö parhaiten, eivät ainoat ajat, jolloin se syö. Ratkaisevaa on veden lämpötila: mainitut vuodenajat pätevät lauhkealla vyöhykkeellä, joten eteläisellä pallonpuoliskolla lue ne toisin päin, ja ota huomioon, että vesi voi olla lämpimämpää tai kylmempää kuin tuntemasi vesi.</p>
+<p>Kala, joka löytää ruokansa hajun avulla, tulee voimakkaasti haisevan syötin luo kauempaa. Kala, joka saalistaa liikkeen perusteella, löytää helpommin syötin, joka liikkuu, ja joessa virta liikuttaa syöttiäsi puolestasi, niin pohjalla kuin kellukkeen alla.</p>
+<h2 id="carp">2. Karpit ja pohjasyöjät</h2>
+<p>Isosuiset, kärsivälliset kalat, jotka kaivelevat pohjaa ruoan toivossa. Ne löytävät ruoan enimmäkseen hajun avulla, joten syötetty paikka merkitsee enemmän kuin liikkuva syötti.</p>
+<h3 id="common-carp">Karppi</h3>
+<p>Viisas ja varovainen, varsinkin isona. Liikkuu pienissä parvissa ja syö syötetyn paikan tyhjäksi, mutta palaa hakemaan lisää.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Syö mielellään</td><td>Äyriäiset ja simpukat · Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Kala · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 15 ja 28°C välillä, parhaimmillaan noin 22°C · Loppukeväästä alkusyksyyn · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Seisova tai hidas vesi</td></tr>
+</table>
+<h3 id="mirror-carp">Peilikarppi</h3>
+<p>Karppi kaikilta tässä merkitsevillä tavoilla: sama ruokahalu ja sama varovaisuus, vain eri asussa.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Syö mielellään</td><td>Äyriäiset ja simpukat · Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Kala · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 15 ja 28°C välillä, parhaimmillaan noin 22°C · Loppukeväästä alkusyksyyn · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Seisova tai hidas vesi</td></tr>
+</table>
+<h3 id="crucian-carp">Ruutana</h3>
+<p>Pieni ja tunnetusti hienotunteinen. Nykäisyt voivat olla pienen pieniä, joten hieno välineistö näyttää ne parhaiten.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset</td></tr>
+<tr><td>Syö mielellään</td><td>Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Silloin tällöin</td><td>Äyriäiset ja simpukat</td></tr>
+<tr><td>Ei koskaan</td><td>Kala · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 28°C välillä, parhaimmillaan noin 20°C · Keväästä syksyyn sekä leutoina jaksoina talvella · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Seisova tai hidas vesi</td></tr>
+</table>
+<h3 id="tench">Suutari</h3>
+<p>Kesäkala rehevässä, seisovassa vedessä, parhaimmillaan aamunkoitteessa ja illalla. Kuplat paljastavat sen usein.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Syö mielellään</td><td>Äyriäiset ja simpukat · Liha</td></tr>
+<tr><td>Silloin tällöin</td><td>Kala</td></tr>
+<tr><td>Ei koskaan</td><td>Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 15 ja 28°C välillä, parhaimmillaan noin 22°C · Loppukeväästä alkusyksyyn · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Seisova tai hidas vesi</td></tr>
+</table>
+<h3 id="bream">Lahna</h3>
+<p>Kulkee isoina parvina, jotka syövät ahnaasti pohjassa ja jatkavat sitten matkaansa. Syötä hyvin, niin saat ne pysymään.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset</td></tr>
+<tr><td>Syö mielellään</td><td>Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Silloin tällöin</td><td>Äyriäiset ja simpukat · Kala · Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Yö · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Seisova tai hidas vesi</td></tr>
+</table>
+<h3 id="barbel">Barbi</h3>
+<p>Tehty virtaa varten, ja sen viiksillä se tunnustelee ruokaa joen pohjasta. Vahva, eikä juuri arkaile, kun ruokailu on alkanut.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset · Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Syö mielellään</td><td>Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Ei koskaan</td><td>Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Yö · Heikko valo, hämärä tai syvä vesi · Hieman värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Virtaava vesi</td></tr>
+</table>
+<h3 id="wels-catfish">Monni</h3>
+<p>Valtava yöllinen saalistaja, joka seuraa hajua ja värähtelyä. Syö melkein mitä tahansa, mikä mahtuu sen suuhun.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala · Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Silloin tällöin</td><td>Uistimet</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 28°C välillä, parhaimmillaan noin 20°C · Keväästä syksyyn sekä leutoina jaksoina talvella · Yö · Heikko valo, hämärä tai syvä vesi · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Hidas vesi, sietää hieman virtaa</td></tr>
+</table>
+<h2 id="silver">3. Valkokalat</h2>
+<p>Nopeita, parvessa liikkuvia kaloja, jotka syövät usein pohjan yläpuolelta ja huomaavat liikkeen. Vähän ja usein pitää ne kiinnostuneina.</p>
+<h3 id="roach">Särki</h3>
+<p>Klassinen yleiskala, viihtyy järvissä ja joissa. Varovainen kirkkaassa vedessä, innokkaampi kun vesi samentuu.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset</td></tr>
+<tr><td>Silloin tällöin</td><td>Äyriäiset ja simpukat · Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Ei koskaan</td><td>Kala · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Alavedessä · Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi · Samea vesi</td></tr>
+<tr><td>Virta</td><td>Tasainen, kohtalainen virta</td></tr>
+</table>
+<h3 id="rudd">Sorva</h3>
+<p>Pinnan ja ylävesien kala, joka rakastaa lämpimiä, tyyniä päiviä ja kaikkea, mikä valuu hitaasti alaspäin.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset</td></tr>
+<tr><td>Silloin tällöin</td><td>Äyriäiset ja simpukat · Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Ei koskaan</td><td>Kala · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pinnan lähellä · Alavedessä · Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Aamunkoitto, ilta ja pilviset päivät · Kirkas päivänvalo · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Seisova tai hidas vesi</td></tr>
+</table>
+<h3 id="dace">Seipi</h3>
+<p>Pieni, nopea jokikala, joka pitää puhtaasta, virtaavasta vedestä ja nopeista nykäisyistä virtaan lasketulla syötillä.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset</td></tr>
+<tr><td>Silloin tällöin</td><td>Äyriäiset ja simpukat · Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Kala · Boiliet, taikinat ja pelletit · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Keskivedessä · Alavedessä · Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Aamunkoitto, ilta ja pilviset päivät · Kirkas päivänvalo · Hieman värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Virtaava vesi</td></tr>
+</table>
+<h3 id="bleak">Salakka</h3>
+<p>Pienen pieni ja aina pinnan tuntumassa, nappaa kaiken, mikä putoaa veden läpi.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset</td></tr>
+<tr><td>Silloin tällöin</td><td>Viljat, siemenet ja kasvit · Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Ei koskaan</td><td>Äyriäiset ja simpukat · Kala · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Alavedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Aamunkoitto, ilta ja pilviset päivät · Kirkas päivänvalo · Hieman värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Tasainen, kohtalainen virta</td></tr>
+</table>
+<h3 id="gudgeon">Törö</h3>
+<p>Pieni viiksekäs pohjakala, rohkea kokoonsa nähden ja usein ensimmäinen madolla.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset</td></tr>
+<tr><td>Silloin tällöin</td><td>Viljat, siemenet ja kasvit · Äyriäiset ja simpukat · Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Kala · Boiliet, taikinat ja pelletit · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Tasainen, kohtalainen virta</td></tr>
+</table>
+<h3 id="chub">Turpa</h3>
+<p>Ahne ja epäluuloinen samaan aikaan. Syö melkein mitä vain, mutta yksi raskas askel voi karkottaa sen.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Viljat, siemenet ja kasvit · Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Syö mielellään</td><td>Kala</td></tr>
+<tr><td>Silloin tällöin</td><td>Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Alavedessä · Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Heikko valo, hämärä tai syvä vesi · Hieman värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Tasainen, kohtalainen virta</td></tr>
+</table>
+<h2 id="predators">4. Petokalat</h2>
+<p>Kalat, jotka saalistavat muita kaloja. Liike herättää niiden huomion, ja ne etsivät uistinta tai kuollutta syöttikalaa.</p>
+<h3 id="pike">Hauki</h3>
+<p>Väijyvä saalistaja, joka makaa liikkumatta ja iskee sitten kovaa. Terävät hampaat: käytä teräsperuketta tai varaudu siihen, että siima katkeaa.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Liha · Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Keskivedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 6 ja 17°C välillä, parhaimmillaan noin 12°C · Syksystä kevääseen · Aamunkoitto, ilta ja pilviset päivät · Kirkas päivänvalo · Kirkas vesi</td></tr>
+<tr><td>Virta</td><td>Hidas vesi, sietää hieman virtaa</td></tr>
+</table>
+<h3 id="perch">Ahven</h3>
+<p>Raidallinen, rohkea pikkukalojen ja matojen metsästäjä. Pienten parvia ja harvinaisia isoja, jotka ovat paljon varovaisempia.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Keskivedessä · Alavedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 20°C välillä, parhaimmillaan noin 14°C · Keväällä ja syksyllä · Aamunkoitto, ilta ja pilviset päivät · Kirkas päivänvalo · Hieman värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Hidas vesi, sietää hieman virtaa</td></tr>
+</table>
+<h3 id="zander">Kuha</h3>
+<p>Saalistaa heikossa valossa ja värjääntyneessä vedessä suurilla, lasimaisilla silmillään. Hampaat kuin hauella, mutta se katkaisee siiman harvemmin.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Keskivedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 15 ja 28°C välillä, parhaimmillaan noin 22°C · Loppukeväästä alkusyksyyn · Yö · Heikko valo, hämärä tai syvä vesi · Hieman värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Tasainen, kohtalainen virta</td></tr>
+</table>
+<h3 id="eel">Ankerias</h3>
+<p>Saalistaa hajun avulla pohjassa, enimmäkseen pimeän tultua, ja on liukas koukusta kelkkaan asti.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Liha</td></tr>
+<tr><td>Silloin tällöin</td><td>Boiliet, taikinat ja pelletit · Uistimet</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 28°C välillä, parhaimmillaan noin 20°C · Keväästä syksyyn sekä leutoina jaksoina talvella · Yö · Heikko valo, hämärä tai syvä vesi · Värjääntynyt vesi</td></tr>
+<tr><td>Virta</td><td>Tasainen, kohtalainen virta</td></tr>
+</table>
+<h2 id="game">5. Taimen ja harjus</h2>
+<p>Puhtaan veden kaloja, jotka ottavat sen, minkä virta tai pinta tuo, ja tarvitsevat nähdä sen liikkuvan.</p>
+<h3 id="trout-brown">Taimen</h3>
+<p>Villi, varovainen saalistaja, joka pysyy paikallaan ja poimii ohi kulkevan.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Viljat, siemenet ja kasvit · Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pinnan lähellä · Alavedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 20°C välillä, parhaimmillaan noin 14°C · Keväällä ja syksyllä · Aamunkoitto, ilta ja pilviset päivät · Kirkas päivänvalo · Kirkas vesi</td></tr>
+<tr><td>Virta</td><td>Virtaava vesi</td></tr>
+</table>
+<h3 id="trout-rainbow">Kirjolohi</h3>
+<p>Rohkeampi ja pintaa herkemmin nouseva kuin taimen, ja yleensä nopeampi jahtaamaan.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat</td></tr>
+<tr><td>Syö mielellään</td><td>Viljat, siemenet ja kasvit · Kala · Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pinnan lähellä · Alavedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 20°C välillä, parhaimmillaan noin 14°C · Keväällä ja syksyllä · Kirkas päivänvalo · Kirkas vesi</td></tr>
+<tr><td>Virta</td><td>Tasainen, kohtalainen virta</td></tr>
+</table>
+<h3 id="grayling">Harjus</h3>
+<p>Virran kuningatar: nopean veden parvikala, joka syö edelleen, kun kylmä on pysäyttänyt muut.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset</td></tr>
+<tr><td>Syö mielellään</td><td>Äyriäiset ja simpukat</td></tr>
+<tr><td>Silloin tällöin</td><td>Viljat, siemenet ja kasvit · Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Kala · Boiliet, taikinat ja pelletit · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Alavedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 6 ja 17°C välillä, parhaimmillaan noin 12°C · Syksystä kevääseen · Aamunkoitto, ilta ja pilviset päivät · Kirkas päivänvalo · Kirkas vesi</td></tr>
+<tr><td>Virta</td><td>Virtaava vesi</td></tr>
+</table>
+<h2 id="sea">6. Merikalat</h2>
+<p>Syöminen merellä seuraa vuorovettä. Saalistajat jahtaavat liikkuvaa ruokaa, ja pohjakalat seuraavat veden pöllyttämän ravinnon tuoksua.</p>
+<h3 id="bass">Meriahven</h3>
+<p>Kiertelevä rantaan ja kallioille saalistava kala, parhaimmillaan kovassa, liikkuvassa vedessä.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pinnan lähellä · Keskivedessä · Alavedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 15 ja 28°C välillä, parhaimmillaan noin 22°C · Loppukeväästä alkusyksyyn · Yö · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Kirkas vesi</td></tr>
+</table>
+<h3 id="pollock">Lyyraturska</h3>
+<p>Elää kallioiden ja hylkyjen lähellä ja nousee nappaamaan kaiken ohi liikkuvan.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Äyriäiset ja simpukat · Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Alavedessä · Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 20°C välillä, parhaimmillaan noin 14°C · Keväällä ja syksyllä · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Hieman värjääntynyt vesi</td></tr>
+</table>
+<h3 id="mackerel">Makrilli</h3>
+<p>Nopea, parvessa liikkuva ja kesällä aina nälkäinen, yleensä korkealla vedessä.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Madot, toukat ja hyönteiset · Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Äyriäiset ja simpukat · Liha · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Keskivedessä</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 15 ja 28°C välillä, parhaimmillaan noin 22°C · Loppukeväästä alkusyksyyn · Aamunkoitto, ilta ja pilviset päivät · Kirkas päivänvalo · Kirkas vesi</td></tr>
+</table>
+<h3 id="cod">Turska</h3>
+<p>Isosuinen kylmemmän veden pohjasyöjä, joka seuraa hajua ja syö sen, minkä löytää.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Liha · Uistimet</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 6 ja 17°C välillä, parhaimmillaan noin 12°C · Syksystä kevääseen · Yö · Heikko valo, hämärä tai syvä vesi · Hieman värjääntynyt vesi</td></tr>
+</table>
+<h3 id="whiting">Valkoturska</h3>
+<p>Pieni, nälkäinen parvikala, usein vilkkaimmillaan pimeän tultua.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Äyriäiset ja simpukat · Uistimet</td></tr>
+<tr><td>Silloin tällöin</td><td>Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi</td></tr>
+</table>
+<h3 id="conger-eel">Meriankerias</h3>
+<p>Voimakas yöllinen saalistaja, joka asuu koloissa ja hylyissä ja seuraa voimakkaita hajuja.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Liha</td></tr>
+<tr><td>Silloin tällöin</td><td>Uistimet</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 20°C välillä, parhaimmillaan noin 14°C · Keväällä ja syksyllä · Yö · Värjääntynyt vesi</td></tr>
+</table>
+<h3 id="dogfish">Pikkukissahai</h3>
+<p>Pieni hai, joka nuuskii ruokansa merenpohjasta. Harvoin nirso.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Syö mielellään</td><td>Liha</td></tr>
+<tr><td>Silloin tällöin</td><td>Boiliet, taikinat ja pelletit · Uistimet</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Lähinnä hajun avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 9 ja 23°C välillä, parhaimmillaan noin 17°C · Keväästä syksyyn · Heikko valo, hämärä tai syvä vesi · Värjääntynyt vesi</td></tr>
+</table>
+<h3 id="flounder">Kampela</h3>
+<p>Kampelakala, joka hiipii jokisuistoihin ja saalistaa pohjassa näön ja hajun avulla.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Silloin tällöin</td><td>Liha · Uistimet</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 8 ja 20°C välillä, parhaimmillaan noin 14°C · Keväällä ja syksyllä · Heikko valo, hämärä tai syvä vesi · Värjääntynyt vesi</td></tr>
+</table>
+<h3 id="plaice">Punakampela</h3>
+<p>Hiekan ja simpukankuorten kampelakala, joka nuuskii esiin matoja ja äyriäisiä ja huomaa pienenkin liikkeen.</p>
+<table class="pass">
+<tr><td>Pääravinto</td><td>Madot, toukat ja hyönteiset · Äyriäiset ja simpukat · Kala</td></tr>
+<tr><td>Silloin tällöin</td><td>Liha</td></tr>
+<tr><td>Ei koskaan</td><td>Viljat, siemenet ja kasvit · Boiliet, taikinat ja pelletit · Uistimet</td></tr>
+<tr><td>Löytää ravinnon</td><td>Hajun ja liikkeen avulla</td></tr>
+<tr><td>Syö</td><td>Pohjassa</td></tr>
+<tr><td>Suosikkiolosuhteet</td><td>Vesi 6 ja 17°C välillä, parhaimmillaan noin 12°C · Syksystä kevääseen · Yö · Heikko valo, hämärä tai syvä vesi · Aamunkoitto, ilta ja pilviset päivät · Värjääntynyt vesi</td></tr>
+</table>
+</main>
+<footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
+  <a href="/fi/">Etusivu</a> · <a href="/fi/baitcreators">Syöttiluojan opas</a> · <a href="/fi/venuecreators">Kalavesiluojan opas</a> · <a href="/fi/speciescreators">Lajiluojan opas</a> · <a href="/terms">Käyttöehdot</a> · <a href="/privacy">Tietosuoja</a></footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Suomi</span></summary><ul><li><a href="/whateatswhat" hreflang="en" lang="en">English</a></li><li><a href="/de/whateatswhat" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/whateatswhat" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/whateatswhat" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/whateatswhat" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/whateatswhat" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/whateatswhat" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/whateatswhat" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/whateatswhat" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/whateatswhat" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/whateatswhat" hreflang="sv" lang="sv">Svenska</a></li><li><a aria-current="true" href="/fi/whateatswhat" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/whateatswhat" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/whateatswhat" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/whateatswhat" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/whateatswhat" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/whateatswhat" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/whateatswhat" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/whateatswhat" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/whateatswhat" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/whateatswhat"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/whateatswhat"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/whateatswhat"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/whateatswhat"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/whateatswhat"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/whateatswhat"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/whateatswhat"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/whateatswhat"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/whateatswhat"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/whateatswhat"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/whateatswhat"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/whateatswhat"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/whateatswhat"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/whateatswhat"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/whateatswhat"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/whateatswhat"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/whateatswhat"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/whateatswhat"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/whateatswhat"}, {"c": "", "hl": "en", "n": "English", "u": "/whateatswhat"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>
