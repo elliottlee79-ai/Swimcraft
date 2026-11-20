@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="es-ES">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Para quienes no pueden salir de casa · Swimcraft</title>
+<meta content="¿No puedes ir a la orilla? Pesca en tu propia agua estés donde estés, recreada a partir de tus fotos en Swimcraft." name="description"/>
+<meta content="Para quienes no pueden salir de casa · Swimcraft" property="og:title"/>
+<meta content="¿No puedes ir a la orilla? Pesca en tu propia agua estés donde estés, recreada a partir de tus fotos en Swimcraft." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://swimcraft.harbledowndigital.com/es/stuck-indoors" property="og:url"/>
+<meta content="https://swimcraft.harbledowndigital.com/social-card.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Tokens from SWIMCRAFT_BRAND.md v1.2 — same hex and names as the game's index.css */
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url(/'/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+  }
+  :root {
+    --brand-bone: #E6DCC6;
+    --brand-olive: #4E6B30;
+    --ink: #10150D;
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --accent: #8FAA6B;
+    --text: #E8F0E0;
+    --muted: #8AA880;
+    --deep: #1A1F14;
+    --mid: #2A3420;
+    --surface: #344A28;
+    --water1: #3A5A48;
+    --water2: #4A7A6D;
+    --border: rgba(143,170,107,0.25);
+    --font-brand: 'Alfa Slab One', 'Bitter', Georgia, serif;
+    --font-display: 'Bitter', Georgia, 'Times New Roman', serif;
+    --font-ui: 'Bitter', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--ink); }
+  body {
+    margin: 0;
+    background: var(--deep);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-light); text-underline-offset: 3px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, .button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Top bar: the wordmark on its Ink ground, as the brand guide asks */
+  .topbar {
+    background: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .wordmark .swim { color: var(--brand-bone); }
+  .wordmark .craft { color: var(--brand-olive); }
+  .back { color: var(--muted); font-size: 0.95rem; text-decoration: none; }
+  .back:hover { color: var(--text); text-decoration: underline; }
+
+  /* Header */
+  .intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1.5rem;
+  }
+  h1 {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    color: var(--brand-bone);
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+  .build {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 999px;
+    padding: 0.15rem 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 36rem; }
+
+  /* The notes */
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+  section {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0.5rem;
+  }
+  section:first-of-type { border-top: 0; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--brand-bone);
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  h2 svg { flex: none; width: 1.5rem; height: 1.5rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin: 0 0 0.7rem;
+    max-width: 38rem;
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--brand-olive);
+    box-shadow: 0 0 0 2px rgba(143,170,107,0.35);
+  }
+  q { color: var(--gold-light); quotes: '\201C' '\201D'; }
+
+  /* Close */
+  .cta {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3.5rem;
+  }
+  .cta-panel {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .cta-panel p { margin: 0 0 1rem; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .button {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid transparent;
+  }
+  .button.primary { background: var(--brand-olive); color: var(--brand-bone); border-color: var(--accent); }
+  .button.primary:hover { background: var(--surface); color: var(--brand-bone); }
+  .button.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .button.secondary:hover { border-color: var(--accent); color: var(--text); }
+
+
+  /* The in-game board, drawn at the game's own sizes (index.css .home-billboard) and enlarged for the page */
+  .board-wrap {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2.5rem 1.25rem 2.25rem;
+    margin: 0 0 0.5rem;
+    background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  }
+  .scene-mark {
+    font-family: var(--font-brand); font-size: 2.1rem; line-height: 1;
+
+  }
+  .scene-mark .swim { color: var(--brand-bone); }
+  .scene-mark .craft { color: var(--brand-olive); }
+  .scene-menu { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .scene-menu span {
+    font-size: 0.8rem; font-weight: 600; color: var(--brand-bone);
+    background: rgba(16,21,13,0.7); border: 1px solid rgba(143,170,107,0.3);
+    border-radius: 999px; padding: 0.25rem 0.8rem;
+  }
+  .board-scale { transform: scale(1.3); transform-origin: center top; margin-bottom: 1.4rem; width: 100%; display: flex; justify-content: center; }
+  .board {
+    position: relative; overflow: hidden;
+    width: 100%; max-width: 380px; min-height: 4.2rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+    padding: 0.7rem 1.2rem;
+    background: rgba(16,21,13,0.9);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,0,0,0.3);
+  }
+  .board::before {
+    content: ''; position: absolute; inset: 3px;
+    border: 1px solid rgba(201,168,76,0.55); border-radius: 7px; pointer-events: none;
+  }
+  .board::after {
+    content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
+    background: linear-gradient(100deg, transparent 0%, rgba(240,208,128,0.18) 50%, transparent 100%);
+    transform: skewX(-18deg);
+    animation: glint 1.6s 0.9s ease-out 1 both;
+    pointer-events: none;
+  }
+  @keyframes glint { from { left: -60%; } to { left: 130%; } }
+  @media (prefers-reduced-motion: reduce) { .board::after { animation: none; display: none; } }
+  .board-text { color: #f0e060; font-weight: 600; font-size: 0.95rem; line-height: 1.4; text-align: center; }
+  .board-flag {
+    display: inline-block; margin-right: 0.25rem; padding: 0 0.5rem;
+    font-size: 0.78rem; font-weight: 700; line-height: 1.45;
+    color: var(--brand-bone); background: rgba(230,220,198,0.12);
+    border: 1px solid rgba(230,220,198,0.3); border-radius: 999px; vertical-align: 0.1em;
+  }
+  /* The banner board, drawn as the game draws it (index.css v52 .home-billboard.banner): the picture covers the board and the
+     words sit on the right over a dark fade. */
+  .board.banner { padding: 0; min-height: 90px; justify-content: flex-end; }
+  .board-banner { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 9px; }
+  .board.banner::before { z-index: 3; }
+  .board.banner .board-text {
+    position: relative; z-index: 2; align-self: stretch; display: flex; align-items: center; justify-content: flex-end;
+    padding: 0.6rem 1rem 0.6rem 27%; margin: 0; width: 100%; box-sizing: border-box;
+    color: #fff; font-size: 0.9rem; font-weight: 700; line-height: 1.3; text-align: right; text-shadow: 0 1px 3px rgba(0,0,0,0.85);
+    background: linear-gradient(90deg, rgba(10,14,8,0) 0%, rgba(10,14,8,0.05) 22%, rgba(10,14,8,0.55) 45%, rgba(10,14,8,0.7) 100%);
+    border-radius: 9px;
+  }
+  .board-flag.gold { color: #F0D080; background: rgba(201,168,76,0.14); border-color: rgba(201,168,76,0.5); text-shadow: none; }
+  @media (max-width: 520px) { .board-scale { transform: none; margin-bottom: 0; } .scene-mark { font-size: 1.7rem; } }
+  .caption { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.75rem; }
+  .specs { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.25rem; margin: 0 0 1.25rem; }
+  .specs dt { font-weight: 700; color: var(--brand-bone); }
+  .specs dd { margin: 0; }
+  @media (max-width: 480px) { .specs { grid-template-columns: 1fr; gap: 0.15rem; } .specs dd { margin-bottom: 0.6rem; } }
+
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.5rem; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .intro { padding-top: 2.5rem; }
+    h2 { font-size: 1.3rem; }
+  }
+
+  /* back-to-the-water: the before-and-after pair */
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 0.5rem 0 0.4rem; }
+  .pair figure { margin: 0; }
+  .pair img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 10px; border: 1px solid var(--border); }
+  .pair figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem; }
+  @media (max-width: 560px) { .pair { grid-template-columns: 1fr; } }
+  .caption { font-size: 0.9rem; color: var(--muted); }
+  .note { background: var(--mid); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 10px; padding: 1rem 1.2rem; margin: 0.5rem 0 1rem; }
+  .note p { margin: 0; }
+  footer { border-top: 1px solid var(--border); }
+  .footer-inner { max-width: 44rem; margin: 0 auto; padding: 1.5rem; color: var(--muted); font-size: 0.9rem; }
+
+  .hero-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 30% 40%; display: block; border-radius: 14px; border: 1px solid var(--border); margin: 1.5rem 0 0; }
+</style>
+
+<link href="https://swimcraft.harbledowndigital.com/es/stuck-indoors" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/stuck-indoors" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/stuck-indoors" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/stuck-indoors" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/stuck-indoors" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/stuck-indoors" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/stuck-indoors" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/stuck-indoors" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/stuck-indoors" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/stuck-indoors" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/stuck-indoors" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/stuck-indoors" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/stuck-indoors" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/stuck-indoors" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/stuck-indoors" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/stuck-indoors" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/stuck-indoors" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/stuck-indoors" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/stuck-indoors" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/stuck-indoors" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/stuck-indoors" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/stuck-indoors" hreflang="x-default" rel="alternate"/><style>
+.sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
+.sc-lang summary{list-style:none;cursor:pointer;background:#10150D;color:#E6DCC6;border:1px solid #4E6B30;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.sc-lang summary::-webkit-details-marker{display:none}
+.sc-lang ul{position:absolute;right:0;bottom:46px;margin:0;padding:6px 0;list-style:none;background:#10150D;border:1px solid #4E6B30;border-radius:10px;max-height:60vh;overflow:auto;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.sc-lang li a{display:block;padding:7px 16px;color:#E6DCC6;text-decoration:none;font-size:14px}
+.sc-lang li a:hover,.sc-lang li a[aria-current]{background:#2A3420;color:#F0D080}
+.sc-suggest{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:9998;background:#10150D;color:#E6DCC6;border:1px solid #C9A84C;border-radius:999px;padding:8px 10px 8px 16px;font-family:'Bitter',Georgia,serif;font-size:14px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:calc(100% - 200px)}
+.sc-suggest a{color:#F0D080;font-weight:700}
+.sc-suggest button{background:none;border:0;color:#8AA880;font-size:18px;cursor:pointer;line-height:1}
+@media (max-width:640px){.sc-lang summary{padding:7px 10px;font-size:16px;opacity:.92}.sc-lang .n{display:none}.sc-suggest{left:14px;right:auto;transform:none;max-width:calc(100% - 150px);font-size:13px}}
+:lang(ja) body,:lang(zh-Hans) body,:lang(zh-Hant) body,:lang(ko) body{word-break:normal;overflow-wrap:anywhere}
+</style></head>
+<body>
+<header class="topbar">
+<div class="topbar-inner"><a aria-label="Swimcraft home" class="wordmark" href="/es/"><span class="swim">swim</span><span class="craft">craft</span></a>
+<a class="back" href="/es/">Volver a la página de inicio</a></div>
+</header>
+<div class="intro">
+<h1>Para quienes no pueden salir de casa</h1>
+<p class="lede">Lluvia en la ventana, la espalda fastidiada, un invierno largo, una estancia en el hospital o simplemente la vida que se cruza. Sea lo que sea lo que te aleja de la orilla, con Swimcraft la pesca no tiene que esperar.</p>
+<img alt="Un pescador mayor mira por una ventana mojada por la lluvia" class="hero-img" src="/indoors-window.jpg"/>
+</div>
+<main>
+<section aria-labelledby="idea">
+<h2 id="idea">Tu puesto, estés donde estés</h2>
+<p>Elige entre una selección cada vez mayor de escenarios y modalidades, desde la pesca al flotador de rutilos hasta la pesca en el mar de bacalao y la pesca de la carpa con boilies. Swimcraft es tu casa de pesca en casa.</p>
+<p>Si quieres crear tu propio escenario, Swimcraft te deja hacer unas fotos de un agua real y convertirla en un escenario donde pescar. Así, el sitio que echas de menos puede ser el sitio donde pesques esta noche, desde el sofá, el sillón o donde estés.</p>
+<div aria-label="Un puesto real y el mismo puesto en Swimcraft" class="pair" role="group">
+<figure><img alt="Una foto de los lagos de Westbere, con nenúfares en primer plano" src="/Westbere.jpg"/><figcaption>Una foto de un puesto real</figcaption></figure>
+<figure><img alt="El mismo puesto de Westbere, pescado en Swimcraft" src="/cast.webp"/><figcaption>El mismo puesto, en Swimcraft</figcaption></figure>
+</div>
+<p>Pescas a tu ritmo y con las técnicas y cebos que conoces. Hay incluso tablas de récords donde ves quién pesca qué y dónde. Y hay guías, tutoriales y una comunidad que no para de crecer.</p>
+</section>
+<section aria-labelledby="easy">
+<h2 id="easy">Con calma, si quieres</h2>
+<ul>
+<li><b>Coge un mando</b> y juega desde tu sillón, o usa el ratón si lo prefieres.</li>
+<li><b>Elige un agua fácil</b> donde las picadas llegan a un ritmo tranquilo, o una difícil si no te importan esperas más largas entre picada y picada.</li>
+<li><b>Descansa cuando quieras.</b> Minimiza el juego y la caña sigue pescando, y te guarda las picadas para cuando vuelvas.</li>
+<li><b>Sin prisas, sin reloj.</b> Ponte cómodo, mira el flotador y disfruta.</li>
+</ul>
+</section>
+<section aria-labelledby="help">
+<h2 id="help">¿No puedes hacer las fotos tú mismo?</h2>
+<p>Si alguien que conoces ya no puede salir, un familiar o un amigo puede hacer las fotos por él. Y si crear el escenario te parece demasiado, escríbenos y háblanos de ese agua. Nos encantaría ayudarle a volver a pescar allí.</p>
+<p>¿Diriges una residencia, un centro de cuidados paliativos o un centro de día y crees que a tus pescadores les gustaría? También nos encantaría saber de ti.</p>
+</section>
+</main>
+<div class="cta">
+<div class="cta-panel">
+<p>Háblanos del agua que echas de menos, o del pescador en el que piensas.</p>
+<div class="buttons"><a class="button primary" href="mailto:info@harbledowndigital.com?subject=Stuck%20indoors">Escríbenos</a>
+<a class="button secondary" href="https://store.steampowered.com/app/4949860/Swimcraft/">Swimcraft en Steam</a></div>
+<p class="caption" style="margin:0.9rem 0 0">info@harbledowndigital.com</p>
+</div>
+</div>
+<footer>
+<div class="footer-inner">© 2026 Harbledown Digital. <a href="https://swimcraft.harbledowndigital.com/privacy">Política de privacidad</a> y <a href="https://swimcraft.harbledowndigital.com/terms">Condiciones de uso</a>.</div>
+</footer>
+<details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Español (España)</span></summary><ul><li><a href="/stuck-indoors" hreflang="en" lang="en">English</a></li><li><a href="/de/stuck-indoors" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/stuck-indoors" hreflang="fr" lang="fr">Français</a></li><li><a aria-current="true" href="/es/stuck-indoors" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/stuck-indoors" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/stuck-indoors" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/stuck-indoors" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/stuck-indoors" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/stuck-indoors" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/stuck-indoors" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/stuck-indoors" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/stuck-indoors" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/stuck-indoors" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/stuck-indoors" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/stuck-indoors" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/stuck-indoors" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/stuck-indoors" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/stuck-indoors" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/stuck-indoors" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/stuck-indoors" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/stuck-indoors"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/stuck-indoors"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/stuck-indoors"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/stuck-indoors"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/stuck-indoors"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/stuck-indoors"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/stuck-indoors"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/stuck-indoors"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/stuck-indoors"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/stuck-indoors"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/stuck-indoors"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/stuck-indoors"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/stuck-indoors"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/stuck-indoors"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/stuck-indoors"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/stuck-indoors"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/stuck-indoors"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/stuck-indoors"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/stuck-indoors"}, {"c": "", "hl": "en", "n": "English", "u": "/stuck-indoors"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
+</html>
