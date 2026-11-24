@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>Koko kala.</strong> Kaikki evät ja koko pyrstö, mitään ei ole leikattu reunasta pois.</li>
 <li><strong>Vain kala.</strong> Ei sormia, käsiä, mattoa, ruohoa eikä haavia. Kuvia, joissa on jotain näistä, ei hyväksytä.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="Irrotettu karppi, pää vasemmalla, vaakatasossa, koko kala" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>Oikein.</strong> Pää vasemmalla, vaakatasossa, kaikki evät ja koko pyrstö.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Sama karppi oikealle katsovana" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Väärin.</strong> Kala katsoo oikealle. Peilaa se.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Sama karppi vinossa" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Väärin.</strong> Kala on vinossa. Suorista se.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Sama karppi pyrstö reunasta leikattuna" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Väärin.</strong> Pyrstö on leikattu reunasta pois. Rajaa väljemmin.</figcaption>
+</figure>
+</div>
 <p class="muted">Tallenna se PNG-muodossa. JPG-kuvassa ei voi olla läpinäkyvää taustaa, joten peli hylkää JPG-kuvat.</p>
 <h2>Rannalla</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>Se siistii ohuen valkoisen reunan, jonka taustanpoistotyökalut usein jättävät tumman kalan ympärille.</li>
 <li>Se muuttaa kuvan peliin sopivan kokoiseksi.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="Irrotettu karppi, jonka ympärillä on paljon tyhjää, taustan jäänteitä ja vaalea reuna" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>Mitä lataat: tyhjää tilaa kalan ympärillä, maton jäänteitä ja vaalea reuna.</figcaption>
+</figure>
+<figure>
+<img alt="Sama karppi pelin rajaamana, siistimänä ja mitoittamana" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>Mitä peli säilyttää: rajattu, siistitty ja oikean kokoinen.</figcaption>
+</figure>
+</div>
 <p>Se ei voi kääntää kalaa, suoristaa sitä eikä palauttaa puuttuvaa evää, joten nämä kolme ovat sinun vastuullasi.</p>
 <h2>Tarkista ennen lataamista</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>Onko kalan päällä vielä sormia tai palasia haavista tai matosta?</li>
 </ol>
 <p>Siirry sitten kalavesieditorissa kohtaan <span class="ui">Istutus</span> ja käytä kohdan <span class="ui">Kalan kuvat</span> alla olevaa toimintoa <span class="ui">Lataa irrotettu kuva</span>. Vie osoitin esikatselun päälle nähdäksesi sen 3D:nä.</p>
+<figure class="shot">
+<img alt="Kalavesieditorin Kalan kuvat -paneeli, johon on ladattu irrotettu kala" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>Kalan kuvat, kohdassa Istutus. Pääkuva on rivin jokaiselle kalalle; pienemmät tietyille painoille.</figcaption>
+</figure>
 <h2>Jos peli hylkää kuvasi</h2>
+<figure class="shot">
+<img alt="Kalavesieditori hylkää JPG-kuvan" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>Hylätty JPG. Viesti kertoo aina, mitä tehdä seuraavaksi.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>”JPG-kuvissa ei voi olla läpinäkyvää taustaa.”</dt>
 <dd>Tallenna irrotettu kuvasi uudelleen PNG-muodossa.</dd>

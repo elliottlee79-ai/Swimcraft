@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>Der ganze Fisch.</strong> Jede Flosse und die ganze Schwanzflosse, nichts am Rand abgeschnitten.</li>
 <li><strong>Nur der Fisch.</strong> Keine Finger, Hände, Matte, Gras oder Kescher. Bilder mit so etwas werden nicht freigegeben.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="Ein freigestellter Karpfen, Kopf links, waagerecht, der ganze Fisch" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>Richtig.</strong> Kopf links, waagerecht, jede Flosse und die ganze Schwanzflosse.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Derselbe Karpfen, nach rechts schauend" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Falsch.</strong> Er schaut nach rechts. Spiegle ihn.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Derselbe Karpfen, schräg liegend" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Falsch.</strong> Er liegt schräg. Richte ihn gerade aus.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Derselbe Karpfen mit am Rand abgeschnittener Schwanzflosse" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Falsch.</strong> Die Schwanzflosse ist am Rand abgeschnitten. Schneide großzügiger zu.</figcaption>
+</figure>
+</div>
 <p class="muted">Speichere es als PNG. Ein JPG kann keinen durchsichtigen Hintergrund haben, darum lehnt das Spiel JPGs ab.</p>
 <h2>Am Wasser</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>Es säubert den dünnen weißen Rand, den Freistell-Werkzeuge oft um einen dunklen Fisch lassen.</li>
 <li>Es bringt das Bild auf die richtige Größe fürs Spiel.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="Ein freigestellter Karpfen mit viel leerem Raum, Hintergrundresten und hellem Rand" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>Was du hochlädst: leerer Raum um den Fisch, Reste der Matte und ein heller Rand.</figcaption>
+</figure>
+<figure>
+<img alt="Derselbe Karpfen, vom Spiel zugeschnitten, gesäubert und skaliert" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>Was das Spiel behält: zugeschnitten, gesäubert und in der richtigen Größe.</figcaption>
+</figure>
+</div>
 <p>Es kann den Fisch nicht umdrehen, nicht begradigen und keine fehlende Flosse ergänzen, diese drei Dinge liegen bei dir.</p>
 <h2>Prüf es vor dem Hochladen</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>Sind noch Finger oder Reste von Kescher oder Matte auf dem Fisch?</li>
 </ol>
 <p>Geh dann im Gewässer-Editor zu <span class="ui">Besatz</span> und nutz <span class="ui">Freisteller hochladen</span> unter <span class="ui">Fischbilder</span>. Fahr mit dem Mauszeiger über die Vorschau, um sie in 3D zu sehen.</p>
+<figure class="shot">
+<img alt="Das Feld Fischbilder im Gewässer-Editor, mit einem hochgeladenen Freisteller" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>Fischbilder, unter Besatz. Das Hauptbild gilt für jeden Fisch dieser Zeile; die kleineren sind für bestimmte Gewichte.</figcaption>
+</figure>
 <h2>Wenn das Spiel dein Bild ablehnt</h2>
+<figure class="shot">
+<img alt="Der Gewässer-Editor lehnt ein JPG-Bild ab" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>Ein abgelehntes JPG. Die Meldung sagt immer, was als Nächstes zu tun ist.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>„JPG-Bilder können keinen durchsichtigen Hintergrund haben.“</dt>
 <dd>Speichere deinen Freisteller noch einmal als PNG.</dd>

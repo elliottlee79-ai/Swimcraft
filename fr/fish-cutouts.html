@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>Le poisson entier.</strong> Toutes les nageoires et la queue complète, rien de coupé au bord.</li>
 <li><strong>Rien que le poisson.</strong> Pas de doigts, de mains, de tapis, d'herbe ni d'épuisette. Les images qui en contiennent ne seront pas validées.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="Une carpe détourée, tête à gauche, bien à plat, le poisson entier" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>Correct.</strong> Tête à gauche, bien à plat, toutes les nageoires et la queue entière.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La même carpe tournée vers la droite" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Incorrect.</strong> Il regarde vers la droite. Retourne-le.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La même carpe penchée" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Incorrect.</strong> Il est penché. Redresse-le.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La même carpe avec la queue coupée au bord" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Incorrect.</strong> La queue est coupée au bord. Recadre plus large.</figcaption>
+</figure>
+</div>
 <p class="muted">Enregistre-la en PNG. Un JPG ne peut pas avoir de fond transparent, alors le jeu refuse les JPG.</p>
 <h2>Au bord de l'eau</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>Il nettoie le fin liseré blanc que les outils de détourage laissent souvent autour d'un poisson sombre.</li>
 <li>Il met l'image à la bonne taille pour le jeu.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="Une carpe détourée avec beaucoup de vide, des restes de fond et un bord clair" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>Ce que tu envoies : du vide autour du poisson, des restes de tapis et un bord clair.</figcaption>
+</figure>
+<figure>
+<img alt="La même carpe recadrée, nettoyée et redimensionnée par le jeu" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>Ce que le jeu garde : recadré, nettoyé et mis à la bonne taille.</figcaption>
+</figure>
+</div>
 <p>Il ne peut pas retourner le poisson, le redresser ni remettre une nageoire manquante : ces trois points dépendent de toi.</p>
 <h2>Vérifie-la avant de l'importer</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>Reste-t-il des doigts, ou des bouts d'épuisette ou de tapis, sur le poisson ?</li>
 </ol>
 <p>Ensuite, dans le créateur de plans d'eau, va dans <span class="ui">Empoissonnement</span> et utilise <span class="ui">Importer un détourage</span> sous <span class="ui">Images du poisson</span>. Passe ton pointeur sur l'aperçu pour le voir en 3D.</p>
+<figure class="shot">
+<img alt="Le panneau Images du poisson dans le créateur de plans d'eau, avec un détourage envoyé" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>Images du poisson, dans Empoissonnement. L'image principale sert à tous les poissons de la ligne ; les plus petites, à certains poids.</figcaption>
+</figure>
 <h2>Si le jeu refuse ton image</h2>
+<figure class="shot">
+<img alt="Le créateur de plans d'eau refusant une image JPG" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>Un JPG refusé. Le message dit toujours quoi faire ensuite.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>« Les images JPG ne peuvent pas avoir de fond transparent. »</dt>
 <dd>Enregistre à nouveau ton détourage en PNG.</dd>

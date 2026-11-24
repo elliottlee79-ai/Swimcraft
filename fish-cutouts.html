@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -168,6 +176,24 @@
 <li><strong>The whole fish.</strong> Every fin and the full tail, nothing cut off at the edge.</li>
 <li><strong>Only the fish.</strong> No fingers, hands, mat, grass or net. Pictures with any of those won't be approved.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="A cut-out carp, head left, lying level, the whole fish" loading="lazy" src="gallery/fc-01-good.webp"/>
+<figcaption><strong>Right.</strong> Head left, lying level, every fin and the whole tail.</figcaption>
+</figure>
+<figure class="no">
+<img alt="The same carp facing right" loading="lazy" src="gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Wrong.</strong> It faces right. Flip it.</figcaption>
+</figure>
+<figure class="no">
+<img alt="The same carp at a slant" loading="lazy" src="gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Wrong.</strong> It lies at a slant. Straighten it.</figcaption>
+</figure>
+<figure class="no">
+<img alt="The same carp with its tail cut off at the edge" loading="lazy" src="gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Wrong.</strong> The tail is cut off at the edge. Crop wider.</figcaption>
+</figure>
+</div>
 <p class="muted">Save it as a PNG. A JPG can't have a see-through background, so the game turns JPGs away.</p>
 <h2>On the bank</h2>
 <ul class="needs">
@@ -209,6 +235,16 @@
 <li>It cleans the thin white edge that removal tools often leave round a dark fish.</li>
 <li>It sizes the picture for the game.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="A cut-out carp with a lot of empty space, specks of background and a pale edge" loading="lazy" src="gallery/fc-05-before.webp"/>
+<figcaption>What you upload: empty space round the fish, specks of mat and a pale edge.</figcaption>
+</figure>
+<figure>
+<img alt="The same carp trimmed, cleaned and sized by the game" loading="lazy" src="gallery/fc-06-after.webp"/>
+<figcaption>What the game keeps: trimmed, cleaned and sized.</figcaption>
+</figure>
+</div>
 <p>It can't turn the fish round, straighten it or put back a missing fin, so those three are down to you.</p>
 <h2>Check it before you upload</h2>
 <ol class="steps">
@@ -218,7 +254,15 @@
 <li>Are there any fingers, or bits of net or mat, still on the fish?</li>
 </ol>
 <p>Then, in the venue creator, go to <span class="ui">Stocking</span> and use <span class="ui">Upload a cut-out</span> under <span class="ui">Fish pictures</span>. Move your pointer over the preview to see it in 3D.</p>
+<figure class="shot">
+<img alt="The Fish pictures panel in the venue creator, with a cut-out uploaded" loading="lazy" src="gallery/fc-07-upload.webp"/>
+<figcaption>Fish pictures, under Stocking. The main picture is used for every fish in the line; the smaller ones are for particular weights.</figcaption>
+</figure>
 <h2>If the game turns your picture away</h2>
+<figure class="shot">
+<img alt="The venue creator turning away a JPG picture" loading="lazy" src="gallery/fc-08-jpg-refused.webp"/>
+<figcaption>A JPG turned away. The message always says what to do next.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>“JPG pictures can’t have a see-through background.”</dt>
 <dd>Save your cut-out again as a PNG.</dd>

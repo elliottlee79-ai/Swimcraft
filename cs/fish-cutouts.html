@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>Celá ryba.</strong> Všechny ploutve a celý ocas, nic uříznutého u okraje.</li>
 <li><strong>Jen ryba.</strong> Žádné prsty, ruce, podložka, tráva ani podběrák. Obrázky s něčím takovým nebudou schváleny.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="Vyříznutý kapr, hlava vlevo, vodorovně, celá ryba" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>Správně.</strong> Hlava vlevo, vodorovně, všechny ploutve a celý ocas.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Tentýž kapr otočený doprava" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Špatně.</strong> Dívá se doprava. Převrať ji.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Tentýž kapr ležící šikmo" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Špatně.</strong> Leží šikmo. Narovnej ji.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Tentýž kapr s ocasem useknutým u okraje" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Špatně.</strong> Ocas je u okraje useknutý. Ořízni volněji.</figcaption>
+</figure>
+</div>
 <p class="muted">Ulož ho jako PNG. JPG nemůže mít průhledné pozadí, takže hra JPG odmítá.</p>
 <h2>U vody</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>Vyčistí tenký bílý okraj, který nástroje na odstranění pozadí často nechávají kolem tmavé ryby.</li>
 <li>Upraví obrázek na velikost pro hru.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="Vyříznutý kapr se spoustou prázdného místa, zbytky pozadí a světlým okrajem" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>Co nahráváš: prázdné místo kolem ryby, zbytky podložky a světlý okraj.</figcaption>
+</figure>
+<figure>
+<img alt="Tentýž kapr oříznutý, vyčištěný a zmenšený hrou" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>Co si hra nechá: oříznuté, vyčištěné a ve správné velikosti.</figcaption>
+</figure>
+</div>
 <p>Neumí rybu otočit, narovnat ani vrátit chybějící ploutev, takže tyhle tři věci jsou na tobě.</p>
 <h2>Zkontroluj to před nahráním</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>Jsou na rybě ještě prsty nebo kousky podběráku či podložky?</li>
 </ol>
 <p>Pak v editoru revírů přejdi na <span class="ui">Zarybnění</span> a pod <span class="ui">Obrázky ryb</span> použij <span class="ui">Nahrát výřez</span>. Přejeď ukazatelem přes náhled, abys ho viděl ve 3D.</p>
+<figure class="shot">
+<img alt="Panel Obrázky ryb v editoru revírů s nahraným výřezem" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>Obrázky ryb, v Zarybnění. Hlavní obrázek platí pro každou rybu v řádku; menší jsou pro určité váhy.</figcaption>
+</figure>
 <h2>Když hra tvůj obrázek odmítne</h2>
+<figure class="shot">
+<img alt="Editor revírů odmítá obrázek JPG" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>Odmítnutý JPG. Zpráva vždy řekne, co dělat dál.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>„Obrázky JPG nemůžou mít průhledné pozadí.“</dt>
 <dd>Ulož svůj výřez znovu jako PNG.</dd>

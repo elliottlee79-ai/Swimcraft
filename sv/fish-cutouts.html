@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>Hela fisken.</strong> Alla fenor och hela stjärten, inget avklippt vid kanten.</li>
 <li><strong>Bara fisken.</strong> Inga fingrar, händer, matta, gräs eller håv. Bilder med något av det godkänns inte.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="En frilagd karp, huvudet åt vänster, vågrät, hela fisken" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>Rätt.</strong> Huvudet åt vänster, vågrät, alla fenor och hela stjärten.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Samma karp vänd åt höger" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Fel.</strong> Den är vänd åt höger. Spegelvänd den.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Samma karp liggande snett" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Fel.</strong> Den ligger snett. Räta upp den.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Samma karp med stjärten avskuren vid kanten" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Fel.</strong> Stjärten är avskuren vid kanten. Beskär bredare.</figcaption>
+</figure>
+</div>
 <p class="muted">Spara den som PNG. En JPG kan inte ha genomskinlig bakgrund, så spelet avvisar JPG-filer.</p>
 <h2>Vid vattnet</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>Det rensar den tunna vita kant som verktyg för bakgrundsborttagning ofta lämnar runt en mörk fisk.</li>
 <li>Det ger bilden rätt storlek för spelet.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="En frilagd karp med mycket tomt utrymme, rester av bakgrund och en ljus kant" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>Det du laddar upp: tomt utrymme runt fisken, rester av mattan och en ljus kant.</figcaption>
+</figure>
+<figure>
+<img alt="Samma karp beskuren, rensad och skalad av spelet" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>Det spelet behåller: beskuret, rensat och i rätt storlek.</figcaption>
+</figure>
+</div>
 <p>Det kan inte vända fisken, räta upp den eller sätta tillbaka en fena som saknas, så de tre sakerna är upp till dig.</p>
 <h2>Kontrollera den innan du laddar upp</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>Finns det fortfarande fingrar, eller bitar av håv eller matta, på fisken?</li>
 </ol>
 <p>Gå sedan i fiskevattenbyggaren till <span class="ui">Utplantering</span> och använd <span class="ui">Ladda upp ett urklipp</span> under <span class="ui">Fiskbilder</span>. För pekaren över förhandsvisningen för att se den i 3D.</p>
+<figure class="shot">
+<img alt="Panelen Fiskbilder i fiskevattenbyggaren, med en uppladdad friläggning" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>Fiskbilder, under Utplantering. Huvudbilden gäller varje fisk i raden; de mindre är för vissa vikter.</figcaption>
+</figure>
 <h2>Om spelet avvisar din bild</h2>
+<figure class="shot">
+<img alt="Fiskevattenbyggaren avvisar en JPG-bild" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>En avvisad JPG. Meddelandet säger alltid vad du ska göra härnäst.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>”JPG-bilder kan inte ha genomskinlig bakgrund.”</dt>
 <dd>Spara ditt urklipp som PNG igen.</dd>

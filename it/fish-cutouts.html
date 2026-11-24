@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>Il pesce intero.</strong> Tutte le pinne e la coda completa, niente tagliato sul bordo.</li>
 <li><strong>Solo il pesce.</strong> Niente dita, mani, materassino, erba o guadino. Le immagini con una di queste cose non saranno approvate.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="Una carpa scontornata, testa a sinistra, dritta, il pesce intero" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>Giusto.</strong> Testa a sinistra, dritto, tutte le pinne e la coda intera.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La stessa carpa rivolta a destra" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Sbagliato.</strong> Guarda a destra. Capovolgilo.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La stessa carpa inclinata" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Sbagliato.</strong> È inclinato. Raddrizzalo.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La stessa carpa con la coda tagliata sul bordo" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Sbagliato.</strong> La coda è tagliata sul bordo. Ritaglia più largo.</figcaption>
+</figure>
+</div>
 <p class="muted">Salvala in PNG. Un JPG non può avere lo sfondo trasparente, quindi il gioco rifiuta i JPG.</p>
 <h2>In riva all'acqua</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>Pulisce il sottile bordo bianco che gli strumenti di scontorno lasciano spesso intorno a un pesce scuro.</li>
 <li>Porta l'immagine alla dimensione giusta per il gioco.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="Una carpa scontornata con molto spazio vuoto, residui di sfondo e un bordo chiaro" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>Quello che carichi: spazio vuoto attorno al pesce, residui del materassino e un bordo chiaro.</figcaption>
+</figure>
+<figure>
+<img alt="La stessa carpa ritagliata, pulita e ridimensionata dal gioco" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>Quello che tiene il gioco: ritagliato, pulito e alla giusta dimensione.</figcaption>
+</figure>
+</div>
 <p>Non può girare il pesce, raddrizzarlo né rimettere una pinna mancante: queste tre cose spettano a te.</p>
 <h2>Controllalo prima di caricarlo</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>Ci sono ancora dita, o pezzi di guadino o materassino, sul pesce?</li>
 </ol>
 <p>Poi, nell'editor di spot, vai su <span class="ui">Immissione</span> e usa <span class="ui">Carica un ritaglio</span> sotto <span class="ui">Immagini del pesce</span>. Passa il puntatore sull'anteprima per vederla in 3D.</p>
+<figure class="shot">
+<img alt="Il pannello Immagini del pesce nell'editor di spot, con uno scontorno caricato" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>Immagini del pesce, in Immissione. L'immagine principale vale per ogni pesce della riga; quelle più piccole per pesi particolari.</figcaption>
+</figure>
 <h2>Se il gioco rifiuta la tua immagine</h2>
+<figure class="shot">
+<img alt="L'editor di spot che rifiuta un'immagine JPG" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>Un JPG rifiutato. Il messaggio dice sempre cosa fare dopo.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>“Le immagini JPG non possono avere uno sfondo trasparente.”</dt>
 <dd>Salva di nuovo il tuo ritaglio in PNG.</dd>

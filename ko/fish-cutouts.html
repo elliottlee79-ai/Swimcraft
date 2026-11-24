@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>물고기 전체.</strong> 모든 지느러미와 꼬리 전체가 있고, 가장자리에서 잘린 곳이 없어야 해요.</li>
 <li><strong>물고기만.</strong> 손가락, 손, 매트, 풀, 뜰채는 없어야 해요. 이런 게 들어간 그림은 승인되지 않아요.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="오려 낸 잉어, 머리는 왼쪽, 수평, 물고기 전체" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>올바름.</strong> 머리는 왼쪽, 수평, 모든 지느러미와 꼬리 전체.</figcaption>
+</figure>
+<figure class="no">
+<img alt="오른쪽을 보는 같은 잉어" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>잘못됨.</strong> 오른쪽을 보고 있습니다. 뒤집으세요.</figcaption>
+</figure>
+<figure class="no">
+<img alt="비스듬한 같은 잉어" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>잘못됨.</strong> 비스듬히 누워 있습니다. 바로 세우세요.</figcaption>
+</figure>
+<figure class="no">
+<img alt="꼬리가 가장자리에서 잘린 같은 잉어" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>잘못됨.</strong> 꼬리가 가장자리에서 잘렸습니다. 더 넓게 자르세요.</figcaption>
+</figure>
+</div>
 <p class="muted">PNG로 저장하세요. JPG는 배경을 투명하게 할 수 없어서 게임이 JPG를 받지 않아요.</p>
 <h2>물가에서</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>배경 제거 도구가 어두운 물고기 주위에 자주 남기는 가는 흰 테두리를 깨끗하게 해요.</li>
 <li>그림을 게임에 맞는 크기로 맞춰요.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="빈 공간이 많고 배경 조각과 밝은 테두리가 남은 오려 낸 잉어" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>올리는 것: 물고기 주변의 빈 공간, 매트 조각, 밝은 테두리.</figcaption>
+</figure>
+<figure>
+<img alt="게임이 잘라내고 정리하고 크기를 맞춘 같은 잉어" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>게임이 남기는 것: 잘라내고, 정리하고, 크기를 맞춘 그림.</figcaption>
+</figure>
+</div>
 <p>물고기 방향을 바꾸거나, 바로잡거나, 없어진 지느러미를 되살릴 수는 없으니 이 세 가지는 직접 해 주세요.</p>
 <h2>업로드하기 전에 확인하세요</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>물고기 위에 손가락이나 뜰채, 매트 조각이 남아 있지 않나요?</li>
 </ol>
 <p>그런 다음 낚시터 편집기에서 <span class="ui">방류</span>로 가서 <span class="ui">물고기 그림</span> 아래의 <span class="ui">누끼 이미지 업로드</span>를 쓰세요. 미리 보기 위로 마우스 포인터를 움직이면 3D로 볼 수 있어요.</p>
+<figure class="shot">
+<img alt="오려 낸 그림을 올린 낚시터 편집기의 물고기 그림 패널" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>방류의 물고기 그림. 기본 그림은 그 줄의 모든 물고기에 쓰이고, 작은 그림은 특정 무게용입니다.</figcaption>
+</figure>
 <h2>게임이 그림을 받지 않을 때</h2>
+<figure class="shot">
+<img alt="JPG 그림을 거절하는 낚시터 편집기" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>거절된 JPG. 메시지는 항상 다음에 할 일을 알려 줍니다.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>"JPG 그림은 배경을 투명하게 할 수 없습니다."</dt>
 <dd>누끼 이미지를 다시 PNG로 저장하세요.</dd>

@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>El pez entero.</strong> Todas las aletas y la cola completa, nada cortado en el borde.</li>
 <li><strong>Solo el pez.</strong> Sin dedos, manos, moqueta, hierba ni sacadera. Las imágenes con cualquiera de esas cosas no se aprobarán.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="Una carpa recortada, cabeza a la izquierda, recta, el pez entero" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>Bien.</strong> Cabeza a la izquierda, recta, todas las aletas y la cola entera.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La misma carpa mirando a la derecha" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Mal.</strong> Mira a la derecha. Voltéala.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La misma carpa inclinada" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Mal.</strong> Está inclinada. Enderézala.</figcaption>
+</figure>
+<figure class="no">
+<img alt="La misma carpa con la cola cortada en el borde" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Mal.</strong> La cola está cortada en el borde. Recorta más amplio.</figcaption>
+</figure>
+</div>
 <p class="muted">Guárdala como PNG. Un JPG no puede tener fondo transparente, así que el juego rechaza los JPG.</p>
 <h2>En la orilla</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>Limpia el fino borde blanco que las herramientas de recorte suelen dejar alrededor de un pez oscuro.</li>
 <li>Ajusta la imagen al tamaño del juego.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="Una carpa recortada con mucho espacio vacío, restos de fondo y un borde claro" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>Lo que subes: espacio vacío alrededor del pez, restos de la esterilla y un borde claro.</figcaption>
+</figure>
+<figure>
+<img alt="La misma carpa recortada, limpiada y redimensionada por el juego" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>Lo que se queda el juego: recortado, limpio y a su tamaño.</figcaption>
+</figure>
+</div>
 <p>No puede girar el pez, enderezarlo ni devolverle una aleta que falte, así que esas tres cosas dependen de ti.</p>
 <h2>Revísalo antes de subirlo</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>¿Quedan dedos, o trozos de sacadera o moqueta, sobre el pez?</li>
 </ol>
 <p>Luego, en el editor de escenarios, ve a <span class="ui">Repoblación</span> y usa <span class="ui">Subir un recorte</span> en <span class="ui">Imágenes del pez</span>. Pasa el puntero por la vista previa para verla en 3D.</p>
+<figure class="shot">
+<img alt="El panel Imágenes del pez del editor de escenarios, con un recorte subido" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>Imágenes del pez, en Repoblación. La imagen principal sirve para todos los peces de la línea; las pequeñas, para pesos concretos.</figcaption>
+</figure>
 <h2>Si el juego rechaza tu imagen</h2>
+<figure class="shot">
+<img alt="El editor de escenarios rechazando una imagen JPG" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>Un JPG rechazado. El mensaje siempre dice qué hacer a continuación.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>“Las imágenes JPG no pueden tener fondo transparente.”</dt>
 <dd>Vuelve a guardar tu recorte como PNG.</dd>

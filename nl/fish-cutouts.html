@@ -53,6 +53,14 @@
   .pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.25rem; margin: 0 0 0.5rem; }
   .pair figure { margin: 0; }
   .pair figcaption { color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 1.2rem 0; }
+  .grid2 figure, figure.shot { margin: 0; }
+  figure.shot { margin: 1.2rem 0; }
+  .grid2 img, figure.shot img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--border); }
+  .grid2 figcaption, figure.shot figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 0.45rem; line-height: 1.45; }
+  .grid2 .ok figcaption strong { color: #8fcc98; }
+  .grid2 .no figcaption strong { color: #e0806a; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
   .pane { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16 / 9; position: relative; }
   .pane svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .pane.photo { background:
@@ -165,6 +173,24 @@
 <li><strong>De hele vis.</strong> Elke vin en de volledige staart, niets afgesneden aan de rand.</li>
 <li><strong>Alleen de vis.</strong> Geen vingers, handen, onthaakmat, gras of schepnet. Afbeeldingen met iets daarvan worden niet goedgekeurd.</li>
 </ul>
+<div class="grid2">
+<figure class="ok">
+<img alt="Een uitgeknipte karper, kop links, recht, de hele vis" loading="lazy" src="/gallery/fc-01-good.webp"/>
+<figcaption><strong>Goed.</strong> Kop links, recht, elke vin en de hele staart.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Dezelfde karper, naar rechts kijkend" loading="lazy" src="/gallery/fc-02-faces-right.webp"/>
+<figcaption><strong>Fout.</strong> Hij kijkt naar rechts. Spiegel hem.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Dezelfde karper, scheef liggend" loading="lazy" src="/gallery/fc-03-slanted.webp"/>
+<figcaption><strong>Fout.</strong> Hij ligt scheef. Zet hem recht.</figcaption>
+</figure>
+<figure class="no">
+<img alt="Dezelfde karper met de staart aan de rand afgesneden" loading="lazy" src="/gallery/fc-04-tail-cut.webp"/>
+<figcaption><strong>Fout.</strong> De staart is aan de rand afgesneden. Snijd ruimer bij.</figcaption>
+</figure>
+</div>
 <p class="muted">Sla hem op als PNG. Een JPG kan geen doorzichtige achtergrond hebben, dus het spel weigert JPG's.</p>
 <h2>Aan de waterkant</h2>
 <ul class="needs">
@@ -206,6 +232,16 @@
 <li>Het maakt de dunne witte rand schoon die vrijstaaltools vaak rond een donkere vis laten.</li>
 <li>Het maakt de afbeelding op maat voor het spel.</li>
 </ul>
+<div class="grid2">
+<figure>
+<img alt="Een uitgeknipte karper met veel lege ruimte, stukjes achtergrond en een lichte rand" loading="lazy" src="/gallery/fc-05-before.webp"/>
+<figcaption>Wat je uploadt: lege ruimte rond de vis, stukjes mat en een lichte rand.</figcaption>
+</figure>
+<figure>
+<img alt="Dezelfde karper, door het spel bijgesneden, opgeschoond en geschaald" loading="lazy" src="/gallery/fc-06-after.webp"/>
+<figcaption>Wat het spel bewaart: bijgesneden, opgeschoond en op maat.</figcaption>
+</figure>
+</div>
 <p>Het kan de vis niet omdraaien, rechtzetten of een ontbrekende vin terugzetten, dus die drie zijn aan jou.</p>
 <h2>Controleer hem voordat je uploadt</h2>
 <ol class="steps">
@@ -215,7 +251,15 @@
 <li>Zitten er nog vingers, of stukjes net of mat, op de vis?</li>
 </ol>
 <p>Ga daarna in de watereditor naar <span class="ui">Uitzetten</span> en gebruik <span class="ui">Upload een uitsnede</span> onder <span class="ui">Visafbeeldingen</span>. Beweeg je aanwijzer over het voorbeeld om het in 3D te zien.</p>
+<figure class="shot">
+<img alt="Het paneel Visafbeeldingen in de watereditor, met een geüploade uitsnede" loading="lazy" src="/gallery/fc-07-upload.webp"/>
+<figcaption>Visafbeeldingen, onder Uitzetten. De hoofdafbeelding geldt voor elke vis in de regel; de kleinere zijn voor bepaalde gewichten.</figcaption>
+</figure>
 <h2>Als de game je afbeelding weigert</h2>
+<figure class="shot">
+<img alt="De watereditor die een JPG-afbeelding weigert" loading="lazy" src="/gallery/fc-08-jpg-refused.webp"/>
+<figcaption>Een geweigerde JPG. De melding zegt altijd wat je daarna moet doen.</figcaption>
+</figure>
 <dl class="refusal">
 <dt>“JPG-afbeeldingen kunnen geen doorzichtige achtergrond hebben.”</dt>
 <dd>Sla je uitsnede opnieuw op als PNG.</dd>
