@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>魚種建立者指南</h1>
 <p class="meta"><strong>描述一種真實的魚，只需一次，每位釣場建立者都能放養。</strong></p>
-<p class="meta">最後更新：2026 年 10 月 12 日</p>
-<div class="intro">魚種編輯器會就一條魚問你三頁問題。你的回答決定這條魚在水裡的表現：什麼時候進食、吃什麼、怎麼咬鉤、怎麼搏鬥。本頁會說明每個問題真正想問什麼，以及在你的魚進入所有人的放養清單之前，版主會檢查哪些地方。</div>
+<p class="meta">最後更新：2026 年 11 月 24 日</p>
+<div class="intro">魚種建立器會就一條魚問你四頁問題。你的回答會變成這條魚在水中的表現：什麼時候進食、吃什麼、怎麼咬鉤、怎麼搏鬥。本頁說明每個問題真正想問的是什麼，以及在你的魚進入大家的放養清單之前，版主會檢查什麼。</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">草稿、提交、通過：你的魚會經歷什麼</a></li>
 <li><a href="#start">從現有魚種開始</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">牠生活在哪些水域</a></li>
 <li><a href="#behave">第 2 頁：牠的習性</a></li>
 <li><a href="#temp">水溫（攝氏度）</a></li>
-<li><a href="#check">第 3 頁：檢查並提交</a></li>
+<li><a href="#feeds">第 3 頁：牠怎麼進食</a></li>
+<li><a href="#check">第 4 頁：檢查並提交</a></li>
 <li><a href="#review">版主會看什麼</a></li>
 </ol>
 <h2 id="life">1. 草稿、提交、通過</h2>
@@ -152,9 +158,11 @@
 <p>你儲存的魚會在下次啟動遊戲時出現在你自己的放養清單中，而不是立刻出現。</p>
 <h2 id="start">2. 從現有魚種開始</h2>
 <p>做一條魚最快的方法，是第 1 頁頂部的<strong>快捷方式</strong>框。選出遊戲裡和你的魚最像的那一條，所有答案都會依牠自動填好。然後只改不同的地方。</p>
-<p>鬼鯉就是個好例子：從鯉魚開始，改掉名稱、照片和紀錄，就差不多完成了。最後一頁會列出你改過的所有內容，並註明你的魚是以哪條魚為基礎做的。版主也會看到這些。</p>
+<p>革鯉就是個好例子：從鯉魚開始，改掉名稱、照片和紀錄，就差不多完成了。最後一頁會列出你改過的所有內容，並註明你的魚是以哪條魚為基礎做的。版主也會看到這些。</p>
+<figure class="fit"><img alt="選擇了鯉魚的快捷方式框" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>快捷方式框：選擇和你的魚最相似的那條。</figcaption></figure>
 <div class="callout">如果遊戲裡沒有哪條魚和你的所有答案都一致，一些更細的設定會從你的魚所依據的那條魚借用。發生這種情況時，最後一頁會告訴你。對於不尋常的魚，這很正常。</div>
 <h2 id="fish">3. 第 1 頁：魚</h2>
+<figure><img alt="魚種建立器第 1 頁" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>第 1 頁。提交之前，需要填好標有 * 的答案。</figcaption></figure>
 <div class="step"><span class="num">名稱和拉丁學名</span><h3>釣手怎麼稱呼牠</h3>
 <p>用釣手會去搜尋的名稱。這個名稱不能已被其他魚使用。也請填上拉丁學名，讓版主能準確知道你指的是哪種魚。牠的其他別名可以填在下面的框裡，用逗號分隔。</p></div>
 <div class="step"><span class="num">照片</span><h3>側面去背圖</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">國家和棲息地</span><h3>釣手會在哪裡遇到牠</h3>
 <p>勾選牠生活的每個國家，以及牠出現在靜水、緩流河還是急流河。所有適用項目都要勾選。</p></div>
 <div class="step"><span class="num">大小</span><h3>紀錄，附上連結</h3>
-<p>你勾選的每個國家都會有一行，用來填寫紀錄重量（磅、盎司和打蘭）。至少需要一項紀錄，而每項紀錄都需要一個指向其登記來源的連結：紀錄委員會、釣魚協會或俱樂部頁面，版主要能開啟並查證。如果某國的紀錄未知，就留空。</p>
-<p>成魚常見重量和大物尺寸會和你的魚一起儲存，供日後使用。知道的話就填上。</p></div>
+<p>你勾選的每個國家都會有一行，用來填寫紀錄重量（磅、盎司和打蘭）。至少需要一項紀錄，而每項紀錄都需要一個指向其登記來源的連結：紀錄委員會、釣魚協會或俱樂部頁面，版主要能開啟並查證。如果某國的紀錄未知，就留空。</p></div>
 <h2 id="water">4. 牠生活在哪些水域</h2>
 <p>勾選<strong>淡水</strong>、<strong>河口</strong>或<strong>海釣</strong>，適用幾項就勾幾項。你勾的選項決定這條魚能在哪些水域被釣到。不適合牠的水域永遠釣不到牠，其他條件再合適也不行。</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>問題</th><th>需要考慮什麼</th></tr>
 <tr><td>它在哪裡覓食？</td><td>把水底、中層水和水面排好順序，最常去的排第一。</td></tr>
-<tr><td>它吃什麼？</td><td>在「攝食習性」頁面：為每類食物選擇「主食」「愛吃」「偶爾」或「從不」。</td></tr>
+<tr><td>牠喜歡待在哪裡？</td><td>對每一種地點，例如水草床、睡蓮、蘆葦、木頭、礁石或頭頂遮蔭：最愛、喜歡、無所謂或迴避。在牠最愛或喜歡的地方附近，牠咬鉤更頻繁；在牠迴避的地方附近，咬鉤更少。</td></tr>
 <tr><td>什麼時候最愛進食？</td><td>白天、黎明和黃昏，或夜晚。</td></tr>
 <tr><td>它喜歡待在哪裡？</td><td>開闊水域、有些遮蔽，或障礙物和水草。</td></tr>
 <tr><td>清水還是渾水？</td><td>牠更喜歡哪一種。</td></tr>
-<tr><td>它怎麼咬鉤？</td><td>輕微點動、穩穩上頂，或叼餌帶線跑。</td></tr>
-<tr><td>它有多警覺？</td><td>大膽、謹慎或非常警覺。</td></tr>
+<tr><td>它怎麼咬鉤？</td><td>九種咬鉤方式，從「一點就下沉」或「送標」到「乾脆後拖走」或「緩慢平穩地拖」。然後是小口的快慢（從「急」到「慢」），以及牠含住餌料的時間（從「非常短」到「很久」）。</td></tr>
 <tr><td>它怎麼搏鬥？</td><td>選描述最像你釣線那頭那條魚的搏鬥方式。</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="一條鯉魚的「牠喜歡待在哪裡？」答案" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>牠喜歡待在哪裡，逐個地點。</figcaption></figure>
+<figure class="fit"><img alt="「它怎麼咬鉤？」的九種方式和兩種時間" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>牠怎麼咬鉤，以及咬鉤有多快、多長。</figcaption></figure>
+</div>
 <h2 id="temp">6. 水溫（攝氏度）</h2>
 <p>選一個聽起來最像你的魚的標籤。它會填入三個攝氏溫度數值，你可以修改：</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>舒適下限</strong>和<strong>舒適上限</strong>：牠仍然吃得好的溫度範圍。</li>
 </ul>
 <p>數值必須依從低、到最佳、到高的順序排列。超出舒適範圍，魚就會停口：冷幾度，大多數魚只剩一點點食慾；熱幾度，牠們就完全不吃了。</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="水溫標籤和它的三個數字" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>選擇一個標籤，三個數字就會填好。</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>標籤</th><th>最佳</th><th>舒適範圍</th><th>代表什麼</th></tr>
 <tr><td>冷水專家</td><td>12 °C</td><td>6 至 17 °C</td><td>喜歡冰冷潔淨的水；水一變暖就吃力。鱒魚、茴魚、紅點鮭、鱈魚。</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>熱帶</td><td>29 °C</td><td>25 至 33 °C</td><td>只要熱水；水一涼就停止進食。尖吻鱸、孔雀鱸。</td></tr>
 </table></div>
 <div class="callout">只有在你確定你的魚和牠的標籤不同時，才去改這些數值。釣場的水溫會隨季節升降，而固定在地球上真實位置的釣場會跟隨當地的氣候。熱帶魚放養在冷水裡幾乎不會進食，這是魚在如實表現，不是故障。</div>
-<h2 id="check">7. 第 3 頁：檢查並提交</h2>
+<h2 id="feeds">7. 第 3 頁：牠怎麼進食</h2>
+<p>這一頁決定你的魚吃哪些餌料，以及怎樣騙過牠。餌料建立者<a href="/zh-tw/baitcreators">指南</a>從餌料的角度問同樣的問題，所以兩者會在水中相遇。</p>
+<table class="pass">
+<tr><th>問題</th><th>需要考慮什麼</th></tr>
+<tr><td>它吃什麼？</td><td>對每一種食物，從穀物和植物到蟲子、甲殼類、魚、肉、麵團以及不能吃的東西：主食、愛吃、偶爾或從不。魚絕不會吃用牠從不吃的東西做成的餌料。</td></tr>
+<tr><td>它怎樣找到食物？</td><td>氣味、動作或兩者皆有。</td></tr>
+<tr><td>餌料需要多濃的氣味才能吸引它？</td><td>從「微弱」到「刺鼻」。</td></tr>
+<tr><td>餌料需要多大的動作才能吸引它？</td><td>從「不需要」到「游動」。</td></tr>
+<tr><td>它的視力怎樣？</td><td>幾乎不用、一般、良好或敏銳。</td></tr>
+<tr><td>它會被閃光吸引嗎？</td><td>是或否。</td></tr>
+<tr><td>它的嘴有多大？</td><td>從「極小」到「巨大」。對牠的嘴來說太大的餌料會被拒絕。</td></tr>
+<tr><td>它有多怕釣線？</td><td>從「非常怕釣線」到「不怕釣線」：粗線會讓牠多麼退縮。</td></tr>
+<tr><td>它有多警覺？</td><td>大膽、謹慎或非常警覺。</td></tr>
+</table>
+<figure class="fit"><img alt="為一條鯉魚填寫的「牠吃什麼？」" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>牠吃什麼，每種食物一個答案。</figcaption></figure>
+<h2 id="check">8. 第 4 頁：檢查並提交</h2>
 <p>最後一頁會依其他釣手將看到的樣子展示你的魚，附有一段根據你的回答寫成的簡短描述，以及與牠所依據的那條魚相比有哪些不同的清單。讀一讀這段描述：如果它聽起來不像你的魚，表示你有個答案填錯了。</p>
-<p>如果有缺漏，一個名為<strong>提交之前</strong>的框會把它們列出來。點選任何一項即可直接跳過去。沒有缺漏時，<strong>提交給版主</strong>就會把你的魚提交上去。</p>
-<h2 id="review">8. 版主會看什麼</h2>
+<p>如果還缺什麼，一個名為<strong>提交之前</strong>的框會列出來。點擊任何一項即可直接跳過去。什麼都不缺時，<strong>提交給版主</strong>就會把你的魚送出。遊戲會先問你：只有在開啟的視窗中點擊<strong>是的，送審</strong>才會送出，點擊<strong>先不要</strong>則保留為草稿。</p>
+<figure><img alt="第 4 頁：完成的魚和還缺少的內容" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>第 4 頁。這條革鯉還缺少紀錄重量和自己的照片，所以提交要等一等。</figcaption></figure>
+<h2 id="review">9. 版主會看什麼</h2>
 <ul>
 <li><strong>一種真實的魚。</strong>魚種編輯器是為釣手真正會釣到的魚準備的，要依牠們本來的樣子描述。</li>
 <li><strong>經得起查證的紀錄。</strong>連結必須能開啟，而且必須顯示你填寫的重量。</li>

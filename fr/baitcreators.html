@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Le guide du créateur d'appâts</h1>
 <p class="meta"><strong>Comment créer un appât bien à toi, d'un nouveau parfum de bouillette à un fruit avec lequel personne n'a encore pêché.</strong></p>
-<p class="meta">Dernière mise à jour : 18 octobre 2026</p>
+<p class="meta">Dernière mise à jour : 24 novembre 2026</p>
 <div class="intro">Le créateur d'appâts te pose trois pages de questions sur un appât. Les poissons ne lisent pas le nom sur le paquet : ils jugent un appât à ce dont il est fait, à son goût et à son odeur, à sa taille, à son aspect et à sa façon de bouger. Tes réponses sont exactement ces choses-là, donc ce sont elles qui décident quels poissons prennent ton appât, et avec quel entrain. Cette page explique chaque question, et ce qu'un modérateur vérifie avant que ton appât n'entre dans la boîte à appâts de tout le monde.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Brouillon, soumis, approuvé : ce qui arrive à ton appât</a></li>
 <li><a href="#start">Partir de l'un de nos appâts, ou créer un nouveau type</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Page 3 : sur l'hameçon, et vérification</a></li>
 <li><a href="#which">Quels poissons le prendront ?</a></li>
 <li><a href="#box">Ton appât dans la boîte à appâts, et son niveau</a></li>
+<li><a href="#ground">Créer une amorce</a></li>
 <li><a href="#review">Ce que regardent les modérateurs</a></li>
 </ol>
 <h2 id="life">1. Brouillon, soumis, approuvé</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Partir de l'un de nos appâts, ou créer un nouveau type</h2>
 <p>Le moyen le plus rapide de créer un appât est la case <strong>Raccourci</strong> en haut de la page 1. Choisis l'appât du jeu qui ressemble le plus au tien et chaque réponse est remplie à partir de lui. Ensuite, change seulement ce qui diffère.</p>
 <p>Une bouillette à la fraise en est un bon exemple : pars de l'une de nos bouillettes, change le nom, le goût et la couleur, et tu as presque fini. Tout ce que tu laisses tel quel pêche exactement comme l'appât de départ.</p>
+<figure class="fit"><img alt="La case Raccourci avec Redmire Cream choisi" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>La case Raccourci : choisis l'appât le plus proche du tien, et chaque réponse est remplie à partir de lui.</figcaption></figure>
 <p>Laisse le raccourci sur <strong>Un tout nouveau type d'appât</strong> pour décrire quelque chose que le jeu n'a pas encore : un fruit qui tombe d'un arbre, une plante que broute un poisson végétarien, une larve à laquelle personne n'a pensé. Un nouveau type d'appât commence avec toutes les questions vides.</p>
 <div class="callout">Chaque poste d'un plan d'eau liste les types d'appâts avec lesquels on pêche ses poissons, comme Bouillettes ou Maïs / Graines. Un appât créé à partir de l'un des nôtres compte comme l'appât de départ. Un tout nouveau type d'appât compte selon ce dont il est fait : un fruit figure dans la liste partout où un poste indique Maïs / Graines, et une nouvelle larve partout où il indique Asticots / Casters.</div>
 <h2 id="bait">3. Page 1 : l'appât</h2>
+<figure><img alt="Page 1 du créateur d'appâts, partie de Redmire Cream et renommée Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Page 1, partie de Redmire Cream puis renommée. Les réponses marquées * sont obligatoires.</figcaption></figure>
 <div class="step"><span class="num">Nom</span><h3>Ce que les joueurs verront dans la boîte à appâts</h3>
 <p>Un nom court, jusqu'à 40 caractères. Ce ne peut pas être le nom de l'un de nos appâts ni de l'appât d'un autre joueur.</p></div>
 <div class="step"><span class="num">Ligne de description</span><h3>Une ligne, comme pour nos appâts</h3>
@@ -169,6 +177,8 @@
 <p>Un PNG ou un WebP à fond transparent, jusqu'à 5 Mo, montrant seulement l'appât. Tant que tu n'en as pas ajouté, la boîte à appâts affiche un dessin.</p></div>
 <h2 id="senses">4. Page 2 : comment un poisson le perçoit</h2>
 <p>Ce sont les réponses que les poissons utilisent vraiment. Chacune aide certains poissons et pas d'autres, il n'y a donc pas de meilleure réponse unique : pense aux poissons que tu veux attraper.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Page 2 du créateur d'appâts : goût, odeur, huile, mouvement, taille, aspect et flottaison" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Page 2. La bouillette à la fraise a maintenant le goût Sucré/Fruité, avec Crémeux/Lacté en second, et elle est rouge et Vif.</figcaption></figure>
 <table class="pass">
 <tr><th>Question</th><th>À quoi penser</th></tr>
 <tr><td>Quel goût a-t-il ?</td><td>Poisson, Sucré/Fruité, Épicé/Relevé, Carné/Salé, Crémeux/Lacté, Naturel ou Noisette/Terreux. Chaque poisson aime certains goûts plus que d'autres, et certains goûts conviennent à l'eau chaude, d'autres à l'eau froide. Un deuxième goût est facultatif.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Amorçage uniquement</td><td>Coche cette case seulement si l'appât ne peut pas aller sur un hameçon. Tout autre appât peut aussi être lancé en amorçage.</td></tr>
 </table>
 <p>La dernière page montre aussi ton appât tel qu'il apparaîtra dans la boîte à appâts. S'il manque quelque chose, une case intitulée <strong>Avant de pouvoir pêcher avec</strong> le liste. Clique sur un élément pour y aller directement.</p>
+<p>Quand chaque réponse est remplie et que ton appât a une photo, <strong>Soumettre aux modérateurs</strong> l'envoie. Le jeu demande d'abord : une fenêtre au milieu de l'écran dit ce qui va se passer, et seul <strong>Oui, l’envoyer</strong> envoie ton appât. <strong>Pas encore</strong> le garde en brouillon.</p>
+<figure><img alt="La fenêtre qui demande avant qu'un appât soit envoyé aux modérateurs" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Soumettre demande d'abord. Rien n'est envoyé tant que tu n'as pas appuyé sur Oui, l’envoyer.</figcaption></figure>
 <h2 id="which">6. Quels poissons le prendront ?</h2>
 <p>Une fois tes réponses complètes, la dernière page montre chaque poisson qui vit là où ton appât peut être utilisé, et son envie de prendre ton appât en été et en hiver : <strong>Le prend volontiers</strong>, <strong>Le prend</strong>, <strong>De temps en temps</strong> ou <strong>Jamais</strong>.</p>
 <p>C'est le jugement du jeu lui-même, fait avec les mêmes vérifications que les poissons font dans l'eau, à un poste qui convient par ailleurs à chaque poisson. Il est comparé à ce sur quoi ce poisson se prend habituellement. Change une réponse et la liste change avec, pour que tu voies tout de suite l'effet d'une taille plus grande ou d'une odeur plus forte.</p>
+<figure class="fit"><img alt="La liste Quels poissons le prendront ? pour une bouillette à la fraise" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>La bouillette à la fraise : les carpes, les tanches et les brèmes la prennent volontiers en été. La liste défile pour montrer chaque poisson.</figcaption></figure>
 <div class="callout">« Jamais » vient le plus souvent de la taille de l'appât ou de ce dont il est fait : trop gros pour la bouche de ce poisson, ou quelque chose qu'il ne mange pas. Un vrai poste ajoute tout ce que cette liste laisse de côté, comme la profondeur, la météo, l'heure de la journée et la quantité d'amorce dans l'eau.</div>
 <h2 id="box">7. Ton appât dans la boîte à appâts, et son niveau</h2>
 <p>Les appâts créés par les joueurs se rangent dans les mêmes lignes que les nôtres, marqués d'un <strong>*</strong>, et la boîte à appâts explique ce que signifie cette marque. Ils se choisissent, se mettent sur l'hameçon et se lancent en amorçage exactement comme les nôtres.</p>
+<figure class="fit"><img alt="L'aspect de l'appât dans la boîte à appâts, avec son niveau" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>La dernière page montre ton appât tel qu'il apparaîtra dans la boîte à appâts, et le niveau auquel il se débloque.</figcaption></figure>
 <p>Chaque appât a un niveau à partir duquel il se débloque. Tant qu'un modérateur n'a pas fixé le niveau de ton appât selon son efficacité, il se débloque au niveau de l'appât de départ, ou au niveau 1 pour un tout nouveau type d'appât. Un modérateur peut fixer son niveau lors de l'approbation : un appât qui prend facilement de gros poissons peut s'attendre à un niveau plus élevé.</p>
-<h2 id="review">8. Ce que regardent les modérateurs</h2>
+<h2 id="ground">8. Créer une amorce</h2>
+<p>En haut de la page 1, <strong>Que créez-vous ?</strong> propose <strong>Appât</strong> ou <strong>Amorce</strong>. Choisis Amorce pour créer ton propre mélange. Les mouches viendront plus tard.</p>
+<p>Une amorce prend un chemin plus court : son nom, une description d'une ligne, son goût (un ou deux), sa façon de se déliter, sa couleur et une photo, et si elle est pour l'eau douce ou la mer. Elle peut partir d'un de nos mélanges, dans la même case Raccourci. La taille, le mouvement, la flottaison et les questions sur l'hameçon ne sont pas posées, car l'amorce est lancée pour attirer les poissons, pas mise sur l'hameçon.</p>
+<p>Ton amorce se range dans l'onglet <strong>Amorce</strong> de la boîte à appâts, et n'est proposée que sur son propre type d'eau.</p>
+<figure><img alt="Page 1 du créateur d'appâts avec Amorce choisie" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Amorce choisie : trois pages, en partant d'un de nos mélanges si tu veux.</figcaption></figure>
+<h2 id="review">9. Ce que regardent les modérateurs</h2>
 <ul>
 <li><strong>Un vrai appât.</strong> Quelque chose que les pêcheurs utilisent ou pourraient utiliser, décrit tel qu'il est, et plausible en pêche réelle. Un tout nouveau type d'appât est le bienvenu ; un appât parfait en tout ne l'est pas. Restez réaliste.</li>
 <li><strong>Des réponses honnêtes.</strong> Une bouillette de 20 mm saisie comme un pellet de 2 mm, ou un simple appât qui empeste, sera renvoyé.</li>

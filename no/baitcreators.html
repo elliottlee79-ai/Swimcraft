@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Veiledning for agnbyggere</h1>
 <p class="meta"><strong>Slik lager du et helt eget agn, fra en ny smak av boilie til en frukt ingen har fisket med ennå.</strong></p>
-<p class="meta">Sist oppdatert: 18. oktober 2026</p>
+<p class="meta">Sist oppdatert: 24. november 2026</p>
 <div class="intro">Agnbyggeren stiller tre sider med spørsmål om et agn. Fisk leser ikke navnet på pakken: de bedømmer et agn etter hva det er laget av, hvordan det smaker og lukter, hvor stort det er, hvordan det ser ut og hvordan det beveger seg. Svarene dine er nettopp disse tingene, så de bestemmer hvilke fisker som tar agnet ditt, og hvor ivrig. Denne siden forklarer hvert spørsmål, og hva en moderator sjekker før agnet ditt havner i alles Agnboks.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Utkast, sendt inn, godkjent: hva som skjer med agnet ditt</a></li>
 <li><a href="#start">Start fra et av våre agn, eller lag en ny type</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Side 3: på kroken, og sjekk</a></li>
 <li><a href="#which">Hvilke fisker tar det?</a></li>
 <li><a href="#box">Agnet ditt i Agnboks, og nivået</a></li>
+<li><a href="#ground">Lage lokkefôr</a></li>
 <li><a href="#review">Hva moderatorene ser etter</a></li>
 </ol>
 <h2 id="life">1. Utkast, sendt inn, godkjent</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Start fra et av våre agn, eller lag en ny type</h2>
 <p>Den raskeste måten å lage et agn på er <strong>Snarvei</strong>-boksen øverst på side 1. Velg agnet i spillet som ligner mest på ditt, så fylles alle svarene inn fra det. Endre så bare det som er annerledes.</p>
 <p>En jordbærboilie er et godt eksempel: start fra en av våre boilies, endre navnet, smaken og fargen, så er du nesten ferdig. Alt du lar være som det var, fisker akkurat som agnet du startet fra.</p>
+<figure class="fit"><img alt="Feltet Snarvei med Redmire Cream valgt" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>Feltet Snarvei: velg agnet som ligner mest på ditt, så fylles alle svarene inn fra det.</figcaption></figure>
 <p>La snarveien stå på <strong>En helt ny type agn</strong> for å beskrive noe spillet ikke har ennå: en frukt som faller fra et tre, en plante en planteetende fisk beiter på, en larve ingen har tenkt på. En ny type agn starter med alle spørsmålene tomme.</p>
 <div class="callout">Hver plass på et fiskevann viser hvilke typer agn fisken der fiskes med, for eksempel Boilies eller Mais / partikkel. Et agn du starter fra et av våre, teller som agnet det startet fra. En helt ny type agn teller etter hva det er laget av: en frukt står på listen overalt der en plass viser Mais / partikkel, og en ny larve overalt der den viser Maggots / casters.</div>
 <h2 id="bait">3. Side 1: agnet</h2>
+<figure><img alt="Side 1 i agnbyggeren, startet fra Redmire Cream og omdøpt til Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Side 1, startet fra Redmire Cream og omdøpt. Svarene merket med * er påkrevd.</figcaption></figure>
 <div class="step"><span class="num">Navn</span><h3>Det spillerne ser i Agnboks</h3>
 <p>Et kort navn, opptil 40 bokstaver. Det kan ikke være navnet på et av våre agn eller på en annen spillers agn.</p></div>
 <div class="step"><span class="num">Beskrivelseslinje</span><h3>Én linje, slik våre agn har</h3>
@@ -169,6 +177,8 @@
 <p>En PNG eller WebP med gjennomsiktig bakgrunn, opptil 5 MB, som bare viser agnet. Til du legger til et bilde, viser Agnboks en tegning.</p></div>
 <h2 id="senses">4. Side 2: hvordan en fisk sanser det</h2>
 <p>Dette er svarene fisken faktisk bruker. Hvert svar hjelper noen fisker og ikke andre, så det finnes ikke ett beste svar: tenk på hvilke fisker du vil fange.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Side 2 i agnbyggeren: smak, lukt, olje, bevegelse, størrelse, utseende og om det flyter" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Side 2. Jordbærboilien smaker nå Søt/Fruktig, med Kremet/Melkete som andre smak, og den er rød og Sterk.</figcaption></figure>
 <table class="pass">
 <tr><th>Spørsmål</th><th>Hva du bør tenke på</th></tr>
 <tr><td>Hva smaker det?</td><td>Fiskete, Søt/Fruktig, Krydret/Pikant, Kjøttfull/Salt, Kremet/Melkete, Naturlig eller Nøtteaktig/Jordaktig. Hver fisk liker noen smaker bedre enn andre, og noen smaker passer til varmt vann og andre til kaldt. En smak nummer to er valgfri.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Bare løsfôr</td><td>Kryss av her bare hvis agnet ikke kan sitte på en krok. Alle andre agn kan også kastes ut som løsfôr.</td></tr>
 </table>
 <p>Den siste siden viser også agnet ditt slik det vil se ut i Agnboks. Hvis noe mangler, står det i en boks som heter <strong>Før du kan fiske med det</strong>. Klikk på et punkt for å gå rett til det.</p>
+<p>Når alle svarene er fylt inn og agnet ditt har et bilde, sender <strong>Send inn til moderatorene</strong> det inn. Spillet spør først: et vindu midt på skjermen forteller hva som skjer, og bare <strong>Ja, send det</strong> sender agnet ditt. <strong>Ikke ennå</strong> beholder det som utkast.</p>
+<figure><img alt="Vinduet som spør før et agn sendes til moderatorene" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Send inn spør først. Ingenting sendes før du trykker Ja, send det.</figcaption></figure>
 <h2 id="which">6. Hvilke fisker tar det?</h2>
 <p>Når svarene dine er komplette, viser den siste siden hver fisk som lever der agnet ditt kan brukes, og hvor ivrig den er på agnet ditt om sommeren og om vinteren: <strong>Tar det gjerne</strong>, <strong>Tar det</strong>, <strong>Nå og da</strong> eller <strong>Aldri</strong>.</p>
 <p>Dette er spillets egen vurdering, gjort med de samme sjekkene fisken gjør i vannet, på en plass som ellers passer hver fisk. Den sammenlignes med det fisken vanligvis tas på. Endre et svar, og listen endrer seg med det, så du ser med en gang hva en større størrelse eller en sterkere lukt gjør.</p>
+<figure class="fit"><img alt="Listen Hvilke fisker tar det? for en jordbærboilie" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>Jordbærboilien: karpe, suter og brasme tar den gjerne om sommeren. Listen kan rulles og viser alle fiskene.</figcaption></figure>
 <div class="callout">"Aldri" skyldes som regel agnets størrelse eller hva det er laget av: for stort for munnen til den fisken, eller noe den ikke spiser. En ekte fiskeplass legger til alt denne listen utelater, som dybden, været, tiden på døgnet og hvor mye fôr som ligger i vannet.</div>
 <h2 id="box">7. Agnet ditt i Agnboks, og nivået</h2>
 <p>Agn laget av spillere ligger i de samme radene som våre, merket med en <strong>*</strong>, og Agnboks forklarer hva merket betyr. De velges, settes på kroken og kastes ut som løsfôr akkurat som våre.</p>
+<figure class="fit"><img alt="Slik vil agnet se ut i Agnboks, med nivået sitt" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>Den siste siden viser agnet ditt slik det vil ligge i Agnboks, og nivået det låses opp på.</figcaption></figure>
 <p>Hvert agn har et nivå der det låses opp. Til en moderator setter nivået for agnet ditt etter hvor godt det fisker, låses det opp på nivået til agnet du startet fra, eller på nivå 1 for en helt ny type agn. En moderator kan sette nivået når det godkjennes: et agn som lett fanger store fisker, kan regne med et høyere nivå.</p>
-<h2 id="review">8. Hva moderatorene ser etter</h2>
+<h2 id="ground">8. Lage lokkefôr</h2>
+<p>Øverst på side 1 tilbyr <strong>Hva lager du?</strong> valget mellom <strong>Agn</strong> og <strong>Lokkefôr</strong>. Velg Lokkefôr for å lage din egen blanding. Fluer kommer senere.</p>
+<p>Lokkefôr er en kortere vei: navnet, en beskrivelse på én linje, smaken (én eller to), hvordan det løser seg opp, fargen og et bilde, og om det er for ferskvann eller havet. Det kan starte fra en av våre blandinger i det samme feltet Snarvei. Størrelse, bevegelse, flyteevne og spørsmålene om kroken stilles ikke, fordi lokkefôr kastes ut for å trekke fisk og ikke settes på kroken.</p>
+<p>Lokkefôret ditt ligger på fanen <strong>Lokkefôr</strong> i Agnboks og tilbys bare på sin egen type vann.</p>
+<figure><img alt="Side 1 i agnbyggeren med Lokkefôr valgt" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Lokkefôr valgt: tre sider, startet fra en av våre blandinger om du vil.</figcaption></figure>
+<h2 id="review">9. Hva moderatorene ser etter</h2>
 <ul>
 <li><strong>Et ekte agn.</strong> Noe fiskere bruker eller kunne brukt, beskrevet slik det er, og troverdig i ekte fiske. En helt ny type agn er velkommen; et agn som er perfekt til alt, er det ikke. Prøv å holde det realistisk.</li>
 <li><strong>Ærlige svar.</strong> En boilie på 20 mm oppgitt som en pellet på 2 mm, eller et vanlig agn som stinker, blir sendt tilbake.</li>

@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Syöttien luojan opas</h1>
 <p class="meta"><strong>Näin teet oman syötin, uudesta boilie-mausta hedelmään, jolla kukaan ei ole vielä kalastanut.</strong></p>
-<p class="meta">Päivitetty viimeksi: 18. lokakuuta 2026</p>
+<p class="meta">Päivitetty viimeksi: 24. marraskuuta 2026</p>
 <div class="intro">Syöttieditori kysyy syötistä kolmen sivun verran kysymyksiä. Kalat eivät lue pakkauksen nimeä: ne arvioivat syötin sen mukaan, mistä se on tehty, miltä se maistuu ja haisee, kuinka iso se on, miltä se näyttää ja miten se liikkuu. Vastauksesi ovat juuri näitä asioita, joten ne ratkaisevat, mitkä kalat ottavat syöttisi ja kuinka innokkaasti. Tällä sivulla kerrotaan, mitä kukin kysymys tarkoittaa ja mitä moderaattori tarkistaa ennen kuin syöttisi päätyy kaikkien Syöttilaatikkoon.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Luonnos, lähetetty, hyväksytty: mitä syötillesi tapahtuu</a></li>
 <li><a href="#start">Aloita jostakin syötistämme tai tee uudenlainen</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Sivu 3: koukussa ja tarkistus</a></li>
 <li><a href="#which">Mitkä kalat ottavat sen?</a></li>
 <li><a href="#box">Syöttisi Syöttilaatikossa ja sen taso</a></li>
+<li><a href="#ground">Houkuttimen tekeminen</a></li>
 <li><a href="#review">Mitä moderaattorit katsovat</a></li>
 </ol>
 <h2 id="life">1. Luonnos, lähetetty, hyväksytty</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Aloita jostakin syötistämme tai tee uudenlainen</h2>
 <p>Nopein tapa tehdä syötti on sivun 1 yläreunan <strong>Pikavalinta</strong>-ruutu. Valitse pelistä syötti, joka muistuttaa omaasi eniten, niin jokainen vastaus täytetään sen mukaan. Muuta sitten vain se, mikä on erilaista.</p>
 <p>Mansikkaboilie on hyvä esimerkki: aloita jostakin boilieistamme, vaihda nimi, maku ja väri, niin olet melkein valmis. Kaikki, minkä jätät ennalleen, kalastaa täsmälleen kuten syötti, josta aloitit.</p>
+<figure class="fit"><img alt="Pikavalinta-ruutu, jossa on valittuna Redmire Cream" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>Pikavalinta-ruutu: valitse syötti, joka muistuttaa omaasi eniten, niin jokainen vastaus täytetään sen pohjalta.</figcaption></figure>
 <p>Jätä pikavalinnaksi <strong>Täysin uudenlainen syötti</strong>, jos haluat kuvata jotain, mitä pelissä ei vielä ole: puusta putoavan hedelmän, kasvin, jota kasvissyöjäkala laiduntaa, tai toukan, jota kukaan ei ole tullut ajatelleeksi. Uudenlaisessa syötissä kaikki kysymykset ovat aluksi tyhjiä.</p>
 <div class="callout">Kalaveden jokainen kalapaikka luettelee, millaisilla syöteillä sen kaloja kalastetaan, esimerkiksi Boiliet tai Maissi / Partikkeli. Syötti, jonka aloitit jostakin meidän syötistämme, lasketaan siksi syötiksi, josta se aloitettiin. Täysin uudenlainen syötti lasketaan sen mukaan, mistä se on tehty: hedelmä on listalla kaikkialla, missä kalapaikka luettelee Maissi / Partikkeli, ja uusi toukka kaikkialla, missä se luettelee Toukat / Kotelot.</div>
 <h2 id="bait">3. Sivu 1: syötti</h2>
+<figure><img alt="Syöttien luojan sivu 1, aloitettu Redmire Creamista ja nimetty Strawberry Creamiksi" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Sivu 1, aloitettu Redmire Creamista ja nimetty uudelleen. Tähdellä * merkityt vastaukset ovat pakollisia.</figcaption></figure>
 <div class="step"><span class="num">Nimi</span><h3>Mitä pelaajat näkevät Syöttilaatikossa</h3>
 <p>Lyhyt nimi, enintään 40 merkkiä. Se ei saa olla jonkin meidän syöttimme tai toisen pelaajan syötin nimi.</p></div>
 <div class="step"><span class="num">Kuvausrivi</span><h3>Yksi rivi, kuten meidän syötillämme</h3>
@@ -169,6 +177,8 @@
 <p>PNG tai WebP läpinäkyvällä taustalla, enintään 5 MB, ja kuvassa vain syötti. Kunnes lisäät kuvan, Syöttilaatikko näyttää piirroksen.</p></div>
 <h2 id="senses">4. Sivu 2: miten kala aistii sen</h2>
 <p>Näitä vastauksia kalat oikeasti käyttävät. Jokainen niistä auttaa joitakin kaloja mutta ei toisia, joten yhtä parasta vastausta ei ole: mieti, mitä kaloja haluat saada.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Syöttien luojan sivu 2: maku, haju, öljy, liike, koko, ulkonäkö ja kelluuko se" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Sivu 2. Mansikkaboilie maistuu nyt Makea/Hedelmäinen, toisena makuna Kermainen/Maitoinen, ja se on punainen ja Kirkas.</figcaption></figure>
 <table class="pass">
 <tr><th>Kysymys</th><th>Mitä miettiä</th></tr>
 <tr><td>Miltä se maistuu?</td><td>Kalainen, Makea/Hedelmäinen, Mausteinen/Täyteläinen, Lihainen/Suolainen, Kermainen/Maitoinen, Luonnollinen tai Pähkinäinen/Maanläheinen. Jokainen kala pitää joistakin mauista enemmän kuin toisista, ja jotkin maut sopivat lämpimään veteen, jotkin kylmään. Toinen maku on vapaaehtoinen.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Vain irtosyötiksi</td><td>Rastita tämä vain, jos syöttiä ei voi laittaa koukkuun. Kaikki muut syötit voi myös heittää irtosyöttinä.</td></tr>
 </table>
 <p>Viimeinen sivu näyttää myös, miltä syöttisi näyttää Syöttilaatikossa. Jos jotain puuttuu, se näkyy <strong>Ennen kuin voit kalastaa sillä</strong> -ruudussa. Napsauta mitä tahansa kohtaa siirtyäksesi suoraan siihen.</p>
+<p>Kun jokainen vastaus on annettu ja syötilläsi on kuva, <strong>Lähetä moderaattoreille</strong> lähettää sen. Peli kysyy ensin: ruudun keskelle aukeava ikkuna kertoo, mitä tapahtuu, ja vain <strong>Kyllä, lähetä</strong> lähettää syöttisi. <strong>Ei vielä</strong> pitää sen luonnoksena.</p>
+<figure><img alt="Ikkuna, joka kysyy ennen kuin syötti lähetetään moderaattoreille" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Lähettäminen kysyy ensin. Mitään ei lähetetä ennen kuin painat Kyllä, lähetä.</figcaption></figure>
 <h2 id="which">6. Mitkä kalat ottavat sen?</h2>
 <p>Kun vastauksesi ovat valmiit, viimeinen sivu näyttää jokaisen kalan, joka elää siellä, missä syöttiäsi voi käyttää, ja kuinka innokkaasti se ottaa syöttisi kesällä ja talvella: <strong>Ottaa mielellään</strong>, <strong>Ottaa</strong>, <strong>Silloin tällöin</strong> tai <strong>Ei koskaan</strong>.</p>
 <p>Tämä on pelin oma arvio, joka tehdään samoilla tarkistuksilla, joita kalat tekevät vedessä, kalapaikalla, joka muuten sopii kullekin kalalle. Sitä verrataan siihen, millä kyseinen kala yleensä saadaan. Muuta vastausta, niin lista muuttuu sen mukana, ja näet heti, mitä isompi koko tai voimakkaampi haju tekee.</p>
+<figure class="fit"><img alt="Lista Mitkä kalat ottavat sen? mansikkaboilielle" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>Mansikkaboilie: karppi, suutari ja lahna ottavat sen mielellään kesällä. Listaa voi vierittää, ja siinä näkyy jokainen kala.</figcaption></figure>
 <div class="callout">"Ei koskaan" johtuu yleensä syötin koosta tai siitä, mistä se on tehty: se on liian iso kalan suuhun tai jotain, mitä kala ei syö. Oikea kalapaikka lisää kaiken, mitä tämä lista jättää pois, kuten syvyyden, sään, vuorokaudenajan ja sen, kuinka paljon syöttiä vedessä on.</div>
 <h2 id="box">7. Syöttisi Syöttilaatikossa ja sen taso</h2>
 <p>Pelaajien tekemät syötit ovat samoilla riveillä kuin meidän syöttimme, merkittynä <strong>*</strong>-merkillä, ja Syöttilaatikko kertoo, mitä merkki tarkoittaa. Ne valitaan, laitetaan koukkuun ja heitetään irtosyöttinä täsmälleen kuten meidän syöttimme.</p>
+<figure class="fit"><img alt="Miltä syötti näyttää Syöttilaatikossa, tasoineen" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>Viimeinen sivu näyttää syöttisi sellaisena kuin se on Syöttilaatikossa, ja tason, jolla se avautuu.</figcaption></figure>
 <p>Jokaisella syötillä on taso, jolla se avautuu. Kunnes moderaattori asettaa syöttisi tason sen mukaan, miten hyvin se kalastaa, se avautuu sen syötin tasolla, josta aloitit, tai tasolla 1, jos se on täysin uudenlainen syötti. Moderaattori voi asettaa sen tason hyväksynnän yhteydessä: syötti, jolla saa helposti isoja kaloja, voi odottaa korkeampaa tasoa.</p>
-<h2 id="review">8. Mitä moderaattorit katsovat</h2>
+<h2 id="ground">8. Houkuttimen tekeminen</h2>
+<p>Sivun 1 yläreunassa <strong>Mitä olet tekemässä?</strong> tarjoaa vaihtoehdot <strong>Syötti</strong> ja <strong>Houkutin</strong>. Valitse Houkutin tehdäksesi oman sekoituksen. Perhot tulevat myöhemmin.</p>
+<p>Houkutin on lyhyempi polku: nimi, yhden rivin kuvaus, maku (yksi tai kaksi), miten se hajoaa, väri ja kuva sekä onko se makeaan veteen vai mereen. Sen voi aloittaa jostakin sekoituksistamme samassa Pikavalinta-ruudussa. Kokoa, liikettä, kellumista ja koukkua koskevia kysymyksiä ei kysytä, koska houkutinta heitetään veteen kalojen houkuttelemiseksi, eikä sitä laiteta koukkuun.</p>
+<p>Houkuttimesi on Syöttilaatikon <strong>Houkutin</strong>-välilehdellä, ja sitä tarjotaan vain sen omalla vesityypillä.</p>
+<figure><img alt="Syöttien luojan sivu 1, kun Houkutin on valittu" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Houkutin valittu: kolme sivua, halutessasi jostakin sekoituksistamme aloittaen.</figcaption></figure>
+<h2 id="review">9. Mitä moderaattorit katsovat</h2>
 <ul>
 <li><strong>Oikea syötti.</strong> Jotain, mitä kalastajat käyttävät tai voisivat käyttää, kuvattuna sellaisena kuin se on, ja uskottavaa oikeassa kalastuksessa. Täysin uudenlainen syötti on tervetullut; syötti, joka on täydellinen kaikessa, ei ole. Pyri realistisuuteen.</li>
 <li><strong>Rehelliset vastaukset.</strong> 20 mm:n boilie, joka on merkitty 2 mm:n pelletiksi, tai tavallinen syötti, joka löyhkää, palautetaan.</li>

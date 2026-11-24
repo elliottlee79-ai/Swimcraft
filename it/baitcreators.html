@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Guida per i creatori di esche</h1>
 <p class="meta"><strong>Come creare un'esca tutta tua, da un nuovo gusto di boilie a un frutto con cui nessuno ha ancora pescato.</strong></p>
-<p class="meta">Ultimo aggiornamento: 18 ottobre 2026</p>
+<p class="meta">Ultimo aggiornamento: 24 novembre 2026</p>
 <div class="intro">Il creatore di esche ti fa tre pagine di domande su un'esca. I pesci non leggono il nome sulla confezione: giudicano un'esca da cosa è fatta, che sapore e che odore ha, quanto è grande, che aspetto ha e come si muove. Le tue risposte sono proprio queste cose, quindi decidono quali pesci prendono la tua esca e con quanta voglia. Questa pagina spiega ogni domanda e cosa controlla un moderatore prima che la tua esca entri nella Scatola delle esche di tutti.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Bozza, inviata, approvata: cosa succede alla tua esca</a></li>
 <li><a href="#start">Parti da una delle nostre esche, o crea un tipo nuovo</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Pagina 3: sull'amo, e il controllo finale</a></li>
 <li><a href="#which">Quali pesci la prenderanno?</a></li>
 <li><a href="#box">La tua esca nella Scatola delle esche, e il suo livello</a></li>
+<li><a href="#ground">Creare una pastura</a></li>
 <li><a href="#review">Cosa guardano i moderatori</a></li>
 </ol>
 <h2 id="life">1. Bozza, inviato, approvato</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Parti da una delle nostre esche, o crea un tipo nuovo</h2>
 <p>Il modo più rapido per creare un'esca è il riquadro <strong>Scorciatoia</strong> in cima alla pagina 1. Scegli l'esca del gioco più simile alla tua e ogni risposta viene compilata partendo da quella. Poi cambia solo ciò che è diverso.</p>
 <p>Una boilie alla fragola è un buon esempio: parti da una delle nostre boilies, cambia il nome, il sapore e il colore, e hai quasi finito. Tutto ciò che lasci com'era pesca esattamente come l'esca da cui sei partito.</p>
+<figure class="fit"><img alt="Il riquadro Scorciatoia con Redmire Cream scelto" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>Il riquadro Scorciatoia: scegli l'esca più simile alla tua e ogni risposta viene compilata partendo da quella.</figcaption></figure>
 <p>Lascia la scorciatoia su <strong>Un tipo di esca tutto nuovo</strong> per descrivere qualcosa che il gioco non ha ancora: un frutto che cade da un albero, una pianta brucata da un pesce vegetariano, una larva a cui nessuno ha mai pensato. Un nuovo tipo di esca parte con tutte le domande vuote.</p>
 <div class="callout">Ogni postazione di uno spot elenca i tipi di esca con cui si pescano i suoi pesci, come Boilies o Mais / Granaglie. Un'esca che parte da una delle nostre conta come l'esca da cui è partita. Un tipo di esca tutto nuovo conta in base a ciò di cui è fatto: un frutto è nell'elenco ovunque una postazione indichi Mais / Granaglie, e una nuova larva ovunque indichi Bigattini / Caster.</div>
 <h2 id="bait">3. Pagina 1: l'esca</h2>
+<figure><img alt="Pagina 1 del creatore di esche, partendo da Redmire Cream e rinominata Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Pagina 1, partendo da Redmire Cream e rinominata. Le risposte segnate con * sono obbligatorie.</figcaption></figure>
 <div class="step"><span class="num">Nome</span><h3>Ciò che i giocatori vedranno nella Scatola delle esche</h3>
 <p>Un nome breve, fino a 40 lettere. Non può essere il nome di una delle nostre esche né dell'esca di un altro giocatore.</p></div>
 <div class="step"><span class="num">Riga di descrizione</span><h3>Una riga, come hanno le nostre esche</h3>
@@ -169,6 +177,8 @@
 <p>Un PNG o WebP con sfondo trasparente, fino a 5 MB, che mostri solo l'esca. Finché non ne aggiungi uno, la Scatola delle esche mostra un disegno.</p></div>
 <h2 id="senses">4. Pagina 2: come la percepisce un pesce</h2>
 <p>Queste sono le risposte che i pesci usano davvero. Ognuna aiuta alcuni pesci e non altri, quindi non esiste un'unica risposta migliore: pensa a quali pesci vuoi catturare.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Pagina 2 del creatore di esche: gusto, odore, olio, movimento, dimensione, aspetto e se galleggia" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Pagina 2. La boilie alla fragola ora sa di Dolce/Fruttato, con Cremoso/Lattico come secondo gusto, ed è rossa e Vivace.</figcaption></figure>
 <table class="pass">
 <tr><th>Domanda</th><th>A cosa pensare</th></tr>
 <tr><td>Che sapore ha?</td><td>Di pesce, Dolce/Fruttato, Speziato/Sapido, Carnoso/Salato, Cremoso/Lattico, Naturale o Nocciolato/Terroso. Ogni pesce preferisce alcuni sapori ad altri, e alcuni sapori si adattano all'acqua calda e altri a quella fredda. Un secondo sapore è facoltativo.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Solo pasturazione sciolta</td><td>Spunta questa casella solo se l'esca non può andare sull'amo. Qualsiasi altra esca può essere lanciata anche come pasturazione sciolta.</td></tr>
 </table>
 <p>L'ultima pagina mostra anche la tua esca come apparirà nella Scatola delle esche. Se manca qualcosa, un riquadro chiamato <strong>Prima di poterci pescare</strong> lo elenca. Clicca su una voce per andarci direttamente.</p>
+<p>Quando ogni risposta è inserita e la tua esca ha una foto, <strong>Invia ai moderatori</strong> la invia. Il gioco chiede prima: un riquadro al centro dello schermo dice cosa succederà, e solo <strong>Sì, invia</strong> invia la tua esca. <strong>Non ancora</strong> la tiene come bozza.</p>
+<figure><img alt="Il riquadro che chiede prima che un'esca venga inviata ai moderatori" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>L'invio chiede prima. Non parte nulla finché non premi Sì, invia.</figcaption></figure>
 <h2 id="which">6. Quali pesci la prenderanno?</h2>
 <p>Quando le tue risposte sono complete, l'ultima pagina mostra ogni pesce che vive dove si può usare la tua esca, e quanto la gradisce in estate e in inverno: <strong>La prende volentieri</strong>, <strong>La prende</strong>, <strong>Ogni tanto</strong> o <strong>Mai</strong>.</p>
 <p>Questo è il giudizio del gioco stesso, fatto con gli stessi controlli che i pesci fanno in acqua, in una postazione che per il resto è adatta a ciascun pesce. Viene confrontato con ciò con cui quel pesce viene catturato di solito. Cambia una risposta e l'elenco cambia con lei, così vedi subito cosa fanno una misura più grande o un odore più forte.</p>
+<figure class="fit"><img alt="La lista Quali pesci la prenderanno? per una boilie alla fragola" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>La boilie alla fragola: carpe, tinche e abramidi la prendono volentieri d'estate. La lista scorre per mostrare ogni pesce.</figcaption></figure>
 <div class="callout">"Mai" di solito dipende dalla misura dell'esca o da ciò di cui è fatta: troppo grande per la bocca di quel pesce, o qualcosa che non mangia. Una postazione vera aggiunge tutto ciò che questo elenco tralascia, come la profondità, il meteo, l'ora del giorno e quanta pastura c'è in acqua.</div>
 <h2 id="box">7. La tua esca nella Scatola delle esche, e il suo livello</h2>
 <p>Le esche create dai giocatori stanno nelle stesse righe delle nostre, contrassegnate da un <strong>*</strong>, e la Scatola delle esche spiega cosa significa il segno. Si scelgono, si mettono sull'amo e si lanciano come pasturazione sciolta esattamente come le nostre.</p>
+<figure class="fit"><img alt="Come apparirà l'esca nella Scatola delle esche, con il suo livello" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>L'ultima pagina mostra la tua esca come apparirà nella Scatola delle esche, e il livello a cui si sblocca.</figcaption></figure>
 <p>Ogni esca ha un livello a cui si sblocca. Finché un moderatore non stabilisce il livello della tua esca in base a come pesca, si sblocca al livello dell'esca da cui sei partito, o al livello 1 per un tipo di esca tutto nuovo. Un moderatore può stabilirne il livello all'approvazione: un'esca che cattura facilmente pesci grossi può aspettarsi un livello più alto.</p>
-<h2 id="review">8. Cosa guardano i moderatori</h2>
+<h2 id="ground">8. Creare una pastura</h2>
+<p>In cima alla pagina 1, <strong>Cosa stai creando?</strong> offre <strong>Esca</strong> o <strong>Pastura</strong>. Scegli Pastura per creare un tuo mix. Le mosche arriveranno più avanti.</p>
+<p>Una pastura ha un percorso più breve: il nome, una descrizione di una riga, il gusto (uno o due), come si sfalda, il colore e una foto, e se è per acqua dolce o per il mare. Può partire da uno dei nostri mix, nello stesso riquadro Scorciatoia. Dimensione, movimento, galleggiamento e le domande sull'amo non vengono chieste, perché la pastura si lancia per attirare i pesci, non si mette sull'amo.</p>
+<p>La tua pastura sta nella scheda <strong>Pastura</strong> della Scatola delle esche, ed è proposta solo nel suo tipo d'acqua.</p>
+<figure><img alt="Pagina 1 del creatore di esche con Pastura scelta" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Pastura scelta: tre pagine, partendo da uno dei nostri mix se vuoi.</figcaption></figure>
+<h2 id="review">9. Cosa guardano i moderatori</h2>
 <ul>
 <li><strong>Un'esca vera.</strong> Qualcosa che i pescatori usano o potrebbero usare, descritto com'è, e plausibile nella pesca reale. Un tipo di esca tutto nuovo è benvenuto; un'esca perfetta in tutto no. Cerca di essere realistico.</li>
 <li><strong>Risposte oneste.</strong> Una boilie da 20 mm inserita come pellet da 2 mm, o una semplice esca che puzza fortissimo, verrà rimandata indietro.</li>

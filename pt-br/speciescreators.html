@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Guia do criador de espécies</h1>
 <p class="meta"><strong>Como descrever um peixe real uma vez só, para que todo criador de pesqueiros possa povoar com ele.</strong></p>
-<p class="meta">Última atualização: 12 de outubro de 2026</p>
-<div class="intro">O criador de espécies faz três páginas de perguntas sobre um peixe. Suas respostas definem como esse peixe se comporta na água: quando come, o que pega, como belisca e como briga. Esta página explica o que cada pergunta realmente quer saber e o que um moderador confere antes de o seu peixe entrar na lista de povoamento de todo mundo.</div>
+<p class="meta">Última atualização: 24 de novembro de 2026</p>
+<div class="intro">O criador de espécies faz quatro páginas de perguntas sobre um peixe. Suas respostas viram o jeito como esse peixe se comporta na água: quando se alimenta, o que pega, como belisca e como briga. Esta página explica o que cada pergunta realmente quer saber, e o que um moderador verifica antes de o seu peixe entrar na lista de povoamento de todo mundo.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Rascunho, enviado, aprovado: o que acontece com o seu peixe</a></li>
 <li><a href="#start">Comece a partir de um peixe que já existe</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">Em quais águas ele vive</a></li>
 <li><a href="#behave">Página 2: como ele se comporta</a></li>
 <li><a href="#temp">Temperatura da água, em graus</a></li>
-<li><a href="#check">Página 3: conferir e enviar</a></li>
+<li><a href="#feeds">Página 3: como ele se alimenta</a></li>
+<li><a href="#check">Página 4: revisar e enviar</a></li>
 <li><a href="#review">O que os moderadores verificam</a></li>
 </ol>
 <h2 id="life">1. Rascunho, enviado, aprovado</h2>
@@ -152,9 +158,11 @@
 <p>Um peixe que você salva entra na sua lista de povoamento na próxima vez que o jogo iniciar, não na hora.</p>
 <h2 id="start">2. Comece a partir de um peixe que já existe</h2>
 <p>O jeito mais rápido de montar um peixe é a caixa <strong>Atalho</strong> no topo da página 1. Escolha o peixe do jogo mais parecido com o seu e todas as respostas são preenchidas a partir dele. Depois mude só o que for diferente.</p>
-<p>Uma carpa fantasma é um bom exemplo: comece pela carpa comum, mude o nome, a foto e os recordes, e está quase pronto. A última página lista tudo o que você mudou e diz a partir de qual peixe o seu foi montado. O moderador também vê isso.</p>
+<p>A carpa-couro é um bom exemplo: parta da carpa comum, mude o nome, a foto e os recordes, e está quase pronto. A última página lista tudo o que você mudou e diz de qual peixe o seu partiu. O moderador também vê isso.</p>
+<figure class="fit"><img alt="A caixa Atalho com Carpa comum escolhida" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>A caixa Atalho: escolha o peixe mais parecido com o seu.</figcaption></figure>
 <div class="callout">Se nenhum peixe do jogo tiver exatamente todas as suas respostas, algumas das configurações mais finas são emprestadas do peixe a partir do qual o seu foi montado. A última página avisa quando isso acontece. É normal para um peixe incomum.</div>
 <h2 id="fish">3. Página 1: o peixe</h2>
+<figure><img alt="Página 1 do criador de espécies" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Página 1. As respostas marcadas com * são necessárias antes de poder enviar.</figcaption></figure>
 <div class="step"><span class="num">Nome e nome em latim</span><h3>Como os pescadores o chamam</h3>
 <p>Use o nome que os pescadores procurariam. Outro peixe não pode já ter esse nome. Adicione também o nome em latim, para que um moderador saiba exatamente de qual peixe você está falando. Outros nomes pelos quais ele é conhecido podem ir na caixa abaixo, separados por vírgulas.</p></div>
 <div class="step"><span class="num">Foto</span><h3>Um recorte de lado</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Países e onde é encontrado</span><h3>Onde um pescador o encontraria</h3>
 <p>Marque todos os países onde ele vive e se é encontrado em água parada, rios lentos ou rios rápidos. Marque todas as opções aplicáveis.</p></div>
 <div class="step"><span class="num">Tamanho</span><h3>Recordes, com um link</h3>
-<p>Cada país que você marcou ganha uma linha para o peso recorde em libras, onças e dracmas. Você precisa de pelo menos um recorde, e cada recorde precisa de um link para onde ele está registrado: um comitê de recordes, uma entidade de pesca ou a página de um clube que um moderador possa abrir e conferir. Deixe um país em branco se o recorde dele não for conhecido.</p>
-<p>O peso típico de um adulto e o tamanho de troféu ficam guardados com o seu peixe para depois. Preencha se souber.</p></div>
+<p>Cada país que você marcou ganha uma linha para o peso recorde em libras, onças e dracmas. Você precisa de pelo menos um recorde, e cada recorde precisa de um link para onde ele está registrado: um comitê de recordes, uma entidade de pesca ou a página de um clube que um moderador possa abrir e conferir. Deixe um país em branco se o recorde dele não for conhecido.</p></div>
 <h2 id="water">4. Em quais águas ele vive</h2>
 <p>Marque <strong>Água doce</strong>, <strong>Estuário</strong> ou <strong>Mar</strong>, quantos se aplicarem. Suas marcações decidem em quais águas o peixe pode ser pescado. Um peixe nunca é pescado numa água errada para ele, por melhor que todo o resto combine.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Pergunta</th><th>O que levar em conta</th></tr>
 <tr><td>Onde ele se alimenta?</td><td>Ponha No fundo, A meia-água e Na superfície em ordem, do mais frequente para o menos.</td></tr>
-<tr><td>Do que ele se alimenta?</td><td>Na página Como ele se alimenta: para cada tipo de alimento, escolha Alimento principal, Come, De vez em quando ou Nunca.</td></tr>
+<tr><td>Onde ele gosta de ficar?</td><td>Para cada tipo de lugar, como bancos de vegetação, ninfeias, juncos, madeira, pedra ou sombra por cima: Adora, Gosta, Tanto faz ou Evita. Perto de um lugar que ele adora ou de que gosta, ele belisca mais; perto de um que ele evita, menos.</td></tr>
 <tr><td>Quando ele come melhor?</td><td>Durante o dia, amanhecer e entardecer, ou noite.</td></tr>
 <tr><td>Onde ele costuma ficar?</td><td>Águas abertas, algum abrigo, ou enroscos e vegetação.</td></tr>
 <tr><td>Água limpa ou turva?</td><td>Qual ele prefere.</td></tr>
-<tr><td>Como ele belisca?</td><td>Toques delicados, levantadas firmes, ou sai correndo com a isca.</td></tr>
-<tr><td>Quão arisco ele é?</td><td>Ousado, cauteloso ou muito arisco.</td></tr>
+<tr><td>Como ele belisca?</td><td>Nove estilos de beliscada, de Mergulha e afunda ou Levanta a boia até Firme, depois dispara ou Puxada lenta e constante. Depois, o quão rápidas são as batidas (de Rápida a Lentas) e por quanto tempo ele segura a isca (de Bem rápido a Muito tempo).</td></tr>
 <tr><td>Como ele briga?</td><td>Escolha a briga cuja descrição mais lembra o peixe na ponta da sua linha.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Respostas de Onde ele gosta de ficar? para uma carpa" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Onde ele gosta de ficar, lugar por lugar.</figcaption></figure>
+<figure class="fit"><img alt="Como ele belisca? com seus nove estilos e dois tempos" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Como ele belisca, e o quão rápida e longa é a beliscada.</figcaption></figure>
+</div>
 <h2 id="temp">6. Temperatura da água, em graus</h2>
 <p>Escolha o rótulo que mais combina com o seu peixe. Ele preenche três números em °C, que você pode mudar:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Confortável a partir de</strong> e <strong>confortável até</strong>: a faixa em que ele ainda come bem.</li>
 </ul>
 <p>Os números devem ir do mais baixo, ao melhor, ao mais alto. Fora da faixa confortável o peixe para de comer: alguns graus mais frio e a maioria dos peixes mantém só um fiozinho de apetite; alguns graus mais quente e eles param de vez.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="O rótulo de temperatura da água e seus três números" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Escolha um rótulo e os três números são preenchidos.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Rótulo</th><th>Melhor</th><th>Confortável</th><th>O que significa</th></tr>
 <tr><td>Especialista em água fria</td><td>12 °C</td><td>6 a 17 °C</td><td>Adora água fria e limpa; sofre quando esquenta. Truta, tímalo, salvelino, bacalhau.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropical</td><td>29 °C</td><td>25 a 33 °C</td><td>Só água quente; para de comer quando esfria. Barramundi, tucunaré.</td></tr>
 </table></div>
 <div class="callout">Só mude os números se souber que o seu peixe é diferente do rótulo. A água de um pesqueiro esquenta e esfria com as estações, e um pesqueiro fixado no seu lugar real na Terra segue o clima daquele lugar. Um peixe tropical colocado numa água fria quase nunca vai comer, e isso é o peixe se comportando de forma honesta, não um defeito.</div>
-<h2 id="check">7. Página 3: conferir e enviar</h2>
+<h2 id="feeds">7. Página 3: como ele se alimenta</h2>
+<p>Esta página decide quais iscas o seu peixe pega, e como ele é enganado. O <a href="/pt-br/baitcreators">guia</a> do criador de iscas pergunta as mesmas coisas do lado da isca, para que as duas se encontrem na água.</p>
+<table class="pass">
+<tr><th>Pergunta</th><th>O que levar em conta</th></tr>
+<tr><td>Do que ele se alimenta?</td><td>Para cada tipo de comida, de grãos e plantas a minhocas, crustáceos, peixe, carne, massa e nada comestível: Alimento principal, Come, De vez em quando ou Nunca. Um peixe nunca pega uma isca feita de algo que ele nunca come.</td></tr>
+<tr><td>Como ele encontra comida?</td><td>Cheiro, movimento ou ambos.</td></tr>
+<tr><td>Quão forte uma isca precisa cheirar para ele?</td><td>De Quase nada a Fede.</td></tr>
+<tr><td>Quanto uma isca precisa se mexer para ele?</td><td>De Não precisa a Nada.</td></tr>
+<tr><td>Quão boa é a visão dele?</td><td>Quase não usa, Razoável, Bom ou Aguçada.</td></tr>
+<tr><td>Ele é atraído por brilho?</td><td>Sim ou não.</td></tr>
+<tr><td>Qual o tamanho da boca dele?</td><td>De Minúscula a Enorme. Uma isca grande demais para a boca dele é recusada.</td></tr>
+<tr><td>Quão arisco ele é com a linha?</td><td>De Muito arisco com a linha a Não é arisco com a linha: o quanto uma linha grossa o afasta.</td></tr>
+<tr><td>Quão arisco ele é?</td><td>Ousado, cauteloso ou muito arisco.</td></tr>
+</table>
+<figure class="fit"><img alt="O que ele come? respondido para uma carpa" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>O que ele come, uma resposta para cada tipo de comida.</figcaption></figure>
+<h2 id="check">8. Página 4: revisar e enviar</h2>
 <p>A última página mostra o seu peixe como os outros pescadores vão vê-lo, com uma descrição curta escrita a partir das suas respostas e uma lista do que é diferente do peixe a partir do qual ele foi montado. Leia a descrição: se não parecer o seu peixe, uma das suas respostas está errada.</p>
-<p>Se faltar alguma coisa, uma caixa chamada <strong>Antes de poder enviar</strong> mostra o que é. Clique em qualquer item para ir direto a ele. Quando não faltar nada, <strong>Enviar aos moderadores</strong> envia o seu peixe.</p>
-<h2 id="review">8. O que os moderadores verificam</h2>
+<p>Se faltar algo, uma caixa chamada <strong>Antes de poder enviar</strong> mostra o que é. Clique em qualquer item para ir direto a ele. Quando não falta nada, <strong>Enviar aos moderadores</strong> envia o seu peixe. O jogo pergunta antes: só <strong>Sim, enviar</strong> na janela que se abre o envia, e <strong>Ainda não</strong> o mantém como rascunho.</p>
+<figure><img alt="Página 4: o peixe pronto e o que ainda falta" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Página 4. Esta carpa-couro ainda precisa de um peso recorde e de uma foto própria, então Enviar espera.</figcaption></figure>
+<h2 id="review">9. O que os moderadores verificam</h2>
 <ul>
 <li><strong>Um peixe real.</strong> O criador de espécies é para peixes que os pescadores pegam, descritos como eles são.</li>
 <li><strong>Um recorde que se confirma.</strong> O link precisa abrir e precisa mostrar o peso que você informou.</li>

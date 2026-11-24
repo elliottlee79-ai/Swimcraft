@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Guiden til artsbyggere</h1>
 <p class="meta"><strong>Sådan beskriver du en rigtig fisk én gang, så alle fiskevandsbyggere kan sætte den ud.</strong></p>
-<p class="meta">Sidst opdateret: 12. oktober 2026</p>
-<div class="intro">Artsbyggeren stiller tre sider med spørgsmål om en fisk. Dine svar bliver til, hvordan fisken opfører sig i vandet: hvornår den æder, hvad den tager, hvordan den hugger, og hvordan den kæmper. Denne side forklarer, hvad hvert spørgsmål egentlig spørger om, og hvad en moderator tjekker, før din fisk kommer på alles udsætningsliste.</div>
+<p class="meta">Sidst opdateret: 24. november 2026</p>
+<div class="intro">Artsbyggeren stiller fire sider med spørgsmål om en fisk. Dine svar bliver til, hvordan fisken opfører sig i vandet: hvornår den æder, hvad den tager, hvordan den hugger, og hvordan den kæmper. Denne side forklarer, hvad hvert spørgsmål egentlig spørger om, og hvad en moderator tjekker, før din fisk kommer på alles udsætningslister.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Kladde, indsendt, godkendt: hvad der sker med din fisk</a></li>
 <li><a href="#start">Start fra en fisk, der allerede findes</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">Hvilke vande den lever i</a></li>
 <li><a href="#behave">Side 2: hvordan den opfører sig</a></li>
 <li><a href="#temp">Vandtemperatur, i grader</a></li>
-<li><a href="#check">Side 3: tjek og indsend</a></li>
+<li><a href="#feeds">Side 3: hvordan den æder</a></li>
+<li><a href="#check">Side 4: tjek og indsend</a></li>
 <li><a href="#review">Hvad moderatorerne kigger efter</a></li>
 </ol>
 <h2 id="life">1. Kladde, indsendt, godkendt</h2>
@@ -152,9 +158,11 @@
 <p>En fisk, du gemmer, kommer på din egen udsætningsliste, næste gang spillet starter, ikke med det samme.</p>
 <h2 id="start">2. Start fra en fisk, der allerede findes</h2>
 <p>Den hurtigste måde at bygge en fisk på er feltet <strong>Genvej</strong> øverst på side 1. Vælg den fisk i spillet, der ligner din mest, så bliver alle svar udfyldt ud fra den. Ændr derefter kun det, der er anderledes.</p>
-<p>En spøgelseskarpe er et godt eksempel: start fra skælkarpe, ændr navnet, fotoet og rekorderne, så er du næsten færdig. Den sidste side viser alt, hvad du har ændret, og fortæller, hvilken fisk din er bygget ud fra. Det ser moderatoren også.</p>
+<p>En læderkarpe er et godt eksempel: start fra skælkarpen, skift navnet, fotoet og rekorderne, og du er næsten færdig. Den sidste side viser alt, hvad du har ændret, og hvilken fisk din er bygget ud fra. Det ser moderatoren også.</p>
+<figure class="fit"><img alt="Feltet Genvej med Skælkarpe valgt" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Feltet Genvej: vælg den fisk, der ligner din mest.</figcaption></figure>
 <div class="callout">Hvis ingen fisk i spillet deler alle dine svar, lånes nogle af de finere indstillinger fra den fisk, din er bygget ud fra. Den sidste side fortæller dig, når det er sket. Det er helt normalt for en usædvanlig fisk.</div>
 <h2 id="fish">3. Side 1: fisken</h2>
+<figure><img alt="Side 1 i artsbyggeren" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Side 1. Svarene markeret med * skal udfyldes, før du kan indsende.</figcaption></figure>
 <div class="step"><span class="num">Navn og latinsk navn</span><h3>Hvad lystfiskere kalder den</h3>
 <p>Brug det navn, lystfiskere ville søge efter. En anden fisk må ikke allerede have det. Tilføj også det latinske navn, så en moderator kan se præcis, hvilken fisk du mener. Andre navne, den kaldes, kan stå i feltet nedenfor, adskilt med kommaer.</p></div>
 <div class="step"><span class="num">Foto</span><h3>Et udklip fra siden</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Lande, og hvor den findes</span><h3>Hvor en lystfisker ville møde den</h3>
 <p>Sæt flueben ved alle lande, den lever i, og om den findes i stillestående vand, langsomme åer eller hurtige åer. Sæt flueben ved alt, der passer.</p></div>
 <div class="step"><span class="num">Størrelse</span><h3>Rekorder, med et link</h3>
-<p>Hvert land, du har valgt, får en række til sin rekordvægt i pund, ounces og drams. Du skal have mindst én rekord, og hver rekord skal have et link til, hvor den er registreret: en rekordkomité, et lystfiskerforbund eller en klubside, som en moderator kan åbne og tjekke. Lad et land stå tomt, hvis dets rekord ikke kendes.</p>
-<p>Den typiske vægt som voksen og storfiskstørrelsen gemmes med din fisk til senere. Udfyld dem, hvis du kender dem.</p></div>
+<p>Hvert land, du har valgt, får en række til sin rekordvægt i pund, ounces og drams. Du skal have mindst én rekord, og hver rekord skal have et link til, hvor den er registreret: en rekordkomité, et lystfiskerforbund eller en klubside, som en moderator kan åbne og tjekke. Lad et land stå tomt, hvis dets rekord ikke kendes.</p></div>
 <h2 id="water">4. Hvilke vande den lever i</h2>
 <p>Sæt flueben ved <strong>Ferskvand</strong>, <strong>Flodmunding</strong> eller <strong>Havfiskeri</strong>, så mange som passer. Dine flueben afgør, hvilke vande fisken kan fanges i. En fisk fanges aldrig i vand, der er forkert for den, uanset hvor godt alt andet passer.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Spørgsmål</th><th>Hvad du skal tænke over</th></tr>
 <tr><td>Hvor æder den?</td><td>Sæt På bunden, Midt i vandet og I overfladen i rækkefølge, det hyppigste først.</td></tr>
-<tr><td>Hvad æder den?</td><td>På siden Hvordan den æder: vælg Hovedføde, Æder gerne, Nu og da eller Aldrig for hver slags føde.</td></tr>
+<tr><td>Hvor kan den lide at være?</td><td>For hver slags sted, som grødebede, åkander, rør, træ, klippe eller skygge ovenfra: Elsker, Kan lide, Ligeglad eller Undgår. Nær et sted, den elsker eller kan lide, hugger den oftere; nær et sted, den undgår, sjældnere.</td></tr>
 <tr><td>Hvornår æder den bedst?</td><td>Dagtimer, daggry og skumring, eller nat.</td></tr>
 <tr><td>Hvor holder den til?</td><td>Åbent vand, lidt skjul, eller forhindringer og grøde.</td></tr>
 <tr><td>Klart eller uklart vand?</td><td>Hvilket den foretrækker.</td></tr>
-<tr><td>Hvordan hugger den?</td><td>Forsigtige dyk, selvsikre løft, eller stikker af med agnen.</td></tr>
-<tr><td>Hvor sky er den?</td><td>Dristig, forsigtig eller meget sky.</td></tr>
+<tr><td>Hvordan hugger den?</td><td>Ni hugtyper, fra Dyk og under eller Løfter flåddet til Bestemt, så løber eller Langsomt, roligt træk. Derefter hvor hurtigt nappene kommer (Hurtig til Langsomme), og hvor længe den holder agnen (Meget kort til Længe).</td></tr>
 <tr><td>Hvordan kæmper den?</td><td>Vælg den kamp, hvis beskrivelse lyder mest som fisken for enden af din line.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Svar på Hvor kan den lide at være? for en karpe" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Hvor den kan lide at være, sted for sted.</figcaption></figure>
+<figure class="fit"><img alt="Hvordan hugger den? med sine ni hugtyper og to tider" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Hvordan den hugger, og hvor hurtigt og længe hugget varer.</figcaption></figure>
+</div>
 <h2 id="temp">6. Vandtemperatur, i grader</h2>
 <p>Vælg den betegnelse, der lyder mest som din fisk. Den udfylder tre tal i °C, som du kan ændre:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Behagelig fra</strong> og <strong>behagelig til</strong>: det interval, den stadig æder godt i.</li>
 </ul>
 <p>Tallene skal gå fra lav, til bedst, til høj. Uden for sit behagelige interval holder fisken op med at æde: et par grader koldere, og de fleste fisk beholder kun en smule appetit; et par grader varmere, og de holder helt op.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Betegnelsen for vandtemperatur og dens tre tal" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Vælg en betegnelse, og de tre tal udfyldes.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Betegnelse</th><th>Bedst</th><th>Behagelig</th><th>Hvad det betyder</th></tr>
 <tr><td>Koldtvandsspecialist</td><td>12 °C</td><td>6 til 17 °C</td><td>Elsker koldt, rent vand; har det svært, når det bliver varmt. Ørred, stalling, fjeldørred, torsk.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropisk</td><td>29 °C</td><td>25 til 33 °C</td><td>Kun varmt vand; holder op med at æde, når det køler af. Barramundi, påfugleaborre.</td></tr>
 </table></div>
 <div class="callout">Ændr kun tallene, hvis du ved, at din fisk afviger fra sin betegnelse. Vandet i et fiskevand bliver varmere og koldere gennem årstiderne, og et fiskevand, der er sat fast på sit rigtige sted på Jorden, følger stedets klima. En tropisk fisk, der er sat ud i koldt vand, vil næsten aldrig æde, og det er fisken, der opfører sig ærligt, ikke en fejl.</div>
-<h2 id="check">7. Side 3: tjek og indsend</h2>
+<h2 id="feeds">7. Side 3: hvordan den æder</h2>
+<p>Denne side afgør, hvilke agn din fisk tager, og hvordan den narres. <a href="/da/baitcreators">Guiden</a> til agnbyggere spørger om det samme fra agnens side, så de to mødes i vandet.</p>
+<table class="pass">
+<tr><th>Spørgsmål</th><th>Hvad du skal tænke over</th></tr>
+<tr><td>Hvad æder den?</td><td>For hver slags føde, fra korn og planter til orm, skaldyr, fisk, kød, pasta og intet spiseligt: Hovedføde, Æder gerne, Nu og da eller Aldrig. En fisk tager aldrig en agn lavet af noget, den aldrig æder.</td></tr>
+<tr><td>Hvordan finder den sin føde?</td><td>Lugt, bevægelse eller begge.</td></tr>
+<tr><td>Hvor kraftigt skal en agn lugte for den?</td><td>Fra Knap til Stinker.</td></tr>
+<tr><td>Hvor meget skal en agn bevæge sig for den?</td><td>Fra Behøver det ikke til Svømmer.</td></tr>
+<tr><td>Hvor godt ser den?</td><td>Bruger det knap, Rimelig, God eller Skarpt.</td></tr>
+<tr><td>Tiltrækkes den af glimt?</td><td>Ja eller nej.</td></tr>
+<tr><td>Hvor stor er dens mund?</td><td>Fra Bitte lille til Kæmpe. En agn, der er for stor til dens mund, afvises.</td></tr>
+<tr><td>Hvor linesky er den?</td><td>Fra Meget linesky til Ikke linesky: hvor meget en tyk line skræmmer den.</td></tr>
+<tr><td>Hvor sky er den?</td><td>Dristig, forsigtig eller meget sky.</td></tr>
+</table>
+<figure class="fit"><img alt="Hvad æder den? udfyldt for en karpe" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Hvad den æder, ét svar for hver slags føde.</figcaption></figure>
+<h2 id="check">8. Side 4: tjek og indsend</h2>
 <p>Den sidste side viser din fisk, som andre lystfiskere vil se den, med en kort beskrivelse skrevet ud fra dine svar og en liste over, hvad der er anderledes end den fisk, den er bygget ud fra. Læs beskrivelsen: hvis den ikke lyder som din fisk, er et af dine svar forkert.</p>
-<p>Hvis noget mangler, står det i et felt, der hedder <strong>Før du kan indsende</strong>. Klik på et punkt for at gå direkte til det. Når intet mangler, sender <strong>Indsend til moderatorerne</strong> din fisk ind.</p>
-<h2 id="review">8. Hvad moderatorerne kigger efter</h2>
+<p>Mangler der noget, viser et felt kaldet <strong>Før du kan indsende</strong> det. Klik på et punkt for at gå direkte til det. Når intet mangler, sender <strong>Indsend til moderatorerne</strong> din fisk ind. Spillet spørger først: kun <strong>Ja, send det</strong> i vinduet, der åbner, sender den, og <strong>Ikke endnu</strong> beholder den som kladde.</p>
+<figure><img alt="Side 4: den færdige fisk og hvad der stadig mangler" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Side 4. Denne læderkarpe mangler stadig en rekordvægt og sit eget foto, så Indsend venter.</figcaption></figure>
+<h2 id="review">9. Hvad moderatorerne kigger efter</h2>
 <ul>
 <li><strong>En rigtig fisk.</strong> Artsbyggeren er til fisk, som lystfiskere fanger, beskrevet, som de er.</li>
 <li><strong>En rekord, der holder.</strong> Linket skal kunne åbnes, og det skal vise den vægt, du har indtastet.</li>

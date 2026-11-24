@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>鱼种创建者指南</h1>
 <p class="meta"><strong>描述一种真实的鱼，只需一次，每位钓场创建者都能放养它。</strong></p>
-<p class="meta">最后更新：2026 年 10 月 12 日</p>
-<div class="intro">鱼种编辑器会就一条鱼问你三页问题。你的回答决定这条鱼在水里的表现：什么时候进食、吃什么、怎么咬钩、怎么搏斗。本页会解释每个问题真正在问什么，以及在你的鱼进入所有人的放养列表之前，版主会检查哪些内容。</div>
+<p class="meta">最后更新：2026 年 11 月 24 日</p>
+<div class="intro">鱼种创建器会就一条鱼问你四页问题。你的回答会变成这条鱼在水中的表现：什么时候进食、吃什么、怎么咬钩、怎么搏斗。本页解释每个问题真正想问的是什么，以及在你的鱼进入大家的放养列表之前，版主会检查什么。</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">草稿、提交、通过：你的鱼会经历什么</a></li>
 <li><a href="#start">从现有鱼种开始</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">它生活在哪些水域</a></li>
 <li><a href="#behave">第 2 页：它的习性</a></li>
 <li><a href="#temp">水温（摄氏度）</a></li>
-<li><a href="#check">第 3 页：检查并提交</a></li>
+<li><a href="#feeds">第 3 页：它怎么进食</a></li>
+<li><a href="#check">第 4 页：检查并提交</a></li>
 <li><a href="#review">版主会看什么</a></li>
 </ol>
 <h2 id="life">1. 草稿、提交、通过</h2>
@@ -152,9 +158,11 @@
 <p>你保存的鱼会在下次启动游戏时出现在你自己的放养列表中，而不是立刻出现。</p>
 <h2 id="start">2. 从现有鱼种开始</h2>
 <p>做一条鱼最快的方法，是第 1 页顶部的<strong>快捷方式</strong>框。选出游戏里和你的鱼最像的那一条，所有答案都会按它自动填好。然后只改不同的地方。</p>
-<p>鬼鲤就是个好例子：从鲤鱼开始，改掉名称、照片和纪录，就差不多完成了。最后一页会列出你改过的所有内容，并注明你的鱼是基于哪条鱼做的。版主也会看到这些。</p>
+<p>革鲤就是个好例子：从鲤鱼开始，改掉名称、照片和纪录，就差不多完成了。最后一页会列出你改过的所有内容，并注明你的鱼是基于哪条鱼做的。版主也会看到这些。</p>
+<figure class="fit"><img alt="选择了鲤鱼的快捷方式框" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>快捷方式框：选择和你的鱼最相似的那条。</figcaption></figure>
 <div class="callout">如果游戏里没有哪条鱼和你的所有答案都一致，一些更细的设置会从你的鱼所基于的那条鱼借用。发生这种情况时，最后一页会告诉你。对于不寻常的鱼，这很正常。</div>
 <h2 id="fish">3. 第 1 页：鱼</h2>
+<figure><img alt="鱼种创建器第 1 页" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>第 1 页。提交之前，需要填好标有 * 的答案。</figcaption></figure>
 <div class="step"><span class="num">名称和拉丁学名</span><h3>钓手怎么称呼它</h3>
 <p>用钓手会去搜索的名字。这个名字不能已被其他鱼使用。也请填上拉丁学名，让版主能准确知道你指的是哪种鱼。它的其他别名可以填在下面的框里，用逗号分隔。</p></div>
 <div class="step"><span class="num">照片</span><h3>侧面抠图</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">国家和栖息地</span><h3>钓手会在哪里遇到它</h3>
 <p>勾选它生活的每个国家，以及它出现在静水、缓流河还是急流河。所有适用项都要勾选。</p></div>
 <div class="step"><span class="num">大小</span><h3>纪录，附上链接</h3>
-<p>你勾选的每个国家都会有一行，用来填写纪录重量（磅、盎司和打兰）。至少需要一项纪录，而每项纪录都需要一个指向其登记来源的链接：纪录委员会、钓鱼协会或俱乐部页面，版主要能打开并核实。如果某国的纪录未知，就留空。</p>
-<p>成鱼常见重量和大物尺寸会和你的鱼一起保存，供以后使用。知道的话就填上。</p></div>
+<p>你勾选的每个国家都会有一行，用来填写纪录重量（磅、盎司和打兰）。至少需要一项纪录，而每项纪录都需要一个指向其登记来源的链接：纪录委员会、钓鱼协会或俱乐部页面，版主要能打开并核实。如果某国的纪录未知，就留空。</p></div>
 <h2 id="water">4. 它生活在哪些水域</h2>
 <p>勾选<strong>淡水</strong>、<strong>河口</strong>或<strong>海钓</strong>，适用几项就勾几项。你勾的选项决定这条鱼能在哪些水域被钓到。不适合它的水域永远钓不到它，其他条件再合适也不行。</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>问题</th><th>需要考虑什么</th></tr>
 <tr><td>它在哪里觅食？</td><td>把水底、中层水和水面排好顺序，最常去的排第一。</td></tr>
-<tr><td>它吃什么？</td><td>在“摄食习性”页面：为每类食物选择“主食”“爱吃”“偶尔”或“从不”。</td></tr>
+<tr><td>它喜欢待在哪里？</td><td>对每一种地点，例如水草床、睡莲、芦苇、木头、礁石或头顶遮荫：最爱、喜欢、无所谓或回避。在它最爱或喜欢的地方附近，它咬钩更频繁；在它回避的地方附近，咬钩更少。</td></tr>
 <tr><td>什么时候最爱进食？</td><td>白天、黎明和黄昏，或夜晚。</td></tr>
 <tr><td>它喜欢待在哪里？</td><td>开阔水域、有些遮蔽，或障碍物和水草。</td></tr>
 <tr><td>清水还是浑水？</td><td>它更喜欢哪一种。</td></tr>
-<tr><td>它怎么咬钩？</td><td>轻微点动、稳稳上顶，或叼饵带线跑。</td></tr>
-<tr><td>它有多警觉？</td><td>大胆、谨慎或非常警觉。</td></tr>
+<tr><td>它怎么咬钩？</td><td>九种咬钩方式，从“一点就下沉”或“送漂”到“干脆后拖走”或“缓慢平稳地拖”。然后是小口的快慢（从“急”到“慢”），以及它含住饵料的时间（从“非常短”到“很久”）。</td></tr>
 <tr><td>它怎么搏斗？</td><td>选描述最像你鱼线那头那条鱼的搏斗方式。</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="一条鲤鱼的“它喜欢待在哪里？”答案" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>它喜欢待在哪里，逐个地点。</figcaption></figure>
+<figure class="fit"><img alt="“它怎么咬钩？”的九种方式和两种时间" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>它怎么咬钩，以及咬钩有多快、多长。</figcaption></figure>
+</div>
 <h2 id="temp">6. 水温（摄氏度）</h2>
 <p>选一个听起来最像你的鱼的标签。它会填入三个摄氏温度数值，你可以修改：</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>舒适下限</strong>和<strong>舒适上限</strong>：它仍然吃得好的温度范围。</li>
 </ul>
 <p>数值必须按从低、到最佳、到高的顺序排列。超出舒适范围，鱼就会停口：冷几度，大多数鱼只剩一点点食欲；热几度，它们就完全不吃了。</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="水温标签和它的三个数字" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>选择一个标签，三个数字就会填好。</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>标签</th><th>最佳</th><th>舒适范围</th><th>含义</th></tr>
 <tr><td>冷水专家</td><td>12 °C</td><td>6 至 17 °C</td><td>喜欢冰冷洁净的水；水一变暖就吃力。鳟鱼、茴鱼、红点鲑、鳕鱼。</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>热带</td><td>29 °C</td><td>25 至 33 °C</td><td>只要热水；水一凉就停止进食。尖吻鲈、孔雀鲈。</td></tr>
 </table></div>
 <div class="callout">只有在你确定你的鱼和它的标签不同时，才去改这些数值。钓场的水温会随季节升降，而固定在地球上真实位置的钓场会跟随当地的气候。热带鱼放养在冷水里几乎不会进食，这是鱼在如实表现，不是故障。</div>
-<h2 id="check">7. 第 3 页：检查并提交</h2>
+<h2 id="feeds">7. 第 3 页：它怎么进食</h2>
+<p>这一页决定你的鱼吃哪些饵料，以及怎样骗过它。饵料创建者<a href="/zh-cn/baitcreators">指南</a>从饵料的角度问同样的问题，所以两者会在水中相遇。</p>
+<table class="pass">
+<tr><th>问题</th><th>需要考虑什么</th></tr>
+<tr><td>它吃什么？</td><td>对每一种食物，从谷物和植物到虫子、甲壳类、鱼、肉、面团以及不能吃的东西：主食、爱吃、偶尔或从不。鱼绝不会吃用它从不吃的东西做成的饵料。</td></tr>
+<tr><td>它怎样找到食物？</td><td>气味、动作或两者皆有。</td></tr>
+<tr><td>饵料需要多浓的气味才能吸引它？</td><td>从“微弱”到“刺鼻”。</td></tr>
+<tr><td>饵料需要多大的动作才能吸引它？</td><td>从“不需要”到“游动”。</td></tr>
+<tr><td>它的视力怎样？</td><td>几乎不用、一般、良好或敏锐。</td></tr>
+<tr><td>它会被闪光吸引吗？</td><td>是或否。</td></tr>
+<tr><td>它的嘴有多大？</td><td>从“极小”到“巨大”。对它的嘴来说太大的饵料会被拒绝。</td></tr>
+<tr><td>它有多怕鱼线？</td><td>从“非常怕鱼线”到“不怕鱼线”：粗线会让它多么退缩。</td></tr>
+<tr><td>它有多警觉？</td><td>大胆、谨慎或非常警觉。</td></tr>
+</table>
+<figure class="fit"><img alt="为一条鲤鱼填写的“它吃什么？”" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>它吃什么，每种食物一个答案。</figcaption></figure>
+<h2 id="check">8. 第 4 页：检查并提交</h2>
 <p>最后一页会按其他钓手将看到的样子展示你的鱼，附有一段根据你的回答写成的简短描述，以及与它所基于的那条鱼相比有哪些不同的列表。读一读这段描述：如果它听起来不像你的鱼，说明你有个答案填错了。</p>
-<p>如果有缺漏，一个名为<strong>提交之前</strong>的框会把它们列出来。点击任意一项即可直接跳过去。没有缺漏时，<strong>提交给版主</strong>就会把你的鱼提交上去。</p>
-<h2 id="review">8. 版主会看什么</h2>
+<p>如果还缺什么，一个名为<strong>提交之前</strong>的框会列出来。点击任何一项即可直接跳过去。什么都不缺时，<strong>提交给版主</strong>就会把你的鱼送出。游戏会先问你：只有在打开的窗口中点击<strong>是的，送审</strong>才会送出，点击<strong>先不要</strong>则保留为草稿。</p>
+<figure><img alt="第 4 页：完成的鱼和还缺少的内容" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>第 4 页。这条革鲤还缺少纪录重量和自己的照片，所以提交要等一等。</figcaption></figure>
+<h2 id="review">9. 版主会看什么</h2>
 <ul>
 <li><strong>一种真实的鱼。</strong>鱼种编辑器是为钓手真正会钓到的鱼准备的，要按它们本来的样子描述。</li>
 <li><strong>经得起核实的纪录。</strong>链接必须能打开，而且必须显示你填写的重量。</li>

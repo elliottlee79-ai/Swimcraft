@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Guide för artskapare</h1>
 <p class="meta"><strong>Så beskriver du en riktig fisk en gång, så att alla fiskevattenbyggare kan plantera ut den.</strong></p>
-<p class="meta">Senast uppdaterad: 12 oktober 2026</p>
-<div class="intro">Artskaparen ställer tre sidor med frågor om en fisk. Dina svar avgör hur fisken beter sig i vattnet: när den äter, vad den tar, hur den hugger och hur den kämpar. Den här sidan förklarar vad varje fråga egentligen handlar om, och vad en moderator kontrollerar innan din fisk hamnar på allas utplanteringslistor.</div>
+<p class="meta">Senast uppdaterad: 24 november 2026</p>
+<div class="intro">Artskaparen ställer fyra sidor med frågor om en fisk. Dina svar blir hur fisken beter sig i vattnet: när den äter, vad den tar, hur den hugger och hur den kämpar. Den här sidan förklarar vad varje fråga egentligen frågar efter, och vad en moderator kontrollerar innan din fisk hamnar på allas utplanteringslistor.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Utkast, inskickad, godkänd: vad som händer med din fisk</a></li>
 <li><a href="#start">Utgå från en fisk som redan finns</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">Vilka vatten den lever i</a></li>
 <li><a href="#behave">Sida 2: hur den beter sig</a></li>
 <li><a href="#temp">Vattentemperatur, i grader</a></li>
-<li><a href="#check">Sida 3: granska och skicka in</a></li>
+<li><a href="#feeds">Sida 3: hur den äter</a></li>
+<li><a href="#check">Sida 4: kontrollera och skicka in</a></li>
 <li><a href="#review">Vad moderatorerna tittar efter</a></li>
 </ol>
 <h2 id="life">1. Utkast, inskickad, godkänd</h2>
@@ -152,9 +158,11 @@
 <p>En fisk du sparar hamnar på din egen utplanteringslista nästa gång spelet startar, inte direkt.</p>
 <h2 id="start">2. Utgå från en fisk som redan finns</h2>
 <p>Det snabbaste sättet att bygga en fisk är rutan <strong>Genväg</strong> högst upp på sida 1. Välj den fisk i spelet som liknar din mest, så fylls alla svar i utifrån den. Ändra sedan bara det som skiljer.</p>
-<p>En spökkarp är ett bra exempel: utgå från fjällkarp, ändra namnet, fotot och rekorden, så är du nästan klar. Sista sidan listar allt du har ändrat och visar vilken fisk din är byggd från. Det ser moderatorn också.</p>
+<p>En läderkarp är ett bra exempel: utgå från fjällkarpen, byt namnet, fotot och rekorden, så är du nästan klar. Den sista sidan visar allt du har ändrat och vilken fisk din är byggd från. Det ser moderatorn också.</p>
+<figure class="fit"><img alt="Rutan Genväg med Fjällkarp vald" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Rutan Genväg: välj den fisk som liknar din mest.</figcaption></figure>
 <div class="callout">Om ingen fisk i spelet delar alla dina svar lånas några av de finare inställningarna från fisken din är byggd från. Sista sidan talar om när det har hänt. Det är helt normalt för en ovanlig fisk.</div>
 <h2 id="fish">3. Sida 1: fisken</h2>
+<figure><img alt="Sida 1 i artskaparen" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Sida 1. Svaren märkta med * behövs innan du kan skicka in.</figcaption></figure>
 <div class="step"><span class="num">Namn och latinskt namn</span><h3>Vad fiskare kallar den</h3>
 <p>Använd namnet som fiskare skulle söka efter. Ingen annan fisk får redan ha det. Lägg till det latinska namnet också, så att en moderator ser exakt vilken fisk du menar. Andra namn den kallas kan skrivas i rutan nedanför, separerade med kommatecken.</p></div>
 <div class="step"><span class="num">Foto</span><h3>En urklippt bild från sidan</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Länder och var den finns</span><h3>Där en fiskare skulle stöta på den</h3>
 <p>Kryssa i varje land den lever i, och om den finns i stillastående vatten, lugna åar eller snabba åar. Kryssa i allt som stämmer.</p></div>
 <div class="step"><span class="num">Storlek</span><h3>Rekord, med länk</h3>
-<p>Varje land du kryssade i får en rad för sin rekordvikt i pund, uns och dram. Du behöver minst ett rekord, och varje rekord behöver en länk till där det är registrerat: en rekordkommitté, ett sportfiskeförbund eller en klubbsida som en moderator kan öppna och kontrollera. Lämna ett land tomt om dess rekord inte är känt.</p>
-<p>Typisk vikt som vuxen och storfiskstorleken sparas med din fisk till senare. Fyll i dem om du vet dem.</p></div>
+<p>Varje land du kryssade i får en rad för sin rekordvikt i pund, uns och dram. Du behöver minst ett rekord, och varje rekord behöver en länk till där det är registrerat: en rekordkommitté, ett sportfiskeförbund eller en klubbsida som en moderator kan öppna och kontrollera. Lämna ett land tomt om dess rekord inte är känt.</p></div>
 <h2 id="water">4. Vilka vatten den lever i</h2>
 <p>Kryssa i <strong>Sötvatten</strong>, <strong>Flodmynning</strong> eller <strong>Havsfiske</strong>, så många som stämmer. Dina kryss avgör i vilka vatten fisken kan fångas. En fisk fångas aldrig i vatten som är fel för den, hur bra allt annat än passar.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Fråga</th><th>Vad du ska tänka på</th></tr>
 <tr><td>Var äter den?</td><td>Sätt på botten, mitt i vattnet och vid ytan i ordning, det vanligaste först.</td></tr>
-<tr><td>Vad äter den?</td><td>På sidan Hur den äter: välj Huvudföda, Äter gärna, Då och då eller Aldrig för varje slags föda.</td></tr>
+<tr><td>Var trivs den?</td><td>För varje sorts plats, som vattenväxtbäddar, näckrosor, vass, timmer, berg eller skugga ovanifrån: Älskar, Gillar, Bryr sig inte eller Undviker. Nära en plats den älskar eller gillar hugger den oftare; nära en den undviker, mer sällan.</td></tr>
 <tr><td>När äter den bäst?</td><td>Dagtid, gryning och skymning, eller natt.</td></tr>
 <tr><td>Var håller den till?</td><td>Öppet vatten, lite skydd, eller hinder och växtlighet.</td></tr>
 <tr><td>Klart eller grumligt vatten?</td><td>Vilket den föredrar.</td></tr>
-<tr><td>Hur hugger den?</td><td>Försiktiga dopp, säkra lyft, eller drar iväg med betet.</td></tr>
-<tr><td>Hur skygg är den?</td><td>Djärv, försiktig eller mycket skygg.</td></tr>
+<tr><td>Hur hugger den?</td><td>Nio sorters hugg, från Dopp och under eller Lyfter flötet till Bestämt, sedan iväg eller Långsamt, jämnt drag. Sedan hur snabbt nappen kommer (Snabb till Långsamma) och hur länge den håller betet (Mycket kort till Länge).</td></tr>
 <tr><td>Hur kämpar den?</td><td>Välj den kamp vars beskrivning låter mest som fisken i andra änden av din lina.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Svar på Var trivs den? för en karp" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Var den trivs, plats för plats.</figcaption></figure>
+<figure class="fit"><img alt="Hur hugger den? med sina nio sorters hugg och två tider" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Hur den hugger, och hur snabbt och långt hugget är.</figcaption></figure>
+</div>
 <h2 id="temp">6. Vattentemperatur, i grader</h2>
 <p>Välj den etikett som låter mest som din fisk. Den fyller i tre värden i °C, som du kan ändra:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Bekväm från</strong> och <strong>bekväm till</strong>: intervallet där den fortfarande äter bra.</li>
 </ul>
 <p>Värdena måste gå från lågt, till bäst, till högt. Utanför sitt bekväma intervall slutar fisken äta: några grader kallare och de flesta fiskar behåller bara en liten rest av aptiten; några grader varmare och de slutar helt.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Beteckningen för vattentemperatur och dess tre tal" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Välj en beteckning så fylls de tre talen i.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Etikett</th><th>Bäst</th><th>Bekvämt</th><th>Vad det betyder</th></tr>
 <tr><td>Kallvattensspecialist</td><td>12 °C</td><td>6 till 17 °C</td><td>Älskar kallt, rent vatten; har det svårt när det blir varmt. Öring, harr, röding, torsk.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropisk</td><td>29 °C</td><td>25 till 33 °C</td><td>Bara varmt vatten; slutar äta när det svalnar. Barramundi, påfågelabborre.</td></tr>
 </table></div>
 <div class="callout">Ändra bara värdena om du vet att din fisk skiljer sig från sin etikett. Ett fiskevattens vatten värms upp och svalnar med årstiderna, och ett fiskevatten som är fäst vid sin riktiga plats på jorden följer den platsens klimat. En tropisk fisk som planteras ut i ett kallt vatten kommer nästan aldrig att äta, och det är fisken som beter sig ärligt, inte ett fel.</div>
-<h2 id="check">7. Sida 3: granska och skicka in</h2>
+<h2 id="feeds">7. Sida 3: hur den äter</h2>
+<p>Den här sidan avgör vilka beten din fisk tar och hur den luras. <a href="/sv/baitcreators">Guiden</a> för betesskapare frågar samma sak från betets sida, så att de två möts i vattnet.</p>
+<table class="pass">
+<tr><th>Fråga</th><th>Vad du ska tänka på</th></tr>
+<tr><td>Vad äter den?</td><td>För varje sorts föda, från säd och växter till mask, skaldjur, fisk, kött, deg och inget ätbart: Huvudföda, Äter gärna, Då och då eller Aldrig. En fisk tar aldrig ett bete gjort av något den aldrig äter.</td></tr>
+<tr><td>Hur hittar den sin föda?</td><td>Lukt, rörelse eller båda.</td></tr>
+<tr><td>Hur starkt måste ett bete lukta för den?</td><td>Från Knappt till Stinker.</td></tr>
+<tr><td>Hur mycket måste ett bete röra sig för den?</td><td>Från Behöver det inte till Simmar.</td></tr>
+<tr><td>Hur bra ser den?</td><td>Använder den knappt, Okej, Bra eller Skarp.</td></tr>
+<tr><td>Lockas den av blänk?</td><td>Ja eller nej.</td></tr>
+<tr><td>Hur stor är dess mun?</td><td>Från Pytteliten till Enorm. Ett bete som är för stort för dess mun vägras.</td></tr>
+<tr><td>Hur linskygg är den?</td><td>Från Mycket linskygg till Inte linskygg: hur mycket en grov lina skrämmer den.</td></tr>
+<tr><td>Hur skygg är den?</td><td>Djärv, försiktig eller mycket skygg.</td></tr>
+</table>
+<figure class="fit"><img alt="Vad äter den? ifyllt för en karp" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Vad den äter, ett svar för varje sorts föda.</figcaption></figure>
+<h2 id="check">8. Sida 4: kontrollera och skicka in</h2>
 <p>Sista sidan visar din fisk som andra fiskare kommer att se den, med en kort beskrivning skriven utifrån dina svar och en lista över vad som skiljer den från fisken den är byggd från. Läs beskrivningen: om den inte låter som din fisk är något av dina svar fel.</p>
-<p>Om något saknas listas det i en ruta som heter <strong>Innan du kan skicka in</strong>. Klicka på en punkt för att gå direkt till den. När inget saknas skickar <strong>Skicka till moderatorerna</strong> in din fisk.</p>
-<h2 id="review">8. Vad moderatorerna tittar efter</h2>
+<p>Om något saknas listas det i en ruta som heter <strong>Innan du kan skicka in</strong>. Klicka på en punkt för att gå direkt dit. När inget saknas skickar <strong>Skicka till moderatorerna</strong> in din fisk. Spelet frågar först: bara <strong>Ja, skicka</strong> i rutan som öppnas skickar den, och <strong>Inte än</strong> sparar den som utkast.</p>
+<figure><img alt="Sida 4: den färdiga fisken och vad som fortfarande saknas" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Sida 4. Den här läderkarpen saknar fortfarande en rekordvikt och ett eget foto, så Skicka in väntar.</figcaption></figure>
+<h2 id="review">9. Vad moderatorerna tittar efter</h2>
 <ul>
 <li><strong>En riktig fisk.</strong> Artskaparen är till för fiskar som fiskare fångar, beskrivna som de är.</li>
 <li><strong>Ett rekord som håller.</strong> Länken måste gå att öppna, och den måste visa vikten du angav.</li>

@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Der Leitfaden für Köder-Ersteller</h1>
 <p class="meta"><strong>So machst du einen eigenen Köder, von einer neuen Boilie-Sorte bis zu einer Frucht, mit der noch niemand geangelt hat.</strong></p>
-<p class="meta">Zuletzt aktualisiert: 18. Oktober 2026</p>
+<p class="meta">Zuletzt aktualisiert: 24. November 2026</p>
 <div class="intro">Der Köder-Editor stellt dir auf drei Seiten Fragen zu einem Köder. Fische lesen nicht, was auf der Packung steht: Sie beurteilen einen Köder danach, woraus er besteht, wie er schmeckt und riecht, wie groß er ist, wie er aussieht und wie er sich bewegt. Genau das sind deine Antworten, also entscheiden sie, welche Fische deinen Köder nehmen und wie gern. Diese Seite erklärt jede Frage und was ein Moderator prüft, bevor dein Köder in die Köderbox aller kommt.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Entwurf, eingereicht, freigegeben: was mit deinem Köder passiert</a></li>
 <li><a href="#start">Von einem unserer Köder ausgehen oder eine neue Art machen</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Seite 3: am Haken, und prüfen</a></li>
 <li><a href="#which">Welche Fische nehmen ihn?</a></li>
 <li><a href="#box">Dein Köder in der Köderbox, und sein Level</a></li>
+<li><a href="#ground">Grundfutter erstellen</a></li>
 <li><a href="#review">Worauf die Moderatoren achten</a></li>
 </ol>
 <h2 id="life">1. Entwurf, eingereicht, freigegeben</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Von einem unserer Köder ausgehen oder eine neue Art machen</h2>
 <p>Am schnellsten machst du einen Köder mit dem Feld <strong>Abkürzung</strong> oben auf Seite 1. Wähl den Köder im Spiel, der deinem am ähnlichsten ist, und jede Antwort wird von ihm übernommen. Dann änderst du nur, was anders ist.</p>
 <p>Ein Erdbeer-Boilie ist ein gutes Beispiel: Geh von einem unserer Boilies aus, ändere den Namen, den Geschmack und die Farbe, und du bist fast fertig. Alles, was du so lässt, wie es war, fängt genau wie der Köder, von dem du ausgegangen bist.</p>
+<figure class="fit"><img alt="Das Feld Abkürzung mit Redmire Cream ausgewählt" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>Das Feld Abkürzung: Wähle den Köder, der deinem am ähnlichsten ist, und jede Antwort wird von ihm übernommen.</figcaption></figure>
 <p>Lass die Abkürzung auf <strong>Eine ganz neue Köderart</strong>, um etwas zu beschreiben, das es im Spiel noch nicht gibt: eine Frucht, die vom Baum fällt, eine Pflanze, die ein vegetarischer Fisch abweidet, eine Larve, an die noch niemand gedacht hat. Eine neue Köderart beginnt mit lauter leeren Fragen.</p>
 <div class="callout">Jeder Angelplatz an einem Gewässer listet die Köderarten auf, mit denen seine Fische befischt werden, zum Beispiel Boilies oder Mais / Partikel. Ein Köder, der von einem unserer Köder ausgeht, zählt als der Köder, von dem er ausgeht. Eine ganz neue Köderart zählt nach dem, woraus sie besteht: Eine Frucht steht überall auf der Liste, wo ein Angelplatz Mais / Partikel aufführt, und eine neue Larve überall, wo er Maden / Caster aufführt.</div>
 <h2 id="bait">3. Seite 1: der Köder</h2>
+<figure><img alt="Seite 1 des Köder-Erstellers, von Redmire Cream ausgehend und in Strawberry Cream umbenannt" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Seite 1, von Redmire Cream ausgehend und umbenannt. Die mit * markierten Antworten sind Pflicht.</figcaption></figure>
 <div class="step"><span class="num">Name</span><h3>Was die Spieler in der Köderbox sehen</h3>
 <p>Ein kurzer Name, bis zu 40 Zeichen. Er darf nicht der Name eines unserer Köder oder des Köders eines anderen Spielers sein.</p></div>
 <div class="step"><span class="num">Beschreibungszeile</span><h3>Eine Zeile, wie bei unseren Ködern</h3>
@@ -169,6 +177,8 @@
 <p>Ein PNG oder WebP mit transparentem Hintergrund, bis zu 5 MB, das nur den Köder zeigt. Bis du eins hinzufügst, zeigt die Köderbox eine Zeichnung.</p></div>
 <h2 id="senses">4. Seite 2: wie ein Fisch ihn wahrnimmt</h2>
 <p>Das sind die Antworten, die Fische wirklich nutzen. Jede hilft bei manchen Fischen und bei anderen nicht, also gibt es keine einzelne beste Antwort: Überleg dir, welche Fische du fangen willst.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Seite 2 des Köder-Erstellers: Geschmack, Geruch, Öl, Bewegung, Größe, Aussehen und ob er schwimmt" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Seite 2. Der Erdbeer-Boilie schmeckt jetzt Süß/Fruchtig, mit Cremig/Milchig als zweitem Geschmack, und er ist rot und Grell.</figcaption></figure>
 <table class="pass">
 <tr><th>Frage</th><th>Worüber du nachdenken solltest</th></tr>
 <tr><td>Wie schmeckt er?</td><td>Fischig, Süß/Fruchtig, Würzig/Herzhaft, Fleischig/Salzig, Cremig/Milchig, Natürlich oder Nussig/Erdig. Jeder Fisch mag manche Geschmäcker mehr als andere, und manche Geschmäcker passen zu warmem Wasser, andere zu kaltem. Ein zweiter Geschmack ist freiwillig.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Nur Lockfutter</td><td>Kreuz das nur an, wenn der Köder nicht auf einen Haken kann. Jeder andere Köder kann auch als Lockfutter eingeworfen werden.</td></tr>
 </table>
 <p>Die letzte Seite zeigt deinen Köder auch so, wie er in der Köderbox aussehen wird. Wenn etwas fehlt, listet es ein Feld namens <strong>Bevor du damit angeln kannst</strong> auf. Klick auf einen Punkt, um direkt dorthin zu springen.</p>
+<p>Wenn jede Antwort ausgefüllt ist und dein Köder ein Foto hat, schickt <strong>An die Moderatoren senden</strong> ihn ein. Das Spiel fragt vorher nach: Ein Fenster in der Bildschirmmitte sagt dir, was passiert, und nur <strong>Ja, senden</strong> schickt deinen Köder ab. <strong>Noch nicht</strong> behält ihn als Entwurf.</p>
+<figure><img alt="Das Fenster, das nachfragt, bevor ein Köder an die Moderatoren geht" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Einreichen fragt vorher nach. Nichts wird gesendet, bevor du Ja, senden drückst.</figcaption></figure>
 <h2 id="which">6. Welche Fische nehmen ihn?</h2>
 <p>Sobald deine Antworten vollständig sind, zeigt die letzte Seite jeden Fisch, der dort lebt, wo dein Köder verwendet werden kann, und wie gern er deinen Köder im Sommer und im Winter nimmt: <strong>Nimmt ihn gern</strong>, <strong>Nimmt ihn</strong>, <strong>Ab und zu</strong> oder <strong>Nie</strong>.</p>
 <p>Das ist die eigene Einschätzung des Spiels, gemacht mit denselben Prüfungen, die die Fische im Wasser machen, an einem Angelplatz, der sonst zu jedem Fisch passt. Sie wird mit dem verglichen, womit dieser Fisch normalerweise gefangen wird. Ändere eine Antwort, und die Liste ändert sich mit, so siehst du sofort, was eine größere Größe oder ein stärkerer Geruch bewirkt.</p>
+<figure class="fit"><img alt="Die Liste Welche Fische nehmen ihn? für einen Erdbeer-Boilie" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>Der Erdbeer-Boilie: Karpfen, Schleien und Brassen nehmen ihn im Sommer gern. Die Liste lässt sich scrollen und zeigt jeden Fisch.</figcaption></figure>
 <div class="callout">"Nie" liegt meist an der Größe des Köders oder daran, woraus er besteht: zu groß für das Maul dieses Fischs oder etwas, das er nicht frisst. Ein echter Angelplatz fügt alles hinzu, was diese Liste weglässt, etwa die Tiefe, das Wetter, die Tageszeit und wie viel Futter im Wasser ist.</div>
 <h2 id="box">7. Dein Köder in der Köderbox, und sein Level</h2>
 <p>Köder von Spielern liegen in denselben Zeilen wie unsere, mit einem <strong>*</strong> markiert, und die Köderbox sagt, was die Markierung bedeutet. Sie werden genau wie unsere ausgewählt, auf den Haken gezogen und als Lockfutter eingeworfen.</p>
+<figure class="fit"><img alt="So wird der Köder in der Köderbox aussehen, mit seinem Level" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>Die letzte Seite zeigt deinen Köder so, wie er in der Köderbox liegt, und ab welchem Level er freigeschaltet ist.</figcaption></figure>
 <p>Jeder Köder hat ein Level, ab dem er freigeschaltet wird. Bis ein Moderator das Level deines Köders danach festlegt, wie gut er fängt, wird er auf dem Level des Köders freigeschaltet, von dem du ausgegangen bist, oder auf Level 1 bei einer ganz neuen Köderart. Ein Moderator kann sein Level bei der Freigabe festlegen: Ein Köder, der leicht große Fische fängt, kann mit einem höheren Level rechnen.</p>
-<h2 id="review">8. Worauf die Moderatoren achten</h2>
+<h2 id="ground">8. Grundfutter erstellen</h2>
+<p>Oben auf Seite 1 bietet <strong>Was erstellst du?</strong> die Wahl zwischen <strong>Köder</strong> und <strong>Grundfutter</strong>. Wähle Grundfutter, um eine eigene Mischung zu erstellen. Fliegen kommen später.</p>
+<p>Grundfutter ist ein kürzerer Weg: sein Name, eine einzeilige Beschreibung, sein Geschmack (einer oder zwei), wie es zerfällt, seine Farbe und ein Foto, und ob es für Süßwasser oder das Meer ist. Es kann im selben Feld Abkürzung von einer unserer Mischungen ausgehen. Größe, Bewegung, Schwimmen und die Fragen zum Haken entfallen, denn Grundfutter wird eingeworfen, um Fische anzulocken, und nicht auf den Haken gezogen.</p>
+<p>Dein Grundfutter liegt im Reiter <strong>Grundfutter</strong> der Köderbox und wird nur an seinem eigenen Gewässer angeboten.</p>
+<figure><img alt="Seite 1 des Köder-Erstellers mit gewähltem Grundfutter" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Grundfutter gewählt: drei Seiten, auf Wunsch ausgehend von einer unserer Mischungen.</figcaption></figure>
+<h2 id="review">9. Worauf die Moderatoren achten</h2>
 <ul>
 <li><strong>Ein echter Köder.</strong> Etwas, das Angler benutzen oder benutzen könnten, so beschrieben, wie es ist, und glaubwürdig für echtes Angeln. Eine ganz neue Köderart ist willkommen; ein Köder, der in allem perfekt ist, nicht. Bleib realistisch.</li>
 <li><strong>Ehrliche Antworten.</strong> Ein 20-mm-Boilie, der als 2-mm-Pellet eingetragen ist, oder ein einfacher Köder, der stinkt, kommt zurück.</li>

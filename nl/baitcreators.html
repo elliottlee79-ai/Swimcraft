@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>De gids voor aasmakers</h1>
 <p class="meta"><strong>Zo maak je een eigen aas, van een nieuwe smaak boilie tot een vrucht waar nog nooit iemand mee heeft gevist.</strong></p>
-<p class="meta">Laatst bijgewerkt: 18 oktober 2026</p>
+<p class="meta">Laatst bijgewerkt: 24 november 2026</p>
 <div class="intro">De aasmaker stelt drie pagina's vragen over een aas. Vissen lezen de naam op de verpakking niet: ze beoordelen een aas op waar het van gemaakt is, hoe het smaakt en ruikt, hoe groot het is, hoe het eruitziet en hoe het beweegt. Jouw antwoorden zijn precies die dingen, dus zij bepalen welke vissen je aas pakken en hoe gretig. Deze pagina legt elke vraag uit, en wat een moderator controleert voordat je aas in ieders Aasdoos komt.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Concept, ingediend, goedgekeurd: wat er met je aas gebeurt</a></li>
 <li><a href="#start">Begin bij een van onze azen, of maak een nieuw soort</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Pagina 3: aan de haak, en controleren</a></li>
 <li><a href="#which">Welke vissen pakken het?</a></li>
 <li><a href="#box">Je aas in de Aasdoos, en zijn niveau</a></li>
+<li><a href="#ground">Lokvoer maken</a></li>
 <li><a href="#review">Waar de moderators op letten</a></li>
 </ol>
 <h2 id="life">1. Concept, ingediend, goedgekeurd</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Begin bij een van onze azen, of maak een nieuw soort</h2>
 <p>De snelste manier om een aas te maken is het vak <strong>Snelkoppeling</strong> bovenaan pagina 1. Kies het aas in het spel dat het meest op het jouwe lijkt en elk antwoord wordt ervan overgenomen. Verander daarna alleen wat anders is.</p>
 <p>Een aardbeienboilie is een goed voorbeeld: begin bij een van onze boilies, verander de naam, de smaak en de kleur, en je bent bijna klaar. Alles wat je laat zoals het was, vist precies zoals het aas waarmee je begon.</p>
+<figure class="fit"><img alt="Het vak Snelkoppeling met Redmire Cream gekozen" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>Het vak Snelkoppeling: kies het aas dat het meest op het jouwe lijkt, en elk antwoord wordt ervan overgenomen.</figcaption></figure>
 <p>Laat de snelkoppeling op <strong>Een gloednieuw soort aas</strong> staan om iets te beschrijven wat het spel nog niet heeft: een vrucht die uit een boom valt, een plant waar een plantenetende vis van graast, een larve waar nog niemand aan heeft gedacht. Een nieuw soort aas begint met alle vragen leeg.</p>
 <div class="callout">Elke stek op een water somt de soorten aas op waarmee de vissen daar worden bevist, zoals Boilies of Maïs / Partikel. Een aas dat je begint vanaf een van de onze telt als het aas waarmee het begon. Een gloednieuw soort aas telt naar waar het van gemaakt is: een vrucht staat op de lijst overal waar een stek Maïs / Partikel noemt, en een nieuwe larve overal waar Maden / Casters staat.</div>
 <h2 id="bait">3. Pagina 1: het aas</h2>
+<figure><img alt="Pagina 1 van de aasmaker, gestart vanaf Redmire Cream en hernoemd tot Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Pagina 1, gestart vanaf Redmire Cream en hernoemd. De antwoorden met een * zijn verplicht.</figcaption></figure>
 <div class="step"><span class="num">Naam</span><h3>Wat spelers in de Aasdoos zien</h3>
 <p>Een korte naam, tot 40 letters. Het mag niet de naam zijn van een van onze azen of van het aas van een andere speler.</p></div>
 <div class="step"><span class="num">Beschrijvingsregel</span><h3>Eén regel, zoals onze azen die hebben</h3>
@@ -169,6 +177,8 @@
 <p>Een PNG of WebP met een transparante achtergrond, tot 5 MB, met alleen het aas erop. Zolang je er geen toevoegt, toont de Aasdoos een tekening.</p></div>
 <h2 id="senses">4. Pagina 2: hoe een vis het waarneemt</h2>
 <p>Dit zijn de antwoorden die vissen echt gebruiken. Elk antwoord helpt sommige vissen en andere niet, dus er is niet één beste antwoord: denk na over welke vissen je wilt vangen.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Pagina 2 van de aasmaker: smaak, geur, olie, beweging, grootte, uiterlijk en of het drijft" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Pagina 2. De aardbeienboilie smaakt nu Zoet/Fruitig, met Romig/Melkachtig als tweede smaak, en hij is rood en Fel.</figcaption></figure>
 <table class="pass">
 <tr><th>Vraag</th><th>Waar je op let</th></tr>
 <tr><td>Hoe smaakt het?</td><td>Visachtig, Zoet/Fruitig, Pittig/Hartig, Vlezig/Zout, Romig/Melkachtig, Natuurlijk of Nootachtig/Aards. Elke vis houdt van sommige smaken meer dan van andere, en sommige smaken passen bij warm water en andere bij koud. Een tweede smaak is optioneel.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Alleen los voer</td><td>Vink dit alleen aan als het aas niet aan een haak kan. Elk ander aas kan ook als los voer worden ingegooid.</td></tr>
 </table>
 <p>De laatste pagina toont je aas ook zoals het in de Aasdoos zal staan. Als er iets ontbreekt, staat het in een vak met de naam <strong>Voordat je ermee kunt vissen</strong>. Klik op een onderdeel om er meteen naartoe te gaan.</p>
+<p>Als elk antwoord is ingevuld en je aas een foto heeft, stuurt <strong>Indienen bij de moderators</strong> het in. Het spel vraagt het eerst: een venster midden in beeld zegt wat er gaat gebeuren, en alleen <strong>Ja, insturen</strong> stuurt je aas in. <strong>Nog niet</strong> houdt het als concept.</p>
+<figure><img alt="Het venster dat het eerst vraagt voordat een aas naar de moderators gaat" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Indienen vraagt het eerst. Er wordt niets verstuurd tot je op Ja, insturen drukt.</figcaption></figure>
 <h2 id="which">6. Welke vissen pakken het?</h2>
 <p>Zodra je antwoorden compleet zijn, toont de laatste pagina elke vis die leeft waar je aas gebruikt kan worden, en hoe graag die vis je aas pakt in de zomer en in de winter: <strong>Pakt het graag</strong>, <strong>Pakt het</strong>, <strong>Af en toe</strong> of <strong>Nooit</strong>.</p>
 <p>Dit is het eigen oordeel van het spel, gemaakt met dezelfde controles die de vissen in het water doen, op een stek die verder bij elke vis past. Het wordt vergeleken met waarop die vis gewoonlijk wordt gevangen. Verander een antwoord en de lijst verandert mee, zodat je meteen ziet wat een grotere maat of een sterkere geur doet.</p>
+<figure class="fit"><img alt="De lijst Welke vissen pakken het? voor een aardbeienboilie" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>De aardbeienboilie: karper, zeelt en brasem pakken hem in de zomer graag. De lijst scrolt en toont elke vis.</figcaption></figure>
 <div class="callout">"Nooit" komt meestal door de grootte van het aas of waar het van gemaakt is: te groot voor de bek van die vis, of iets wat hij niet eet. Een echte stek voegt alles toe wat deze lijst weglaat, zoals de diepte, het weer, het tijdstip en hoeveel voer er in het water ligt.</div>
 <h2 id="box">7. Je aas in de Aasdoos, en zijn niveau</h2>
 <p>Azen van spelers staan in dezelfde rijen als de onze, gemarkeerd met een <strong>*</strong>, en de Aasdoos zegt wat het teken betekent. Je kiest ze, zet ze aan de haak en gooit ze in als los voer, precies zoals de onze.</p>
+<figure class="fit"><img alt="Hoe het aas in de Aasdoos komt te staan, met zijn niveau" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>De laatste pagina laat je aas zien zoals het in de Aasdoos komt te staan, en op welk niveau het vrijkomt.</figcaption></figure>
 <p>Elk aas heeft een niveau waarop het vrijkomt. Tot een moderator het niveau van je aas vaststelt op basis van hoe goed het vist, komt het vrij op het niveau van het aas waarmee je begon, of op niveau 1 voor een gloednieuw soort aas. Een moderator kan bij de goedkeuring het niveau vaststellen: een aas dat makkelijk grote vissen vangt, kan een hoger niveau verwachten.</p>
-<h2 id="review">8. Waar de moderators op letten</h2>
+<h2 id="ground">8. Lokvoer maken</h2>
+<p>Bovenaan pagina 1 biedt <strong>Wat maak je?</strong> de keuze uit <strong>Aas</strong> of <strong>Lokvoer</strong>. Kies Lokvoer om je eigen mengsel te maken. Vliegen komen later.</p>
+<p>Lokvoer is een kortere route: de naam, een beschrijving van één regel, de smaak (één of twee), hoe het uiteenvalt, de kleur en een foto, en of het voor zoet water of de zee is. Het kan in hetzelfde vak Snelkoppeling vanaf een van onze mengsels beginnen. Grootte, beweging, drijven en de vragen over de haak worden niet gesteld, want lokvoer gooi je in om vis te lokken, het gaat niet aan de haak.</p>
+<p>Je lokvoer staat op het tabblad <strong>Lokvoer</strong> van de Aasdoos, en wordt alleen aangeboden op zijn eigen soort water.</p>
+<figure><img alt="Pagina 1 van de aasmaker met Lokvoer gekozen" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Lokvoer gekozen: drie pagina's, als je wilt vanaf een van onze mengsels.</figcaption></figure>
+<h2 id="review">9. Waar de moderators op letten</h2>
 <ul>
 <li><strong>Een echt aas.</strong> Iets wat vissers gebruiken of zouden kunnen gebruiken, beschreven zoals het is, en geloofwaardig bij echt vissen. Een gloednieuw soort aas is welkom; een aas dat overal perfect in is, niet. Probeer realistisch te blijven.</li>
 <li><strong>Eerlijke antwoorden.</strong> Een boilie van 20 mm ingevuld als pellet van 2 mm, of een gewoon aas dat stinkt, wordt teruggestuurd.</li>

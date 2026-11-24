@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Průvodce tvůrce druhů</h1>
 <p class="meta"><strong>Jak jednou popsat skutečnou rybu, aby ji mohl vysadit každý tvůrce revírů.</strong></p>
-<p class="meta">Naposledy aktualizováno: 12. října 2026</p>
-<div class="intro">Editor druhů se tě na třech stránkách ptá na rybu. Z tvých odpovědí vznikne to, jak se ryba chová ve vodě: kdy žere, co bere, jak bere a jak bojuje. Tahle stránka vysvětluje, na co se každá otázka doopravdy ptá a co moderátor zkontroluje, než se tvoje ryba dostane do seznamu k vysazení všech hráčů.</div>
+<p class="meta">Naposledy aktualizováno: 24. listopadu 2026</p>
+<div class="intro">Tvůrce druhů klade čtyři stránky otázek o rybě. Tvoje odpovědi určují, jak se ta ryba chová ve vodě: kdy žere, co bere, jak bere a jak bojuje. Tato stránka vysvětluje, na co se každá otázka doopravdy ptá a co moderátor kontroluje, než se tvoje ryba dostane do seznamu k vysazení všech.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Koncept, odesláno, schváleno: co se děje s tvou rybou</a></li>
 <li><a href="#start">Začni od ryby, která už existuje</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">Ve kterých vodách žije</a></li>
 <li><a href="#behave">Stránka 2: jak se chová</a></li>
 <li><a href="#temp">Teplota vody ve stupních</a></li>
-<li><a href="#check">Stránka 3: kontrola a odeslání</a></li>
+<li><a href="#feeds">Stránka 3: jak žere</a></li>
+<li><a href="#check">Stránka 4: kontrola a odeslání</a></li>
 <li><a href="#review">Na co se dívají moderátoři</a></li>
 </ol>
 <h2 id="life">1. Koncept, odesláno, schváleno</h2>
@@ -152,9 +158,11 @@
 <p>Uložená ryba se do tvého seznamu k vysazení dostane při příštím spuštění hry, ne hned.</p>
 <h2 id="start">2. Začni od ryby, která už existuje</h2>
 <p>Nejrychleji rybu postavíš pomocí pole <strong>Zkratka</strong> nahoře na stránce 1. Vyber rybu ze hry, která se té tvé nejvíc podobá, a všechny odpovědi se vyplní podle ní. Pak změň jen to, co je jinak.</p>
-<p>Dobrý příklad je ghost carp: začni od kapra obecného, změň jméno, fotku a rekordy a máš skoro hotovo. Poslední stránka vypíše všechno, co jsi změnil, a řekne, ze které ryby tvoje vychází. Moderátor to vidí taky.</p>
+<p>Dobrým příkladem je kapr lysec: začni od kapra, změň název, fotku a rekordy a máš skoro hotovo. Poslední stránka vypíše vše, co jsi změnil, a řekne, z jaké ryby tvoje vychází. Moderátor to vidí taky.</p>
+<figure class="fit"><img alt="Pole Zkratka se zvoleným Kaprem" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Pole Zkratka: vyber rybu, která se nejvíc podobá té tvé.</figcaption></figure>
 <div class="callout">Pokud žádná ryba ve hře nemá úplně všechny odpovědi stejné jako ta tvoje, pár jemnějších nastavení se převezme od ryby, ze které tvoje vychází. Poslední stránka ti řekne, když se to stane. U neobvyklé ryby je to normální.</div>
 <h2 id="fish">3. Stránka 1: ryba</h2>
+<figure><img alt="Stránka 1 tvůrce druhů" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Stránka 1. Odpovědi označené * jsou potřeba, než budeš moct odeslat.</figcaption></figure>
 <div class="step"><span class="num">Jméno a latinský název</span><h3>Jak jí říkají rybáři</h3>
 <p>Použij jméno, podle kterého by ji rybáři hledali. Jiná ryba ho nesmí už mít. Přidej i latinský název, aby moderátor přesně poznal, kterou rybu myslíš. Další jména, pod kterými je známá, napiš do pole níž, oddělená čárkami.</p></div>
 <div class="step"><span class="num">Fotka</span><h3>Výřez z boku</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Země a kde se vyskytuje</span><h3>Kde ji rybář potká</h3>
 <p>Zaškrtni každou zemi, kde žije, a jestli se vyskytuje ve stojatých vodách, pomalých řekách nebo rychlých řekách. Zaškrtni vše, co platí.</p></div>
 <div class="step"><span class="num">Velikost</span><h3>Rekordy s odkazem</h3>
-<p>Každá zaškrtnutá země dostane řádek pro rekordní váhu v librách, uncích a dramech. Potřebuješ aspoň jeden rekord a každý rekord potřebuje odkaz na místo, kde je zapsaný: rekordní komisi, rybářskou organizaci nebo stránku klubu, kterou moderátor může otevřít a ověřit. Pokud rekord některé země není známý, nech ji prázdnou.</p>
-<p>Běžná váha dospělé ryby a trofejní velikost se u tvé ryby ukládají na později. Vyplň je, pokud je znáš.</p></div>
+<p>Každá zaškrtnutá země dostane řádek pro rekordní váhu v librách, uncích a dramech. Potřebuješ aspoň jeden rekord a každý rekord potřebuje odkaz na místo, kde je zapsaný: rekordní komisi, rybářskou organizaci nebo stránku klubu, kterou moderátor může otevřít a ověřit. Pokud rekord některé země není známý, nech ji prázdnou.</p></div>
 <h2 id="water">4. Ve kterých vodách žije</h2>
 <p>Zaškrtni <strong>sladkou vodu</strong>, <strong>ústí řeky</strong> nebo <strong>moře</strong>, tolik, kolik platí. Tvoje zaškrtnutí rozhodnou, ve kterých vodách se dá ryba chytit. Ryba se nikdy nechytí ve vodě, která pro ni není správná, ať jí všechno ostatní sedí sebelíp.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Otázka</th><th>Na co myslet</th></tr>
 <tr><td>Kde žere?</td><td>Seřaď u dna, ve střední vodě a u hladiny, nejčastější první.</td></tr>
-<tr><td>Čím se živí?</td><td>Na stránce Jak žere: u každého druhu potravy vyber Hlavní potrava, Žere ochotně, Občas nebo Nikdy.</td></tr>
+<tr><td>Kde se rád zdržuje?</td><td>Pro každý druh místa, jako porosty, lekníny, rákos, dřevo, skála nebo stín shora: Miluje, Má rád, Je mu to jedno nebo Vyhýbá se. U místa, které miluje nebo má rád, bere častěji; u místa, kterému se vyhýbá, méně často.</td></tr>
 <tr><td>Kdy nejlépe žere?</td><td>Přes den, za úsvitu a soumraku, nebo v noci.</td></tr>
 <tr><td>Kde se zdržuje?</td><td>Volná voda, trochu úkrytů, nebo překážky a plevel.</td></tr>
 <tr><td>Čirá, nebo kalná voda?</td><td>Kterou má raději.</td></tr>
-<tr><td>Jak bere?</td><td>Jemné ťukání, jisté nadzvednutí, nebo s nástrahou odjíždí.</td></tr>
-<tr><td>Jak je plachá?</td><td>Smělá, opatrná, nebo velmi plachá.</td></tr>
+<tr><td>Jak bere?</td><td>Devět stylů záběru, od Ťuknutí a pod nebo Zvedne splávek po Rázně, pak ujede nebo Pomalý, plynulý tah. Pak jak rychle přicházejí ťukance (od Prudký po Pomalé) a jak dlouho drží nástrahu (od Velmi krátce po Dlouho).</td></tr>
 <tr><td>Jak bojuje?</td><td>Vyber boj, jehož popis nejvíc odpovídá rybě na konci tvého vlasce.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Odpovědi na Kde se rád zdržuje? pro kapra" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Kde se rád zdržuje, místo po místě.</figcaption></figure>
+<figure class="fit"><img alt="Jak bere? s devíti styly a dvěma časy" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Jak bere, a jak rychlý a dlouhý je záběr.</figcaption></figure>
+</div>
 <h2 id="temp">6. Teplota vody ve stupních</h2>
 <p>Vyber označení, které tvé rybě nejvíc odpovídá. Vyplní tři čísla v °C, která můžeš změnit:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Pohodlně od</strong> a <strong>pohodlně do</strong>: rozsah, ve kterém ještě dobře žere.</li>
 </ul>
 <p>Čísla musí jít od nejnižšího přes nejlepší po nejvyšší. Mimo pohodlný rozsah ryba přestává žrát: o pár stupňů chladněji si většina ryb udrží jen slabou chuť k jídlu; o pár stupňů tepleji přestanou žrát úplně.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Štítek teploty vody a jeho tři čísla" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Vyber štítek a tři čísla se vyplní.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Označení</th><th>Nejlépe</th><th>Pohodlně</th><th>Co to znamená</th></tr>
 <tr><td>Specialista na studenou vodu</td><td>12 °C</td><td>6 až 17 °C</td><td>Miluje studenou, čistou vodu; trápí se, jakmile se oteplí. Pstruh, lipan, siven, treska.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropický</td><td>29 °C</td><td>25 až 33 °C</td><td>Jen teplá voda; přestane žrát, když se ochladí. Barramundi, peacock bass.</td></tr>
 </table></div>
 <div class="callout">Čísla měň jen tehdy, když víš, že se tvoje ryba od svého označení liší. Voda na revíru se během ročních období ohřívá a ochlazuje a revír připnutý ke svému skutečnému místu na Zemi se řídí podnebím toho místa. Tropická ryba vysazená do studené vody skoro nikdy nebude žrát, a to se ryba chová poctivě, není to chyba.</div>
-<h2 id="check">7. Stránka 3: kontrola a odeslání</h2>
+<h2 id="feeds">7. Stránka 3: jak žere</h2>
+<p>Tato stránka rozhoduje, jaké nástrahy tvoje ryba bere a jak ji přelstít. <a href="/cs/baitcreators">Průvodce</a> tvůrce nástrah se ptá na totéž ze strany nástrahy, takže se obě potkají ve vodě.</p>
+<table class="pass">
+<tr><th>Otázka</th><th>Na co myslet</th></tr>
+<tr><td>Čím se živí?</td><td>Pro každý druh potravy, od zrní a rostlin po červy, korýše, ryby, maso, těsto a nic jedlého: Hlavní potrava, Žere ochotně, Občas nebo Nikdy. Ryba nikdy nevezme nástrahu z něčeho, co nikdy nežere.</td></tr>
+<tr><td>Jak hledá potravu?</td><td>Pach, pohyb nebo obojí.</td></tr>
+<tr><td>Jak silně musí nástraha vonět, aby ji zaujala?</td><td>Od Sotva po Páchne.</td></tr>
+<tr><td>Jak moc se musí nástraha hýbat, aby ji zaujala?</td><td>Od Nepotřebuje po Plave.</td></tr>
+<tr><td>Jak dobře vidí?</td><td>Skoro ho nepoužívá, Ucházející, Dobré nebo Bystrý.</td></tr>
+<tr><td>Láká ji třpyt?</td><td>Ano, nebo ne.</td></tr>
+<tr><td>Jak velkou má tlamu?</td><td>Od Drobná po Obrovská. Nástraha příliš velká pro její tlamu je odmítnuta.</td></tr>
+<tr><td>Jak moc ji plaší vlasec?</td><td>Od Vlasec ji velmi plaší po Vlasec ji neplaší: jak moc ji odrazuje silný vlasec.</td></tr>
+<tr><td>Jak je plachá?</td><td>Smělá, opatrná, nebo velmi plachá.</td></tr>
+</table>
+<figure class="fit"><img alt="Co žere? vyplněné pro kapra" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Co žere, jedna odpověď pro každý druh potravy.</figcaption></figure>
+<h2 id="check">8. Stránka 4: kontrola a odeslání</h2>
 <p>Poslední stránka ukáže tvou rybu tak, jak ji uvidí ostatní rybáři, s krátkým popisem napsaným z tvých odpovědí a se seznamem toho, čím se liší od ryby, ze které vychází. Přečti si popis: pokud nezní jako tvoje ryba, některá z tvých odpovědí je špatně.</p>
-<p>Pokud něco chybí, vypíše to pole <strong>Než budeš moct odeslat</strong>. Klikni na kteroukoli položku a přejdeš rovnou k ní. Když nic nechybí, tlačítko <strong>Odeslat moderátorům</strong> tvou rybu odešle.</p>
-<h2 id="review">8. Na co se dívají moderátoři</h2>
+<p>Pokud něco chybí, vypíše to pole nazvané <strong>Než budeš moct odeslat</strong>. Klikni na jakoukoli položku a přejdeš rovnou k ní. Když nic nechybí, <strong>Odeslat moderátorům</strong> tvoji rybu odešle. Hra se nejdřív zeptá: jen <strong>Ano, odeslat</strong> v okně, které se otevře, ji odešle, a <strong>Ještě ne</strong> ji nechá jako koncept.</p>
+<figure><img alt="Stránka 4: hotová ryba a co ještě chybí" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Stránka 4. Tomuto kaprovi lyscovi ještě chybí rekordní váha a vlastní fotka, takže odeslání čeká.</figcaption></figure>
+<h2 id="review">9. Na co se moderátoři dívají</h2>
 <ul>
 <li><strong>Skutečná ryba.</strong> Editor druhů je pro ryby, které rybáři chytají, popsané takové, jaké jsou.</li>
 <li><strong>Rekord, který sedí.</strong> Odkaz se musí otevřít a musí ukazovat váhu, kterou jsi zadal.</li>

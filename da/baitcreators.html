@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Guiden til agnbyggere</h1>
 <p class="meta"><strong>Sådan laver du din helt egen agn, fra en ny smag af boilie til en frugt, som ingen har fisket med endnu.</strong></p>
-<p class="meta">Sidst opdateret: 18. oktober 2026</p>
+<p class="meta">Sidst opdateret: 24. november 2026</p>
 <div class="intro">Agnbyggeren stiller tre sider med spørgsmål om en agn. Fisk læser ikke navnet på pakken: de bedømmer en agn ud fra, hvad den er lavet af, hvordan den smager og dufter, hvor stor den er, hvordan den ser ud, og hvordan den bevæger sig. Dine svar er præcis de ting, så de afgør, hvilke fisk der tager din agn, og hvor ivrigt. Denne side forklarer hvert spørgsmål, og hvad en moderator tjekker, før din agn kommer i alles Agnkasse.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Kladde, indsendt, godkendt: hvad der sker med din agn</a></li>
 <li><a href="#start">Start fra en af vores agn, eller lav en ny slags</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Side 3: på krogen, og tjek</a></li>
 <li><a href="#which">Hvilke fisk tager den?</a></li>
 <li><a href="#box">Din agn i Agnkassen, og dens niveau</a></li>
+<li><a href="#ground">Lav et forfoder</a></li>
 <li><a href="#review">Hvad moderatorerne kigger efter</a></li>
 </ol>
 <h2 id="life">1. Kladde, indsendt, godkendt</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Start fra en af vores agn, eller lav en ny slags</h2>
 <p>Den hurtigste måde at lave en agn på er feltet <strong>Genvej</strong> øverst på side 1. Vælg den agn i spillet, der ligner din mest, så bliver alle svar udfyldt ud fra den. Ændr derefter kun det, der er anderledes.</p>
 <p>En jordbærboilie er et godt eksempel: start fra en af vores boilies, ændr navnet, smagen og farven, så er du næsten færdig. Alt, hvad du lader være som det var, fisker præcis som den agn, du startede fra.</p>
+<figure class="fit"><img alt="Feltet Genvej med Redmire Cream valgt" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>Feltet Genvej: vælg den agn, der ligner din mest, og alle svar udfyldes fra den.</figcaption></figure>
 <p>Lad genvejen stå på <strong>En helt ny slags agn</strong> for at beskrive noget, spillet ikke har endnu: en frugt, der falder ned fra et træ, en plante, som en planteædende fisk græsser på, en larve, ingen har tænkt på. En ny slags agn starter med alle spørgsmål tomme.</p>
 <div class="callout">Hver plads på et fiskevand viser de slags agn, dens fisk fiskes med, for eksempel Boilies eller Majs / partikler. En agn, du starter fra en af vores, tæller som den agn, den startede fra. En helt ny slags agn tæller efter, hvad den er lavet af: en frugt er med på listen overalt, hvor en plads viser Majs / partikler, og en ny larve overalt, hvor den viser Maddiker / castere.</div>
 <h2 id="bait">3. Side 1: agnen</h2>
+<figure><img alt="Side 1 i agnbyggeren, startet fra Redmire Cream og omdøbt til Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Side 1, startet fra Redmire Cream og omdøbt. Svarene markeret med * er påkrævet.</figcaption></figure>
 <div class="step"><span class="num">Navn</span><h3>Det, spillerne ser i Agnkassen</h3>
 <p>Et kort navn på op til 40 bogstaver. Det må ikke være navnet på en af vores agn eller på en anden spillers agn.</p></div>
 <div class="step"><span class="num">Beskrivelseslinje</span><h3>Én linje, ligesom vores agn har</h3>
@@ -169,6 +177,8 @@
 <p>En PNG eller WebP med gennemsigtig baggrund, op til 5 MB, der kun viser agnen. Indtil du tilføjer et, viser Agnkassen en tegning.</p></div>
 <h2 id="senses">4. Side 2: hvordan en fisk sanser den</h2>
 <p>Det er de svar, fiskene faktisk bruger. Hvert svar hjælper nogle fisk og ikke andre, så der findes ikke ét bedste svar: tænk over, hvilke fisk du vil fange.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Side 2 i agnbyggeren: smag, lugt, olie, bevægelse, størrelse, udseende og om den flyder" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Side 2. Jordbærboilien smager nu Sød/Frugtig, med Cremet/Mælket som anden smag, og den er rød og Kraftig.</figcaption></figure>
 <table class="pass">
 <tr><th>Spørgsmål</th><th>Hvad du skal tænke over</th></tr>
 <tr><td>Hvad smager den af?</td><td>Fiskeagtig, Sød/Frugtig, Krydret/Pikant, Kødfuld/Salt, Cremet/Mælket, Naturlig eller Nøddeagtig/Jordagtig. Hver fisk kan lide nogle smage mere end andre, og nogle smage passer til varmt vand og andre til koldt. En anden smag er valgfri.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Kun løsfoder</td><td>Sæt kun flueben her, hvis agnen ikke kan sidde på en krog. Alle andre agn kan også kastes ud som løsfoder.</td></tr>
 </table>
 <p>Den sidste side viser også din agn, som den kommer til at se ud i Agnkassen. Hvis noget mangler, står det i et felt, der hedder <strong>Før du kan fiske med den</strong>. Klik på et punkt for at gå direkte til det.</p>
+<p>Når alle svar er udfyldt, og din agn har et foto, sender <strong>Indsend til moderatorerne</strong> den ind. Spillet spørger først: et vindue midt på skærmen fortæller, hvad der vil ske, og kun <strong>Ja, send det</strong> sender din agn. <strong>Ikke endnu</strong> beholder den som kladde.</p>
+<figure><img alt="Vinduet, der spørger, før en agn sendes til moderatorerne" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Indsend spørger først. Intet sendes, før du trykker Ja, send det.</figcaption></figure>
 <h2 id="which">6. Hvilke fisk tager den?</h2>
 <p>Når dine svar er færdige, viser den sidste side hver fisk, der lever der, hvor din agn kan bruges, og hvor ivrig den er efter din agn om sommeren og om vinteren: <strong>Tager den gerne</strong>, <strong>Tager den</strong>, <strong>Nu og da</strong> eller <strong>Aldrig</strong>.</p>
 <p>Det er spillets egen vurdering, lavet med de samme tjek, som fiskene laver i vandet, på en plads, der ellers passer til hver fisk. Den sammenlignes med det, fisken normalt fanges på. Ændr et svar, og listen ændrer sig med det, så du med det samme kan se, hvad en større størrelse eller en kraftigere duft gør.</p>
+<figure class="fit"><img alt="Listen Hvilke fisk tager den? for en jordbærboilie" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>Jordbærboilien: karper, suder og brasen tager den gerne om sommeren. Listen kan rulles og viser alle fisk.</figcaption></figure>
 <div class="callout">"Aldrig" skyldes som regel agnens størrelse eller det, den er lavet af: for stor til fiskens mund, eller noget, den ikke spiser. En rigtig fiskeplads lægger alt det til, som denne liste udelader, for eksempel dybden, vejret, tidspunktet på dagen og hvor meget foder der er i vandet.</div>
 <h2 id="box">7. Din agn i Agnkassen, og dens niveau</h2>
 <p>Spillerlavede agn ligger i de samme rækker som vores, markeret med en <strong>*</strong>, og Agnkassen fortæller, hvad mærket betyder. De vælges, sættes på krogen og kastes ud som løsfoder præcis som vores.</p>
+<figure class="fit"><img alt="Sådan vil agnen se ud i Agnkassen, med sit niveau" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>Den sidste side viser din agn, som den vil ligge i Agnkassen, og det niveau, den låses op på.</figcaption></figure>
 <p>Hver agn har et niveau, hvor den låses op. Indtil en moderator fastsætter din agns niveau ud fra, hvor godt den fisker, låses den op på niveauet for den agn, du startede fra, eller på niveau 1 for en helt ny slags agn. En moderator kan fastsætte dens niveau ved godkendelsen: en agn, der let fanger store fisk, kan forvente et højere niveau.</p>
-<h2 id="review">8. Hvad moderatorerne kigger efter</h2>
+<h2 id="ground">8. Lav et forfoder</h2>
+<p>Øverst på side 1 tilbyder <strong>Hvad laver du?</strong> valget mellem <strong>Agn</strong> og <strong>Forfoder</strong>. Vælg Forfoder for at lave din egen blanding. Fluer kommer senere.</p>
+<p>Et forfoder er en kortere vej: navnet, en beskrivelse på én linje, smagen (én eller to), hvordan det opløses, farven og et foto, og om det er til ferskvand eller havet. Det kan starte fra en af vores blandinger i det samme felt Genvej. Størrelse, bevægelse, flydeevne og spørgsmålene om krogen stilles ikke, fordi forfoder kastes ud for at trække fisk til, ikke sættes på krogen.</p>
+<p>Dit forfoder ligger på fanen <strong>Forfoder</strong> i Agnkassen og tilbydes kun på sin egen type vand.</p>
+<figure><img alt="Side 1 i agnbyggeren med Forfoder valgt" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Forfoder valgt: tre sider, startet fra en af vores blandinger, hvis du vil.</figcaption></figure>
+<h2 id="review">9. Hvad moderatorerne kigger efter</h2>
 <ul>
 <li><strong>En rigtig agn.</strong> Noget, lystfiskere bruger eller kunne bruge, beskrevet som det er, og troværdigt i virkeligt fiskeri. En helt ny slags agn er velkommen; en agn, der er perfekt til alt, er ikke. Prøv at holde det realistisk.</li>
 <li><strong>Ærlige svar.</strong> En boilie på 20 mm angivet som en pellet på 2 mm, eller en almindelig agn, der stinker, bliver sendt tilbage.</li>

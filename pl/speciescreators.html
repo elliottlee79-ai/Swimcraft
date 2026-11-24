@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Poradnik twórcy gatunków</h1>
 <p class="meta"><strong>Opisz prawdziwą rybę raz, a każdy twórca łowisk będzie mógł nią zarybiać.</strong></p>
-<p class="meta">Ostatnia aktualizacja: 12 października 2026</p>
-<div class="intro">Kreator gatunków zadaje o rybie pytania na trzech stronach. Twoje odpowiedzi decydują o tym, jak ryba zachowuje się w wodzie: kiedy żeruje, co bierze, jak bierze i jak walczy. Ta strona wyjaśnia, o co tak naprawdę chodzi w każdym pytaniu i co sprawdza moderator, zanim twoja ryba trafi na listy zarybień wszystkich graczy.</div>
+<p class="meta">Ostatnia aktualizacja: 24 listopada 2026</p>
+<div class="intro">Twórca gatunków zadaje cztery strony pytań o rybę. Twoje odpowiedzi decydują, jak ta ryba zachowuje się w wodzie: kiedy żeruje, co bierze, jak bierze i jak walczy. Ta strona wyjaśnia, o co naprawdę chodzi w każdym pytaniu i co moderator sprawdza, zanim twoja ryba trafi na listę zarybień wszystkich.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Szkic, wysłana, zatwierdzona: co dzieje się z twoją rybą</a></li>
 <li><a href="#start">Zacznij od ryby, która już istnieje</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">W jakich wodach żyje</a></li>
 <li><a href="#behave">Strona 2: jak się zachowuje</a></li>
 <li><a href="#temp">Temperatura wody w stopniach</a></li>
-<li><a href="#check">Strona 3: sprawdź i wyślij</a></li>
+<li><a href="#feeds">Strona 3: jak żeruje</a></li>
+<li><a href="#check">Strona 4: sprawdź i wyślij</a></li>
 <li><a href="#review">Na co patrzą moderatorzy</a></li>
 </ol>
 <h2 id="life">1. Szkic, wysłana, zatwierdzona</h2>
@@ -152,9 +158,11 @@
 <p>Zapisana ryba trafia na twoją własną listę zarybień przy następnym uruchomieniu gry, a nie od razu.</p>
 <h2 id="start">2. Zacznij od ryby, która już istnieje</h2>
 <p>Najszybciej zbudujesz rybę za pomocą pola <strong>Skrót</strong> na górze strony 1. Wybierz rybę z gry, która najbardziej przypomina twoją, a wszystkie odpowiedzi zostaną wypełnione na jej podstawie. Potem zmień tylko to, co się różni.</p>
-<p>Dobrym przykładem jest karp duch: zacznij od karpia, zmień nazwę, zdjęcie i rekordy, i prawie gotowe. Ostatnia strona pokazuje wszystkie twoje zmiany i z jakiej ryby zbudowana jest twoja. Moderator też to widzi.</p>
+<p>Dobrym przykładem jest karp golec: zacznij od karpia, zmień nazwę, zdjęcie i rekordy, i prawie gotowe. Ostatnia strona wymienia wszystko, co zmieniłeś, i podaje, od której ryby zbudowano twoją. Moderator też to widzi.</p>
+<figure class="fit"><img alt="Pole Skrót z wybranym Karpiem" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Pole Skrót: wybierz rybę najbardziej podobną do twojej.</figcaption></figure>
 <div class="callout">Jeśli żadna ryba w grze nie ma dokładnie takich samych odpowiedzi jak twoja, kilka bardziej szczegółowych ustawień zostanie zapożyczonych od ryby, z której zbudowana jest twoja. Ostatnia strona poinformuje cię, gdy tak się stanie. To normalne w przypadku nietypowej ryby.</div>
 <h2 id="fish">3. Strona 1: ryba</h2>
+<figure><img alt="Strona 1 twórcy gatunków" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Strona 1. Odpowiedzi oznaczone * są potrzebne, zanim będzie można wysłać.</figcaption></figure>
 <div class="step"><span class="num">Nazwa i nazwa łacińska</span><h3>Jak nazywają ją wędkarze</h3>
 <p>Użyj nazwy, której wędkarze szukaliby w wyszukiwarce. Żadna inna ryba nie może już jej mieć. Dodaj też nazwę łacińską, żeby moderator dokładnie wiedział, o jaką rybę ci chodzi. Inne nazwy możesz wpisać w polu poniżej, rozdzielając je przecinkami.</p></div>
 <div class="step"><span class="num">Zdjęcie</span><h3>Wycięta ryba z boku</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Kraje i gdzie występuje</span><h3>Gdzie wędkarz by ją spotkał</h3>
 <p>Zaznacz każdy kraj, w którym żyje, oraz czy występuje w wodach stojących, wolnych rzekach czy szybkich rzekach. Zaznacz wszystkie pasujące.</p></div>
 <div class="step"><span class="num">Rozmiar</span><h3>Rekordy z linkiem</h3>
-<p>Każdy zaznaczony kraj dostaje wiersz na rekordową wagę w funtach, uncjach i dramach. Potrzebujesz co najmniej jednego rekordu, a każdy rekord wymaga linku do miejsca, gdzie jest zapisany: komisji rekordów, związku wędkarskiego albo strony klubu, którą moderator może otworzyć i sprawdzić. Zostaw kraj pusty, jeśli jego rekord nie jest znany.</p>
-<p>Typowa waga dorosłej ryby i rozmiar okazu zapisują się razem z twoją rybą na później. Wypełnij je, jeśli je znasz.</p></div>
+<p>Każdy zaznaczony kraj dostaje wiersz na rekordową wagę w funtach, uncjach i dramach. Potrzebujesz co najmniej jednego rekordu, a każdy rekord wymaga linku do miejsca, gdzie jest zapisany: komisji rekordów, związku wędkarskiego albo strony klubu, którą moderator może otworzyć i sprawdzić. Zostaw kraj pusty, jeśli jego rekord nie jest znany.</p></div>
 <h2 id="water">4. W jakich wodach żyje</h2>
 <p>Zaznacz <strong>Woda słodka</strong>, <strong>Ujście rzeki</strong> lub <strong>Morskie</strong>, tyle, ile pasuje. Twoje zaznaczenia decydują, w jakich wodach można złowić rybę. Ryby nigdy nie złowisz w wodzie, która jest dla niej niewłaściwa, choćby wszystko inne pasowało idealnie.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Pytanie</th><th>Nad czym się zastanowić</th></tr>
 <tr><td>Gdzie żeruje?</td><td>Ustaw przy dnie, w toni i przy powierzchni w kolejności, najczęstsze najpierw.</td></tr>
-<tr><td>Czym się żywi?</td><td>Na stronie Jak żeruje: dla każdego rodzaju pokarmu wybierz Główny pokarm, Chętnie je, Od czasu do czasu lub Nigdy.</td></tr>
+<tr><td>Gdzie lubi przebywać?</td><td>Dla każdego rodzaju miejsca, jak łany roślin, lilie wodne, trzciny, drewno, skała czy cień z góry: Uwielbia, Lubi, Obojętne lub Unika. Przy miejscu, które uwielbia lub lubi, bierze częściej; przy takim, którego unika, rzadziej.</td></tr>
 <tr><td>Kiedy najlepiej żeruje?</td><td>W dzień, o świcie i zmierzchu albo w nocy.</td></tr>
 <tr><td>Gdzie przebywa?</td><td>Otwarta woda, trochę kryjówek albo zaczepy i zielsko.</td></tr>
 <tr><td>Woda czysta czy mętna?</td><td>Którą woli.</td></tr>
-<tr><td>Jak bierze?</td><td>Delikatne podtopienia, pewne wyniesienia albo odjeżdża z przynętą.</td></tr>
-<tr><td>Jak bardzo jest płochliwa?</td><td>Śmiała, ostrożna lub bardzo płochliwa.</td></tr>
+<tr><td>Jak bierze?</td><td>Dziewięć rodzajów brań, od Zanurza i pod lub Unosi spławik po Pewnie, potem odjazd lub Powolne, równe ciągnięcie. Potem jak szybko przychodzą stuknięcia (od Szybki do Wolne) i jak długo trzyma przynętę (od Bardzo krótko do Długo).</td></tr>
 <tr><td>Jak walczy?</td><td>Wybierz hol, którego opis najbardziej przypomina rybę na końcu twojej żyłki.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Odpowiedzi na Gdzie lubi przebywać? dla karpia" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Gdzie lubi przebywać, miejsce po miejscu.</figcaption></figure>
+<figure class="fit"><img alt="Jak bierze? z dziewięcioma rodzajami i dwoma czasami" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Jak bierze, i jak szybkie i długie jest branie.</figcaption></figure>
+</div>
 <h2 id="temp">6. Temperatura wody w stopniach</h2>
 <p>Wybierz etykietę, która najbardziej pasuje do twojej ryby. Wypełnia ona trzy liczby w °C, które możesz zmienić:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Komfortowo od</strong> i <strong>komfortowo do</strong>: zakres, w którym nadal dobrze żeruje.</li>
 </ul>
 <p>Liczby muszą iść od najniższej, przez najlepszą, do najwyższej. Poza swoim komfortowym zakresem ryba przestaje żerować: kilka stopni zimniej i większości ryb zostaje tylko odrobina apetytu; kilka stopni cieplej i przestają całkiem.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Etykieta temperatury wody i jej trzy liczby" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Wybierz etykietę, a trzy liczby zostaną wypełnione.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Etykieta</th><th>Najlepiej</th><th>Komfortowo</th><th>Co oznacza</th></tr>
 <tr><td>Specjalista zimnej wody</td><td>12 °C</td><td>od 6 do 17 °C</td><td>Kocha zimną, czystą wodę; męczy się, gdy się nagrzewa. Pstrąg, lipień, golec, dorsz.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropikalny</td><td>29 °C</td><td>od 25 do 33 °C</td><td>Tylko ciepła woda; przestaje żerować, gdy się ochładza. Barramundi, peacock bass.</td></tr>
 </table></div>
 <div class="callout">Zmieniaj liczby tylko wtedy, gdy wiesz, że twoja ryba różni się od swojej etykiety. Woda na łowisku nagrzewa się i ochładza wraz z porami roku, a łowisko przypięte do swojego prawdziwego miejsca na Ziemi podąża za klimatem tego miejsca. Ryba tropikalna wpuszczona do zimnej wody prawie nigdy nie będzie żerować, i to jest uczciwe zachowanie ryby, a nie błąd.</div>
-<h2 id="check">7. Strona 3: sprawdź i wyślij</h2>
+<h2 id="feeds">7. Strona 3: jak żeruje</h2>
+<p>Ta strona decyduje, jakie przynęty bierze twoja ryba i jak ją przechytrzyć. <a href="/pl/baitcreators">Poradnik</a> twórcy przynęt pyta o to samo od strony przynęty, więc obie spotykają się w wodzie.</p>
+<table class="pass">
+<tr><th>Pytanie</th><th>Nad czym się zastanowić</th></tr>
+<tr><td>Czym się żywi?</td><td>Dla każdego rodzaju pokarmu, od ziaren i roślin po robaki, skorupiaki, ryby, mięso, ciasto i nic jadalnego: Główny pokarm, Chętnie je, Od czasu do czasu lub Nigdy. Ryba nigdy nie weźmie przynęty z czegoś, czego nigdy nie je.</td></tr>
+<tr><td>Jak znajduje pokarm?</td><td>Zapach, ruch lub oba.</td></tr>
+<tr><td>Jak mocno musi pachnieć przynęta, by ją zwabić?</td><td>Od Ledwo do Cuchnie.</td></tr>
+<tr><td>Jak bardzo musi się ruszać przynęta, by ją zwabić?</td><td>Od Nie potrzebuje do Pływa.</td></tr>
+<tr><td>Jak dobry ma wzrok?</td><td>Prawie go nie używa, Przeciętne, Dobre lub Bystry.</td></tr>
+<tr><td>Czy przyciąga ją błysk?</td><td>Tak lub nie.</td></tr>
+<tr><td>Jak duży ma pysk?</td><td>Od Malutki do Ogromny. Przynęta za duża na jej pysk jest odrzucana.</td></tr>
+<tr><td>Jak bardzo płoszy ją żyłka?</td><td>Od Bardzo płoszy ją żyłka do Żyłka jej nie płoszy: jak bardzo odstrasza ją gruba żyłka.</td></tr>
+<tr><td>Jak bardzo jest płochliwa?</td><td>Śmiała, ostrożna lub bardzo płochliwa.</td></tr>
+</table>
+<figure class="fit"><img alt="Co je? wypełnione dla karpia" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Co je, jedna odpowiedź dla każdego rodzaju pokarmu.</figcaption></figure>
+<h2 id="check">8. Strona 4: sprawdź i wyślij</h2>
 <p>Ostatnia strona pokazuje twoją rybę tak, jak zobaczą ją inni wędkarze, z krótkim opisem napisanym na podstawie twoich odpowiedzi i listą tego, czym różni się od ryby, z której została zbudowana. Przeczytaj opis: jeśli nie brzmi jak twoja ryba, któraś z odpowiedzi jest błędna.</p>
-<p>Jeśli czegoś brakuje, wymienia to pole <strong>Zanim będzie można wysłać</strong>. Kliknij dowolną pozycję, żeby przejść prosto do niej. Gdy niczego nie brakuje, przycisk <strong>Wyślij do moderatorów</strong> wysyła twoją rybę.</p>
-<h2 id="review">8. Na co patrzą moderatorzy</h2>
+<p>Jeśli czegoś brakuje, pole o nazwie <strong>Zanim będzie można wysłać</strong> to wymienia. Kliknij dowolny punkt, by od razu tam przejść. Gdy niczego nie brakuje, <strong>Wyślij do moderatorów</strong> wysyła twoją rybę. Gra najpierw pyta: tylko <strong>Tak, wyślij</strong> w oknie, które się otwiera, ją wysyła, a <strong>Jeszcze nie</strong> zostawia ją jako szkic.</p>
+<figure><img alt="Strona 4: gotowa ryba i czego jeszcze brakuje" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Strona 4. Temu karpiowi golcowi brakuje jeszcze wagi rekordu i własnego zdjęcia, więc wysyłanie czeka.</figcaption></figure>
+<h2 id="review">9. Na co patrzą moderatorzy</h2>
 <ul>
 <li><strong>Prawdziwa ryba.</strong> Kreator gatunków jest dla ryb, które łowią wędkarze, opisanych takimi, jakie są.</li>
 <li><strong>Rekord, który się potwierdza.</strong> Link musi się otwierać i musi pokazywać wpisaną przez ciebie wagę.</li>

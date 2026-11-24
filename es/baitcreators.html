@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Guía del creador de cebos</h1>
 <p class="meta"><strong>Cómo crear un cebo propio, desde un nuevo sabor de boilie hasta una fruta con la que nadie ha pescado todavía.</strong></p>
-<p class="meta">Última actualización: 18 de octubre de 2026</p>
+<p class="meta">Última actualización: 24 de noviembre de 2026</p>
 <div class="intro">El creador de cebos te hace tres páginas de preguntas sobre un cebo. Los peces no leen el nombre del paquete: juzgan un cebo por aquello de lo que está hecho, por cómo sabe y huele, por su tamaño, por su aspecto y por cómo se mueve. Tus respuestas son exactamente esas cosas, así que deciden qué peces toman tu cebo y con cuántas ganas. Esta página explica cada pregunta y qué comprueba un moderador antes de que tu cebo entre en la caja de cebos de todo el mundo.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Borrador, enviado, aprobado: qué le pasa a tu cebo</a></li>
 <li><a href="#start">Partir de uno de nuestros cebos o crear un tipo nuevo</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Página 3: en el anzuelo, y comprobación</a></li>
 <li><a href="#which">¿Qué peces lo tomarán?</a></li>
 <li><a href="#box">Tu cebo en la caja de cebos, y su nivel</a></li>
+<li><a href="#ground">Crear un engodo</a></li>
 <li><a href="#review">Qué miran los moderadores</a></li>
 </ol>
 <h2 id="life">1. Borrador, enviado, aprobado</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Partir de uno de nuestros cebos o crear un tipo nuevo</h2>
 <p>La forma más rápida de crear un cebo es la casilla <strong>Atajo</strong> en la parte superior de la página 1. Elige el cebo del juego que más se parezca al tuyo y todas las respuestas se rellenan a partir de él. Después, cambia solo lo que sea diferente.</p>
 <p>Un boilie de fresa es un buen ejemplo: parte de uno de nuestros boilies, cambia el nombre, el sabor y el color, y casi habrás terminado. Todo lo que dejes como estaba pesca exactamente igual que el cebo del que partiste.</p>
+<figure class="fit"><img alt="La casilla Atajo con Redmire Cream elegido" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>La casilla Atajo: elige el cebo más parecido al tuyo y todas las respuestas se rellenan a partir de él.</figcaption></figure>
 <p>Deja el atajo en <strong>Un tipo de cebo totalmente nuevo</strong> para describir algo que el juego todavía no tiene: una fruta que cae de un árbol, una planta que pasta un pez vegetariano, una larva en la que nadie ha pensado. Un tipo de cebo nuevo empieza con todas las preguntas vacías.</p>
 <div class="callout">Cada puesto de un escenario enumera los tipos de cebo con los que se pescan sus peces, como Boilies o Maíz / Semillas. Un cebo que parte de uno de los nuestros cuenta como el cebo del que partió. Un tipo de cebo totalmente nuevo cuenta según aquello de lo que está hecho: una fruta está en la lista allí donde un puesto indique Maíz / Semillas, y una larva nueva allí donde indique Asticot / Caster.</div>
 <h2 id="bait">3. Página 1: el cebo</h2>
+<figure><img alt="Página 1 del creador de cebos, partiendo de Redmire Cream y con el nombre Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Página 1, partiendo de Redmire Cream y con otro nombre. Las respuestas marcadas con * son obligatorias.</figcaption></figure>
 <div class="step"><span class="num">Nombre</span><h3>Lo que los jugadores verán en la caja de cebos</h3>
 <p>Un nombre corto, de hasta 40 caracteres. No puede ser el nombre de uno de nuestros cebos ni del cebo de otro jugador.</p></div>
 <div class="step"><span class="num">Línea de descripción</span><h3>Una línea, como tienen nuestros cebos</h3>
@@ -169,6 +177,8 @@
 <p>Un PNG o WebP con fondo transparente, de hasta 5 MB, que muestre solo el cebo. Hasta que añadas una, la caja de cebos muestra un dibujo.</p></div>
 <h2 id="senses">4. Página 2: cómo lo percibe un pez</h2>
 <p>Estas son las respuestas que los peces usan de verdad. Cada una ayuda a algunos peces y a otros no, así que no hay una única respuesta mejor: piensa en qué peces quieres pescar.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Página 2 del creador de cebos: sabor, olor, aceite, movimiento, tamaño, aspecto y si flota" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Página 2. La boilie de fresa ahora sabe Dulce/Afrutado, con Cremoso/Lácteo como segundo sabor, y es roja y Llamativo.</figcaption></figure>
 <table class="pass">
 <tr><th>Pregunta</th><th>En qué pensar</th></tr>
 <tr><td>¿A qué sabe?</td><td>Pescado, Dulce/Afrutado, Picante/Sabroso, Cárnico/Salado, Cremoso/Lácteo, Natural o Nuez/Terroso. A cada pez le gustan unos sabores más que otros, y unos sabores van bien en agua cálida y otros en agua fría. Un segundo sabor es opcional.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Solo cebo suelto</td><td>Márcalo solo si el cebo no se puede poner en un anzuelo. Cualquier otro cebo también se puede lanzar como cebo suelto.</td></tr>
 </table>
 <p>La última página también muestra tu cebo tal como se verá en la caja de cebos. Si falta algo, una casilla llamada <strong>Antes de poder pescar con él</strong> lo enumera. Haz clic en cualquier elemento para ir directamente a él.</p>
+<p>Cuando todas las respuestas están completas y tu cebo tiene foto, <strong>Enviar a los moderadores</strong> lo envía. El juego pregunta antes: una ventana en el centro de la pantalla explica lo que va a pasar, y solo <strong>Sí, enviarlo</strong> envía tu cebo. <strong>Todavía no</strong> lo deja como borrador.</p>
+<figure><img alt="La ventana que pregunta antes de enviar un cebo a los moderadores" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Enviar pregunta antes. No se envía nada hasta que pulses Sí, enviarlo.</figcaption></figure>
 <h2 id="which">6. ¿Qué peces lo tomarán?</h2>
 <p>Cuando tus respuestas estén completas, la última página muestra cada pez que vive donde se puede usar tu cebo, y las ganas que tiene de tomarlo en verano y en invierno: <strong>Lo toma con ganas</strong>, <strong>Lo toma</strong>, <strong>De vez en cuando</strong> o <strong>Nunca</strong>.</p>
 <p>Es el propio juicio del juego, hecho con las mismas comprobaciones que hacen los peces en el agua, en un puesto que por lo demás le va bien a cada pez. Se compara con aquello con lo que ese pez se suele pescar. Cambia una respuesta y la lista cambia con ella, así ves al momento qué hace un tamaño mayor o un olor más fuerte.</p>
+<figure class="fit"><img alt="La lista ¿Qué peces lo tomarán? para una boilie de fresa" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>La boilie de fresa: las carpas, las tencas y las bremas la toman con ganas en verano. La lista se desplaza para mostrar todos los peces.</figcaption></figure>
 <div class="callout">"Nunca" suele deberse al tamaño del cebo o a aquello de lo que está hecho: demasiado grande para la boca de ese pez, o algo que no come. Un puesto real añade todo lo que esta lista deja fuera, como la profundidad, el tiempo, la hora del día y cuánto cebo hay en el agua.</div>
 <h2 id="box">7. Tu cebo en la caja de cebos, y su nivel</h2>
 <p>Los cebos creados por jugadores van en las mismas filas que los nuestros, marcados con un <strong>*</strong>, y la caja de cebos explica qué significa la marca. Se eligen, se ponen en el anzuelo y se lanzan como cebo suelto exactamente igual que los nuestros.</p>
+<figure class="fit"><img alt="Cómo se verá el cebo en la caja de cebos, con su nivel" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>La última página muestra tu cebo tal como quedará en la caja de cebos, y el nivel en que se desbloquea.</figcaption></figure>
 <p>Cada cebo tiene un nivel a partir del cual se desbloquea. Hasta que un moderador fije el nivel de tu cebo según lo bien que pesque, se desbloquea al nivel del cebo del que partiste, o al nivel 1 si es un tipo de cebo totalmente nuevo. Un moderador puede fijar su nivel al aprobarlo: un cebo que pesca peces grandes con facilidad puede esperar un nivel más alto.</p>
-<h2 id="review">8. Qué miran los moderadores</h2>
+<h2 id="ground">8. Crear un engodo</h2>
+<p>Arriba de la página 1, <strong>¿Qué estás creando?</strong> ofrece <strong>Cebo</strong> o <strong>Engodo</strong>. Elige Engodo para crear tu propia mezcla. Las moscas llegarán más adelante.</p>
+<p>Un engodo tiene un camino más corto: su nombre, una descripción de una línea, su sabor (uno o dos), cómo se deshace, su color y una foto, y si es para agua dulce o para el mar. Puede partir de una de nuestras mezclas, en la misma casilla Atajo. No se pregunta por el tamaño, el movimiento, la flotación ni el anzuelo, porque el engodo se lanza para atraer a los peces, no se pone en el anzuelo.</p>
+<p>Tu engodo queda en la pestaña <strong>Engodo</strong> de la caja de cebos, y solo se ofrece en su propio tipo de agua.</p>
+<figure><img alt="Página 1 del creador de cebos con Engodo elegido" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Engodo elegido: tres páginas, partiendo de una de nuestras mezclas si quieres.</figcaption></figure>
+<h2 id="review">9. Qué revisan los moderadores</h2>
 <ul>
 <li><strong>Un cebo real.</strong> Algo que los pescadores usan o podrían usar, descrito tal como es, y creíble en la pesca real. Un tipo de cebo totalmente nuevo es bienvenido; un cebo perfecto en todo, no. Intenta ser realista.</li>
 <li><strong>Respuestas sinceras.</strong> Un boilie de 20 mm introducido como pellet de 2 mm, o un cebo corriente que apesta, será devuelto.</li>

@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>饵料创建者指南</h1>
 <p class="meta"><strong>如何制作你自己的饵料，从新口味的波丽，到还没人用来钓过鱼的水果。</strong></p>
-<p class="meta">最后更新：2026 年 10 月 18 日</p>
+<p class="meta">最后更新：2026 年 11 月 24 日</p>
 <div class="intro">饵料编辑器会就一种饵料问你三页问题。鱼不会读包装上的名字：它们判断一种饵料，看的是它由什么做成、味道和气味如何、有多大、看起来怎样、怎么动。你的回答正是这些内容，所以它们决定了哪些鱼会吃你的饵料，以及吃得有多积极。本页会解释每个问题，以及在你的饵料进入所有人的饵料盒之前，版主会检查什么。</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">草稿、提交、通过：你的饵料会经历什么</a></li>
 <li><a href="#start">从我们的某种饵料开始，或做一个新种类</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">第 3 页：挂钩与检查</a></li>
 <li><a href="#which">哪些鱼会吃？</a></li>
 <li><a href="#box">饵料盒里的你的饵料，以及它的等级</a></li>
+<li><a href="#ground">制作窝料</a></li>
 <li><a href="#review">版主会看什么</a></li>
 </ol>
 <h2 id="life">1. 草稿、提交、通过</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. 从我们的某种饵料开始，或做一个新种类</h2>
 <p>制作饵料最快的方法是第 1 页顶部的<strong>快捷方式</strong>框。选出游戏里和你的饵料最像的那种，所有答案都会按它自动填好。然后只改不一样的地方。</p>
 <p>草莓波丽就是个好例子：从我们的某种波丽开始，改掉名称、味道和颜色，就差不多完成了。你没改动的部分，钓起来和你起步的那种饵料完全一样。</p>
+<figure class="fit"><img alt="选择了 Redmire Cream 的快捷方式框" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>快捷方式框：选择和你的饵料最相似的那种，所有答案都会按它填好。</figcaption></figure>
 <p>如果要描述游戏里还没有的东西，就把快捷方式保持为<strong>全新种类的饵料</strong>：从树上掉下来的果实、素食鱼啃食的植物、还没人想到过的虫子。全新种类的饵料开始时所有问题都是空的。</p>
 <div class="callout">钓场上的每个钓位都会列出钓那里的鱼所用的饵料种类，例如波丽或玉米 / 谷物颗粒。从我们的饵料起步做出的饵料，算作它起步的那种饵料。全新种类的饵料按它由什么做成来算：只要钓位列有玉米 / 谷物颗粒，水果就在列；只要列有蛆 / 蛆蛹，新的虫子就在列。</div>
 <h2 id="bait">3. 第 1 页：饵料</h2>
+<figure><img alt="饵料创建器第 1 页，从 Redmire Cream 开始并改名为 Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>第 1 页，从 Redmire Cream 开始并改了名。标有 * 的答案是必填的。</figcaption></figure>
 <div class="step"><span class="num">名称</span><h3>玩家在饵料盒里看到的名字</h3>
 <p>简短的名称，最多 40 个字符。不能和我们的饵料或其他玩家的饵料重名。</p></div>
 <div class="step"><span class="num">一行描述</span><h3>一行，和我们的饵料一样</h3>
@@ -169,6 +177,8 @@
 <p>背景透明的 PNG 或 WebP，最大 5 MB，只显示饵料本身。在你添加照片之前，饵料盒里会显示一张示意图。</p></div>
 <h2 id="senses">4. 第 2 页：鱼如何感知它</h2>
 <p>这些都是鱼真正会用到的答案。每个答案都对某些鱼有用、对另一些鱼没用，所以没有唯一的最佳答案：想想你想钓哪些鱼。</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="饵料创建器第 2 页：味道、气味、油性、动作、大小、外观和是否上浮" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>第 2 页。这款草莓颗粒饵现在的味道是甜味/果味，第二味道是奶油/奶香，颜色是红色，醒目程度是鲜艳。</figcaption></figure>
 <table class="pass">
 <tr><th>问题</th><th>需要考虑什么</th></tr>
 <tr><td>它是什么味道？</td><td>鱼腥味、甜味/果味、辛辣/咸鲜、肉味/咸味、奶油/奶香、天然或坚果/泥土味。每种鱼都更喜欢某些味道，有些味道适合温暖的水，有些适合冷水。第二种味道可选。</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>仅作撒饵</td><td>只有在这种饵料无法挂钩时才勾选。其他所有饵料也都能作为撒饵抛进水里。</td></tr>
 </table>
 <p>最后一页还会显示你的饵料在饵料盒里的样子。如果有缺漏，一个名为<strong>用它钓鱼之前</strong>的框会把它们列出来。点击任意一项即可直接跳过去。</p>
+<p>当所有答案都填好、你的饵料也有照片时，<strong>提交给版主</strong>就会把它送出。游戏会先问你：屏幕中间的窗口会说明接下来会发生什么，只有点击<strong>是的，送审</strong>才会送出你的饵料。点击<strong>先不要</strong>则保留为草稿。</p>
+<figure><img alt="在饵料送交版主之前询问你的窗口" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>提交前会先问你。在你点击“是的，送审”之前，什么都不会送出。</figcaption></figure>
 <h2 id="which">6. 哪些鱼会吃？</h2>
 <p>回答全部完成后，最后一页会列出生活在你的饵料可用水域里的每种鱼，以及它们在夏季和冬季对你的饵料有多感兴趣：<strong>很爱吃</strong>、<strong>会吃</strong>、<strong>偶尔</strong>或<strong>从不</strong>。</p>
 <p>这是游戏自己的判断，用的是鱼在水里做的同样检查，地点是一个其他方面都适合那种鱼的钓位。它会和那种鱼平时常被钓上的饵料作比较。改一个答案，列表也会跟着变，所以你能马上看到加大尺寸或加浓气味会带来什么变化。</p>
+<figure class="fit"><img alt="草莓颗粒饵的“哪些鱼会吃？”列表" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>草莓颗粒饵：夏天鲤鱼、丁鱥和欧鳊都很爱吃。列表可以滚动，显示每一种鱼。</figcaption></figure>
 <div class="callout">“从不”通常是因为饵料的尺寸或成分：对那种鱼的嘴来说太大，或者是它不吃的东西。真正的钓点还会加上这个列表没考虑的所有因素，例如水深、天气、时段，以及水里有多少撒饵。</div>
 <h2 id="box">7. 饵料盒里的你的饵料，以及它的等级</h2>
 <p>玩家制作的饵料和我们的饵料放在同样的行里，标有 <strong>*</strong>，饵料盒会说明这个标记的含义。选择、挂钩、作为撒饵抛进水里，都和我们的饵料完全一样。</p>
+<figure class="fit"><img alt="饵料在饵料盒里的样子，以及它的等级" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>最后一页会显示你的饵料放进饵料盒后的样子，以及它解锁的等级。</figcaption></figure>
 <p>每种饵料都有一个开放等级。在版主根据实际钓效设定你的饵料等级之前，它会在你起步那种饵料的等级开放；如果是全新种类的饵料，则在 1 级开放。版主可在审核时设定它的等级：很容易钓到大鱼的饵料，等级可能会更高。</p>
-<h2 id="review">8. 版主会看什么</h2>
+<h2 id="ground">8. 制作窝料</h2>
+<p>在第 1 页顶部，<strong>你要制作什么？</strong>提供<strong>鱼饵</strong>或<strong>窝料</strong>两种选择。选择窝料即可制作你自己的配方。飞钓假饵以后才会推出。</p>
+<p>窝料的步骤更短：名称、一行描述、味道（一种或两种）、散开的方式、颜色和照片，以及它用于淡水还是海水。它也可以在同一个快捷方式框里从我们的某款配方开始。不会问大小、动作、浮沉和鱼钩相关的问题，因为窝料是撒进水里引鱼的，不挂在钩上。</p>
+<p>你的窝料放在饵料盒的<strong>窝料</strong>标签页里，只在它自己的水域类型中提供。</p>
+<figure><img alt="选择了窝料的饵料创建器第 1 页" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>已选择窝料：共三页，如果愿意，可以从我们的某款配方开始。</figcaption></figure>
+<h2 id="review">9. 版主会看什么</h2>
 <ul>
 <li><strong>真实的饵料。</strong>钓手在用或可能会用的东西，如实描述，并且在真实垂钓中说得通。欢迎全新种类的饵料；样样完美的饵料则不行。请尽量贴近现实。</li>
 <li><strong>诚实的回答。</strong>把 20 mm 的波丽填成 2 mm 的颗粒，或让一个普通饵料气味刺鼻，都会被退回。</li>

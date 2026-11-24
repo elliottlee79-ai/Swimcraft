@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Veiledning for artsbyggere</h1>
 <p class="meta"><strong>Slik beskriver du en ekte fisk én gang, så alle vannbyggere kan sette den ut.</strong></p>
-<p class="meta">Sist oppdatert: 12. oktober 2026</p>
-<div class="intro">Artsbyggeren stiller tre sider med spørsmål om en fisk. Svarene dine bestemmer hvordan fisken oppfører seg i vannet: når den spiser, hva den tar, hvordan den napper og hvordan den kjemper. Denne siden forklarer hva hvert spørsmål egentlig spør om, og hva en moderator sjekker før fisken din kommer på alles utsettingslister.</div>
+<p class="meta">Sist oppdatert: 24. november 2026</p>
+<div class="intro">Artsbyggeren stiller fire sider med spørsmål om en fisk. Svarene dine blir til hvordan fisken oppfører seg i vannet: når den spiser, hva den tar, hvordan den napper og hvordan den kjemper. Denne siden forklarer hva hvert spørsmål egentlig spør om, og hva en moderator sjekker før fisken din kommer på alles utsettingslister.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Utkast, sendt inn, godkjent: hva som skjer med fisken din</a></li>
 <li><a href="#start">Start fra en fisk som allerede finnes</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">Hvilket vann den lever i</a></li>
 <li><a href="#behave">Side 2: hvordan den oppfører seg</a></li>
 <li><a href="#temp">Vanntemperatur, i grader</a></li>
-<li><a href="#check">Side 3: sjekk og send inn</a></li>
+<li><a href="#feeds">Side 3: hvordan den spiser</a></li>
+<li><a href="#check">Side 4: sjekk og send inn</a></li>
 <li><a href="#review">Hva moderatorene ser etter</a></li>
 </ol>
 <h2 id="life">1. Utkast, sendt inn, godkjent</h2>
@@ -152,9 +158,11 @@
 <p>En fisk du lagrer, kommer på din egen utsettingsliste neste gang spillet starter, ikke med en gang.</p>
 <h2 id="start">2. Start fra en fisk som allerede finnes</h2>
 <p>Den raskeste måten å bygge en fisk på er <strong>Snarvei</strong>-boksen øverst på side 1. Velg fisken i spillet som ligner mest på din, så fylles alle svarene inn fra den. Endre så bare det som er annerledes.</p>
-<p>En spøkelseskarpe er et godt eksempel: start fra skjellkarpe, endre navnet, bildet og rekordene, så er du nesten ferdig. Den siste siden viser alt du har endret, og hvilken fisk din er bygget fra. Det ser moderatoren også.</p>
+<p>En lærkarpe er et godt eksempel: start fra skjellkarpen, bytt navnet, bildet og rekordene, så er du nesten ferdig. Den siste siden viser alt du har endret og hvilken fisk din er bygget fra. Det ser moderatoren også.</p>
+<figure class="fit"><img alt="Feltet Snarvei med Skjellkarpe valgt" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Feltet Snarvei: velg fisken som ligner mest på din.</figcaption></figure>
 <div class="callout">Hvis ingen fisk i spillet har akkurat de samme svarene som din, lånes noen av de finere innstillingene fra fisken din er bygget fra. Den siste siden sier fra når det har skjedd. Det er helt normalt for en uvanlig fisk.</div>
 <h2 id="fish">3. Side 1: fisken</h2>
+<figure><img alt="Side 1 i artsbyggeren" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Side 1. Svarene merket med * trengs før du kan sende inn.</figcaption></figure>
 <div class="step"><span class="num">Navn og latinsk navn</span><h3>Det fiskere kaller den</h3>
 <p>Bruk navnet fiskere ville søkt etter. Ingen annen fisk kan ha det fra før. Legg også til det latinske navnet, så en moderator ser nøyaktig hvilken fisk du mener. Andre navn den går under, kan stå i boksen under, skilt med komma.</p></div>
 <div class="step"><span class="num">Bilde</span><h3>Et utklipp fra siden</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Land og hvor den finnes</span><h3>Der en fisker ville møtt den</h3>
 <p>Kryss av for alle land den lever i, og om den finnes i stille vann, rolige elver eller strie elver. Kryss av for alt som passer.</p></div>
 <div class="step"><span class="num">Størrelse</span><h3>Rekorder, med lenke</h3>
-<p>Hvert land du krysset av for, får en rad for rekordvekten i pund, unser og drams. Du trenger minst én rekord, og hver rekord trenger en lenke til der den er registrert: en rekordkomité, et fiskeforbund eller en klubbside som en moderator kan åpne og sjekke. La et land stå tomt hvis rekorden ikke er kjent.</p>
-<p>Typisk vekt som voksen og storfiskstørrelsen lagres med fisken til senere. Fyll dem inn hvis du vet dem.</p></div>
+<p>Hvert land du krysset av for, får en rad for rekordvekten i pund, unser og drams. Du trenger minst én rekord, og hver rekord trenger en lenke til der den er registrert: en rekordkomité, et fiskeforbund eller en klubbside som en moderator kan åpne og sjekke. La et land stå tomt hvis rekorden ikke er kjent.</p></div>
 <h2 id="water">4. Hvilket vann den lever i</h2>
 <p>Kryss av for <strong>Ferskvann</strong>, <strong>Elveos</strong> eller <strong>Havfiske</strong>, så mange som passer. Kryssene bestemmer hvilket vann fisken kan fanges i. En fisk fanges aldri i vann som er feil for den, uansett hvor godt alt annet passer.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Spørsmål</th><th>Hva du bør tenke på</th></tr>
 <tr><td>Hvor spiser den?</td><td>Sett på bunnen, midt i vannet og i overflaten i rekkefølge, det vanligste først.</td></tr>
-<tr><td>Hva spiser den?</td><td>På siden Hvordan den spiser: velg Hovedføde, Spiser gjerne, Nå og da eller Aldri for hver type føde.</td></tr>
+<tr><td>Hvor liker den å være?</td><td>For hver type sted, som vannplantebelter, vannliljer, siv, tømmer, berg eller skygge ovenfra: Elsker, Liker, Bryr seg ikke eller Unngår. Nær et sted den elsker eller liker, napper den oftere; nær et den unngår, sjeldnere.</td></tr>
 <tr><td>Når spiser den best?</td><td>Dagtid, daggry og skumring, eller natt.</td></tr>
 <tr><td>Hvor holder den til?</td><td>Åpent vann, litt skjul, eller hindringer og vegetasjon.</td></tr>
 <tr><td>Klart eller grumsete vann?</td><td>Hva den foretrekker.</td></tr>
-<tr><td>Hvordan napper den?</td><td>Forsiktige dykk, bestemte løft, eller drar av gårde med agnet.</td></tr>
-<tr><td>Hvor sky er den?</td><td>Dristig, forsiktig eller svært sky.</td></tr>
+<tr><td>Hvordan napper den?</td><td>Ni nappetyper, fra Dypp og under eller Løfter duppen til Bestemt, så løper eller Sakte, jevnt drag. Deretter hvor raskt nappene kommer (Rask til Sakte) og hvor lenge den holder agnet (Svært kort til Lenge).</td></tr>
 <tr><td>Hvordan kjemper den?</td><td>Velg kampen med den beskrivelsen som ligner mest på fisken i enden av snøret ditt.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Svar på Hvor liker den å være? for en karpe" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Hvor den liker å være, sted for sted.</figcaption></figure>
+<figure class="fit"><img alt="Hvordan napper den? med sine ni nappetyper og to tider" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Hvordan den napper, og hvor raskt og lenge nappet varer.</figcaption></figure>
+</div>
 <h2 id="temp">6. Vanntemperatur, i grader</h2>
 <p>Velg merkelappen som ligner mest på fisken din. Den fyller inn tre tall i °C, som du kan endre:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Behagelig fra</strong> og <strong>behagelig til</strong>: området der den fortsatt spiser godt.</li>
 </ul>
 <p>Tallene må gå fra lavt, til best, til høyt. Utenfor det behagelige området slutter fisken å spise: noen grader kaldere og de fleste fisker beholder bare en liten rest av appetitten; noen grader varmere og de slutter helt.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Betegnelsen for vanntemperatur og dens tre tall" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Velg en betegnelse, så fylles de tre tallene inn.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Merkelapp</th><th>Best</th><th>Behagelig</th><th>Hva det betyr</th></tr>
 <tr><td>Kaldtvannsspesialist</td><td>12 °C</td><td>6 til 17 °C</td><td>Elsker kaldt, rent vann; sliter når det blir varmt. Ørret, harr, røye, torsk.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropisk</td><td>29 °C</td><td>25 til 33 °C</td><td>Bare varmt vann; slutter å spise når det kjøles ned. Barramundi, påfuglabbor.</td></tr>
 </table></div>
 <div class="callout">Endre bare tallene hvis du vet at fisken din skiller seg fra merkelappen. Vannet på et fiskevann blir varmere og kaldere gjennom årstidene, og et fiskevann som er festet til sitt ekte sted på jorden, følger klimaet der. En tropisk fisk satt ut i et kaldt vann vil nesten aldri spise, og det er fisken som oppfører seg ærlig, ikke en feil.</div>
-<h2 id="check">7. Side 3: sjekk og send inn</h2>
+<h2 id="feeds">7. Side 3: hvordan den spiser</h2>
+<p>Denne siden avgjør hvilke agn fisken din tar, og hvordan den lures. <a href="/no/baitcreators">Veiledningen</a> for agnbyggere spør om det samme fra agnets side, slik at de to møtes i vannet.</p>
+<table class="pass">
+<tr><th>Spørsmål</th><th>Hva du bør tenke på</th></tr>
+<tr><td>Hva spiser den?</td><td>For hver type føde, fra korn og planter til mark, skalldyr, fisk, kjøtt, deig og ingenting spiselig: Hovedføde, Spiser gjerne, Nå og da eller Aldri. En fisk tar aldri et agn laget av noe den aldri spiser.</td></tr>
+<tr><td>Hvordan finner den maten sin?</td><td>Lukt, bevegelse eller begge.</td></tr>
+<tr><td>Hvor sterkt må et agn lukte for den?</td><td>Fra Knapt til Stinker.</td></tr>
+<tr><td>Hvor mye må et agn bevege seg for den?</td><td>Fra Trenger det ikke til Svømmer.</td></tr>
+<tr><td>Hvor godt ser den?</td><td>Bruker det knapt, Grei, God eller Skarpt.</td></tr>
+<tr><td>Tiltrekkes den av glitter?</td><td>Ja eller nei.</td></tr>
+<tr><td>Hvor stor er munnen dens?</td><td>Fra Bitteliten til Enorm. Et agn som er for stort for munnen dens, blir avvist.</td></tr>
+<tr><td>Hvor snøresky er den?</td><td>Fra Svært snøresky til Ikke snøresky: hvor mye en grov snøre skremmer den.</td></tr>
+<tr><td>Hvor sky er den?</td><td>Dristig, forsiktig eller svært sky.</td></tr>
+</table>
+<figure class="fit"><img alt="Hva spiser den? fylt ut for en karpe" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Hva den spiser, ett svar for hver type føde.</figcaption></figure>
+<h2 id="check">8. Side 4: sjekk og send inn</h2>
 <p>Den siste siden viser fisken din slik andre fiskere vil se den, med en kort beskrivelse skrevet ut fra svarene dine og en liste over hva som er annerledes enn fisken den er bygget fra. Les beskrivelsen: hvis den ikke høres ut som fisken din, er et av svarene feil.</p>
-<p>Hvis noe mangler, står det i en boks som heter <strong>Før du kan sende inn</strong>. Klikk på et punkt for å gå rett til det. Når ingenting mangler, sender <strong>Send inn til moderatorene</strong> fisken din inn.</p>
-<h2 id="review">8. Hva moderatorene ser etter</h2>
+<p>Mangler noe, listes det i et felt som heter <strong>Før du kan sende inn</strong>. Klikk på et punkt for å gå rett dit. Når ingenting mangler, sender <strong>Send inn til moderatorene</strong> fisken din inn. Spillet spør først: bare <strong>Ja, send det</strong> i vinduet som åpnes sender den, og <strong>Ikke ennå</strong> beholder den som utkast.</p>
+<figure><img alt="Side 4: den ferdige fisken og hva som fortsatt mangler" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Side 4. Denne lærkarpen mangler fortsatt en rekordvekt og et eget bilde, så Send inn venter.</figcaption></figure>
+<h2 id="review">9. Hva moderatorene ser etter</h2>
 <ul>
 <li><strong>En ekte fisk.</strong> Artsbyggeren er for fisk som fiskere fanger, beskrevet slik de er.</li>
 <li><strong>En rekord som holder.</strong> Lenken må virke, og den må vise vekten du skrev inn.</li>

@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -130,13 +134,14 @@
 <main>
 <h1>The Bait Creator's Guide</h1>
 <p class="meta"><strong>How to make a bait of your own, from a new flavour of boilie to a fruit nobody has fished with yet.</strong></p>
-<p class="meta">Last updated: 18 October 2026</p>
+<p class="meta">Last updated: 24 November 2026</p>
 <div class="intro">
     The bait creator asks three pages of questions about a bait. Fish do not read the name on the packet: they judge a
     bait by what it is made of, how it tastes and smells, how big it is, how it looks and how it moves. Your answers are
     exactly those things, so they decide which fish take your bait and how keenly. This page explains each question, and
     what a moderator checks before your bait goes into everyone's Bait box.
   </div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Draft, submitted, approved: what happens to your bait</a></li>
 <li><a href="#start">Start from one of our baits, or make a new kind</a></li>
@@ -145,6 +150,7 @@
 <li><a href="#hook">Page 3: on the hook, and check</a></li>
 <li><a href="#which">Which fish will take it?</a></li>
 <li><a href="#box">Your bait in the Bait box, and its level</a></li>
+<li><a href="#ground">Making a groundbait</a></li>
 <li><a href="#review">What the moderators look for</a></li>
 </ol>
 <h2 id="life">1. Draft, submitted, approved</h2>
@@ -159,9 +165,11 @@
 <h2 id="start">2. Start from one of our baits, or make a new kind</h2>
 <p>The quickest way to make a bait is the <strong>Shortcut</strong> box at the top of page 1. Pick the bait in the game that is most like yours and every answer is filled in from it. Then change only what is different.</p>
 <p>A strawberry boilie is a good example: start from one of our boilies, change the name, the taste and the colour, and you are nearly done. Anything you leave as it was fishes exactly as the bait you started from.</p>
+<figure class="fit"><img alt="The Shortcut box with Redmire Cream chosen" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>The Shortcut box: pick the bait most like yours and every answer is filled in from it.</figcaption></figure>
 <p>Leave the shortcut on <strong>A brand-new kind of bait</strong> to describe something the game does not have yet: a fruit that falls from a tree, a plant a vegetarian fish grazes on, a grub nobody has thought of. A new kind of bait starts with every question empty.</p>
 <div class="callout">Each peg on a venue lists the kinds of bait its fish are fished with, such as Boilies or Corn / Particle. A bait you start from one of ours counts as the bait it started from. A brand-new kind of bait counts by what it is made of: a fruit is on the list wherever a peg lists Corn / Particle, and a new grub wherever it lists Maggots / Casters.</div>
 <h2 id="bait">3. Page 1: the bait</h2>
+<figure><img alt="Page 1 of the bait creator, started from Redmire Cream and renamed Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Page 1, started from Redmire Cream and renamed. The answers marked * are needed.</figcaption></figure>
 <div class="step"><span class="num">Name</span>
 <h3>What players will see in the Bait box</h3>
 <p>A short name, up to 40 letters. It cannot be the name of one of our baits or of another player's bait.</p></div>
@@ -182,6 +190,8 @@
 <p>A PNG or WebP with a clear background, up to 5 MB, showing just the bait. Until you add one, the Bait box shows a drawing.</p></div>
 <h2 id="senses">4. Page 2: how a fish senses it</h2>
 <p>These are the answers fish actually use. Each one helps some fish and not others, so there is no single best answer: think about which fish you want to catch.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Page 2 of the bait creator: taste, smell, oil, movement, size, look and whether it floats" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Page 2. The strawberry boilie now tastes Sweet/Fruity with Creamy/Milky second, and it is red and Bright.</figcaption></figure>
 <table class="pass">
 <tr><th>Question</th><th>What to think about</th></tr>
 <tr><td>What does it taste like?</td><td>Fishy, Sweet/Fruity, Spicy/Savoury, Meaty/Salty, Creamy/Milky, Natural or Nutty/Earthy. Each fish likes some tastes more than others, and some tastes suit warm water and some cold. A second taste is optional.</td></tr>
@@ -198,14 +208,23 @@
 <tr><td>Loose feed only</td><td>Tick this only if the bait cannot go on a hook. Every other bait can also be thrown in as loose feed.</td></tr>
 </table>
 <p>The last page also shows your bait as it will look in the Bait box. If anything is missing, a box called <strong>Before you can fish with it</strong> lists it. Click any item to go straight to it.</p>
+<p>When every answer is in and your bait has a photo, <strong>Submit to the moderators</strong> sends it in. The game asks first: a box in the middle of the screen says what will happen, and only <strong>Yes, send it</strong> sends your bait. <strong>Not yet</strong> keeps it as a draft.</p>
+<figure><img alt="The box that asks before a bait is sent to the moderators" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Submit asks first. Nothing is sent until you press Yes, send it.</figcaption></figure>
 <h2 id="which">6. Which fish will take it?</h2>
 <p>Once your answers are complete, the last page shows each fish that lives where your bait can be used, and how keen it is on your bait in summer and in winter: <strong>Takes it readily</strong>, <strong>Takes it</strong>, <strong>Now and then</strong> or <strong>Never</strong>.</p>
 <p>This is the game's own judgement, made with the same checks the fish make in the water, at a peg that otherwise suits each fish. It is compared with what that fish is usually caught on. Change an answer and the list changes with it, so you can see straight away what a bigger size or a stronger smell does.</p>
+<figure class="fit"><img alt="The Which fish will take it? list for a strawberry boilie" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>The strawberry boilie: carp, tench and bream take it readily in summer. The list scrolls to show every fish.</figcaption></figure>
 <div class="callout">"Never" is usually the bait's size or what it is made of: too big for that fish's mouth, or something it does not eat. A real swim adds everything this list leaves out, such as the depth, the weather, the time of day and how much feed is in the water.</div>
 <h2 id="box">7. Your bait in the Bait box, and its level</h2>
 <p>Player-made baits sit in the same rows as ours, marked with a <strong>*</strong>, and the Bait box says what the mark means. They are chosen, put on the hook and thrown in as loose feed exactly like ours.</p>
+<figure class="fit"><img alt="How the bait will look in the Bait box, with its level" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>The last page shows your bait as it will sit in the Bait box, and the level it opens at.</figcaption></figure>
 <p>Every bait has a level at which it opens. Until a moderator sets your bait's level by how well it fishes, it opens at the level of the bait you started from, or at level 1 for a brand-new kind of bait. A moderator may set its level when it is approved: a bait that catches big fish easily can expect a higher one.</p>
-<h2 id="review">8. What the moderators look for</h2>
+<h2 id="ground">8. Making a groundbait</h2>
+<p>At the top of page 1, <strong>What are you making?</strong> offers <strong>Bait</strong> or <strong>Groundbait</strong>. Choose Groundbait to make a mix of your own. Flies come later.</p>
+<p>A groundbait is a shorter path: its name, a one-line description, its taste (one, or two), how it breaks up, its colour and a photo, and whether it is for fresh water or the sea. It can start from one of our blends, in the same Shortcut box. Size, movement, floating and the hook questions are not asked, because groundbait is thrown in to draw fish, not put on the hook.</p>
+<p>Your groundbait sits on the <strong>Groundbait</strong> tab of the Bait box, and is offered only on its own water.</p>
+<figure><img alt="Page 1 of the bait creator with Groundbait chosen" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Groundbait chosen: three pages, starting from one of our blends if you like.</figcaption></figure>
+<h2 id="review">9. What the moderators look for</h2>
 <ul>
 <li><strong>A real bait.</strong> Something anglers use or could use, described as it is, and plausible in real fishing. A brand-new kind of bait is welcome; a bait that is perfect at everything is not. Try to be real.</li>
 <li><strong>Honest answers.</strong> A 20 mm boilie entered as a 2 mm pellet, or a plain bait that reeks, will come back.</li>

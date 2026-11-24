@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Yem Editörü Rehberi</h1>
 <p class="meta"><strong>Yeni bir boilie aromasından henüz kimsenin balık tutmadığı bir meyveye kadar, kendi yemini nasıl yaparsın.</strong></p>
-<p class="meta">Son güncelleme: 18 Ekim 2026</p>
+<p class="meta">Son güncelleme: 24 Kasım 2026</p>
 <div class="intro">Yem editörü bir yem hakkında üç sayfa soru sorar. Balıklar paketin üstündeki adı okumaz: bir yemi neyden yapıldığına, tadına ve kokusuna, büyüklüğüne, görünüşüne ve nasıl hareket ettiğine bakarak değerlendirir. Cevapların tam olarak bunlardır, bu yüzden yemini hangi balıkların ne kadar istekle alacağını onlar belirler. Bu sayfa her soruyu ve yemin herkesin Yem kutusuna girmeden önce bir moderatörün neyi kontrol ettiğini açıklar.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Taslak, gönderildi, onaylandı: yemine ne olur</a></li>
 <li><a href="#start">Yemlerimizden biriyle başla ya da yeni bir tür yap</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Sayfa 3: iğnede ve kontrol</a></li>
 <li><a href="#which">Hangi balıklar alır?</a></li>
 <li><a href="#box">Yemin Yem kutusunda ve seviyesi</a></li>
+<li><a href="#ground">Yemleme karışımı yapmak</a></li>
 <li><a href="#review">Moderatörler neye bakar</a></li>
 </ol>
 <h2 id="life">1. Taslak, gönderildi, onaylandı</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Yemlerimizden biriyle başla ya da yeni bir tür yap</h2>
 <p>Yem yapmanın en hızlı yolu 1. sayfanın üstündeki <strong>Kısayol</strong> kutusudur. Oyundaki yemlerden seninkine en çok benzeyeni seç, tüm cevaplar ondan doldurulur. Sonra yalnızca farklı olanı değiştir.</p>
 <p>Çilekli boilie iyi bir örnektir: boilie'lerimizden biriyle başla, adı, tadı ve rengi değiştir, neredeyse bitti. Olduğu gibi bıraktığın her şey, başladığın yemle tam olarak aynı şekilde avlar.</p>
+<figure class="fit"><img alt="Redmire Cream seçili Kısayol kutusu" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>Kısayol kutusu: seninkine en çok benzeyen yemi seç, tüm cevaplar ondan doldurulur.</figcaption></figure>
 <p>Oyunda henüz olmayan bir şeyi tarif etmek için kısayolu <strong>Yepyeni bir yem türü</strong> olarak bırak: ağaçtan düşen bir meyve, otçul bir balığın otladığı bir bitki, kimsenin aklına gelmemiş bir kurtçuk. Yepyeni bir yem türünde tüm sorular boş başlar.</p>
 <div class="callout">Bir meradaki her kürsü, balıklarının hangi yem türleriyle avlandığını listeler, örneğin Boilie'ler ya da Mısır / Partikül. Bizim yemlerimizden biriyle başladığın bir yem, başladığı yem sayılır. Yepyeni bir yem türü ise neyden yapıldığına göre sayılır: bir meyve, kürsünün Mısır / Partikül listelediği her yerde listededir, yeni bir kurtçuk da Kurtçuk / Pupa listelediği her yerde.</div>
 <h2 id="bait">3. Sayfa 1: yem</h2>
+<figure><img alt="Yem editörünün 1. sayfası, Redmire Cream'den başlatılıp Strawberry Cream olarak yeniden adlandırılmış" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Sayfa 1, Redmire Cream'den başlatıldı ve yeniden adlandırıldı. * ile işaretli cevaplar zorunludur.</figcaption></figure>
 <div class="step"><span class="num">Ad</span><h3>Oyuncuların Yem kutusunda göreceği</h3>
 <p>En fazla 40 harflik kısa bir ad. Yemlerimizden birinin ya da başka bir oyuncunun yeminin adı olamaz.</p></div>
 <div class="step"><span class="num">Açıklama satırı</span><h3>Bizim yemlerimizdeki gibi tek satır</h3>
@@ -169,6 +177,8 @@
 <p>Şeffaf arka planlı, en fazla 5 MB, yalnızca yemi gösteren bir PNG ya da WebP. Sen ekleyene kadar Yem kutusu bir çizim gösterir.</p></div>
 <h2 id="senses">4. Sayfa 2: balık onu nasıl algılar</h2>
 <p>Bunlar balıkların gerçekten kullandığı cevaplardır. Her biri bazı balıklara yardım eder, bazılarına etmez; yani tek bir en iyi cevap yoktur: hangi balıkları tutmak istediğini düşün.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Yem editörünün 2. sayfası: tat, koku, yağ, hareket, boyut, görünüm ve yüzüp yüzmediği" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Sayfa 2. Çilekli boilie artık Tatlı/Meyveli tadında, ikinci tadı Kremalı/Sütlü, rengi kırmızı ve görünümü Parlak.</figcaption></figure>
 <table class="pass">
 <tr><th>Soru</th><th>Neyi düşünmeli</th></tr>
 <tr><td>Tadı nasıl?</td><td>Balıksı, Tatlı/Meyveli, Baharatlı/Çeşnili, Etli/Tuzlu, Kremalı/Sütlü, Doğal ya da Fındıksı/Topraksı. Her balık bazı tatları diğerlerinden daha çok sever; bazı tatlar ılık suya, bazıları soğuk suya uyar. İkinci bir tat isteğe bağlıdır.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Yalnızca serpme yem</td><td>Bunu yalnızca yem iğneye takılamıyorsa işaretle. Diğer her yem serpme yem olarak da atılabilir.</td></tr>
 </table>
 <p>Son sayfa, yeminin Yem kutusunda nasıl görüneceğini de gösterir. Eksik bir şey varsa <strong>Onunla avlanabilmeden önce</strong> adlı kutu onu listeler. Doğrudan oraya gitmek için herhangi bir maddeye tıkla.</p>
+<p>Tüm cevaplar girildiğinde ve yeminin bir fotoğrafı olduğunda <strong>Moderatörlere gönder</strong> onu gönderir. Oyun önce sorar: ekranın ortasındaki bir kutu ne olacağını söyler ve yemini yalnızca <strong>Evet, gönder</strong> gönderir. <strong>Henüz değil</strong> onu taslak olarak tutar.</p>
+<figure><img alt="Bir yem moderatörlere gönderilmeden önce soran kutu" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Gönderme önce sorar. Evet, gönder'e basana kadar hiçbir şey gönderilmez.</figcaption></figure>
 <h2 id="which">6. Hangi balıklar alır?</h2>
 <p>Cevapların tamamlandığında son sayfa, yeminin kullanılabileceği yerde yaşayan her balığı ve o balığın yemine yazın ve kışın ne kadar istekli olduğunu gösterir: <strong>Seve seve alır</strong>, <strong>Alır</strong>, <strong>Arada bir</strong> ya da <strong>Asla</strong>.</p>
 <p>Bu, oyunun kendi değerlendirmesidir; balıkların suda yaptığı kontrollerin aynısıyla, her balığa başka açılardan uyan bir kürsüde yapılır. O balığın genellikle neyle tutulduğuyla karşılaştırılır. Bir cevabı değiştir, liste de onunla birlikte değişir; böylece daha büyük bir boyutun ya da daha güçlü bir kokunun ne yaptığını hemen görürsün.</p>
+<figure class="fit"><img alt="Çilekli boilie için Hangi balıklar alır? listesi" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>Çilekli boilie: sazan, kadife ve çapak balığı yazın onu seve seve alır. Liste kaydırılarak her balık görülebilir.</figcaption></figure>
 <div class="callout">"Asla" genellikle yemin boyutundan ya da neyden yapıldığından kaynaklanır: o balığın ağzına fazla büyüktür ya da yemediği bir şeydir. Gerçek bir av noktası, bu listenin dışarıda bıraktığı her şeyi ekler: derinlik, hava, günün saati ve sudaki yem miktarı gibi.</div>
 <h2 id="box">7. Yemin Yem kutusunda ve seviyesi</h2>
 <p>Oyuncuların yaptığı yemler bizimkilerle aynı satırlarda, <strong>*</strong> işaretiyle durur ve Yem kutusu bu işaretin ne anlama geldiğini söyler. Tıpkı bizimkiler gibi seçilir, iğneye takılır ve serpme yem olarak atılır.</p>
+<figure class="fit"><img alt="Yemin Yem kutusunda nasıl görüneceği, seviyesiyle birlikte" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>Son sayfa yemini Yem kutusunda görüneceği gibi ve hangi seviyede açılacağını gösterir.</figcaption></figure>
 <p>Her yemin açıldığı bir seviye vardır. Bir moderatör yeminin seviyesini ne kadar iyi avladığına göre belirleyene kadar yemin, başladığın yemin seviyesinde, yepyeni bir yem türüyse 1. seviyede açılır. Bir moderatör onaylarken seviyesini belirleyebilir: büyük balıkları kolayca tutan bir yem daha yüksek bir seviye bekleyebilir.</p>
-<h2 id="review">8. Moderatörler neye bakar</h2>
+<h2 id="ground">8. Yemleme karışımı yapmak</h2>
+<p>Sayfa 1'in en üstünde <strong>Ne yapıyorsun?</strong> sana <strong>Yem</strong> ya da <strong>Yemleme karışımı</strong> seçeneğini sunar. Kendi karışımını yapmak için Yemleme karışımı'nı seç. Sinekler daha sonra gelecek.</p>
+<p>Yemleme karışımının yolu daha kısadır: adı, tek satırlık bir açıklama, tadı (bir ya da iki), nasıl dağıldığı, rengi ve bir fotoğraf, bir de tatlı su için mi yoksa deniz için mi olduğu. Aynı Kısayol kutusunda karışımlarımızdan birinden başlayabilir. Boyut, hareket, yüzme ve iğneyle ilgili sorular sorulmaz, çünkü yemleme karışımı balıkları çekmek için atılır, iğneye takılmaz.</p>
+<p>Yemleme karışımın Yem kutusunun <strong>Yemleme karışımı</strong> sekmesinde durur ve yalnızca kendi su türünde sunulur.</p>
+<figure><img alt="Yemleme karışımı seçili Yem editörünün 1. sayfası" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Yemleme karışımı seçildi: üç sayfa, istersen karışımlarımızdan biriyle başlayarak.</figcaption></figure>
+<h2 id="review">9. Moderatörler neye bakar</h2>
 <ul>
 <li><strong>Gerçek bir yem.</strong> Balıkçıların kullandığı ya da kullanabileceği bir şey, olduğu gibi tarif edilmiş ve gerçek balıkçılıkta inandırıcı. Yepyeni bir yem türü memnuniyetle karşılanır; her konuda kusursuz bir yem ise karşılanmaz. Gerçekçi olmaya çalışın.</li>
 <li><strong>Dürüst cevaplar.</strong> 2 mm'lik pelet olarak girilmiş 20 mm'lik bir boilie ya da leş gibi kokan sıradan bir yem geri gönderilir.</li>

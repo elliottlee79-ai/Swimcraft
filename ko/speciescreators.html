@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>어종 제작자 가이드</h1>
 <p class="meta"><strong>실제 물고기를 한 번만 설명하면 모든 낚시터 제작자가 방류할 수 있어요.</strong></p>
-<p class="meta">최종 업데이트: 2026년 10월 12일</p>
-<div class="intro">어종 제작기는 물고기에 대해 세 페이지에 걸쳐 질문해요. 여러분의 답이 그 물고기가 물속에서 어떻게 행동할지를 정해요. 언제 먹이를 먹고, 무엇을 먹고, 입질은 어떻고, 파이트는 어떤지요. 이 페이지에서는 각 질문이 실제로 무엇을 묻는지, 그리고 물고기가 모두의 방류 목록에 오르기 전에 운영자가 무엇을 확인하는지 설명해요.</div>
+<p class="meta">최종 업데이트: 2026년 11월 24일</p>
+<div class="intro">어종 제작기는 물고기에 대해 4페이지에 걸쳐 질문해요. 내 답이 그 물고기가 물속에서 행동하는 방식이 돼요. 언제 먹이를 먹는지, 무엇을 무는지, 입질은 어떤지, 어떻게 싸우는지요. 이 페이지는 각 질문이 실제로 묻는 것과, 내 물고기가 모두의 방류 목록에 들어가기 전에 운영자가 확인하는 것을 설명해요.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">초안, 제출, 승인: 물고기에게 일어나는 일</a></li>
 <li><a href="#start">기존 물고기에서 시작하기</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">어떤 물에 사는가</a></li>
 <li><a href="#behave">2페이지: 어떻게 행동하는가</a></li>
 <li><a href="#temp">수온(도)</a></li>
-<li><a href="#check">3페이지: 확인하고 제출하기</a></li>
+<li><a href="#feeds">3페이지: 어떻게 먹는가</a></li>
+<li><a href="#check">4페이지: 확인하고 제출</a></li>
 <li><a href="#review">운영자가 보는 것</a></li>
 </ol>
 <h2 id="life">1. 초안, 제출, 승인</h2>
@@ -152,9 +158,11 @@
 <p>저장한 물고기는 바로가 아니라 다음에 게임을 시작할 때 내 방류 목록에 나타나요.</p>
 <h2 id="start">2. 기존 물고기에서 시작하기</h2>
 <p>물고기를 가장 빨리 만드는 방법은 1페이지 맨 위의 <strong>지름길</strong> 상자예요. 게임 속 물고기 중 내 물고기와 가장 비슷한 것을 고르면 모든 답이 그 물고기를 바탕으로 채워져요. 그다음 다른 부분만 바꾸면 돼요.</p>
-<p>고스트 카프가 좋은 예예요. 잉어에서 시작해 이름, 사진, 기록만 바꾸면 거의 끝이에요. 마지막 페이지에는 바꾼 내용이 모두 나오고, 내 물고기가 어떤 물고기를 바탕으로 만들어졌는지도 표시돼요. 운영자도 그걸 봐요.</p>
+<p>가죽잉어가 좋은 예예요. 잉어에서 시작해 이름, 사진, 기록만 바꾸면 거의 끝이에요. 마지막 페이지에는 바꾼 내용이 모두 나오고, 내 물고기가 어떤 물고기를 바탕으로 만들어졌는지도 표시돼요. 운영자도 그걸 봐요.</p>
+<figure class="fit"><img alt="잉어를 고른 지름길 칸" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>지름길 칸: 내 물고기와 가장 비슷한 물고기를 고르세요.</figcaption></figure>
 <div class="callout">게임 속 물고기 중 내 답과 모두 일치하는 것이 없으면, 몇 가지 세부 설정은 바탕이 된 물고기에서 빌려 와요. 이런 경우 마지막 페이지에서 알려 줘요. 특이한 물고기라면 흔한 일이에요.</div>
 <h2 id="fish">3. 1페이지: 물고기</h2>
+<figure><img alt="어종 제작기 1페이지" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>1페이지. 제출하기 전에 * 표시가 있는 답이 필요해요.</figcaption></figure>
 <div class="step"><span class="num">이름과 라틴어 학명</span><h3>낚시꾼들이 부르는 이름</h3>
 <p>낚시꾼들이 검색할 만한 이름을 쓰세요. 다른 물고기가 이미 쓰고 있는 이름은 안 돼요. 라틴어 학명도 넣어서 운영자가 어떤 물고기인지 정확히 알 수 있게 하세요. 다른 이름이 있다면 아래 상자에 쉼표로 구분해 넣으면 돼요.</p></div>
 <div class="step"><span class="num">사진</span><h3>옆모습 누끼</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">국가와 서식지</span><h3>낚시꾼이 어디서 만나게 되는지</h3>
 <p>이 물고기가 사는 나라를 모두 고르고, 고인 물, 느린 강, 빠른 강 중 어디에 사는지도 고르세요. 해당하는 것은 모두 고르면 돼요.</p></div>
 <div class="step"><span class="num">크기</span><h3>기록과 링크</h3>
-<p>고른 나라마다 기록 무게를 파운드, 온스, 드램으로 적는 줄이 생겨요. 기록은 최소 하나 필요하고, 각 기록에는 그 기록이 실린 곳의 링크가 있어야 해요. 기록 위원회, 낚시 단체, 클럽 페이지처럼 운영자가 열어서 확인할 수 있는 곳이요. 기록을 모르는 나라는 비워 두세요.</p>
-<p>일반적인 성어 무게와 대물 크기는 나중을 위해 물고기와 함께 저장돼요. 알고 있다면 채워 주세요.</p></div>
+<p>고른 나라마다 기록 무게를 파운드, 온스, 드램으로 적는 줄이 생겨요. 기록은 최소 하나 필요하고, 각 기록에는 그 기록이 실린 곳의 링크가 있어야 해요. 기록 위원회, 낚시 단체, 클럽 페이지처럼 운영자가 열어서 확인할 수 있는 곳이요. 기록을 모르는 나라는 비워 두세요.</p></div>
 <h2 id="water">4. 어떤 물에 사는가</h2>
 <p><strong>민물</strong>, <strong>하구</strong>, <strong>바다</strong> 중 해당하는 것을 모두 고르세요. 고른 항목이 이 물고기가 어느 물에서 잡힐 수 있는지를 정해요. 다른 조건이 아무리 잘 맞아도, 맞지 않는 물에서는 절대 잡히지 않아요.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>질문</th><th>생각해 볼 점</th></tr>
 <tr><td>어디에서 먹이를 먹나요?</td><td>바닥, 중층, 수면을 자주 먹는 순서대로 정렬하세요.</td></tr>
-<tr><td>무엇을 먹나요?</td><td>먹이 습성 페이지에서 먹이 종류마다 주식, 잘 먹는다, 가끔, 안 문다 중 하나를 고르세요.</td></tr>
+<tr><td>어디에 있기를 좋아하나요?</td><td>수초밭, 수련, 갈대, 나무, 바위, 머리 위 그늘 같은 장소 종류마다 아주 좋아함, 좋아함, 상관없음, 피함 중에 골라요. 아주 좋아하거나 좋아하는 곳 근처에서는 더 자주 물고, 피하는 곳 근처에서는 덜 물어요.</td></tr>
 <tr><td>언제 가장 잘 먹나요?</td><td>낮, 새벽과 해 질 녘, 또는 밤.</td></tr>
 <tr><td>주로 어디에 머무나요?</td><td>트인 물, 약간의 은신처, 또는 장애물과 수초.</td></tr>
 <tr><td>맑은 물, 흐린 물?</td><td>어느 쪽을 더 좋아하는지.</td></tr>
-<tr><td>입질은 어떤가요?</td><td>섬세한 깔짝임, 확실한 올림, 또는 미끼를 물고 차고 나감.</td></tr>
-<tr><td>얼마나 경계하나요?</td><td>대담함, 조심스러움, 또는 매우 경계함.</td></tr>
+<tr><td>입질은 어떤가요?</td><td>입질 방식은 아홉 가지로, 살짝 내려갔다 잠김이나 찌를 올림부터 확실히 물고 달림이나 느리고 꾸준한 당김까지 있어요. 그다음 깔짝거림이 얼마나 빠른지(빠름부터 느림까지)와 미끼를 얼마나 오래 무는지(아주 잠깐부터 오래까지)를 정해요.</td></tr>
 <tr><td>파이트는 어떤가요?</td><td>설명을 읽어 보고 내 낚싯줄 끝에 걸린 그 물고기와 가장 비슷한 파이트를 고르세요.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="잉어의 어디에 있기를 좋아하나요? 답" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>있기를 좋아하는 곳, 장소마다.</figcaption></figure>
+<figure class="fit"><img alt="입질은 어떤가요?의 아홉 가지 방식과 두 가지 타이밍" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>입질은 어떤지, 그리고 입질이 얼마나 빠르고 긴지.</figcaption></figure>
+</div>
 <h2 id="temp">6. 수온(도)</h2>
 <p>내 물고기와 가장 비슷한 라벨을 고르세요. °C로 된 숫자 세 개가 채워지고, 바꿀 수도 있어요.</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>쾌적한 최저</strong>와 <strong>쾌적한 최고</strong>: 여전히 잘 먹는 온도 범위.</li>
 </ul>
 <p>숫자는 낮은 값, 최적 값, 높은 값 순서여야 해요. 쾌적한 범위를 벗어나면 물고기는 먹이를 끊어요. 몇 도만 차가워도 대부분의 물고기는 식욕이 아주 조금만 남고, 몇 도만 따뜻해도 아예 먹지 않아요.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="수온 라벨과 숫자 세 개" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>라벨을 고르면 숫자 세 개가 채워져요.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>라벨</th><th>최적</th><th>쾌적 범위</th><th>의미</th></tr>
 <tr><td>냉수 전문</td><td>12 °C</td><td>6~17 °C</td><td>차고 깨끗한 물을 좋아하며, 물이 따뜻해지면 힘들어합니다. 송어, 그레일링, 곤들매기, 대구.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>열대</td><td>29 °C</td><td>25~33 °C</td><td>따뜻한 물만 좋아하며 식으면 먹이를 끊습니다. 바라문디, 피콕배스.</td></tr>
 </table></div>
 <div class="callout">내 물고기가 라벨과 다르다는 걸 알 때만 숫자를 바꾸세요. 낚시터의 물은 계절에 따라 따뜻해지고 차가워지며, 지구상의 실제 위치에 고정된 낚시터는 그곳의 기후를 따라가요. 차가운 물에 방류한 열대어는 거의 먹지 않는데, 이건 물고기가 정직하게 행동하는 것이지 오류가 아니에요.</div>
-<h2 id="check">7. 3페이지: 확인하고 제출하기</h2>
+<h2 id="feeds">7. 3페이지: 어떻게 먹는가</h2>
+<p>이 페이지에서 내 물고기가 어떤 미끼를 물고, 어떻게 속일 수 있는지가 정해져요. 미끼 제작자 <a href="/ko/baitcreators">가이드</a>는 미끼 쪽에서 같은 것을 묻기 때문에, 둘이 물속에서 만나요.</p>
+<table class="pass">
+<tr><th>질문</th><th>생각해 볼 점</th></tr>
+<tr><td>무엇을 먹나요?</td><td>곡물과 식물부터 벌레, 갑각류, 물고기, 고기, 반죽, 먹을 수 없는 것까지 먹이 종류마다 주식, 잘 먹는다, 가끔, 안 문다 중에 골라요. 물고기는 절대 먹지 않는 것으로 만든 미끼는 절대 물지 않아요.</td></tr>
+<tr><td>먹이를 어떻게 찾나요?</td><td>냄새, 움직임, 또는 둘 다.</td></tr>
+<tr><td>미끼 냄새가 얼마나 강해야 하나요?</td><td>거의 없음부터 지독함까지.</td></tr>
+<tr><td>미끼가 얼마나 움직여야 하나요?</td><td>필요 없음부터 헤엄침까지.</td></tr>
+<tr><td>시력은 어느 정도인가요?</td><td>거의 쓰지 않음, 보통, 좋음, 예리함.</td></tr>
+<tr><td>반짝임에 끌리나요?</td><td>예 또는 아니요.</td></tr>
+<tr><td>입은 얼마나 큰가요?</td><td>아주 작음부터 거대함까지. 입에 비해 너무 큰 미끼는 거부해요.</td></tr>
+<tr><td>낚싯줄을 얼마나 경계하나요?</td><td>낚싯줄을 매우 경계함부터 낚싯줄을 경계하지 않음까지: 굵은 줄이 얼마나 물고기를 쫓는지.</td></tr>
+<tr><td>얼마나 경계하나요?</td><td>대담함, 조심스러움, 또는 매우 경계함.</td></tr>
+</table>
+<figure class="fit"><img alt="잉어의 무엇을 먹나요? 답" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>무엇을 먹는지, 먹이 종류마다 답 하나씩.</figcaption></figure>
+<h2 id="check">8. 4페이지: 확인하고 제출</h2>
 <p>마지막 페이지에서는 다른 낚시꾼들이 보게 될 모습 그대로 물고기를 보여 줘요. 답을 바탕으로 쓴 짧은 설명과, 바탕이 된 물고기와 무엇이 다른지 목록도 함께요. 설명을 읽어 보세요. 내 물고기 같지 않다면 답 중 하나가 틀린 거예요.</p>
-<p>빠진 것이 있으면 <strong>제출하기 전에</strong>라는 상자에 목록으로 나와요. 항목을 클릭하면 바로 그곳으로 가요. 빠진 것이 없으면 <strong>운영자에게 제출</strong>로 물고기를 보낼 수 있어요.</p>
-<h2 id="review">8. 운영자가 보는 것</h2>
+<p>빠진 것이 있으면 <strong>제출하기 전에</strong>라는 칸에 목록으로 나와요. 항목을 클릭하면 바로 그곳으로 가요. 빠진 것이 없으면 <strong>운영자에게 제출</strong>로 물고기를 보내요. 게임이 먼저 물어봐요. 열린 창에서 <strong>네, 보낼게요</strong>를 눌러야만 보내지고, <strong>아직 아니요</strong>를 누르면 초안으로 남아요.</p>
+<figure><img alt="4페이지: 완성된 물고기와 아직 빠진 것" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>4페이지. 이 가죽잉어는 아직 기록 무게와 자기 사진이 없어서 제출을 기다리고 있어요.</figcaption></figure>
+<h2 id="review">9. 운영자가 확인하는 것</h2>
 <ul>
 <li><strong>실제 물고기.</strong> 어종 제작기는 낚시꾼들이 실제로 잡는 물고기를 있는 그대로 설명하기 위한 곳이에요.</li>
 <li><strong>확인되는 기록.</strong> 링크가 열려야 하고, 입력한 무게가 나와 있어야 해요.</li>

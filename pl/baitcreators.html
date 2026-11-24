@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Poradnik twórcy przynęt</h1>
 <p class="meta"><strong>Jak zrobić własną przynętę, od nowego smaku kulki proteinowej po owoc, na który nikt jeszcze nie łowił.</strong></p>
-<p class="meta">Ostatnia aktualizacja: 18 października 2026</p>
+<p class="meta">Ostatnia aktualizacja: 24 listopada 2026</p>
 <div class="intro">Kreator przynęt zadaje o przynęcie pytania na trzech stronach. Ryby nie czytają nazwy na opakowaniu: oceniają przynętę po tym, z czego jest zrobiona, jak smakuje i pachnie, jak jest duża, jak wygląda i jak się porusza. Twoje odpowiedzi to właśnie te rzeczy, więc decydują o tym, które ryby wezmą twoją przynętę i jak chętnie. Ta strona wyjaśnia każde pytanie oraz to, co sprawdza moderator, zanim twoja przynęta trafi do Pudełka z przynętami wszystkich graczy.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Szkic, wysłana, zatwierdzona: co dzieje się z twoją przynętą</a></li>
 <li><a href="#start">Zacznij od jednej z naszych przynęt albo stwórz nowy rodzaj</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">Strona 3: na haczyku i sprawdzenie</a></li>
 <li><a href="#which">Które ryby ją wezmą?</a></li>
 <li><a href="#box">Twoja przynęta w Pudełku z przynętami i jej poziom</a></li>
+<li><a href="#ground">Tworzenie zanęty</a></li>
 <li><a href="#review">Na co patrzą moderatorzy</a></li>
 </ol>
 <h2 id="life">1. Szkic, wysłana, zatwierdzona</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. Zacznij od jednej z naszych przynęt albo stwórz nowy rodzaj</h2>
 <p>Najszybciej zrobisz przynętę za pomocą pola <strong>Skrót</strong> u góry strony 1. Wybierz przynętę z gry, która najbardziej przypomina twoją, a wszystkie odpowiedzi wypełnią się na jej podstawie. Potem zmień tylko to, co jest inne.</p>
 <p>Dobrym przykładem jest truskawkowa kulka proteinowa: zacznij od jednej z naszych kulek, zmień nazwę, smak i kolor, i prawie gotowe. Wszystko, czego nie zmienisz, łowi dokładnie tak jak przynęta, od której zacząłeś.</p>
+<figure class="fit"><img alt="Pole Skrót z wybranym Redmire Cream" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>Pole Skrót: wybierz przynętę najbardziej podobną do twojej, a każda odpowiedź zostanie wypełniona na jej podstawie.</figcaption></figure>
 <p>Zostaw w skrócie <strong>Zupełnie nowy rodzaj przynęty</strong>, aby opisać coś, czego w grze jeszcze nie ma: owoc spadający z drzewa, roślinę, którą skubie roślinożerna ryba, larwę, o której nikt nie pomyślał. Nowy rodzaj przynęty zaczyna się od samych pustych pytań.</p>
 <div class="callout">Każde stanowisko na łowisku wymienia rodzaje przynęt, na które łowi się jego ryby, na przykład Kulki proteinowe albo Kukurydza / Ziarno. Przynęta zaczęta od jednej z naszych liczy się jako przynęta, od której powstała. Zupełnie nowy rodzaj przynęty liczy się według tego, z czego jest zrobiony: owoc jest na liście wszędzie tam, gdzie stanowisko wymienia Kukurydza / Ziarno, a nowa larwa wszędzie tam, gdzie wymienia Białe robaki / Kastery.</div>
 <h2 id="bait">3. Strona 1: przynęta</h2>
+<figure><img alt="Strona 1 twórcy przynęt, zaczęta od Redmire Cream i przemianowana na Strawberry Cream" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>Strona 1, zaczęta od Redmire Cream i przemianowana. Odpowiedzi oznaczone * są wymagane.</figcaption></figure>
 <div class="step"><span class="num">Nazwa</span><h3>Co gracze zobaczą w Pudełku z przynętami</h3>
 <p>Krótka nazwa, do 40 znaków. Nie może to być nazwa żadnej z naszych przynęt ani przynęty innego gracza.</p></div>
 <div class="step"><span class="num">Linijka opisu</span><h3>Jedna linijka, jak przy naszych przynętach</h3>
@@ -169,6 +177,8 @@
 <p>PNG lub WebP z przezroczystym tłem, do 5 MB, pokazujące tylko przynętę. Dopóki go nie dodasz, Pudełko z przynętami pokazuje rysunek.</p></div>
 <h2 id="senses">4. Strona 2: jak ryba ją wyczuwa</h2>
 <p>To są odpowiedzi, z których ryby naprawdę korzystają. Każda pomaga jednym rybom, a innym nie, więc nie ma jednej najlepszej odpowiedzi: pomyśl, jakie ryby chcesz złowić.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="Strona 2 twórcy przynęt: smak, zapach, olej, ruch, rozmiar, wygląd i czy pływa" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>Strona 2. Truskawkowa kulka smakuje teraz Słodki/Owocowy, z Kremowy/Mleczny jako drugim smakiem, jest czerwona i ma wygląd Jaskrawy.</figcaption></figure>
 <table class="pass">
 <tr><th>Pytanie</th><th>Nad czym się zastanowić</th></tr>
 <tr><td>Jak smakuje?</td><td>Rybny, Słodki/Owocowy, Pikantny/Wytrawny, Mięsny/Słony, Kremowy/Mleczny, Naturalny albo Orzechowy/Ziemisty. Każda ryba lubi niektóre smaki bardziej niż inne, a niektóre smaki pasują do ciepłej wody, inne do zimnej. Drugi smak jest opcjonalny.</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>Tylko jako zanęta luźna</td><td>Zaznacz to tylko wtedy, gdy przynęty nie da się założyć na haczyk. Każdą inną przynętę można też wrzucić jako zanętę luźną.</td></tr>
 </table>
 <p>Ostatnia strona pokazuje też, jak twoja przynęta będzie wyglądać w Pudełku z przynętami. Jeśli czegoś brakuje, wymienia to pole <strong>Zanim będziesz mógł nią łowić</strong>. Kliknij dowolną pozycję, żeby przejść prosto do niej.</p>
+<p>Gdy każda odpowiedź jest uzupełniona, a przynęta ma zdjęcie, <strong>Wyślij do moderatorów</strong> ją wysyła. Gra najpierw pyta: okno na środku ekranu mówi, co się stanie, i tylko <strong>Tak, wyślij</strong> wysyła twoją przynętę. <strong>Jeszcze nie</strong> zostawia ją jako szkic.</p>
+<figure><img alt="Okno, które pyta, zanim przynęta trafi do moderatorów" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>Wysyłanie najpierw pyta. Nic nie zostanie wysłane, dopóki nie naciśniesz Tak, wyślij.</figcaption></figure>
 <h2 id="which">6. Które ryby ją wezmą?</h2>
 <p>Gdy twoje odpowiedzi są kompletne, ostatnia strona pokazuje każdą rybę żyjącą tam, gdzie można używać twojej przynęty, i jak chętnie bierze ją latem i zimą: <strong>Bierze chętnie</strong>, <strong>Bierze</strong>, <strong>Od czasu do czasu</strong> albo <strong>Nigdy</strong>.</p>
 <p>To ocena samej gry, wykonana tymi samymi testami, które ryby robią w wodzie, na stanowisku, które poza tym pasuje każdej rybie. Porównuje się ją z tym, na co dana ryba zwykle jest łowiona. Zmień odpowiedź, a lista zmieni się razem z nią, więc od razu widzisz, co daje większy rozmiar albo mocniejszy zapach.</p>
+<figure class="fit"><img alt="Lista Które ryby ją wezmą? dla truskawkowej kulki" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>Truskawkowa kulka: karpie, liny i leszcze chętnie biorą ją latem. Listę można przewijać, by zobaczyć każdą rybę.</figcaption></figure>
 <div class="callout">„Nigdy” to zwykle rozmiar przynęty albo to, z czego jest zrobiona: jest za duża na pysk tej ryby albo to coś, czego ona nie je. Prawdziwe stanowisko dodaje wszystko, czego ta lista nie uwzględnia, na przykład głębokość, pogodę, porę dnia i ilość zanęty w wodzie.</div>
 <h2 id="box">7. Twoja przynęta w Pudełku z przynętami i jej poziom</h2>
 <p>Przynęty stworzone przez graczy są w tych samych wierszach co nasze, oznaczone <strong>*</strong>, a Pudełko z przynętami wyjaśnia, co oznacza ten znak. Wybiera się je, zakłada na haczyk i wrzuca jako zanętę luźną dokładnie tak jak nasze.</p>
+<figure class="fit"><img alt="Jak przynęta będzie wyglądać w Pudełku z przynętami, z poziomem" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>Ostatnia strona pokazuje przynętę tak, jak będzie wyglądać w Pudełku z przynętami, i poziom, od którego się odblokowuje.</figcaption></figure>
 <p>Każda przynęta ma poziom, na którym się odblokowuje. Dopóki moderator nie ustali poziomu twojej przynęty na podstawie tego, jak łowi, odblokowuje się ona na poziomie przynęty, od której zacząłeś, albo na poziomie 1, jeśli to zupełnie nowy rodzaj przynęty. Moderator może ustalić jej poziom przy zatwierdzaniu: przynęta, na którą łatwo łowi się duże ryby, może dostać wyższy poziom.</p>
-<h2 id="review">8. Na co patrzą moderatorzy</h2>
+<h2 id="ground">8. Tworzenie zanęty</h2>
+<p>Na górze strony 1 <strong>Co tworzysz?</strong> daje wybór: <strong>Przynęta</strong> lub <strong>Zanęta</strong>. Wybierz Zanęta, aby stworzyć własną mieszankę. Muchy pojawią się później.</p>
+<p>Zanęta to krótsza ścieżka: nazwa, opis w jednej linijce, smak (jeden lub dwa), jak się rozpada, kolor i zdjęcie, oraz czy jest do wody słodkiej, czy na morze. Może zacząć się od jednej z naszych mieszanek w tym samym polu Skrót. Pytania o rozmiar, ruch, pływanie i haczyk nie padają, bo zanętę wrzuca się, by zwabić ryby, a nie zakłada na haczyk.</p>
+<p>Twoja zanęta leży w zakładce <strong>Zanęta</strong> w Pudełku z przynętami i jest oferowana tylko na swoim rodzaju wody.</p>
+<figure><img alt="Strona 1 twórcy przynęt z wybraną Zanętą" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>Wybrana Zanęta: trzy strony, jeśli chcesz, zaczynając od jednej z naszych mieszanek.</figcaption></figure>
+<h2 id="review">9. Na co patrzą moderatorzy</h2>
 <ul>
 <li><strong>Prawdziwa przynęta.</strong> Coś, czego wędkarze używają lub mogliby używać, opisane takim, jakie jest, i wiarygodne w prawdziwym wędkarstwie. Zupełnie nowy rodzaj przynęty jest mile widziany; przynęta doskonała we wszystkim już nie. Staraj się być realistą.</li>
 <li><strong>Szczere odpowiedzi.</strong> Kulka 20 mm wpisana jako pellet 2 mm albo zwykła przynęta, która cuchnie, zostaną odesłane.</li>

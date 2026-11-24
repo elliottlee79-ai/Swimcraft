@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>エサクリエイターガイド</h1>
 <p class="meta"><strong>新しいフレーバーのボイリーから、まだ誰も釣りに使ったことのない果物まで、自分だけのエサを作る方法。</strong></p>
-<p class="meta">最終更新日：2026年10月18日</p>
+<p class="meta">最終更新日：2026年11月24日</p>
 <div class="intro">エサクリエイターでは、エサについて3ページにわたって質問されます。魚はパッケージの名前を読みません。エサが何でできているか、どんな味と匂いか、どれくらいの大きさか、どう見えてどう動くかで判断します。あなたの答えはまさにその点なので、どの魚がどれだけよくあなたのエサを食うかが答えで決まります。このページでは、各質問の意味と、あなたのエサがみんなのエサ箱に入る前にモデレーターが確認することを説明します。</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-header.webp" alt="A bait table on a lake bank: boilie paste, fresh boilies, sweetcorn, luncheon meat and strawberries" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">下書き、申請、承認：あなたのエサに起こること</a></li>
 <li><a href="#start">既存のエサから始めるか、新しい種類を作るか</a></li>
@@ -138,6 +143,7 @@
 <li><a href="#hook">3ページ目：フックと確認</a></li>
 <li><a href="#which">どの魚が食う？</a></li>
 <li><a href="#box">エサ箱の中のあなたのエサとそのレベル</a></li>
+<li><a href="#ground">寄せエサを作る</a></li>
 <li><a href="#review">モデレーターが見るポイント</a></li>
 </ol>
 <h2 id="life">1. 下書き、申請、承認</h2>
@@ -152,9 +158,11 @@
 <h2 id="start">2. 既存のエサから始めるか、新しい種類を作るか</h2>
 <p>エサを一番早く作る方法は、1ページ目上部の<strong>ショートカット</strong>欄です。ゲーム内のエサからあなたのエサに一番近いものを選ぶと、すべての答えがそのエサの内容で埋まります。あとは違うところだけを変えましょう。</p>
 <p>イチゴのボイリーがよい例です。既存のボイリーから始めて、名前、味、色を変えれば、ほぼ完成です。変えずに残した項目は、元にしたエサとまったく同じように釣れます。</p>
+<figure class="fit"><img alt="Redmire Creamを選んだショートカット欄" loading="lazy" src="/gallery/bc-02-shortcut.webp"/><figcaption>ショートカット欄：自分のエサに一番近いエサを選ぶと、すべての回答がそこから入力されます。</figcaption></figure>
 <p>ゲームにまだないものを作るなら、ショートカットを<strong>まったく新しい種類のエサ</strong>のままにしておきます。木から落ちる果物、草食の魚が食む植物、誰も思いつかなかった幼虫などです。新しい種類のエサは、すべての質問が空欄の状態から始まります。</p>
 <div class="callout">釣り場の各釣り座には、そこの魚を釣るのに使われるエサの種類が、ボイリーやコーン / パーティクルのように一覧になっています。既存のエサから作ったエサは、元にしたエサとして数えられます。まったく新しい種類のエサは、何でできているかで数えられます。果物なら釣り座の一覧にコーン / パーティクルがあればどこでも、新しい幼虫ならサシ / サナギがあればどこでも対象になります。</div>
 <h2 id="bait">3. 1ページ目：エサ</h2>
+<figure><img alt="エサクリエイターの1ページ目。Redmire Creamから始めてStrawberry Creamに名前を変えたところ" loading="lazy" src="/gallery/bc-03-page1.webp"/><figcaption>1ページ目。Redmire Creamから始めて名前を変えたところです。* の付いた回答は必須です。</figcaption></figure>
 <div class="step"><span class="num">名前</span><h3>プレイヤーがエサ箱で目にする名前</h3>
 <p>40文字までの短い名前です。既存のエサや、ほかのプレイヤーのエサと同じ名前は使えません。</p></div>
 <div class="step"><span class="num">説明文</span><h3>既存のエサと同じく一行で</h3>
@@ -169,6 +177,8 @@
 <p>背景が透明なPNGまたはWebPで、エサだけを写したもの、5 MBまで。追加するまでは、エサ箱にはイラストが表示されます。</p></div>
 <h2 id="senses">4. 2ページ目：魚の感じ方</h2>
 <p>ここは魚が実際に使う答えです。どの答えも、ある魚には効き、別の魚には効きません。ひとつの正解はないので、どの魚を釣りたいかを考えましょう。</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-bait-senses.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-bait-senses.webp" alt="Under the water, a carp noses towards a boilie on the gravel as its scent drifts in the current" loading="lazy"/></figure> -->
+<figure><img alt="エサクリエイターの2ページ目：味、匂い、油、動き、サイズ、見た目、浮くかどうか" loading="lazy" src="/gallery/bc-04-page2.webp"/><figcaption>2ページ目。イチゴのボイリーは味がスイート/フルーティー、2つ目の味がクリーミー/ミルキーになり、色は赤で目立ち方は「明るい」です。</figcaption></figure>
 <table class="pass">
 <tr><th>質問</th><th>考えるポイント</th></tr>
 <tr><td>どんな味ですか？</td><td>フィッシュ系、スイート/フルーティー、スパイシー/セイボリー、ミート/ソルティ、クリーミー/ミルキー、ナチュラル、ナッツ/アーシー。魚によって好きな味は違い、暖かい水に合う味と冷たい水に合う味があります。2つ目の味は任意です。</td></tr>
@@ -185,14 +195,23 @@
 <tr><td>撒きエサ専用</td><td>フックに付けられないエサのときだけチェックしてください。それ以外のエサは、撒きエサとして投げ入れることもできます。</td></tr>
 </table>
 <p>最後のページには、あなたのエサがエサ箱でどう見えるかも表示されます。足りないものがあれば、<strong>釣りに使う前に</strong>という欄に一覧で表示されます。項目をクリックすると、そこへ直接移動します。</p>
+<p>すべての回答がそろい、エサに写真があれば、<strong>モデレーターに申請</strong>でエサが送られます。ゲームはその前に確認します。画面中央の画面で何が起きるかが表示され、<strong>はい、送ります</strong>を押したときだけエサが送られます。<strong>まだ送らない</strong>を押すと下書きのままです。</p>
+<figure><img alt="エサをモデレーターに送る前に確認する画面" loading="lazy" src="/gallery/bc-01-send-confirm.webp"/><figcaption>申請の前に確認があります。「はい、送ります」を押すまで何も送られません。</figcaption></figure>
 <h2 id="which">6. どの魚が食う？</h2>
 <p>答えがそろうと、最後のページに、あなたのエサが使える場所にすむ魚と、それぞれが夏と冬にあなたのエサをどれだけ好むかが表示されます：<strong>よく食う</strong>、<strong>食う</strong>、<strong>たまに</strong>、<strong>食わない</strong>。</p>
 <p>これはゲーム自身の判定で、魚が水中で行うのと同じ確認を、その魚にほかの点では合った釣り座で行ったものです。その魚が普段釣れるエサと比べています。答えを変えると一覧も一緒に変わるので、サイズを大きくしたり匂いを強くしたりするとどうなるか、すぐにわかります。</p>
+<figure class="fit"><img alt="イチゴのボイリーの「どの魚が食う？」リスト" loading="lazy" src="/gallery/bc-05-which-fish.webp"/><figcaption>イチゴのボイリー：夏はコイ、テンチ、ブリームがよく食います。リストはスクロールして全部の魚を見られます。</figcaption></figure>
 <div class="callout">「食わない」の原因は、たいていエサの大きさか素材です。その魚の口には大きすぎるか、その魚が食べないものです。実際のポイントでは、水深、天気、時間帯、水中の撒きエサの量など、この一覧が考慮しないすべての要素が加わります。</div>
 <h2 id="box">7. エサ箱の中のあなたのエサとそのレベル</h2>
 <p>プレイヤーが作ったエサは既存のエサと同じ行に<strong>*</strong>付きで並び、エサ箱にその印の意味が表示されます。選ぶのも、フックに付けるのも、撒きエサとして投げ入れるのも、既存のエサとまったく同じです。</p>
+<figure class="fit"><img alt="エサ箱に並んだときのエサの見た目とレベル" loading="lazy" src="/gallery/bc-06-in-the-box.webp"/><figcaption>最後のページでは、エサ箱に並ぶときの見た目と、解放されるレベルが表示されます。</figcaption></figure>
 <p>どのエサにも、解放されるレベルがあります。モデレーターが釣れ具合に応じてレベルを設定するまでは、元にしたエサと同じレベル、まったく新しい種類のエサならレベル1で解放されます。承認時にモデレーターがレベルを設定することがあります。大きな魚が簡単に釣れるエサは、レベルが上がると思っておきましょう。</p>
-<h2 id="review">8. モデレーターが見るポイント</h2>
+<h2 id="ground">8. 寄せエサを作る</h2>
+<p>1ページ目の一番上にある<strong>何を作りますか？</strong>で、<strong>エサ</strong>か<strong>寄せエサ</strong>を選べます。自分だけのブレンドを作るなら寄せエサを選びます。フライは後で追加されます。</p>
+<p>寄せエサはもっと短い手順です。名前、1行の説明、味（1つか2つ）、ばらけ方、色と写真、そして淡水用か海用かを入力します。同じショートカット欄から、私たちのブレンドの1つを元に始めることもできます。サイズ、動き、浮き沈み、ハリについての質問はありません。寄せエサは魚を寄せるために撒くもので、ハリには付けないからです。</p>
+<p>作った寄せエサはエサ箱の<strong>寄せエサ</strong>タブに入り、その水域の種類でだけ使えます。</p>
+<figure><img alt="寄せエサを選んだエサクリエイターの1ページ目" loading="lazy" src="/gallery/bc-07-groundbait.webp"/><figcaption>寄せエサを選んだところ：3ページで、必要なら私たちのブレンドから始められます。</figcaption></figure>
+<h2 id="review">9. モデレーターが見るポイント</h2>
 <ul>
 <li><strong>実在するエサであること。</strong>釣り人が使っている、または使えそうなものを、ありのままに設定してください。実際の釣りでありえるものにしてください。まったく新しい種類のエサは歓迎ですが、何にでも完璧なエサは認められません。現実的なものを心がけてください。</li>
 <li><strong>正直な答えであること。</strong>20 mmのボイリーを2 mmのペレットと入力したり、ただのエサを強烈な匂いにしたりすると、差し戻されます。</li>

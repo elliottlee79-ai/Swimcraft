@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>De gids voor soortenmakers</h1>
 <p class="meta"><strong>Beschrijf een echte vis één keer, zodat elke watermaker hem kan uitzetten.</strong></p>
-<p class="meta">Laatst bijgewerkt: 12 oktober 2026</p>
-<div class="intro">De soortenmaker stelt drie pagina's vragen over een vis. Jouw antwoorden bepalen hoe die vis zich in het water gedraagt: wanneer hij aast, wat hij pakt, hoe hij aanbeet geeft en hoe hij vecht. Deze pagina legt uit wat elke vraag echt wil weten, en wat een moderator controleert voordat je vis in ieders uitzetlijst komt.</div>
+<p class="meta">Laatst bijgewerkt: 24 november 2026</p>
+<div class="intro">De soortenmaker stelt vier pagina's vragen over een vis. Jouw antwoorden bepalen hoe die vis zich in het water gedraagt: wanneer hij eet, wat hij pakt, hoe hij aanbeet en hoe hij vecht. Deze pagina legt uit wat elke vraag echt wil weten, en wat een moderator controleert voordat je vis in ieders uitzetlijst komt.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Concept, ingediend, goedgekeurd: wat er met je vis gebeurt</a></li>
 <li><a href="#start">Begin met een vis die al bestaat</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">In welke wateren hij leeft</a></li>
 <li><a href="#behave">Pagina 2: hoe hij zich gedraagt</a></li>
 <li><a href="#temp">Watertemperatuur, in graden</a></li>
-<li><a href="#check">Pagina 3: controleren en indienen</a></li>
+<li><a href="#feeds">Pagina 3: hoe hij eet</a></li>
+<li><a href="#check">Pagina 4: controleren en indienen</a></li>
 <li><a href="#review">Waar de moderators op letten</a></li>
 </ol>
 <h2 id="life">1. Concept, ingediend, goedgekeurd</h2>
@@ -152,9 +158,11 @@
 <p>Een vis die je opslaat, komt op je eigen uitzetlijst zodra het spel opnieuw start, niet meteen.</p>
 <h2 id="start">2. Begin met een vis die al bestaat</h2>
 <p>De snelste manier om een vis te bouwen is het vak <strong>Snelkoppeling</strong> bovenaan pagina 1. Kies de vis in het spel die het meest op de jouwe lijkt en elk antwoord wordt ervan overgenomen. Verander daarna alleen wat anders is.</p>
-<p>Een spookkarper is een goed voorbeeld: begin bij de schubkarper, verander de naam, de foto en de records, en je bent bijna klaar. De laatste pagina somt alles op wat je hebt veranderd en zegt op welke vis de jouwe is gebaseerd. De moderator ziet dat ook.</p>
+<p>Een leerkarper is een goed voorbeeld: begin bij de schubkarper, verander de naam, de foto en de records, en je bent bijna klaar. De laatste pagina toont alles wat je hebt veranderd en vanaf welke vis de jouwe is gebouwd. De moderator ziet dat ook.</p>
+<figure class="fit"><img alt="Het vak Snelkoppeling met Schubkarper gekozen" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Het vak Snelkoppeling: kies de vis die het meest op de jouwe lijkt.</figcaption></figure>
 <div class="callout">Als geen enkele vis in het spel al jouw antwoorden deelt, worden een paar van de fijnere instellingen geleend van de vis waarop de jouwe is gebaseerd. De laatste pagina meldt het als dat is gebeurd. Bij een ongewone vis is dat normaal.</div>
 <h2 id="fish">3. Pagina 1: de vis</h2>
+<figure><img alt="Pagina 1 van de soortenmaker" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Pagina 1. De antwoorden met een * zijn nodig voordat je kunt indienen.</figcaption></figure>
 <div class="step"><span class="num">Naam en Latijnse naam</span><h3>Hoe vissers hem noemen</h3>
 <p>Gebruik de naam waarop vissers zouden zoeken. Een andere vis mag die naam nog niet hebben. Voeg ook de Latijnse naam toe, zodat een moderator precies weet welke vis je bedoelt. Andere namen waaronder hij bekend is, kunnen in het vak eronder, gescheiden door komma's.</p></div>
 <div class="step"><span class="num">Foto</span><h3>Een uitsnede van opzij</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Landen en waar hij voorkomt</span><h3>Waar een visser hem tegenkomt</h3>
 <p>Vink elk land aan waar hij leeft, en of hij voorkomt in stilstaand water, langzame rivieren of snelle rivieren. Vink alles aan wat klopt.</p></div>
 <div class="step"><span class="num">Grootte</span><h3>Records, met een link</h3>
-<p>Elk land dat je hebt aangevinkt krijgt een rij voor het recordgewicht in ponden, ounces en drams. Je hebt minstens één record nodig, en elk record heeft een link nodig naar waar het is vastgelegd: een recordcommissie, een hengelsportorganisatie of een clubpagina die een moderator kan openen en controleren. Laat een land leeg als het record daar niet bekend is.</p>
-<p>Het normale gewicht van een volwassen vis en de specimengrootte worden bij je vis bewaard voor later. Vul ze in als je ze weet.</p></div>
+<p>Elk land dat je hebt aangevinkt krijgt een rij voor het recordgewicht in ponden, ounces en drams. Je hebt minstens één record nodig, en elk record heeft een link nodig naar waar het is vastgelegd: een recordcommissie, een hengelsportorganisatie of een clubpagina die een moderator kan openen en controleren. Laat een land leeg als het record daar niet bekend is.</p></div>
 <h2 id="water">4. In welke wateren hij leeft</h2>
 <p>Vink <strong>Zoet water</strong>, <strong>Riviermonding</strong> of <strong>Zee</strong> aan, zoveel als er kloppen. Je vinkjes bepalen in welke wateren de vis gevangen kan worden. Een vis wordt nooit gevangen in water dat niet bij hem past, hoe goed al het andere ook klopt.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Vraag</th><th>Waar je op let</th></tr>
 <tr><td>Waar aast hij?</td><td>Zet Op de bodem, Halverwege het water en Aan de oppervlakte op volgorde, het vaakst eerst.</td></tr>
-<tr><td>Wat eet hij?</td><td>Op de pagina Hoe hij eet: kies voor elk soort voedsel Hoofdvoedsel, Eet hij graag, Af en toe of Nooit.</td></tr>
+<tr><td>Waar zit hij graag?</td><td>Voor elk soort plek, zoals waterplantenvelden, waterlelies, riet, hout, rots of schaduw van boven: Houdt van, Vindt fijn, Maakt niet uit of Mijdt. Bij een plek waar hij van houdt of die hij fijn vindt, beet hij vaker; bij een plek die hij mijdt, minder vaak.</td></tr>
 <tr><td>Wanneer aast hij het best?</td><td>Overdag, ochtend- en avondschemer, of nacht.</td></tr>
 <tr><td>Waar houdt hij zich op?</td><td>Open water, wat dekking, of obstakels en wier.</td></tr>
 <tr><td>Helder of troebel water?</td><td>Wat hij liever heeft.</td></tr>
-<tr><td>Hoe neemt hij het aas?</td><td>Voorzichtige dipjes, zelfverzekerde lifts, of loopt weg met het aas.</td></tr>
-<tr><td>Hoe schuw is hij?</td><td>Brutaal, voorzichtig of zeer schuw.</td></tr>
+<tr><td>Hoe neemt hij het aas?</td><td>Negen soorten aanbeet, van Dip en onder of Tilt de dobber tot Stevig, dan weg of Langzaam, rustig trekken. Daarna hoe snel de tikjes komen (Snel tot Langzaam) en hoe lang hij het aas vasthoudt (Heel kort tot Lang).</td></tr>
 <tr><td>Hoe vecht hij?</td><td>Kies het gevecht waarvan de beschrijving het meest klinkt als de vis aan het eind van je lijn.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Antwoorden op Waar zit hij graag? voor een karper" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Waar hij graag zit, plek voor plek.</figcaption></figure>
+<figure class="fit"><img alt="Hoe neemt hij het aas? met zijn negen soorten en twee tijden" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Hoe hij aanbeet, en hoe snel en lang de aanbeet is.</figcaption></figure>
+</div>
 <h2 id="temp">6. Watertemperatuur, in graden</h2>
 <p>Kies het label dat het meest op je vis lijkt. Het vult drie getallen in °C in, die je kunt aanpassen:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Prettig vanaf</strong> en <strong>prettig tot</strong>: het bereik waarin hij nog goed aast.</li>
 </ul>
 <p>De getallen moeten oplopen van laag, naar best, naar hoog. Buiten zijn prettige bereik stopt de vis met azen: een paar graden kouder en de meeste vissen houden nog maar een sprankje eetlust over; een paar graden warmer en ze stoppen helemaal.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Het label voor de watertemperatuur en zijn drie getallen" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Kies een label en de drie getallen worden ingevuld.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Label</th><th>Best</th><th>Prettig</th><th>Wat het betekent</th></tr>
 <tr><td>Koudwaterspecialist</td><td>12 °C</td><td>6 tot 17 °C</td><td>Houdt van koud, schoon water; heeft het moeilijk zodra het opwarmt. Forel, vlagzalm, beekridder, kabeljauw.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropisch</td><td>29 °C</td><td>25 tot 33 °C</td><td>Alleen warm water; stopt met eten als het afkoelt. Barramundi, peacock bass.</td></tr>
 </table></div>
 <div class="callout">Verander de getallen alleen als je weet dat je vis afwijkt van zijn label. Een water warmt op en koelt af met de seizoenen, en een water dat op zijn echte plek op aarde is vastgezet, volgt het klimaat van die plek. Een tropische vis die in koud water is uitgezet, zal bijna nooit azen, en dat is de vis die zich eerlijk gedraagt, geen fout.</div>
-<h2 id="check">7. Pagina 3: controleren en indienen</h2>
+<h2 id="feeds">7. Pagina 3: hoe hij eet</h2>
+<p>Deze pagina bepaalt welk aas je vis pakt, en hoe je hem te slim af bent. De <a href="/nl/baitcreators">gids</a> voor aasmakers vraagt hetzelfde vanuit het aas, zodat de twee elkaar in het water treffen.</p>
+<table class="pass">
+<tr><th>Vraag</th><th>Waar je op let</th></tr>
+<tr><td>Wat eet hij?</td><td>Voor elk soort voedsel, van granen en planten tot wormen, schaaldieren, vis, vlees, pasta en niets eetbaars: Hoofdvoedsel, Eet hij graag, Af en toe of Nooit. Een vis pakt nooit een aas gemaakt van iets wat hij nooit eet.</td></tr>
+<tr><td>Hoe vindt hij zijn voedsel?</td><td>Geur, beweging of beide.</td></tr>
+<tr><td>Hoe sterk moet een aas voor hem ruiken?</td><td>Van Nauwelijks tot Stinkt.</td></tr>
+<tr><td>Hoeveel moet een aas voor hem bewegen?</td><td>Van Heeft hij niet nodig tot Zwemt.</td></tr>
+<tr><td>Hoe goed is zijn zicht?</td><td>Gebruikt hij nauwelijks, Redelijk, Goed of Scherp.</td></tr>
+<tr><td>Komt hij af op glinstering?</td><td>Ja of nee.</td></tr>
+<tr><td>Hoe groot is zijn bek?</td><td>Van Piepklein tot Enorm. Een aas dat te groot is voor zijn bek wordt geweigerd.</td></tr>
+<tr><td>Hoe lijnschuw is hij?</td><td>Van Erg lijnschuw tot Niet lijnschuw: hoeveel een dikke lijn hem afschrikt.</td></tr>
+<tr><td>Hoe schuw is hij?</td><td>Brutaal, voorzichtig of zeer schuw.</td></tr>
+</table>
+<figure class="fit"><img alt="Wat eet hij? ingevuld voor een karper" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Wat hij eet, één antwoord voor elk soort voedsel.</figcaption></figure>
+<h2 id="check">8. Pagina 4: controleren en indienen</h2>
 <p>De laatste pagina laat je vis zien zoals andere vissers hem zullen zien, met een korte beschrijving op basis van je antwoorden en een lijst van wat anders is dan de vis waarop hij is gebaseerd. Lees de beschrijving: als die niet klinkt als jouw vis, is een van je antwoorden fout.</p>
-<p>Als er iets ontbreekt, staat het in een vak met de naam <strong>Voordat je kunt indienen</strong>. Klik op een onderdeel om er meteen naartoe te gaan. Als er niets ontbreekt, stuurt <strong>Indienen bij de moderators</strong> je vis in.</p>
-<h2 id="review">8. Waar de moderators op letten</h2>
+<p>Als er iets ontbreekt, staat het in een vak met de naam <strong>Voordat je kunt indienen</strong>. Klik op een onderdeel om er meteen naartoe te gaan. Als er niets ontbreekt, stuurt <strong>Indienen bij de moderators</strong> je vis in. Het spel vraagt het eerst: alleen <strong>Ja, insturen</strong> in het venster dat opent stuurt hem in, en <strong>Nog niet</strong> houdt hem als concept.</p>
+<figure><img alt="Pagina 4: de afgemaakte vis en wat er nog ontbreekt" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Pagina 4. Deze leerkarper mist nog een recordgewicht en een eigen foto, dus Indienen wacht.</figcaption></figure>
+<h2 id="review">9. Waar de moderators op letten</h2>
 <ul>
 <li><strong>Een echte vis.</strong> De soortenmaker is voor vissen die vissers vangen, beschreven zoals ze zijn.</li>
 <li><strong>Een record dat klopt.</strong> De link moet openen en moet het gewicht laten zien dat je hebt ingevuld.</li>

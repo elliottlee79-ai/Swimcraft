@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Lajien luojan opas</h1>
 <p class="meta"><strong>Kuvaile oikea kala kerran, niin jokainen kalavesien luoja voi istuttaa sitä.</strong></p>
-<p class="meta">Päivitetty viimeksi: 12. lokakuuta 2026</p>
-<div class="intro">Lajieditori kysyy kalasta kolmen sivun verran kysymyksiä. Vastauksistasi tulee se, miten kala käyttäytyy vedessä: milloin se syö, mihin se tarttuu, miten se tärppää ja miten se taistelee. Tällä sivulla kerrotaan, mitä kukin kysymys oikeasti tarkoittaa ja mitä moderaattori tarkistaa ennen kuin kalasi päätyy kaikkien istutuslistoille.</div>
+<p class="meta">Päivitetty viimeksi: 24. marraskuuta 2026</p>
+<div class="intro">Lajien luoja esittää neljä sivua kysymyksiä kalasta. Vastauksistasi tulee se, miten kala käyttäytyy vedessä: milloin se syö, mitä se ottaa, miten se tärppää ja miten se taistelee. Tämä sivu selittää, mitä kukin kysymys oikeasti kysyy ja mitä moderaattori tarkistaa ennen kuin kalasi päätyy kaikkien istutuslistalle.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Luonnos, lähetetty, hyväksytty: mitä kalallesi tapahtuu</a></li>
 <li><a href="#start">Aloita kalasta, joka on jo olemassa</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">Millaisissa vesissä se elää</a></li>
 <li><a href="#behave">Sivu 2: miten se käyttäytyy</a></li>
 <li><a href="#temp">Veden lämpötila asteina</a></li>
-<li><a href="#check">Sivu 3: tarkista ja lähetä</a></li>
+<li><a href="#feeds">Sivu 3: miten se syö</a></li>
+<li><a href="#check">Sivu 4: tarkista ja lähetä</a></li>
 <li><a href="#review">Mitä moderaattorit katsovat</a></li>
 </ol>
 <h2 id="life">1. Luonnos, lähetetty, hyväksytty</h2>
@@ -152,9 +158,11 @@
 <p>Tallentamasi kala ilmestyy omalle istutuslistallesi, kun peli seuraavan kerran käynnistyy, ei heti.</p>
 <h2 id="start">2. Aloita kalasta, joka on jo olemassa</h2>
 <p>Nopein tapa rakentaa kala on sivun 1 yläosan <strong>Pikavalinta</strong>-ruutu. Valitse pelistä kala, joka muistuttaa omaasi eniten, niin kaikki vastaukset täytetään sen mukaan. Muuta sitten vain se, mikä on erilaista.</p>
-<p>Aavekarppi on hyvä esimerkki: aloita karpista, vaihda nimi, kuva ja ennätykset, niin olet melkein valmis. Viimeinen sivu luettelee kaiken, mitä muutit, ja kertoo, mistä kalasta omasi on rakennettu. Moderaattori näkee senkin.</p>
+<p>Nahkakarppi on hyvä esimerkki: aloita karpista, vaihda nimi, kuva ja ennätykset, niin olet melkein valmis. Viimeinen sivu luettelee kaiken, mitä muutit, ja kertoo, minkä kalan pohjalta omasi on rakennettu. Moderaattori näkee senkin.</p>
+<figure class="fit"><img alt="Pikavalinta-ruutu, jossa on valittuna Karppi" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Pikavalinta-ruutu: valitse kala, joka muistuttaa omaasi eniten.</figcaption></figure>
 <div class="callout">Jos pelissä ei ole kalaa, jolla olisivat täsmälleen samat vastaukset kuin omallasi, osa hienommista asetuksista lainataan kalasta, josta omasi on rakennettu. Viimeinen sivu kertoo, kun näin on käynyt. Se on tavallista erikoiselle kalalle.</div>
 <h2 id="fish">3. Sivu 1: kala</h2>
+<figure><img alt="Lajien luojan sivu 1" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Sivu 1. Tähdellä * merkityt vastaukset tarvitaan ennen kuin voit lähettää.</figcaption></figure>
 <div class="step"><span class="num">Nimi ja latinankielinen nimi</span><h3>Mitä kalastajat sitä kutsuvat</h3>
 <p>Käytä nimeä, jolla kalastajat sitä hakisivat. Toisella kalalla ei saa jo olla sitä. Lisää myös latinankielinen nimi, jotta moderaattori tietää tarkalleen, mitä kalaa tarkoitat. Muut nimet voi kirjoittaa alla olevaan ruutuun pilkuilla erotettuina.</p></div>
 <div class="step"><span class="num">Kuva</span><h3>Sivulta kuvattu, rajattu kala</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Maat ja esiintymispaikat</span><h3>Missä kalastaja sen kohtaisi</h3>
 <p>Valitse jokainen maa, jossa se elää, ja esiintyykö se seisovassa vedessä, hitaissa joissa vai nopeissa joissa. Valitse kaikki sopivat.</p></div>
 <div class="step"><span class="num">Koko</span><h3>Ennätykset linkin kanssa</h3>
-<p>Jokainen valitsemasi maa saa rivin ennätyspainolleen paunoina, unsseina ja drammeina. Tarvitset vähintään yhden ennätyksen, ja jokaiselle ennätykselle tarvitaan linkki paikkaan, johon se on kirjattu: ennätystoimikunta, kalastusjärjestö tai seuran sivu, jonka moderaattori voi avata ja tarkistaa. Jätä maa tyhjäksi, jos sen ennätystä ei tiedetä.</p>
-<p>Tyypillinen aikuisen paino ja järkälekoko tallennetaan kalasi tietoihin myöhempää käyttöä varten. Täytä ne, jos tiedät ne.</p></div>
+<p>Jokainen valitsemasi maa saa rivin ennätyspainolleen paunoina, unsseina ja drammeina. Tarvitset vähintään yhden ennätyksen, ja jokaiselle ennätykselle tarvitaan linkki paikkaan, johon se on kirjattu: ennätystoimikunta, kalastusjärjestö tai seuran sivu, jonka moderaattori voi avata ja tarkistaa. Jätä maa tyhjäksi, jos sen ennätystä ei tiedetä.</p></div>
 <h2 id="water">4. Millaisissa vesissä se elää</h2>
 <p>Valitse <strong>Makea vesi</strong>, <strong>Jokisuisto</strong> tai <strong>Merikalastus</strong>, niin monta kuin sopii. Valintasi ratkaisevat, millaisista vesistä kalan voi saada. Kalaa ei koskaan saada vedestä, joka on sille väärä, vaikka kaikki muu sopisi kuinka hyvin.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Kysymys</th><th>Mitä miettiä</th></tr>
 <tr><td>Missä se syö?</td><td>Järjestä pohjassa, välivedessä ja pinnassa, yleisin ensin.</td></tr>
-<tr><td>Mitä se syö?</td><td>Sivulla Miten se syö: valitse jokaiselle ravinnon lajille Pääravinto, Syö mielellään, Silloin tällöin tai Ei koskaan.</td></tr>
+<tr><td>Missä se viihtyy?</td><td>Jokaiselle paikkatyypille, kuten vesikasvillisuudelle, lumpeille, ruovikoille, puille, kalliolle tai yläpuolen varjolle: Rakastaa, Pitää, Ei väliä tai Välttää. Paikan lähellä, jota se rakastaa tai josta se pitää, se tärppää useammin; sellaisen lähellä, jota se välttää, harvemmin.</td></tr>
 <tr><td>Milloin se syö parhaiten?</td><td>Päiväsaikaan, aamu- ja iltahämärässä tai yöllä.</td></tr>
 <tr><td>Missä se oleskelee?</td><td>Avovesi, jonkin verran suojaa tai esteet ja kasvillisuus.</td></tr>
 <tr><td>Kirkas vai samea vesi?</td><td>Kumpaa se suosii.</td></tr>
-<tr><td>Miten se tärppää?</td><td>Varovaiset nykäisyt, varmat nostot tai lähtee juoksuun syötin kanssa.</td></tr>
-<tr><td>Kuinka arka se on?</td><td>Rohkea, varovainen tai hyvin arka.</td></tr>
+<tr><td>Miten se tärppää?</td><td>Yhdeksän tärppityyliä, Nykäisy ja pohjaan tai Nostaa koholla aina tyyleihin Varma, sitten lähtee tai Hidas, tasainen veto. Sitten kuinka nopeasti nykäisyt tulevat (Nopea … Hitaasti) ja kuinka kauan se pitää syöttiä (Hyvin lyhyesti … Pitkään).</td></tr>
 <tr><td>Miten se taistelee?</td><td>Valitse taistelu, jonka kuvaus kuulostaa eniten siimasi päässä olevalta kalalta.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Vastaukset kysymykseen Missä se viihtyy? karpille" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Missä se viihtyy, paikka paikalta.</figcaption></figure>
+<figure class="fit"><img alt="Miten se tärppää? yhdeksällä tyylillään ja kahdella ajalla" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Miten se tärppää, ja kuinka nopea ja pitkä tärppi on.</figcaption></figure>
+</div>
 <h2 id="temp">6. Veden lämpötila asteina</h2>
 <p>Valitse nimike, joka kuulostaa eniten kalaltasi. Se täyttää kolme lukua celsiusasteina (°C), joita voit muuttaa:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Viihtyy alkaen</strong> ja <strong>viihtyy asti</strong>: alue, jolla se syö vielä hyvin.</li>
 </ul>
 <p>Lukujen on mentävä alimmasta parhaaseen ja ylimpään. Viihtyvyysalueensa ulkopuolella kala lakkaa syömästä: muutaman asteen kylmemmässä useimmille kaloille jää vain hitunen ruokahalua; muutaman asteen lämpimämmässä ne lopettavat kokonaan.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Veden lämpötilan nimike ja sen kolme lukua" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Valitse nimike, niin kolme lukua täytetään.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Nimike</th><th>Paras</th><th>Viihtyy</th><th>Mitä se tarkoittaa</th></tr>
 <tr><td>Kylmän veden erikoinen</td><td>12 °C</td><td>6 … 17 °C</td><td>Rakastaa kylmää, puhdasta vettä; kärsii, kun vesi lämpenee. Taimen, harjus, nieriä, turska.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Trooppinen</td><td>29 °C</td><td>25 … 33 °C</td><td>Vain lämmin vesi; lakkaa syömästä, kun vesi viilenee. Barramundi, riikinkukkobassi.</td></tr>
 </table></div>
 <div class="callout">Muuta lukuja vain, jos tiedät kalasi poikkeavan nimikkeestään. Kalaveden vesi lämpenee ja viilenee vuodenaikojen mukaan, ja oikeaan paikkaansa maapallolla kiinnitetty kalavesi noudattaa sen paikan ilmastoa. Kylmään veteen istutettu trooppinen kala syö tuskin koskaan, ja se on kalan rehellistä käytöstä, ei vika.</div>
-<h2 id="check">7. Sivu 3: tarkista ja lähetä</h2>
+<h2 id="feeds">7. Sivu 3: miten se syö</h2>
+<p>Tämä sivu ratkaisee, mitä syöttejä kalasi ottaa ja miten se huijataan. Syöttien luojan <a href="/fi/baitcreators">opas</a> kysyy samoja asioita syötin puolelta, joten ne kohtaavat vedessä.</p>
+<table class="pass">
+<tr><th>Kysymys</th><th>Mitä miettiä</th></tr>
+<tr><td>Mitä se syö?</td><td>Jokaiselle ravintotyypille, viljoista ja kasveista matoihin, äyriäisiin, kalaan, lihaan, taikinaan ja syötäväksi kelpaamattomaan: Pääravinto, Syö mielellään, Silloin tällöin tai Ei koskaan. Kala ei koskaan ota syöttiä, joka on tehty jostakin, mitä se ei koskaan syö.</td></tr>
+<tr><td>Miten se löytää ruokansa?</td><td>Haju, liike tai molemmat.</td></tr>
+<tr><td>Kuinka voimakkaasti syötin pitää sille haista?</td><td>Tuskin … Löyhkää.</td></tr>
+<tr><td>Kuinka paljon syötin pitää sille liikkua?</td><td>Ei tarvitse … Uiskentelee.</td></tr>
+<tr><td>Kuinka hyvin se näkee?</td><td>Tuskin käyttää, Kohtalainen, Hyvä tai Tarkka.</td></tr>
+<tr><td>Houkutteleeko välke sitä?</td><td>Kyllä tai ei.</td></tr>
+<tr><td>Kuinka suuri sen suu on?</td><td>Pikkuruinen … Valtava. Syötti, joka on liian iso sen suuhun, hylätään.</td></tr>
+<tr><td>Kuinka siima-arka se on?</td><td>Hyvin siima-arka … Ei siima-arka: kuinka paljon paksu siima karkottaa sitä.</td></tr>
+<tr><td>Kuinka arka se on?</td><td>Rohkea, varovainen tai hyvin arka.</td></tr>
+</table>
+<figure class="fit"><img alt="Mitä se syö? karpille vastattuna" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Mitä se syö, yksi vastaus kullekin ravintotyypille.</figcaption></figure>
+<h2 id="check">8. Sivu 4: tarkista ja lähetä</h2>
 <p>Viimeinen sivu näyttää kalasi sellaisena kuin muut kalastajat sen näkevät, vastauksistasi kirjoitetun lyhyen kuvauksen ja luettelon siitä, mikä eroaa kalasta, josta se on rakennettu. Lue kuvaus: jos se ei kuulosta kalaltasi, jokin vastauksistasi on väärin.</p>
-<p>Jos jotain puuttuu, se näkyy <strong>Ennen kuin voit lähettää</strong> -ruudussa. Napsauta mitä tahansa kohtaa siirtyäksesi suoraan siihen. Kun mitään ei puutu, <strong>Lähetä moderaattoreille</strong> lähettää kalasi.</p>
-<h2 id="review">8. Mitä moderaattorit katsovat</h2>
+<p>Jos jotain puuttuu, <strong>Ennen kuin voit lähettää</strong> -niminen ruutu luettelee sen. Napsauta mitä tahansa kohtaa siirtyäksesi suoraan siihen. Kun mitään ei puutu, <strong>Lähetä moderaattoreille</strong> lähettää kalasi. Peli kysyy ensin: vain avautuvan ikkunan <strong>Kyllä, lähetä</strong> lähettää sen, ja <strong>Ei vielä</strong> pitää sen luonnoksena.</p>
+<figure><img alt="Sivu 4: valmis kala ja mitä vielä puuttuu" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Sivu 4. Tältä nahkakarpilta puuttuu vielä ennätyspaino ja oma kuva, joten lähettäminen odottaa.</figcaption></figure>
+<h2 id="review">9. Mitä moderaattorit katsovat</h2>
 <ul>
 <li><strong>Oikea kala.</strong> Lajieditori on kaloille, joita kalastajat oikeasti saavat, kuvattuina sellaisina kuin ne ovat.</li>
 <li><strong>Ennätys, joka pitää paikkansa.</strong> Linkin on auettava, ja siinä on näyttävä syöttämäsi paino.</li>

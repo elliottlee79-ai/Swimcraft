@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Tür Editörü Rehberi</h1>
 <p class="meta"><strong>Gerçek bir balığı bir kez tarif et, her mera yaratıcısı onu stoklayabilsin.</strong></p>
-<p class="meta">Son güncelleme: 12 Ekim 2026</p>
-<div class="intro">Tür editörü bir balık hakkında üç sayfa soru sorar. Cevapların, o balığın suda nasıl davranacağını belirler: ne zaman beslendiğini, neyi aldığını, nasıl vurduğunu ve nasıl mücadele ettiğini. Bu sayfa her sorunun aslında ne sorduğunu ve balığın herkesin stoklama listesine girmeden önce bir moderatörün neyi kontrol ettiğini açıklar.</div>
+<p class="meta">Son güncelleme: 24 Kasım 2026</p>
+<div class="intro">Tür editörü bir balık hakkında dört sayfa soru sorar. Cevapların, o balığın suda nasıl davrandığına dönüşür: ne zaman beslendiği, neyi aldığı, nasıl vurduğu ve nasıl mücadele ettiği. Bu sayfa her sorunun gerçekte neyi sorduğunu ve balığın herkesin stoklama listesine girmeden önce bir moderatörün neyi kontrol ettiğini açıklar.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Taslak, gönderildi, onaylandı: balığına ne olur</a></li>
 <li><a href="#start">Zaten var olan bir balıktan başla</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">Hangi sularda yaşar</a></li>
 <li><a href="#behave">Sayfa 2: nasıl davranır</a></li>
 <li><a href="#temp">Derece cinsinden su sıcaklığı</a></li>
-<li><a href="#check">Sayfa 3: kontrol et ve gönder</a></li>
+<li><a href="#feeds">Sayfa 3: nasıl beslenir</a></li>
+<li><a href="#check">Sayfa 4: kontrol et ve gönder</a></li>
 <li><a href="#review">Moderatörler neye bakar</a></li>
 </ol>
 <h2 id="life">1. Taslak, gönderildi, onaylandı</h2>
@@ -152,9 +158,11 @@
 <p>Kaydettiğin balık stoklama listene hemen değil, oyun bir dahaki açılışında eklenir.</p>
 <h2 id="start">2. Zaten var olan bir balıktan başla</h2>
 <p>Bir balığı yapmanın en hızlı yolu 1. sayfanın üstündeki <strong>Kısayol</strong> kutusudur. Oyunda seninkine en çok benzeyen balığı seç, tüm cevaplar ondan doldurulur. Sonra yalnızca farklı olanı değiştir.</p>
-<p>Hayalet sazan iyi bir örnektir: sazandan başla, adı, fotoğrafı ve rekorları değiştir, neredeyse bitti. Son sayfa değiştirdiğin her şeyi listeler ve seninkinin hangi balığı temel aldığını söyler. Moderatör de bunu görür.</p>
+<p>Deri sazan iyi bir örnektir: sazandan başla, adını, fotoğrafını ve rekorlarını değiştir, neredeyse bitti. Son sayfa değiştirdiğin her şeyi listeler ve seninkinin hangi balıktan yola çıktığını söyler. Moderatör de bunu görür.</p>
+<figure class="fit"><img alt="Sazan seçili Kısayol kutusu" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Kısayol kutusu: seninkine en çok benzeyen balığı seç.</figcaption></figure>
 <div class="callout">Oyundaki hiçbir balık cevaplarının hepsini paylaşmıyorsa, birkaç ince ayar seninkinin temel aldığı balıktan ödünç alınır. Bu olduğunda son sayfa sana söyler. Sıra dışı bir balık için bu normaldir.</div>
 <h2 id="fish">3. Sayfa 1: balık</h2>
+<figure><img alt="Tür editörünün 1. sayfası" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Sayfa 1. * ile işaretli cevaplar gönderebilmeden önce gerekir.</figcaption></figure>
 <div class="step"><span class="num">Ad ve Latince adı</span><h3>Balıkçıların ona verdiği ad</h3>
 <p>Balıkçıların arayacağı adı kullan. Başka bir balık bu adı zaten taşıyamaz. Bir moderatör tam olarak hangi balığı kastettiğini anlayabilsin diye Latince adını da ekle. Bilinen diğer adlarını aşağıdaki kutuya virgülle ayırarak yazabilirsin.</p></div>
 <div class="step"><span class="num">Fotoğraf</span><h3>Yandan kesilmiş görüntü</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Ülkeler ve nerede bulunduğu</span><h3>Bir balıkçının onunla karşılaşacağı yer</h3>
 <p>Yaşadığı her ülkeyi ve durgun sularda, yavaş nehirlerde ya da hızlı nehirlerde bulunup bulunmadığını işaretle. Uyanların hepsini işaretle.</p></div>
 <div class="step"><span class="num">Boyut</span><h3>Bağlantılı rekorlar</h3>
-<p>İşaretlediğin her ülke için pound, ons ve dram cinsinden rekor ağırlığa ait bir satır açılır. En az bir rekor gerekir ve her rekorun kaydedildiği yere bir bağlantısı olmalı: bir moderatörün açıp kontrol edebileceği bir rekor komitesi, bir balıkçılık kuruluşu ya da bir kulüp sayfası. Rekoru bilinmeyen bir ülkeyi boş bırak.</p>
-<p>Tipik yetişkin ağırlığı ve trofe boyutu, ileride kullanılmak üzere balığınla birlikte saklanır. Biliyorsan doldur.</p></div>
+<p>İşaretlediğin her ülke için pound, ons ve dram cinsinden rekor ağırlığa ait bir satır açılır. En az bir rekor gerekir ve her rekorun kaydedildiği yere bir bağlantısı olmalı: bir moderatörün açıp kontrol edebileceği bir rekor komitesi, bir balıkçılık kuruluşu ya da bir kulüp sayfası. Rekoru bilinmeyen bir ülkeyi boş bırak.</p></div>
 <h2 id="water">4. Hangi sularda yaşar</h2>
 <p>Uyanların hepsini işaretle: <strong>tatlı su</strong>, <strong>haliç</strong> ya da <strong>deniz</strong>. İşaretlerin, balığın hangi sularda tutulabileceğini belirler. Geri kalan her şey ne kadar uygun olursa olsun, bir balık kendisine uygun olmayan suda asla tutulmaz.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Soru</th><th>Neyi düşünmeli</th></tr>
 <tr><td>Nerede beslenir?</td><td>Dipte, orta suda ve yüzeyde seçeneklerini sıraya koy, en sık olan önce.</td></tr>
-<tr><td>Ne yer?</td><td>Nasıl beslenir sayfasında: her besin türü için Ana besin, Seve seve yer, Arada bir veya Asla seç.</td></tr>
+<tr><td>Nerede durmayı sever?</td><td>Su bitkisi yatakları, nilüferler, sazlar, odun, kaya ya da üstten gölge gibi her yer türü için: Bayılır, Sever, Fark etmez ya da Kaçınır. Bayıldığı ya da sevdiği bir yerin yakınında daha sık vurur; kaçındığı bir yerin yakınında daha seyrek.</td></tr>
 <tr><td>En iyi ne zaman beslenir?</td><td>Gündüz, şafak ve alacakaranlık ya da gece.</td></tr>
 <tr><td>Nerede takılır?</td><td>Açık su, biraz siper ya da kütükler ve yosun.</td></tr>
 <tr><td>Berrak mı, bulanık su mu?</td><td>Hangisini tercih ettiği.</td></tr>
-<tr><td>Nasıl vurur?</td><td>Hafif dalışlar, kararlı kalkışlar ya da yemi alıp kaçar.</td></tr>
-<tr><td>Ne kadar ürkek?</td><td>Cesur, temkinli ya da çok ürkek.</td></tr>
+<tr><td>Nasıl vurur?</td><td>Dokuz vuruş tarzı: Dalar ve batırır ya da Şamandırayı kaldırır'dan Kararlı, sonra kaçar ya da Yavaş, düzenli çekiş'e kadar. Sonra tıklamaların ne kadar hızlı geldiği (Hızlı'dan Yavaş'a) ve yemi ne kadar tuttuğu (Çok kısa'dan Uzun'a).</td></tr>
 <tr><td>Nasıl mücadele eder?</td><td>Açıklaması misinanın ucundaki balığa en çok benzeyen mücadeleyi seç.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Bir sazan için Nerede durmayı sever? cevapları" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Nerede durmayı sevdiği, yer yer.</figcaption></figure>
+<figure class="fit"><img alt="Nasıl vurur? dokuz tarzı ve iki süresiyle" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Nasıl vurduğu, vuruşun ne kadar hızlı ve uzun olduğu.</figcaption></figure>
+</div>
 <h2 id="temp">6. Derece cinsinden su sıcaklığı</h2>
 <p>Balığına en çok benzeyen etiketi seç. Etiket °C cinsinden üç sayıyı doldurur; bunları değiştirebilirsin:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Rahat olduğu en düşük</strong> ve <strong>rahat olduğu en yüksek</strong>: hâlâ iyi beslendiği aralık.</li>
 </ul>
 <p>Sayılar düşükten en iyiye, oradan yükseğe doğru gitmeli. Rahat aralığının dışında balık yemden kesilir: birkaç derece daha soğukta çoğu balığın iştahı yalnızca biraz kalır; birkaç derece daha sıcakta tamamen dururlar.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Su sıcaklığı etiketi ve üç sayısı" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Bir etiket seç, üç sayı doldurulur.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Etiket</th><th>En iyi</th><th>Rahat</th><th>Anlamı</th></tr>
 <tr><td>Soğuk su uzmanı</td><td>12 °C</td><td>6 ile 17 °C arası</td><td>Soğuk, temiz suyu sever; ısınınca zorlanır. Alabalık, kadife balığı, alp alabalığı, morina.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropikal</td><td>29 °C</td><td>25 ile 33 °C arası</td><td>Yalnızca sıcak su; soğuyunca beslenmeyi bırakır. Barramundi, tavus levreği.</td></tr>
 </table></div>
 <div class="callout">Sayıları yalnızca balığının etiketinden farklı olduğunu biliyorsan değiştir. Bir meranın suyu mevsimler boyunca ısınır ve soğur; Dünya'daki gerçek yerine sabitlenmiş bir mera da o yerin iklimini izler. Soğuk bir suya stoklanan tropikal bir balık neredeyse hiç beslenmez; bu bir hata değil, balığın dürüstçe davranmasıdır.</div>
-<h2 id="check">7. Sayfa 3: kontrol et ve gönder</h2>
+<h2 id="feeds">7. Sayfa 3: nasıl beslenir</h2>
+<p>Bu sayfa balığının hangi yemleri aldığına ve nasıl kandırıldığına karar verir. Yem editörü <a href="/tr/baitcreators">rehberi</a> aynı şeyleri yemin tarafından sorar, böylece ikisi suda buluşur.</p>
+<table class="pass">
+<tr><th>Soru</th><th>Neyi düşünmeli</th></tr>
+<tr><td>Ne yer?</td><td>Tahıl ve bitkilerden solucanlara, kabuklulara, balığa, ete, hamura ve yenmeyen şeylere kadar her besin türü için: Ana besin, Seve seve yer, Arada bir ya da Asla. Bir balık, asla yemediği bir şeyden yapılmış yemi asla almaz.</td></tr>
+<tr><td>Yiyeceğini nasıl bulur?</td><td>Koku, hareket ya da ikisi de.</td></tr>
+<tr><td>Bir yem onun için ne kadar güçlü kokmalı?</td><td>Zar zor'dan Leş gibi kokar'a kadar.</td></tr>
+<tr><td>Bir yem onun için ne kadar hareket etmeli?</td><td>Gerek duymaz'dan Yüzer'e kadar.</td></tr>
+<tr><td>Görüşü ne kadar iyi?</td><td>Neredeyse kullanmaz, Orta, İyi ya da Keskin.</td></tr>
+<tr><td>Parıltı onu çeker mi?</td><td>Evet ya da hayır.</td></tr>
+<tr><td>Ağzı ne kadar büyük?</td><td>Minicik'ten Kocaman'a kadar. Ağzına göre fazla büyük bir yem reddedilir.</td></tr>
+<tr><td>Misinadan ne kadar ürker?</td><td>Misinadan çok ürker'den Misinadan ürkmez'e kadar: kalın bir misinanın onu ne kadar kaçırdığı.</td></tr>
+<tr><td>Ne kadar ürkek?</td><td>Cesur, temkinli ya da çok ürkek.</td></tr>
+</table>
+<figure class="fit"><img alt="Bir sazan için doldurulmuş Ne yer? sorusu" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Ne yediği, her besin türü için bir cevap.</figcaption></figure>
+<h2 id="check">8. Sayfa 4: kontrol et ve gönder</h2>
 <p>Son sayfa balığını diğer balıkçıların göreceği şekilde, cevaplarından yazılmış kısa bir açıklama ve temel aldığı balıktan farklı olanların listesiyle gösterir. Açıklamayı oku: balığın gibi gelmiyorsa cevaplarından biri yanlıştır.</p>
-<p>Eksik bir şey varsa <strong>Gönderebilmeden önce</strong> adlı kutu onu listeler. Doğrudan oraya gitmek için herhangi bir maddeye tıkla. Hiçbir şey eksik olmadığında <strong>Moderatörlere gönder</strong> balığını gönderir.</p>
-<h2 id="review">8. Moderatörler neye bakar</h2>
+<p>Bir şey eksikse <strong>Gönderebilmeden önce</strong> adlı bir kutu onu listeler. Doğrudan oraya gitmek için herhangi bir maddeye tıkla. Hiçbir şey eksik değilse <strong>Moderatörlere gönder</strong> balığını gönderir. Oyun önce sorar: açılan kutudaki yalnızca <strong>Evet, gönder</strong> onu gönderir, <strong>Henüz değil</strong> ise taslak olarak tutar.</p>
+<figure><img alt="Sayfa 4: bitmiş balık ve hâlâ eksik olanlar" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Sayfa 4. Bu deri sazanın hâlâ bir rekor ağırlığına ve kendi fotoğrafına ihtiyacı var, bu yüzden gönderme bekliyor.</figcaption></figure>
+<h2 id="review">9. Moderatörler neye bakar</h2>
 <ul>
 <li><strong>Gerçek bir balık.</strong> Tür editörü, balıkçıların tuttuğu balıkları oldukları gibi tarif etmek içindir.</li>
 <li><strong>Doğrulanabilen bir rekor.</strong> Bağlantı açılmalı ve girdiğin ağırlığı göstermeli.</li>

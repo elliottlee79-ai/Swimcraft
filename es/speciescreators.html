@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Guía del creador de especies</h1>
 <p class="meta"><strong>Cómo describir un pez real una sola vez para que cualquier creador de escenarios pueda repoblar con él.</strong></p>
-<p class="meta">Última actualización: 12 de octubre de 2026</p>
-<div class="intro">El creador de especies te hace tres páginas de preguntas sobre un pez. Tus respuestas definen cómo se comporta ese pez en el agua: cuándo come, qué acepta, cómo pica y cómo pelea. Esta página explica qué pregunta realmente cada pregunta y qué comprueba un moderador antes de que tu pez entre en la lista de repoblación de todo el mundo.</div>
+<p class="meta">Última actualización: 24 de noviembre de 2026</p>
+<div class="intro">El creador de especies hace cuatro páginas de preguntas sobre un pez. Tus respuestas se convierten en cómo se comporta ese pez en el agua: cuándo come, qué toma, cómo pica y cómo pelea. Esta página explica qué pregunta realmente cada cuestión, y qué revisa un moderador antes de que tu pez entre en la lista de repoblación de todos.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Borrador, enviado, aprobado: qué le pasa a tu pez</a></li>
 <li><a href="#start">Partir de un pez que ya existe</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">En qué aguas vive</a></li>
 <li><a href="#behave">Página 2: cómo se comporta</a></li>
 <li><a href="#temp">Temperatura del agua, en grados</a></li>
-<li><a href="#check">Página 3: revisar y enviar</a></li>
+<li><a href="#feeds">Página 3: cómo se alimenta</a></li>
+<li><a href="#check">Página 4: revisar y enviar</a></li>
 <li><a href="#review">Qué miran los moderadores</a></li>
 </ol>
 <h2 id="life">1. Borrador, enviado, aprobado</h2>
@@ -152,9 +158,11 @@
 <p>Un pez que guardas llega a tu propia lista de repoblación la próxima vez que se inicie el juego, no al momento.</p>
 <h2 id="start">2. Partir de un pez que ya existe</h2>
 <p>La forma más rápida de crear un pez es la casilla <strong>Atajo</strong> en la parte superior de la página 1. Elige el pez del juego que más se parezca al tuyo y todas las respuestas se rellenan a partir de él. Después, cambia solo lo que sea diferente.</p>
-<p>La carpa fantasma es un buen ejemplo: parte de la carpa común, cambia el nombre, la foto y los récords, y casi habrás terminado. La última página enumera todo lo que has cambiado e indica a partir de qué pez se creó el tuyo. El moderador también lo ve.</p>
+<p>La carpa de cuero es un buen ejemplo: parte de la carpa común, cambia el nombre, la foto y los récords, y casi has terminado. La última página muestra todo lo que has cambiado y de qué pez partió el tuyo. El moderador también lo ve.</p>
+<figure class="fit"><img alt="La casilla Atajo con Carpa común elegida" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>La casilla Atajo: elige el pez más parecido al tuyo.</figcaption></figure>
 <div class="callout">Si ningún pez del juego comparte todas tus respuestas, algunos de los ajustes más finos se toman prestados del pez a partir del cual se creó el tuyo. La última página te avisa cuando ha pasado. Es normal en un pez poco común.</div>
 <h2 id="fish">3. Página 1: el pez</h2>
+<figure><img alt="Página 1 del creador de especies" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Página 1. Las respuestas marcadas con * son necesarias antes de poder enviar.</figcaption></figure>
 <div class="step"><span class="num">Nombre y nombre latino</span><h3>Cómo lo llaman los pescadores</h3>
 <p>Usa el nombre que buscarían los pescadores. Ningún otro pez puede tenerlo ya. Añade también el nombre latino, para que un moderador sepa exactamente a qué pez te refieres. Los demás nombres por los que se conoce van en la casilla de abajo, separados por comas.</p></div>
 <div class="step"><span class="num">Foto</span><h3>Un recorte de perfil</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Países y dónde se encuentra</span><h3>Dónde se lo encontraría un pescador</h3>
 <p>Marca todos los países en los que vive, y si se encuentra en aguas quietas, ríos lentos o ríos rápidos. Marca todo lo que corresponda.</p></div>
 <div class="step"><span class="num">Tamaño</span><h3>Récords, con enlace</h3>
-<p>Cada país que has marcado tiene una fila para su peso récord en libras, onzas y dracmas. Necesitas al menos un récord, y cada récord necesita un enlace a donde está registrado: un comité de récords, una federación de pesca o la página de un club que un moderador pueda abrir y comprobar. Deja un país vacío si no se conoce su récord.</p>
-<p>El peso adulto típico y el tamaño de trofeo se guardan con tu pez para más adelante. Rellénalos si los conoces.</p></div>
+<p>Cada país que has marcado tiene una fila para su peso récord en libras, onzas y dracmas. Necesitas al menos un récord, y cada récord necesita un enlace a donde está registrado: un comité de récords, una federación de pesca o la página de un club que un moderador pueda abrir y comprobar. Deja un país vacío si no se conoce su récord.</p></div>
 <h2 id="water">4. En qué aguas vive</h2>
 <p>Marca <strong>Agua dulce</strong>, <strong>Estuario</strong> o <strong>Pesca en mar</strong>, todas las que correspondan. Tus marcas deciden en qué aguas se puede pescar el pez. Un pez nunca se pesca en un agua que no le corresponde, por bien que encaje todo lo demás.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Pregunta</th><th>En qué pensar</th></tr>
 <tr><td>¿Dónde come?</td><td>Ordena En el fondo, A media agua y En superficie, lo más habitual primero.</td></tr>
-<tr><td>¿Qué come?</td><td>En la página Cómo se alimenta: para cada tipo de alimento, elige Alimento principal, Lo come, De vez en cuando o Nunca.</td></tr>
+<tr><td>¿Dónde le gusta estar?</td><td>Para cada tipo de lugar, como las praderas de algas, los nenúfares, el carrizo, la madera, la roca o la sombra encima: Le encanta, Le gusta, Le da igual o Evita. Cerca de un lugar que le encanta o le gusta, pica más a menudo; cerca de uno que evita, menos.</td></tr>
 <tr><td>¿Cuándo come mejor?</td><td>De día, al alba y al anochecer, o de noche.</td></tr>
 <tr><td>¿Dónde suele estar?</td><td>Aguas abiertas, algo de refugio, u obstáculos y algas.</td></tr>
 <tr><td>¿Agua clara o turbia?</td><td>Cuál prefiere.</td></tr>
-<tr><td>¿Cómo pica?</td><td>Toques delicados, levantadas decididas, o sale disparado con el cebo.</td></tr>
-<tr><td>¿Cuánto desconfía?</td><td>Atrevido, cauto o muy desconfiado.</td></tr>
+<tr><td>¿Cómo pica?</td><td>Nueve estilos de picada, desde Hunde y abajo o Levanta el flotador hasta Firme, luego corre o Tirón lento y constante. Después, lo rápido que llegan los toques (Rápida a Lentas) y cuánto tiempo sujeta el cebo (Muy poco a Mucho rato).</td></tr>
 <tr><td>¿Cómo pelea?</td><td>Elige la pelea cuya descripción se parezca más al pez que tienes al otro lado del sedal.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Respuestas de ¿Dónde le gusta estar? para una carpa" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Dónde le gusta estar, lugar por lugar.</figcaption></figure>
+<figure class="fit"><img alt="¿Cómo pica? con sus nueve estilos y dos tiempos" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Cómo pica, y lo rápida y larga que es la picada.</figcaption></figure>
+</div>
 <h2 id="temp">6. Temperatura del agua, en grados</h2>
 <p>Elige la etiqueta que más se parezca a tu pez. Rellena tres valores en °C, que puedes cambiar:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Cómodo desde</strong> y <strong>cómodo hasta</strong>: el rango en el que todavía come bien.</li>
 </ul>
 <p>Los valores deben ir de bajo, a óptimo, a alto. Fuera de su rango cómodo, el pez deja de comer: unos grados más frío y la mayoría de los peces conservan solo un hilo de apetito; unos grados más cálido y paran del todo.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="La etiqueta de temperatura del agua y sus tres números" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Elige una etiqueta y los tres números se rellenan.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Etiqueta</th><th>Óptimo</th><th>Cómodo</th><th>Qué significa</th></tr>
 <tr><td>Especialista de agua fría</td><td>12 °C</td><td>6 a 17 °C</td><td>Le encanta el agua fría y limpia; lo pasa mal cuando se calienta. Trucha, tímalo, salvelino, bacalao.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropical</td><td>29 °C</td><td>25 a 33 °C</td><td>Solo agua caliente; deja de comer cuando se enfría. Barramundi, tucunaré.</td></tr>
 </table></div>
 <div class="callout">Cambia los valores solo si sabes que tu pez se aparta de su etiqueta. El agua de un escenario se calienta y se enfría con las estaciones, y un escenario marcado en su lugar real de la Tierra sigue el clima de ese lugar. Un pez tropical repoblado en un agua fría casi nunca comerá, y eso es el pez comportándose con honestidad, no un fallo.</div>
-<h2 id="check">7. Página 3: revisar y enviar</h2>
+<h2 id="feeds">7. Página 3: cómo se alimenta</h2>
+<p>Esta página decide qué cebos toma tu pez y cómo se le engaña. La <a href="/es/baitcreators">guía</a> del creador de cebos pregunta lo mismo desde el lado del cebo, así que los dos se encuentran en el agua.</p>
+<table class="pass">
+<tr><th>Pregunta</th><th>En qué pensar</th></tr>
+<tr><td>¿Qué come?</td><td>Para cada tipo de comida, desde granos y plantas hasta gusanos, mariscos, peces, carne, pasta y nada comestible: Alimento principal, Lo come, De vez en cuando o Nunca. Un pez nunca toma un cebo hecho de algo que nunca come.</td></tr>
+<tr><td>¿Cómo encuentra su comida?</td><td>Olor, movimiento o ambas.</td></tr>
+<tr><td>¿Cuánto debe oler un cebo para él?</td><td>De Apenas a Apesta.</td></tr>
+<tr><td>¿Cuánto debe moverse un cebo para él?</td><td>De No lo necesita a Nada.</td></tr>
+<tr><td>¿Qué tal es su vista?</td><td>Apenas la usa, Regular, Bueno o Aguda.</td></tr>
+<tr><td>¿Le atraen los destellos?</td><td>Sí o no.</td></tr>
+<tr><td>¿Qué tamaño tiene su boca?</td><td>De Diminuta a Enorme. Un cebo demasiado grande para su boca se rechaza.</td></tr>
+<tr><td>¿Cuánto desconfía del sedal?</td><td>De Desconfía mucho del sedal a No desconfía del sedal: cuánto le espanta un sedal grueso.</td></tr>
+<tr><td>¿Cuánto desconfía?</td><td>Atrevido, cauto o muy desconfiado.</td></tr>
+</table>
+<figure class="fit"><img alt="¿Qué come? respondido para una carpa" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Lo que come, una respuesta para cada tipo de comida.</figcaption></figure>
+<h2 id="check">8. Página 4: revisar y enviar</h2>
 <p>La última página muestra tu pez tal como lo verán otros pescadores, con una breve descripción redactada a partir de tus respuestas y una lista de lo que es diferente respecto al pez a partir del cual se creó. Lee la descripción: si no suena a tu pez, alguna de tus respuestas está mal.</p>
-<p>Si falta algo, una casilla llamada <strong>Antes de poder enviar</strong> lo enumera. Haz clic en cualquier elemento para ir directamente a él. Cuando no falte nada, <strong>Enviar a los moderadores</strong> envía tu pez.</p>
-<h2 id="review">8. Qué miran los moderadores</h2>
+<p>Si falta algo, una casilla llamada <strong>Antes de poder enviar</strong> lo muestra. Haz clic en cualquier elemento para ir directo a él. Cuando no falta nada, <strong>Enviar a los moderadores</strong> envía tu pez. El juego pregunta antes: solo <strong>Sí, enviarlo</strong> en la ventana que se abre lo envía, y <strong>Todavía no</strong> lo deja como borrador.</p>
+<figure><img alt="Página 4: el pez terminado y lo que aún falta" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Página 4. A esta carpa de cuero aún le faltan un peso récord y su propia foto, así que Enviar espera.</figcaption></figure>
+<h2 id="review">9. Qué revisan los moderadores</h2>
 <ul>
 <li><strong>Un pez real.</strong> El creador de especies es para peces que pescan los pescadores, descritos tal como son.</li>
 <li><strong>Un récord que se pueda comprobar.</strong> El enlace debe abrirse y mostrar el peso que has introducido.</li>

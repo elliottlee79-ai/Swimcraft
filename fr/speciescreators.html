@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Le guide du créateur d'espèces</h1>
 <p class="meta"><strong>Comment décrire un vrai poisson une seule fois, pour que chaque créateur de plans d'eau puisse l'empoissonner.</strong></p>
-<p class="meta">Dernière mise à jour : 12 octobre 2026</p>
-<div class="intro">Le créateur d'espèces te pose trois pages de questions sur un poisson. Tes réponses deviennent la façon dont ce poisson se comporte dans l'eau : quand il se nourrit, ce qu'il prend, comment il mord et comment il se défend. Cette page explique ce que chaque question demande vraiment, et ce qu'un modérateur vérifie avant que ton poisson n'entre dans la liste d'empoissonnement de tout le monde.</div>
+<p class="meta">Dernière mise à jour : 24 novembre 2026</p>
+<div class="intro">Le créateur d'espèces pose quatre pages de questions sur un poisson. Tes réponses deviennent la façon dont ce poisson se comporte dans l'eau : quand il se nourrit, ce qu'il prend, comment il mord et comment il se défend. Cette page explique ce que chaque question demande vraiment, et ce qu'un modérateur vérifie avant que ton poisson n'entre dans la liste d'empoissonnement de tout le monde.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Brouillon, soumis, approuvé : ce qui arrive à ton poisson</a></li>
 <li><a href="#start">Partir d'un poisson qui existe déjà</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">Dans quelles eaux il vit</a></li>
 <li><a href="#behave">Page 2 : son comportement</a></li>
 <li><a href="#temp">Température de l'eau, en degrés</a></li>
-<li><a href="#check">Page 3 : vérifier et soumettre</a></li>
+<li><a href="#feeds">Page 3 : comment il se nourrit</a></li>
+<li><a href="#check">Page 4 : vérifier et soumettre</a></li>
 <li><a href="#review">Ce que regardent les modérateurs</a></li>
 </ol>
 <h2 id="life">1. Brouillon, soumis, approuvé</h2>
@@ -152,9 +158,11 @@
 <p>Un poisson que tu enregistres rejoint ta propre liste d'empoissonnement au prochain lancement du jeu, pas immédiatement.</p>
 <h2 id="start">2. Partir d'un poisson qui existe déjà</h2>
 <p>Le moyen le plus rapide de créer un poisson est la case <strong>Raccourci</strong> en haut de la page 1. Choisis le poisson du jeu qui ressemble le plus au tien et chaque réponse est remplie à partir de lui. Ensuite, change seulement ce qui diffère.</p>
-<p>La carpe fantôme en est un bon exemple : pars de la carpe commune, change le nom, la photo et les records, et tu as presque fini. La dernière page liste tout ce que tu as changé et indique de quel poisson le tien a été créé. Le modérateur le voit aussi.</p>
+<p>La carpe cuir en est un bon exemple : pars de la carpe commune, change le nom, la photo et les records, et tu as presque fini. La dernière page liste tout ce que tu as changé et indique de quel poisson le tien est parti. Le modérateur le voit aussi.</p>
+<figure class="fit"><img alt="La case Raccourci avec Carpe commune choisie" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>La case Raccourci : choisis le poisson le plus proche du tien.</figcaption></figure>
 <div class="callout">Si aucun poisson du jeu ne partage toutes tes réponses, quelques réglages plus fins sont empruntés au poisson à partir duquel le tien a été créé. La dernière page te le signale quand c'est le cas. C'est normal pour un poisson inhabituel.</div>
 <h2 id="fish">3. Page 1 : le poisson</h2>
+<figure><img alt="Page 1 du créateur d'espèces" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Page 1. Les réponses marquées * sont nécessaires avant de pouvoir soumettre.</figcaption></figure>
 <div class="step"><span class="num">Nom et nom latin</span><h3>Comment les pêcheurs l'appellent</h3>
 <p>Utilise le nom que les pêcheurs chercheraient. Aucun autre poisson ne doit déjà le porter. Ajoute aussi le nom latin, pour qu'un modérateur sache exactement de quel poisson tu parles. Les autres noms sous lesquels il est connu vont dans la case en dessous, séparés par des virgules.</p></div>
 <div class="step"><span class="num">Photo</span><h3>Un détourage de profil</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Pays et milieux où on le trouve</span><h3>Là où un pêcheur le rencontrerait</h3>
 <p>Coche chaque pays où il vit, et s'il se trouve en eau calme, en rivières lentes ou en rivières rapides. Coche tout ce qui s'applique.</p></div>
 <div class="step"><span class="num">Taille</span><h3>Des records, avec un lien</h3>
-<p>Chaque pays coché reçoit une ligne pour son poids record en livres, onces et drams. Il te faut au moins un record, et chaque record a besoin d'un lien vers l'endroit où il est enregistré : un comité des records, une fédération de pêche ou la page d'un club qu'un modérateur peut ouvrir et vérifier. Laisse un pays vide si son record n'est pas connu.</p>
-<p>Le poids adulte typique et la taille d'un spécimen sont conservés avec ton poisson pour plus tard. Remplis-les si tu les connais.</p></div>
+<p>Chaque pays coché reçoit une ligne pour son poids record en livres, onces et drams. Il te faut au moins un record, et chaque record a besoin d'un lien vers l'endroit où il est enregistré : un comité des records, une fédération de pêche ou la page d'un club qu'un modérateur peut ouvrir et vérifier. Laisse un pays vide si son record n'est pas connu.</p></div>
 <h2 id="water">4. Dans quelles eaux il vit</h2>
 <p>Coche <strong>Eau douce</strong>, <strong>Estuaire</strong> ou <strong>Pêche en mer</strong>, autant que nécessaire. Tes coches décident dans quelles eaux le poisson peut être pris. Un poisson n'est jamais pris dans une eau qui ne lui convient pas, aussi bien que tout le reste lui corresponde.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Question</th><th>À quoi penser</th></tr>
 <tr><td>Où se nourrit-il ?</td><td>Classe Au fond, Entre deux eaux et En surface dans l'ordre, le plus fréquent en premier.</td></tr>
-<tr><td>Que mange-t-il ?</td><td>Sur la page Son alimentation : pour chaque type de nourriture, choisis Nourriture principale, Mange volontiers, De temps en temps ou Jamais.</td></tr>
+<tr><td>Où aime-t-il se tenir ?</td><td>Pour chaque type d'endroit, comme les herbiers, les nénuphars, les roseaux, le bois mort, la roche ou l'ombre au-dessus : Adore, Aime, Indifférent ou Évite. Près d'un endroit qu'il adore ou qu'il aime, il mord plus souvent ; près d'un endroit qu'il évite, moins souvent.</td></tr>
 <tr><td>Quand se nourrit-il le mieux ?</td><td>En journée, à l'aube et au crépuscule, ou la nuit.</td></tr>
 <tr><td>Où se tient-il ?</td><td>Eau libre, un peu d'abri, ou obstacles et herbiers.</td></tr>
 <tr><td>Eau claire ou teintée ?</td><td>Celle qu'il préfère.</td></tr>
-<tr><td>Comment mord-il ?</td><td>Petites tirées délicates, remontées franches, ou il part en flèche avec l'appât.</td></tr>
-<tr><td>À quel point est-il méfiant ?</td><td>Hardi, prudent ou très méfiant.</td></tr>
+<tr><td>Comment mord-il ?</td><td>Neuf styles de touche, de Plonge et coule ou Soulève le flotteur à Franche, puis part ou Traction lente et régulière. Ensuite, la rapidité des petites touches (Rapide à Lentes) et combien de temps il garde l'appât (Très brièvement à Longtemps).</td></tr>
 <tr><td>Comment se défend-il ?</td><td>Choisis le combat dont la description ressemble le plus au poisson au bout de ta ligne.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Réponses à Où aime-t-il se tenir ? pour une carpe" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Où il aime se tenir, endroit par endroit.</figcaption></figure>
+<figure class="fit"><img alt="Comment mord-il ? avec ses neuf styles et deux durées" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Comment il mord, et la rapidité et la durée de la touche.</figcaption></figure>
+</div>
 <h2 id="temp">6. Température de l'eau, en degrés</h2>
 <p>Choisis le profil qui ressemble le plus à ton poisson. Il remplit trois valeurs en °C, que tu peux modifier :</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>À l’aise à partir de</strong> et <strong>à l’aise jusqu’à</strong> : la plage dans laquelle il se nourrit encore bien.</li>
 </ul>
 <p>Les valeurs doivent aller du bas, à l'idéal, puis au haut. Hors de sa plage de confort, le poisson arrête de s'alimenter : quelques degrés plus froid et la plupart des poissons ne gardent qu'un filet d'appétit ; quelques degrés plus chaud et ils s'arrêtent complètement.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="L'étiquette de température de l'eau et ses trois chiffres" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Choisis une étiquette et les trois chiffres sont remplis.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Profil</th><th>Idéal</th><th>Confort</th><th>Ce que ça veut dire</th></tr>
 <tr><td>Spécialiste des eaux froides</td><td>12 °C</td><td>6 à 17 °C</td><td>Aime l’eau froide et claire ; peine dès qu’elle se réchauffe. Truite, ombre, omble, cabillaud.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropical</td><td>29 °C</td><td>25 à 33 °C</td><td>Eau chaude uniquement ; arrête de manger quand elle refroidit. Barramundi, peacock bass.</td></tr>
 </table></div>
 <div class="callout">Ne change les valeurs que si tu sais que ton poisson s'écarte de son profil. L'eau d'un plan d'eau se réchauffe et se refroidit au fil des saisons, et un plan d'eau repéré à son vrai emplacement sur Terre suit le climat de cet endroit. Un poisson tropical empoissonné dans une eau froide ne se nourrira presque jamais, et c'est le poisson qui se comporte honnêtement, pas un bug.</div>
-<h2 id="check">7. Page 3 : vérifier et soumettre</h2>
+<h2 id="feeds">7. Page 3 : comment il se nourrit</h2>
+<p>Cette page décide quels appâts ton poisson prend, et comment on le trompe. Le <a href="/fr/baitcreators">guide</a> du créateur d'appâts pose les mêmes questions du côté de l'appât, pour que les deux se rencontrent dans l'eau.</p>
+<table class="pass">
+<tr><th>Question</th><th>À quoi penser</th></tr>
+<tr><td>Que mange-t-il ?</td><td>Pour chaque type de nourriture, des graines et plantes aux vers, crustacés, poissons, viande, pâte et rien de comestible : Nourriture principale, Mange volontiers, De temps en temps ou Jamais. Un poisson ne prend jamais un appât fait de quelque chose qu'il ne mange jamais.</td></tr>
+<tr><td>Comment trouve-t-il sa nourriture ?</td><td>À l'odeur, au mouvement ou les deux.</td></tr>
+<tr><td>Quelle odeur un appât doit-il avoir pour lui ?</td><td>De À peine à Empeste.</td></tr>
+<tr><td>Combien un appât doit-il bouger pour lui ?</td><td>De N'en a pas besoin à Nage.</td></tr>
+<tr><td>Quelle est la qualité de sa vue ?</td><td>S'en sert à peine, Moyen, Bon ou Perçante.</td></tr>
+<tr><td>Est-il attiré par les reflets ?</td><td>Oui ou non.</td></tr>
+<tr><td>Quelle est la taille de sa bouche ?</td><td>De Minuscule à Énorme. Un appât trop gros pour sa bouche est refusé.</td></tr>
+<tr><td>À quel point se méfie-t-il de la ligne ?</td><td>De Très méfiant envers la ligne à Pas méfiant envers la ligne : à quel point une ligne épaisse le rebute.</td></tr>
+<tr><td>À quel point est-il méfiant ?</td><td>Hardi, prudent ou très méfiant.</td></tr>
+</table>
+<figure class="fit"><img alt="Que mange-t-il ? rempli pour une carpe" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Ce qu'il mange, une réponse pour chaque type de nourriture.</figcaption></figure>
+<h2 id="check">8. Page 4 : vérifier et soumettre</h2>
 <p>La dernière page montre ton poisson tel que les autres pêcheurs le verront, avec une courte description rédigée à partir de tes réponses et la liste de ce qui diffère du poisson à partir duquel il a été créé. Lis la description : si elle ne ressemble pas à ton poisson, l'une de tes réponses est fausse.</p>
-<p>S'il manque quelque chose, une case intitulée <strong>Avant de pouvoir soumettre</strong> le liste. Clique sur un élément pour y aller directement. Quand plus rien ne manque, <strong>Soumettre aux modérateurs</strong> envoie ton poisson.</p>
-<h2 id="review">8. Ce que regardent les modérateurs</h2>
+<p>S'il manque quelque chose, une case appelée <strong>Avant de pouvoir soumettre</strong> le liste. Clique sur un élément pour y aller directement. Quand rien ne manque, <strong>Soumettre aux modérateurs</strong> envoie ton poisson. Le jeu demande d'abord : seul <strong>Oui, l’envoyer</strong> dans la fenêtre qui s'ouvre l'envoie, et <strong>Pas encore</strong> le garde en brouillon.</p>
+<figure><img alt="Page 4 : le poisson terminé et ce qui manque encore" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Page 4. Il manque encore à cette carpe cuir un poids record et sa propre photo, donc Soumettre attend.</figcaption></figure>
+<h2 id="review">9. Ce que regardent les modérateurs</h2>
 <ul>
 <li><strong>Un vrai poisson.</strong> Le créateur d'espèces est fait pour les poissons que les pêcheurs attrapent, décrits tels qu'ils sont.</li>
 <li><strong>Un record vérifiable.</strong> Le lien doit s'ouvrir, et il doit afficher le poids que tu as saisi.</li>

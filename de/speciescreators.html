@@ -78,6 +78,10 @@
   .pair figure{margin:0;}
   @media(max-width:640px){.pair{grid-template-columns:1fr;}}
   figcaption{color:var(--muted);font-size:0.82rem;margin-top:0.45rem;text-align:center;}
+  /* P4-664: a close-up of one part of a screen is shown at its own size, never stretched; a painting runs the full width */
+  figure.fit img{width:auto;max-width:100%;margin:0 auto;}
+  figure.painting img{border:none;cursor:default;}
+  figure.painting img:hover{transform:none;}
   .pass td:first-child{color:var(--brand-bone);font-weight:700;white-space:nowrap;}
   /* this page's first columns hold whole questions and long label names, which run long in translation: let them wrap; tighten the four-column table on a phone */
   .pass td:first-child{white-space:normal;min-width:6.5em;}
@@ -128,8 +132,9 @@
 <main>
 <h1>Der Leitfaden für Arten-Ersteller</h1>
 <p class="meta"><strong>Wie du einen echten Fisch einmal beschreibst, damit jeder Gewässer-Ersteller ihn einsetzen kann.</strong></p>
-<p class="meta">Zuletzt aktualisiert: 12. Oktober 2026</p>
-<div class="intro">Der Arten-Editor stellt dir auf drei Seiten Fragen zu einem Fisch. Deine Antworten bestimmen, wie sich dieser Fisch im Wasser verhält: wann er frisst, was er nimmt, wie er beißt und wie er kämpft. Diese Seite erklärt, worauf jede Frage wirklich hinauswill und was ein Moderator prüft, bevor dein Fisch in die Besatzliste aller kommt.</div>
+<p class="meta">Zuletzt aktualisiert: 24. November 2026</p>
+<div class="intro">Der Arten-Ersteller stellt vier Seiten Fragen zu einem Fisch. Deine Antworten bestimmen, wie sich dieser Fisch im Wasser verhält: wann er frisst, was er nimmt, wie er beißt und wie er kämpft. Diese Seite erklärt, was jede Frage wirklich wissen will und was ein Moderator prüft, bevor dein Fisch in die Besatzliste aller kommt.</div>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-header.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-header.webp" alt="An angler's notebook open beside a misty lake, with a painted study of a carp" loading="lazy"/></figure> -->
 <ol class="toc">
 <li><a href="#life">Entwurf, eingereicht, freigegeben: was mit deinem Fisch passiert</a></li>
 <li><a href="#start">Von einem vorhandenen Fisch ausgehen</a></li>
@@ -137,7 +142,8 @@
 <li><a href="#water">In welchen Gewässern er lebt</a></li>
 <li><a href="#behave">Seite 2: wie er sich verhält</a></li>
 <li><a href="#temp">Wassertemperatur in Grad</a></li>
-<li><a href="#check">Seite 3: prüfen und einreichen</a></li>
+<li><a href="#feeds">Seite 3: wie er frisst</a></li>
+<li><a href="#check">Seite 4: prüfen und einreichen</a></li>
 <li><a href="#review">Worauf die Moderatoren achten</a></li>
 </ol>
 <h2 id="life">1. Entwurf, eingereicht, freigegeben</h2>
@@ -152,9 +158,11 @@
 <p>Ein Fisch, den du speicherst, erscheint beim nächsten Spielstart in deiner eigenen Besatzliste, nicht sofort.</p>
 <h2 id="start">2. Von einem vorhandenen Fisch ausgehen</h2>
 <p>Am schnellsten baust du einen Fisch mit dem Feld <strong>Abkürzung</strong> oben auf Seite 1. Wähl den Fisch im Spiel, der deinem am ähnlichsten ist, und jede Antwort wird von ihm übernommen. Dann änderst du nur, was anders ist.</p>
-<p>Ein Geisterkarpfen ist ein gutes Beispiel: Geh vom Schuppenkarpfen aus, ändere den Namen, das Foto und die Rekorde, und du bist fast fertig. Die letzte Seite listet alles auf, was du geändert hast, und sagt, von welchem Fisch deiner ausgeht. Das sieht auch der Moderator.</p>
+<p>Ein Lederkarpfen ist ein gutes Beispiel: Geh vom Schuppenkarpfen aus, ändere den Namen, das Foto und die Rekorde, und du bist fast fertig. Die letzte Seite listet alles auf, was du geändert hast, und sagt, von welchem Fisch deiner ausgeht. Der Moderator sieht das auch.</p>
+<figure class="fit"><img alt="Das Feld Abkürzung mit Schuppenkarpfen ausgewählt" loading="lazy" src="/gallery/sp-01-shortcut.webp"/><figcaption>Das Feld Abkürzung: Wähle den Fisch, der deinem am ähnlichsten ist.</figcaption></figure>
 <div class="callout">Wenn kein Fisch im Spiel alle deine Antworten teilt, werden ein paar der feineren Einstellungen von dem Fisch übernommen, von dem deiner ausgeht. Die letzte Seite sagt dir, wenn das passiert ist. Bei einem ungewöhnlichen Fisch ist das normal.</div>
 <h2 id="fish">3. Seite 1: der Fisch</h2>
+<figure><img alt="Seite 1 des Arten-Erstellers" loading="lazy" src="/gallery/sp-02-page1.webp"/><figcaption>Seite 1. Die mit * markierten Antworten sind nötig, bevor du einreichen kannst.</figcaption></figure>
 <div class="step"><span class="num">Name und lateinischer Name</span><h3>Wie Angler ihn nennen</h3>
 <p>Nimm den Namen, nach dem Angler suchen würden. Kein anderer Fisch darf ihn schon haben. Gib auch den lateinischen Namen an, damit ein Moderator genau erkennt, welchen Fisch du meinst. Weitere Namen, unter denen er bekannt ist, kommen ins Feld darunter, durch Kommas getrennt.</p></div>
 <div class="step"><span class="num">Foto</span><h3>Ein Freisteller von der Seite</h3>
@@ -162,8 +170,7 @@
 <div class="step"><span class="num">Länder und wo er vorkommt</span><h3>Wo ein Angler ihm begegnen würde</h3>
 <p>Kreuze jedes Land an, in dem er lebt, und ob er in Stillwasser, langsamen Flüssen oder schnellen Flüssen vorkommt. Kreuze alles Zutreffende an.</p></div>
 <div class="step"><span class="num">Größe</span><h3>Rekorde, mit Link</h3>
-<p>Jedes Land, das du angekreuzt hast, bekommt eine Zeile für sein Rekordgewicht in Pfund, Unzen und Drams. Du brauchst mindestens einen Rekord, und jeder Rekord braucht einen Link zu der Stelle, wo er verzeichnet ist: ein Rekordkomitee, ein Anglerverband oder eine Vereinsseite, die ein Moderator öffnen und prüfen kann. Lass ein Land leer, wenn sein Rekord nicht bekannt ist.</p>
-<p>Das typische Gewicht ausgewachsener Fische und die Größe eines kapitalen Fischs werden für später mit deinem Fisch gespeichert. Füll sie aus, wenn du sie kennst.</p></div>
+<p>Jedes Land, das du angekreuzt hast, bekommt eine Zeile für sein Rekordgewicht in Pfund, Unzen und Drams. Du brauchst mindestens einen Rekord, und jeder Rekord braucht einen Link zu der Stelle, wo er verzeichnet ist: ein Rekordkomitee, ein Anglerverband oder eine Vereinsseite, die ein Moderator öffnen und prüfen kann. Lass ein Land leer, wenn sein Rekord nicht bekannt ist.</p></div>
 <h2 id="water">4. In welchen Gewässern er lebt</h2>
 <p>Kreuze <strong>Süßwasser</strong>, <strong>Mündung</strong> oder <strong>Meer</strong> an, so viele wie zutreffen. Deine Kreuze entscheiden, in welchen Gewässern der Fisch gefangen werden kann. Ein Fisch wird nie in Wasser gefangen, das für ihn falsch ist, egal wie gut alles andere passt.</p>
 <table class="pass">
@@ -178,14 +185,17 @@
 <table class="pass">
 <tr><th>Frage</th><th>Worüber du nachdenken solltest</th></tr>
 <tr><td>Wo frisst er?</td><td>Bring Am Grund, Im Mittelwasser und An der Oberfläche in eine Reihenfolge, das Häufigste zuerst.</td></tr>
-<tr><td>Was frisst er?</td><td>Auf der Seite Wie er frisst: Wähle für jede Art von Nahrung Hauptnahrung, Frisst er gern, Ab und zu oder Nie.</td></tr>
+<tr><td>Wo hält er sich gern auf?</td><td>Für jede Art von Ort, zum Beispiel Krautbetten, Seerosen, Schilf, Totholz, Fels oder Schatten von oben: Liebt, Mag, Egal oder Meidet. In der Nähe eines Ortes, den er liebt oder mag, beißt er öfter; in der Nähe eines Ortes, den er meidet, seltener.</td></tr>
 <tr><td>Wann frisst er am besten?</td><td>Tagsüber, in der Morgen- und Abenddämmerung oder nachts.</td></tr>
 <tr><td>Wo hält er sich auf?</td><td>Freies Wasser, etwas Deckung oder Hindernisse und Kraut.</td></tr>
 <tr><td>Klares oder trübes Wasser?</td><td>Was er bevorzugt.</td></tr>
-<tr><td>Wie beißt er?</td><td>Zarte Zupfer, kräftiges Anheben, oder er zieht mit dem Köder ab.</td></tr>
-<tr><td>Wie scheu ist er?</td><td>Mutig, vorsichtig oder sehr scheu.</td></tr>
+<tr><td>Wie beißt er?</td><td>Neun Bissarten, von Zupfen und ab oder Hebt die Pose bis Bestimmt, dann Run oder Langsamer, stetiger Zug. Dann, wie schnell die Zupfer kommen (Schnell bis Langsam) und wie lange er den Köder hält (Sehr kurz bis Lange).</td></tr>
 <tr><td>Wie kämpft er?</td><td>Wähl den Kampf, dessen Beschreibung am meisten nach dem Fisch am Ende deiner Schnur klingt.</td></tr>
 </table>
+<div class="pair">
+<figure class="fit"><img alt="Antworten auf Wo hält er sich gern auf? für einen Karpfen" loading="lazy" src="/gallery/sp-03-habitat.webp"/><figcaption>Wo er sich gern aufhält, Ort für Ort.</figcaption></figure>
+<figure class="fit"><img alt="Wie beißt er? mit seinen neun Bissarten und zwei Zeitangaben" loading="lazy" src="/gallery/sp-04-bite.webp"/><figcaption>Wie er beißt, und wie schnell und lang der Biss ist.</figcaption></figure>
+</div>
 <h2 id="temp">6. Wassertemperatur in Grad</h2>
 <p>Wähl die Bezeichnung, die am meisten nach deinem Fisch klingt. Sie trägt drei Werte in °C ein, die du ändern kannst:</p>
 <ul>
@@ -193,6 +203,8 @@
 <li><strong>Wohlfühlbereich ab</strong> und <strong>Wohlfühlbereich bis</strong>: der Bereich, in dem er noch gut frisst.</li>
 </ul>
 <p>Die Werte müssen von niedrig über am besten bis hoch verlaufen. Außerhalb seines Wohlfühlbereichs hört der Fisch auf zu fressen: ein paar Grad kälter, und die meisten Fische behalten nur noch einen Rest Appetit; ein paar Grad wärmer, und sie hören ganz auf.</p>
+<!-- PAINTING OWED (SWIMCRAFT_ART_OWED.xlsx, gp-species-temperature.jpg): uncomment when it lands. <figure class="painting"><img src="/gallery/gp-species-temperature.webp" alt="One waterscape running from an icy trout stream to a hot tropical billabong" loading="lazy"/></figure> -->
+<figure class="fit"><img alt="Das Etikett für die Wassertemperatur und seine drei Zahlen" loading="lazy" src="/gallery/sp-05-temperature.webp"/><figcaption>Wähle ein Etikett, und die drei Zahlen werden ausgefüllt.</figcaption></figure>
 <div class="tablewrap"><table class="pass labels">
 <tr><th>Bezeichnung</th><th>Am besten</th><th>Wohlfühlbereich</th><th>Was es bedeutet</th></tr>
 <tr><td>Kaltwasser-Spezialist</td><td>12 °C</td><td>6 bis 17 °C</td><td>Liebt kaltes, sauberes Wasser; tut sich schwer, sobald es warm wird. Forelle, Äsche, Saibling, Dorsch.</td></tr>
@@ -205,10 +217,26 @@
 <tr><td>Tropisch</td><td>29 °C</td><td>25 bis 33 °C</td><td>Nur warmes Wasser; hört auf zu fressen, wenn es abkühlt. Barramundi, Pfauenaugenbarsch.</td></tr>
 </table></div>
 <div class="callout">Ändere die Werte nur, wenn du weißt, dass dein Fisch von seiner Bezeichnung abweicht. Das Wasser eines Gewässers erwärmt und kühlt sich mit den Jahreszeiten, und ein Gewässer, das an seinem echten Ort auf der Erde markiert ist, folgt dem Klima dieses Ortes. Ein tropischer Fisch in einem kalten Gewässer wird kaum je fressen, und das ist ehrliches Fischverhalten, kein Fehler.</div>
-<h2 id="check">7. Seite 3: prüfen und einreichen</h2>
+<h2 id="feeds">7. Seite 3: wie er frisst</h2>
+<p>Diese Seite entscheidet, welche Köder dein Fisch nimmt und wie er sich überlisten lässt. Der <a href="/de/baitcreators">Leitfaden</a> für Köder-Ersteller fragt dasselbe von der Seite des Köders, sodass sich beide im Wasser treffen.</p>
+<table class="pass">
+<tr><th>Frage</th><th>Worüber du nachdenken solltest</th></tr>
+<tr><td>Was frisst er?</td><td>Für jede Art von Nahrung, von Getreide und Pflanzen über Würmer, Schalentiere, Fisch, Fleisch und Teig bis zu Nicht essbarem: Hauptnahrung, Frisst er gern, Ab und zu oder Nie. Ein Fisch nimmt nie einen Köder aus etwas, das er nie frisst.</td></tr>
+<tr><td>Wie findet er sein Futter?</td><td>Geruch, Bewegung oder beides.</td></tr>
+<tr><td>Wie stark muss ein Köder für ihn riechen?</td><td>Von Kaum bis Stinkt.</td></tr>
+<tr><td>Wie viel muss sich ein Köder für ihn bewegen?</td><td>Von Braucht er nicht bis Schwimmt.</td></tr>
+<tr><td>Wie gut sieht er?</td><td>Nutzt sie kaum, Mittelmäßig, Gut oder Scharf.</td></tr>
+<tr><td>Lockt ihn Glitzern an?</td><td>Ja oder nein.</td></tr>
+<tr><td>Wie groß ist sein Maul?</td><td>Von Winzig bis Riesig. Ein Köder, der zu groß für sein Maul ist, wird verweigert.</td></tr>
+<tr><td>Wie schnurscheu ist er?</td><td>Von Sehr schnurscheu bis Nicht schnurscheu: wie sehr ihn eine dicke Schnur abschreckt.</td></tr>
+<tr><td>Wie scheu ist er?</td><td>Mutig, vorsichtig oder sehr scheu.</td></tr>
+</table>
+<figure class="fit"><img alt="Was frisst er? für einen Karpfen beantwortet" loading="lazy" src="/gallery/sp-06-diet.webp"/><figcaption>Was er frisst, eine Antwort für jede Art von Nahrung.</figcaption></figure>
+<h2 id="check">8. Seite 4: prüfen und einreichen</h2>
 <p>Die letzte Seite zeigt deinen Fisch so, wie andere Angler ihn sehen werden, mit einer kurzen Beschreibung aus deinen Antworten und einer Liste dessen, was sich von dem Fisch unterscheidet, von dem er ausgeht. Lies die Beschreibung: Wenn sie nicht nach deinem Fisch klingt, ist eine deiner Antworten falsch.</p>
-<p>Wenn etwas fehlt, listet es ein Feld namens <strong>Bevor du einreichen kannst</strong> auf. Klick auf einen Punkt, um direkt dorthin zu springen. Wenn nichts mehr fehlt, schickt <strong>An die Moderatoren senden</strong> deinen Fisch ab.</p>
-<h2 id="review">8. Worauf die Moderatoren achten</h2>
+<p>Fehlt noch etwas, listet ein Feld namens <strong>Bevor du einreichen kannst</strong> es auf. Klicke auf einen Eintrag, um direkt dorthin zu springen. Fehlt nichts mehr, schickt <strong>An die Moderatoren senden</strong> deinen Fisch ein. Das Spiel fragt vorher nach: Nur <strong>Ja, senden</strong> in dem Fenster, das sich öffnet, schickt ihn ab, und <strong>Noch nicht</strong> behält ihn als Entwurf.</p>
+<figure><img alt="Seite 4: der fertige Fisch und was noch fehlt" loading="lazy" src="/gallery/sp-07-check.webp"/><figcaption>Seite 4. Diesem Lederkarpfen fehlen noch ein Rekordgewicht und ein eigenes Foto, also wartet Einreichen.</figcaption></figure>
+<h2 id="review">9. Worauf die Moderatoren achten</h2>
 <ul>
 <li><strong>Ein echter Fisch.</strong> Der Arten-Editor ist für Fische, die Angler fangen, so beschrieben, wie sie sind.</li>
 <li><strong>Ein Rekord, der sich bestätigen lässt.</strong> Der Link muss sich öffnen und das Gewicht zeigen, das du eingegeben hast.</li>
