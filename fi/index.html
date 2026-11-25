@@ -139,17 +139,24 @@
   }
 
   /* ── SITE NAV (news, advertise) — quiet text links over the hero, so the CTAs stay the loudest thing ── */
-  .site-nav{position:absolute;top:0;right:0;z-index:2;display:flex;gap:1.4rem;padding:1.1rem 1.5rem;}
+  .site-nav{position:absolute;top:0;right:0;left:0;z-index:2;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0.5rem 1.4rem;padding:1.1rem 1.5rem;}
+  .site-nav a{white-space:nowrap;}
   .site-nav a{color:var(--brand-bone);font-family:var(--font-ui);font-weight:600;font-size:0.95rem;text-decoration:none;
     text-shadow:0 1px 6px rgba(0,0,0,0.6);}
   .site-nav a:hover{color:var(--gold-light);text-decoration:underline;text-underline-offset:3px;}
   .site-nav a:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;border-radius:4px;}
-  @media (max-width:600px){ .site-nav{left:0;justify-content:center;padding-top:0.9rem;} }
+  @media (max-width:600px){ .site-nav{left:0;justify-content:center;padding:0.8rem 0.8rem 0;gap:0.3rem 0.85rem;font-size:0.88rem;} header.hero{padding-top:5.5rem;} }
 
   footer{text-align:center;padding:2rem 1.5rem;background:var(--ink);color:var(--muted);
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
   footer .fw .craft{color:var(--brand-olive);}
+.indoors-card{display:flex;gap:16px;align-items:center;max-width:760px;margin:28px auto 8px;padding:12px;background:#2A3420;border:1px solid rgba(143,170,107,.3);border-left:3px solid #C9A84C;border-radius:12px;color:#E8F0E0;text-decoration:none;text-align:left}
+.indoors-card:hover{border-color:#8FAA6B}
+.indoors-card img{width:132px;height:96px;object-fit:cover;object-position:72% 35%;border-radius:8px;flex:none}
+.indoors-card strong{color:#E6DCC6;font-size:1.1rem;display:block;margin-bottom:2px}
+.indoors-more{color:#F0D080;font-weight:700;white-space:nowrap}
+@media (max-width:560px){.indoors-card img{width:88px;height:72px}.indoors-text{min-width:0}.indoors-more{white-space:normal}}
   /* EA launch (5 Nov 2026): the showcase rows, a screenshot beside a few lines, alternating sides */
   .hero-out{margin-top:0.9rem;font-family:var(--font-display);font-weight:700;color:var(--gold-light);letter-spacing:0.04em;}
   .showcase{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 2rem;}
@@ -180,7 +187,8 @@
 <nav aria-label="Sivusto" class="site-nav"><a href="/fi/news">Uutiset</a>
 <a href="/fi/advertise">Mainosta</a>
 <a href="/fi/swimcraft-influencers">Vaikuttajat</a>
-<a href="/fi/press">Lehdistö</a></nav>
+<a href="/fi/press">Lehdistö</a>
+<a href="/fi/stuck-indoors">Jumissa sisällä?</a></nav>
 <div class="hero-inner">
 <div class="eyebrow">Harbledown Digital · Early Access</div>
 <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
@@ -240,7 +248,7 @@
 <div class="feature"><h3>Lisää kalastettavaa</h3><p>Monikoukkuisia meririgejä sekä lisää kalavesiä, lajeja ja välineitä jokaisessa päivityksessä.</p></div>
 <div class="feature"><h3>Kauempana <span class="tag-planned">Suunniteltu</span></h3><p>Perhokalastus täysversiossa ja sen jälkeen verkkokilpailut ja turnaukset.</p></div>
 </div>
-<div class="signup" id="updates">
+<a class="indoors-card" href="/fi/stuck-indoors"><img alt="" loading="lazy" src="/indoors-window.jpg"/><span class="indoors-text"><strong>Jumissa sisällä?</strong> Sade, kipeä selkä tai elämä tulee väliin: lempivetesi ei tarvitse odottaa. <span class="indoors-more">Kalasta sohvalta →</span></span></a><div class="signup" id="updates">
 <h3>Mieluummin sähköpostia?</h3>
 <p>Jätä sähköpostisi satunnaisia päivityksiä varten. Ei roskapostia, ja voit lähteä milloin tahansa.</p>
 <form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
@@ -363,6 +371,6 @@
   })();
 </script>
 <footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/fi/news" style="color:var(--muted);text-decoration:underline;">Uutiset</a> · <a href="/fi/advertise" style="color:var(--muted);text-decoration:underline;">Mainosta</a> · <a href="/fi/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Vaikuttajat</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Tietosuojakäytäntö</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Käyttöehdot</a></footer>
+  <a href="/fi/news" style="color:var(--muted);text-decoration:underline;">Uutiset</a> · <a href="/fi/advertise" style="color:var(--muted);text-decoration:underline;">Mainosta</a> · <a href="/fi/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Vaikuttajat</a> · <a href="/fi/stuck-indoors" style="color:var(--muted);text-decoration:underline;">Jumissa sisällä?</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Tietosuojakäytäntö</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Käyttöehdot</a></footer>
 <details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Suomi</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a aria-current="true" href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
 </html>
