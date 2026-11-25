@@ -150,12 +150,17 @@
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
   footer .fw .craft{color:var(--brand-olive);}
-.indoors-card{display:flex;gap:16px;align-items:center;max-width:760px;margin:28px auto 8px;padding:12px;background:#2A3420;border:1px solid rgba(143,170,107,.3);border-left:3px solid #C9A84C;border-radius:12px;color:#E8F0E0;text-decoration:none;text-align:left}
-.indoors-card:hover{border-color:#8FAA6B}
-.indoors-card img{width:132px;height:96px;object-fit:cover;object-position:72% 35%;border-radius:8px;flex:none}
-.indoors-card strong{color:#E6DCC6;font-size:1.1rem;display:block;margin-bottom:2px}
-.indoors-more{color:#F0D080;font-weight:700;white-space:nowrap}
-@media (max-width:560px){.indoors-card img{width:88px;height:72px}}
+  /* EA launch (5 Nov 2026): the showcase rows, a screenshot beside a few lines, alternating sides */
+  .hero-out{margin-top:0.9rem;font-family:var(--font-display);font-weight:700;color:var(--gold-light);letter-spacing:0.04em;}
+  .showcase{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 2rem;}
+  .show-row{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:center;margin:2.2rem 0;}
+  .show-row.flip{grid-template-columns:2fr 3fr;}
+  .show-row.flip img{order:2;}
+  .show-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--ink);cursor:zoom-in;box-shadow:0 8px 30px rgba(0,0,0,0.45);}
+  .show-text h3{font-family:var(--font-display);font-weight:700;font-size:1.45rem;color:var(--brand-bone);margin-bottom:0.6rem;}
+  .show-text p{color:var(--muted);line-height:1.65;font-size:1rem;}
+  .show-foot{text-align:center;margin-top:1rem;}
+  @media (max-width:760px){.show-row,.show-row.flip{grid-template-columns:1fr;gap:1rem;}.show-row.flip img{order:0;}}
 </style>
 <link href="https://swimcraft.harbledowndigital.com/de/" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="x-default" rel="alternate"/><style>
 .sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
@@ -177,63 +182,89 @@
 <a href="/de/swimcraft-influencers">Influencer</a>
 <a href="/de/press">Presse</a></nav>
 <div class="hero-inner">
-<div class="eyebrow">Harbledown Digital · In Entwicklung</div>
+<div class="eyebrow">Harbledown Digital · Early Access</div>
 <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
 <p class="tagline">Verwandle deine Lieblingsangelplätze in virtuelle Angelgewässer</p>
-<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Auf die Steam-Wunschliste</a>
-<a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Demo spielen</a>
-<a class="btn btn-ghost" href="#updates">Updates per E-Mail</a></div>
+<p class="hero-out">Jetzt im Early Access auf Steam</p>
+<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Auf Steam kaufen</a>
+<a class="btn btn-primary" href="#trailer">Trailer ansehen</a>
+<a class="btn btn-ghost" href="#updates">E-Mail-Updates erhalten</a></div>
 </div>
 </header>
-<section class="trailer">
-<h2>In Aktion ansehen</h2>
-<!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
-<div aria-label="Das Gameplay-Video zu Swimcraft abspielen" class="video-facade" data-id="wB7IMyU5IBA" id="video-facade" role="button" tabindex="0">
-<img alt="Das Gameplay-Video zu Swimcraft ansehen" loading="lazy"/>
+<section class="trailer" id="trailer">
+<h2>Trailer ansehen</h2>
+<!-- Swimcraft trailer — data-id is the YouTube video ID (after v= or youtu.be/). EA launch kit: swap in the new trailer's ID here. -->
+<div aria-label="Den Swimcraft-Trailer abspielen" class="video-facade" data-id="InZG76p4bbM" id="video-facade" role="button" tabindex="0">
+<img alt="Den Swimcraft-Trailer ansehen" loading="lazy"/>
 <div aria-hidden="true" class="play"></div>
 </div>
 </section>
 <section class="content">
 <h2>Was ist Swimcraft?</h2>
-<p class="lead">Swimcraft ist eine Angelsimulation mit einem Unterschied: Du verwandelst echte Fotos deiner Lieblingsangelplätze in voll spielbare Gewässer und befischst sie dann.</p>
-<p class="lead">Friedfisch-, Kunstköder- und Meeresangeln: drei Disziplinen in einem Spiel, jedes Gewässer gebaut aus einem Ort, den du kennst.</p>
-<p class="lead muted">Das Spiel ist in aktiver Entwicklung. Hier siehst du, was jetzt schon spielbar ist und was noch kommt.</p>
-<div class="features">
-<div class="feature"><h3>Vom Foto zum Gewässer</h3><p>Zeichne einen Angelplatz aus deinen eigenen Fotos nach, mit Wasser, Inseln, Tiefen und Strukturen, und er wird zu einem befischbaren Angelplatz.</p></div>
-<div class="feature"><h3>Echter Wurf &amp; Drill</h3><p>Ein ehrlicher Wurf, Schnurkontrolle und ein artgerechter Drill, bei dem Fische flüchten, ermüden und dein Gerät auf die Probe stellen.</p></div>
-<div class="feature"><h3>Gerät &amp; Köder</h3><p>Ruten, Rollen, Schnüre, Haken, Montagen und Köder, die wirklich zählen: Du fängst einfach an und schaltest mit deinem Fortschritt mehr frei.</p></div>
-<div class="feature"><h3>Angler-Fortschritt</h3><p>Verdiene XP für jeden Fang, steig in den Rängen auf und schalte unterwegs Gerät und Köder frei. Ein kapitaler Fisch kann einen XP-Boost fallen lassen; heb ihn dir für eine Session auf, die zählt. Weitere Level und Belohnungen kommen im Laufe des Early Access.</p></div>
-<div class="feature"><h3>Turniere <span class="tag-planned">Geplant</span></h3><p>Online-Turniere und ein gemeinsamer Wettkampfkalender sind für die Zeit nach dem Launch geplant, aber noch nicht im Spiel.</p></div>
-<div class="feature"><h3>Bestenlisten</h3><p>Trag deine Fänge ein und klettere in den Gewässer- und weltweiten Bestenlisten nach oben, jeder Rekord verknüpft mit dem Angelplatz, an dem du ihn aufgestellt hast.</p></div>
+<p class="lead">Swimcraft ist eine Angelsimulation der besonderen Art: Du verwandelst echte Fotos deiner Lieblingsangelplätze in voll spielbare Gewässer und befischst sie dann.</p>
+<p class="lead">Friedfisch-, Karpfen-, Raubfisch- und Meeresangeln in einem Spiel, jedes Gewässer nach einem Ort gebaut, den jemand kennt.</p>
+</section>
+<section class="showcase">
+<div class="show-row">
+<img alt="Der Gewässer-Editor: Tiefe wird auf ein fotografiertes Gewässer gemalt" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<div class="show-text"><h3>Dein Angelplatz, aus deinen eigenen Fotos gebaut</h3><p>Zeichne die Uferlinie nach, male Tiefe, Kraut und Kies ein, besetze es mit den Fischen, die dort leben, und es wird ein Gewässer, das jeder befischen kann. Setz eine Nadel auf die Weltkarte, und die Jahreszeiten folgen dem Ort, an dem es wirklich liegt.</p></div>
 </div>
-<a class="indoors-card" href="/de/stuck-indoors"><img alt="" loading="lazy" src="/indoors-window.jpg"/><span class="indoors-text"><strong>Kommst du nicht raus?</strong> Regen, ein lädierter Rücken oder das Leben kommt dazwischen: Dein Lieblingsgewässer muss nicht warten. <span class="indoors-more">Angel es vom Sofa aus →</span></span></a><div class="signup" id="updates">
+<div class="show-row flip">
+<img alt="Angeln vom Kiesstrand unter Durdle Door im Morgengrauen" class="zoomable" loading="lazy" src="/gallery/ea/disciplines.webp"/>
+<div class="show-text"><h3>Friedfisch, Karpfen, Kunstköder und Meer</h3><p>Pose, Stippe, Grundangeln und Spinnfischen an Seen und Flüssen, Brandungs- und Posenangeln am Meer. Zwei Ruten gleichzeitig, Oberflächenköder, treibende Posen auf fließenden Flüssen und Angeln bis in die Nacht, Gezeiten, die kippen, und jedes Gewässer fischt sich auf seine eigene Art.</p></div>
+</div>
+<div class="show-row">
+<img alt="Ein Biss in Westbere: JETZT ANSCHLAGEN, die Karpfenrute auf ihrem Bissanzeiger" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<div class="show-text"><h3>Ein Wurf und ein Drill, die sich echt anfühlen</h3><p>Füttere deinen Platz an, beobachte die Pose, schlag beim Zupfer an. Jeder Fisch flüchtet, ermüdet und testet dein Gerät, und besseres Gerät dreht einen Fisch wirklich schneller.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Die Köderbox: Boilies, Pop-ups und das Aroma jedes Köders" class="zoomable" loading="lazy" src="/gallery/ea/bait-box.webp"/>
+<div class="show-text"><h3>Echtes Gerät, echte Köder</h3><p>Ruten, Rollen, Schnüre, Haken, Montagen und Bissanzeiger, dazu Boilies, Pop-ups, Partikel und Grundfutter. Fang einfach an und schalte mehr frei, während du aufsteigst.</p></div>
+</div>
+<div class="show-row">
+<img alt="Der Köder-Editor: wie ein Fisch den Köder wahrnimmt, Geschmack, Geruch und Größe" class="zoomable" loading="lazy" src="/gallery/ea/bait-creator.webp"/>
+<div class="show-text"><h3>Mach dein eigenes</h3><p>Erstelle eigene Köder und Fischarten, schick sie an die Moderatoren und sieh sie in jedermanns Köderbox und an jedermanns Gewässern auftauchen.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Die Fortschrittsleiter in der Anglerhütte, jedes Level und was es bringt" class="zoomable" loading="lazy" src="/gallery/ea/progress.webp"/>
+<div class="show-text"><h3>Klettere die Bestenlisten hinauf</h3><p>XP für jeden Fang, Geräte-Stufen auf dem Weg zu Level 40, Erfolge, Avatare und saisonale Stücke, und Rekorde an jedem Gewässer, national und weltweit.</p></div>
+</div>
+<p class="lead muted show-foot">In zwanzig Sprachen, mit Controller-Unterstützung und Tasten, die du selbst belegst, einem realistischen Modus ganz ohne Bildschirmhinweise und einem Minimiert-Modus, der weiterangelt und deine Bisse aufhebt.</p>
+</section>
+<section class="content">
+<h2>Kommt während des Early Access</h2>
+<p class="lead muted">Der Early Access läuft etwa drei bis vier Monate. Wer jetzt kauft, bekommt jedes Update und die Vollversion ohne Aufpreis.</p>
+<div class="features">
+<div class="feature"><h3>Der Geräte-Editor</h3><p>Gestalte eigene Posen, Bissanzeiger und den Rest der Gerätekiste und teile sie.</p></div>
+<div class="feature"><h3>Spieler-Chat</h3><p>Sprich im Spiel mit anderen Anglern.</p></div>
+<div class="feature"><h3>Mehr zu befischen</h3><p>Mehrhaken-Montagen fürs Meer und mehr Gewässer, Fischarten und Gerät mit jedem Update.</p></div>
+<div class="feature"><h3>Weiter voraus <span class="tag-planned">Geplant</span></h3><p>Fliegenfischen zur Vollversion, danach Online-Wettkämpfe und Turniere.</p></div>
+</div>
+<div class="signup" id="updates">
 <h3>Lieber per E-Mail?</h3>
-<p>Die Steam-Wunschliste ist der beste Weg, um vom Launch zu erfahren, aber hinterlass gern deine E-Mail-Adresse für gelegentliche Updates.</p>
+<p>Hinterlass deine E-Mail für gelegentliche Neuigkeiten. Kein Spam, und du kannst dich jederzeit abmelden.</p>
 <form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
 <button class="btn btn-primary" type="submit">Benachrichtige mich</button></form>
 </div>
 </section>
 <section class="shots">
 <h2>Screenshots</h2>
-<p class="shots-sub">Aus dem aktuellen Entwicklungs-Build, noch in Arbeit.</p>
+<p class="shots-sub">Aus dem Early-Access-Build.</p>
 <div class="shot-grid">
-<img alt="Fisch am Haken, die Rute krumm und die Spannungsanzeige steigt" class="zoomable" loading="lazy" src="/gallery/the-fight.webp"/>
-<img alt="Der Gerätekasten mit echtem Gerät, sortiert nach Marke" class="zoomable" loading="lazy" src="/gallery/tackle-box.webp"/>
-<img alt="Die Köderbox mit Boilies und Pop-ups" class="zoomable" loading="lazy" src="/gallery/bait-box.webp"/>
-<img alt="Der Bildschirm für Meeresmontagen, drei Montagen gezeichnet und erklärt" class="zoomable" loading="lazy" src="/gallery/sea-rig.webp"/>
-<img alt="Der Arten-Editor beim Beschreiben eines echten Fischs" class="zoomable" loading="lazy" src="/gallery/species-creator.webp"/>
-<img alt="Ein fertiges Gewässer wird befischt" class="zoomable" loading="lazy" src="/gallery/vc-01-finished-venue.webp"/>
-<img alt="Auswahl eines von der Community gebauten Gewässers" class="zoomable" loading="lazy" src="/gallery/venue-chooser.webp"/>
-<img alt="Nachts beim Karpfenangeln am Westbere" class="zoomable" loading="lazy" src="/gallery/westbere-night.webp"/>
-<img alt="Feederangeln auf Distanz" class="zoomable" loading="lazy" src="/gallery/feeder.webp"/>
-<img alt="Meeresangeln vom Ufer" class="zoomable" loading="lazy" src="/gallery/sea_fishing.webp"/>
-<img alt="Die Anglerhütte" class="zoomable" loading="lazy" src="/gallery/anglers_lodge.webp"/>
-<img alt="Nachzeichnen der Uferlinie im Gewässer-Editor" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
-<img alt="Setzen der Entfernungs-Pins an einem Angelplatz" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
-<img alt="Malen von Tiefenlinien und Objekten am Seegrund im Gewässer-Editor" class="zoomable" loading="lazy" src="/gallery/venue-creator-objects.webp"/>
-<img alt="Kraut, Schlamm und Kies auf den Grund malen" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
-<img alt="Ein Fang lässt einen XP-Boost-Token fallen" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
-<img alt="Ein Schuppenkarpfen mit 25lb auf der Fangkarte" class="zoomable" loading="lazy" src="/gallery/carp-catch-card.webp"/>
+<img alt="Der gemalte Startbildschirm" class="zoomable" loading="lazy" src="/gallery/ea/01-home.webp"/>
+<img alt="Ein Biss in Westbere: JETZT ANSCHLAGEN" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<img alt="Meeresangeln unter Durdle Door im Morgengrauen" class="zoomable" loading="lazy" src="/gallery/ea/03-durdle-door.webp"/>
+<img alt="Lake Nojiri, Japan" class="zoomable" loading="lazy" src="/gallery/ea/lake-nojiri.webp"/>
+<img alt="Eine Pose draußen auf Jimbo's Farm Lake an einem stillen Morgen" class="zoomable" loading="lazy" src="/gallery/ea/02-jimbos-float-out.webp"/>
+<img alt="Der River Stour unter der Brücke" class="zoomable" loading="lazy" src="/gallery/ea/river-stour.webp"/>
+<img alt="Tiefe auf ein fotografiertes Gewässer malen" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<img alt="Besetze deine eigenen Fische" class="zoomable" loading="lazy" src="/gallery/ea/stock-your-own.webp"/>
+<img alt="Der Gewässerkatalog, Gewässer von der Community gebaut" class="zoomable" loading="lazy" src="/gallery/ea/04-catalogue.webp"/>
+<img alt="Einen Köder erstellen: wie ein Fisch ihn wahrnimmt" class="zoomable" loading="lazy" src="/gallery/ea/09-bait-creator.webp"/>
+<img alt="Eine Fischart erstellen: wie sie frisst und kämpft" class="zoomable" loading="lazy" src="/gallery/ea/10-species-creator.webp"/>
+<img alt="Die Köderbox, Boilies und Pop-ups nach Aroma" class="zoomable" loading="lazy" src="/gallery/ea/07-bait-box.webp"/>
+<img alt="Die Gerätekiste, eine Methode wählen" class="zoomable" loading="lazy" src="/gallery/ea/08-tackle-box.webp"/>
+<img alt="Eine Schleie auf der Fangkarte" class="zoomable" loading="lazy" src="/gallery/ea/tench-card.webp"/>
 </div>
 </section>
 <!-- Lightbox gallery -->
@@ -332,6 +363,6 @@
   })();
 </script>
 <footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/de/news" style="color:var(--muted);text-decoration:underline;">News</a> · <a href="/de/advertise" style="color:var(--muted);text-decoration:underline;">Werbung</a> · <a href="/de/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Influencer</a> · <a href="/de/stuck-indoors" style="color:var(--muted);text-decoration:underline;">Kommst du nicht raus?</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Datenschutzerklärung</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Nutzungsbedingungen</a></footer>
+  <a href="/de/news" style="color:var(--muted);text-decoration:underline;">News</a> · <a href="/de/advertise" style="color:var(--muted);text-decoration:underline;">Werbung</a> · <a href="/de/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Influencer</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Datenschutzerklärung</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Nutzungsbedingungen</a></footer>
 <details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Deutsch</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a aria-current="true" href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
 </html>

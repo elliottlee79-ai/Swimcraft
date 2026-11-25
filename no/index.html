@@ -150,12 +150,17 @@
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
   footer .fw .craft{color:var(--brand-olive);}
-.indoors-card{display:flex;gap:16px;align-items:center;max-width:760px;margin:28px auto 8px;padding:12px;background:#2A3420;border:1px solid rgba(143,170,107,.3);border-left:3px solid #C9A84C;border-radius:12px;color:#E8F0E0;text-decoration:none;text-align:left}
-.indoors-card:hover{border-color:#8FAA6B}
-.indoors-card img{width:132px;height:96px;object-fit:cover;object-position:72% 35%;border-radius:8px;flex:none}
-.indoors-card strong{color:#E6DCC6;font-size:1.1rem;display:block;margin-bottom:2px}
-.indoors-more{color:#F0D080;font-weight:700;white-space:nowrap}
-@media (max-width:560px){.indoors-card img{width:88px;height:72px}}
+  /* EA launch (5 Nov 2026): the showcase rows, a screenshot beside a few lines, alternating sides */
+  .hero-out{margin-top:0.9rem;font-family:var(--font-display);font-weight:700;color:var(--gold-light);letter-spacing:0.04em;}
+  .showcase{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 2rem;}
+  .show-row{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:center;margin:2.2rem 0;}
+  .show-row.flip{grid-template-columns:2fr 3fr;}
+  .show-row.flip img{order:2;}
+  .show-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--ink);cursor:zoom-in;box-shadow:0 8px 30px rgba(0,0,0,0.45);}
+  .show-text h3{font-family:var(--font-display);font-weight:700;font-size:1.45rem;color:var(--brand-bone);margin-bottom:0.6rem;}
+  .show-text p{color:var(--muted);line-height:1.65;font-size:1rem;}
+  .show-foot{text-align:center;margin-top:1rem;}
+  @media (max-width:760px){.show-row,.show-row.flip{grid-template-columns:1fr;gap:1rem;}.show-row.flip img{order:0;}}
 </style>
 <link href="https://swimcraft.harbledowndigital.com/no/" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="x-default" rel="alternate"/><style>
 .sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
@@ -177,63 +182,89 @@
 <a href="/no/swimcraft-influencers">Influencere</a>
 <a href="/no/press">Presse</a></nav>
 <div class="hero-inner">
-<div class="eyebrow">Harbledown Digital · Under utvikling</div>
+<div class="eyebrow">Harbledown Digital · Early Access</div>
 <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
 <p class="tagline">Gjør favorittplassene dine til virtuelle fiskevann</p>
-<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Legg til i ønskeliste på Steam</a>
-<a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Spill demoen</a>
+<p class="hero-out">Ute nå i Early Access på Steam</p>
+<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Kjøp på Steam</a>
+<a class="btn btn-primary" href="#trailer">Se traileren</a>
 <a class="btn btn-ghost" href="#updates">Få oppdateringer på e-post</a></div>
 </div>
 </header>
-<section class="trailer">
-<h2>Se det i aksjon</h2>
-<!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
-<div aria-label="Spill av spillvideoen for Swimcraft" class="video-facade" data-id="wB7IMyU5IBA" id="video-facade" role="button" tabindex="0">
-<img alt="Se spillvideoen for Swimcraft" loading="lazy"/>
+<section class="trailer" id="trailer">
+<h2>Se traileren</h2>
+<!-- Swimcraft trailer — data-id is the YouTube video ID (after v= or youtu.be/). EA launch kit: swap in the new trailer's ID here. -->
+<div aria-label="Spill av Swimcraft-traileren" class="video-facade" data-id="InZG76p4bbM" id="video-facade" role="button" tabindex="0">
+<img alt="Se Swimcraft-traileren" loading="lazy"/>
 <div aria-hidden="true" class="play"></div>
 </div>
 </section>
 <section class="content">
 <h2>Hva er Swimcraft?</h2>
-<p class="lead">Swimcraft er en fiskesimulator med en vri: Du gjør ekte bilder av favorittplassene dine om til fullt spillbare fiskevann – og så fisker du dem.</p>
-<p class="lead">Ferskvannsfiske, fiske med kunstagn og havfiske – tre grener i ett spill, og hvert fiskevann er bygget fra et sted du kjenner.</p>
-<p class="lead muted">Spillet er under aktiv utvikling. Her er det du kan spille nå, og det som er på vei.</p>
-<div class="features">
-<div class="feature"><h3>Fra bilde til fiskevann</h3><p>Tegn opp en fiskeplass fra dine egne bilder – vann, øyer, dybder og detaljer – så blir den en plass du kan fiske fra.</p></div>
-<div class="feature"><h3>Ekte kast og kjøring</h3><p>Ærlige kast, snørekontroll og en kjøring som stemmer med arten, der fisken går, blir sliten og setter utstyret ditt på prøve.</p></div>
-<div class="feature"><h3>Utstyr og agn</h3><p>Stenger, sneller, snører, kroker, rigger og agn som betyr noe – du starter enkelt og låser opp mer etter hvert.</p></div>
-<div class="feature"><h3>Fiskerprogresjon</h3><p>Tjen XP for hver fangst, klatre i gradene og lås opp utstyr og agn underveis. En storfisk kan gi en XP-boost – spar den til en økt som teller. Flere nivåer og belønninger kommer i Early Access.</p></div>
-<div class="feature"><h3>Turneringer <span class="tag-planned">Planlagt</span></h3><p>Turneringer på nett og en felles konkurransekalender er planlagt etter lansering – ikke i spillet ennå.</p></div>
-<div class="feature"><h3>Toppliste</h3><p>Logg fangstene dine og klatre på topplistene for fiskevannet og hele verden – hver rekord er knyttet til plassen der du satte den.</p></div>
+<p class="lead">Swimcraft er en fiskesimulator med en forskjell: du gjør ekte bilder av favorittplassene dine om til fullt spillbare fiskevann, og så fisker du dem.</p>
+<p class="lead">Fiske etter karpefisk, karpe, med sluk og i sjøen i ett spill, hvert vann bygget etter et sted noen kjenner.</p>
+</section>
+<section class="showcase">
+<div class="show-row">
+<img alt="Vannbyggeren, dybde malt på en fotografert innsjø" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<div class="show-text"><h3>Din plass, bygget fra dine egne bilder</h3><p>Tegn opp bredden, mal inn dybden, grøden og grusen, sett ut fiskene som lever der, og det blir et vann alle kan fiske. Fest det på verdenskartet, så følger årstidene stedet der det virkelig ligger.</p></div>
 </div>
-<a class="indoors-card" href="/no/stuck-indoors"><img alt="" loading="lazy" src="/indoors-window.jpg"/><span class="indoors-text"><strong>Må du holde deg inne?</strong> Regn, vond rygg eller livet som kommer i veien: Favorittvannet ditt trenger ikke vente. <span class="indoors-more">Fisk det fra sofaen →</span></span></a><div class="signup" id="updates">
+<div class="show-row flip">
+<img alt="Fiske fra rullesteinsstranden under Durdle Door ved daggry" class="zoomable" loading="lazy" src="/gallery/ea/disciplines.webp"/>
+<div class="show-text"><h3>Karpefisk, karpe, sluk og sjø</h3><p>Dupp, stang uten snelle, bunnfiske og spinnfiske i innsjøer og elver, kastefiske fra stranden og duppfiske i havet. To stenger samtidig, overflateagn, drivende dupp i elver som renner og fiske inn i natten, tidevann som snur, og hvert vann fiskes på sin egen måte.</p></div>
+</div>
+<div class="show-row">
+<img alt="Et napp ved Westbere: SLÅ TIL NÅ, karpestanga på bittvarsleren" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<div class="show-text"><h3>Et kast og en kamp som føles ekte</h3><p>Fôr plassen din, følg med på duppen, slå til på nappet. Hver fisk flykter, blir sliten og tester utstyret ditt, og bedre utstyr snur virkelig en fisk raskere.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Agnboksen: boilies, pop-ups og smaken på hver" class="zoomable" loading="lazy" src="/gallery/ea/bait-box.webp"/>
+<div class="show-text"><h3>Ekte utstyr, ekte agn</h3><p>Stenger, sneller, sener, kroker, rigger og bittvarslere, med boilies, pop-ups, partikler og lokkefôr. Start enkelt, og lås opp mer etter hvert som du klatrer.</p></div>
+</div>
+<div class="show-row">
+<img alt="Agnbyggeren: hvordan en fisk sanser agnet, smak, lukt og størrelse" class="zoomable" loading="lazy" src="/gallery/ea/bait-creator.webp"/>
+<div class="show-text"><h3>Lag ditt eget</h3><p>Lag dine egne agn og fiskearter, send dem til moderatorene, og se dem dukke opp i alles agnboks og på alles vann.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Fremgangsstigen i Fiskerhytta, hvert nivå og hva det gir" class="zoomable" loading="lazy" src="/gallery/ea/progress.webp"/>
+<div class="show-text"><h3>Klatre på listene</h3><p>XP for hver fangst, utstyrstrinn å tjene på veien til nivå 40, prestasjoner, avatarer og sesongbiter, og rekorder på hvert vann, nasjonalt og globalt.</p></div>
+</div>
+<p class="lead muted show-foot">På tjue språk, med kontrollerstøtte og taster du setter opp selv, en realistisk modus helt uten hjelp på skjermen og en minimert modus som fisker videre og tar vare på nappene dine.</p>
+</section>
+<section class="content">
+<h2>Kommer i løpet av Early Access</h2>
+<p class="lead muted">Early Access varer omtrent tre til fire måneder. Alle som kjøper nå, får hver oppdatering og fullversjonen uten ekstra kostnad.</p>
+<div class="features">
+<div class="feature"><h3>Utstyrsbyggeren</h3><p>Design dine egne dupper, bittvarslere og resten av utstyrskassen, og del dem.</p></div>
+<div class="feature"><h3>Spillerchat</h3><p>Snakk med andre sportsfiskere i spillet.</p></div>
+<div class="feature"><h3>Mer å fiske</h3><p>Havrigger med flere kroker, og flere fiskevann, arter og mer utstyr med hver oppdatering.</p></div>
+<div class="feature"><h3>Lenger frem <span class="tag-planned">Planlagt</span></h3><p>Fluefiske i fullversjonen, og deretter nettkonkurranser og turneringer.</p></div>
+</div>
+<div class="signup" id="updates">
 <h3>Foretrekker du e-post?</h3>
-<p>Å legge spillet til i ønskelisten på Steam er den beste måten å få beskjed ved lansering – men legg gjerne igjen e-posten din for en og annen oppdatering.</p>
+<p>Legg igjen e-posten din for en oppdatering av og til. Ingen spam, og du kan melde deg av når som helst.</p>
 <form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
 <button class="btn btn-primary" type="submit">Gi meg beskjed</button></form>
 </div>
 </section>
 <section class="shots">
 <h2>Skjermbilder</h2>
-<p class="shots-sub">Fra den nåværende utviklingsversjonen – et arbeid som pågår.</p>
+<p class="shots-sub">Fra Early Access-bygget.</p>
 <div class="shot-grid">
-<img alt="Fisk på, stanga bøyd og belastningsmåleren stiger" class="zoomable" loading="lazy" src="/gallery/the-fight.webp"/>
-<img alt="Utstyrskassen, ekte utstyr sortert etter merke" class="zoomable" loading="lazy" src="/gallery/tackle-box.webp"/>
-<img alt="Agnboksen, boilies og pop-ups" class="zoomable" loading="lazy" src="/gallery/bait-box.webp"/>
-<img alt="Skjermen for havrigger, tre rigger tegnet og forklart" class="zoomable" loading="lazy" src="/gallery/sea-rig.webp"/>
-<img alt="Artsbyggeren, som beskriver en ekte fisk" class="zoomable" loading="lazy" src="/gallery/species-creator.webp"/>
-<img alt="Et ferdig fiskevann det fiskes i" class="zoomable" loading="lazy" src="/gallery/vc-01-finished-venue.webp"/>
-<img alt="Velger et fiskevann bygget av fellesskapet" class="zoomable" loading="lazy" src="/gallery/venue-chooser.webp"/>
-<img alt="Karpefiske om natta på Westbere" class="zoomable" loading="lazy" src="/gallery/westbere-night.webp"/>
-<img alt="Feederfiske på langt hold" class="zoomable" loading="lazy" src="/gallery/feeder.webp"/>
-<img alt="Havfiske fra land" class="zoomable" loading="lazy" src="/gallery/sea_fishing.webp"/>
-<img alt="Fiskerhytta" class="zoomable" loading="lazy" src="/gallery/anglers_lodge.webp"/>
-<img alt="Tegner opp vannkanten i vannbyggeren" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
-<img alt="Setter avstandsmerkene på en fiskeplass" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
-<img alt="Maler dybdekoter og bunnobjekter i vannbyggeren" class="zoomable" loading="lazy" src="/gallery/venue-creator-objects.webp"/>
-<img alt="Maler grøde, mudder og grus på bunnen" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
-<img alt="En fangst som gir et XP-boost-merke" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
-<img alt="En skjellkarpe på 25 lb på fangstkortet" class="zoomable" loading="lazy" src="/gallery/carp-catch-card.webp"/>
+<img alt="Den malte startskjermen" class="zoomable" loading="lazy" src="/gallery/ea/01-home.webp"/>
+<img alt="Et napp ved Westbere: SLÅ TIL NÅ" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<img alt="Sjøfiske under Durdle Door ved daggry" class="zoomable" loading="lazy" src="/gallery/ea/03-durdle-door.webp"/>
+<img alt="Lake Nojiri, Japan" class="zoomable" loading="lazy" src="/gallery/ea/lake-nojiri.webp"/>
+<img alt="En dupp ute på Jimbo's Farm Lake en stille morgen" class="zoomable" loading="lazy" src="/gallery/ea/02-jimbos-float-out.webp"/>
+<img alt="Elva Stour, under brua" class="zoomable" loading="lazy" src="/gallery/ea/river-stour.webp"/>
+<img alt="Male dybde på en fotografert innsjø" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<img alt="Sett ut din egen fisk" class="zoomable" loading="lazy" src="/gallery/ea/stock-your-own.webp"/>
+<img alt="Vannkatalogen, vann bygget av fellesskapet" class="zoomable" loading="lazy" src="/gallery/ea/04-catalogue.webp"/>
+<img alt="Lage et agn: hvordan en fisk sanser det" class="zoomable" loading="lazy" src="/gallery/ea/09-bait-creator.webp"/>
+<img alt="Lage en art: hvordan den spiser og kjemper" class="zoomable" loading="lazy" src="/gallery/ea/10-species-creator.webp"/>
+<img alt="Agnboksen, boilies og pop-ups etter smak" class="zoomable" loading="lazy" src="/gallery/ea/07-bait-box.webp"/>
+<img alt="Utstyrskassen, velge en metode" class="zoomable" loading="lazy" src="/gallery/ea/08-tackle-box.webp"/>
+<img alt="En suter på fangstkortet" class="zoomable" loading="lazy" src="/gallery/ea/tench-card.webp"/>
 </div>
 </section>
 <!-- Lightbox gallery -->
@@ -332,6 +363,6 @@
   })();
 </script>
 <footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/no/news" style="color:var(--muted);text-decoration:underline;">Nyheter</a> · <a href="/no/advertise" style="color:var(--muted);text-decoration:underline;">Annonser</a> · <a href="/no/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Influencere</a> · <a href="/no/stuck-indoors" style="color:var(--muted);text-decoration:underline;">Må du holde deg inne?</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Personvernerklæring</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Vilkår for bruk</a></footer>
+  <a href="/no/news" style="color:var(--muted);text-decoration:underline;">Nyheter</a> · <a href="/no/advertise" style="color:var(--muted);text-decoration:underline;">Annonser</a> · <a href="/no/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Influencere</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Personvernerklæring</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Vilkår for bruk</a></footer>
 <details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Norsk</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a aria-current="true" href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
 </html>

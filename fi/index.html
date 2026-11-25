@@ -150,12 +150,17 @@
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
   footer .fw .craft{color:var(--brand-olive);}
-.indoors-card{display:flex;gap:16px;align-items:center;max-width:760px;margin:28px auto 8px;padding:12px;background:#2A3420;border:1px solid rgba(143,170,107,.3);border-left:3px solid #C9A84C;border-radius:12px;color:#E8F0E0;text-decoration:none;text-align:left}
-.indoors-card:hover{border-color:#8FAA6B}
-.indoors-card img{width:132px;height:96px;object-fit:cover;object-position:72% 35%;border-radius:8px;flex:none}
-.indoors-card strong{color:#E6DCC6;font-size:1.1rem;display:block;margin-bottom:2px}
-.indoors-more{color:#F0D080;font-weight:700;white-space:nowrap}
-@media (max-width:560px){.indoors-card img{width:88px;height:72px}}
+  /* EA launch (5 Nov 2026): the showcase rows, a screenshot beside a few lines, alternating sides */
+  .hero-out{margin-top:0.9rem;font-family:var(--font-display);font-weight:700;color:var(--gold-light);letter-spacing:0.04em;}
+  .showcase{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 2rem;}
+  .show-row{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:center;margin:2.2rem 0;}
+  .show-row.flip{grid-template-columns:2fr 3fr;}
+  .show-row.flip img{order:2;}
+  .show-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--ink);cursor:zoom-in;box-shadow:0 8px 30px rgba(0,0,0,0.45);}
+  .show-text h3{font-family:var(--font-display);font-weight:700;font-size:1.45rem;color:var(--brand-bone);margin-bottom:0.6rem;}
+  .show-text p{color:var(--muted);line-height:1.65;font-size:1rem;}
+  .show-foot{text-align:center;margin-top:1rem;}
+  @media (max-width:760px){.show-row,.show-row.flip{grid-template-columns:1fr;gap:1rem;}.show-row.flip img{order:0;}}
 </style>
 <link href="https://swimcraft.harbledowndigital.com/fi/" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="x-default" rel="alternate"/><style>
 .sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
@@ -177,63 +182,89 @@
 <a href="/fi/swimcraft-influencers">Vaikuttajat</a>
 <a href="/fi/press">Lehdistö</a></nav>
 <div class="hero-inner">
-<div class="eyebrow">Harbledown Digital · Kehitteillä</div>
+<div class="eyebrow">Harbledown Digital · Early Access</div>
 <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
 <p class="tagline">Muuta lempikalapaikkasi virtuaalisiksi kalavesiksi</p>
-<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Lisää toivelistalle Steamissa</a>
-<a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Pelaa demoa</a>
-<a class="btn btn-ghost" href="#updates">Tilaa päivitykset sähköpostiin</a></div>
+<p class="hero-out">Nyt Early Accessissa Steamissä</p>
+<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Osta Steamistä</a>
+<a class="btn btn-primary" href="#trailer">Katso traileri</a>
+<a class="btn btn-ghost" href="#updates">Tilaa sähköpostipäivitykset</a></div>
 </div>
 </header>
-<section class="trailer">
-<h2>Katso pelikuvaa</h2>
-<!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
-<div aria-label="Toista Swimcraftin pelivideo" class="video-facade" data-id="wB7IMyU5IBA" id="video-facade" role="button" tabindex="0">
-<img alt="Katso Swimcraftin pelivideo" loading="lazy"/>
+<section class="trailer" id="trailer">
+<h2>Katso traileri</h2>
+<!-- Swimcraft trailer — data-id is the YouTube video ID (after v= or youtu.be/). EA launch kit: swap in the new trailer's ID here. -->
+<div aria-label="Toista Swimcraftin traileri" class="video-facade" data-id="InZG76p4bbM" id="video-facade" role="button" tabindex="0">
+<img alt="Katso Swimcraftin traileri" loading="lazy"/>
 <div aria-hidden="true" class="play"></div>
 </div>
 </section>
 <section class="content">
 <h2>Mikä Swimcraft on?</h2>
-<p class="lead">Swimcraft on erilainen kalastussimulaattori: muutat oikeat valokuvat lempikalapaikoistasi täysin pelattaviksi kalavesiksi ja kalastat niillä sitten itse.</p>
-<p class="lead">Onginta, heittokalastus ja merikalastus: kolme lajia yhdessä pelissä, ja jokainen kalavesi on rakennettu paikasta, jonka tunnet.</p>
-<p class="lead muted">Peli on aktiivisessa kehityksessä. Tässä on se, mitä voi jo pelata, ja se, mitä on tulossa.</p>
-<div class="features">
-<div class="feature"><h3>Kuvasta kalavedeksi</h3><p>Piirrä kalapaikka omista kuvistasi (vesi, saaret, syvyydet ja pohjan muodot), ja siitä tulee kalapaikka, jolla voi kalastaa.</p></div>
-<div class="feature"><h3>Aito heitto ja väsytys</h3><p>Rehellinen heitto, siiman hallinta ja lajilleen uskollinen väsytys, jossa kalat syöksyvät, väsyvät ja koettelevat välineitäsi.</p></div>
-<div class="feature"><h3>Välineet ja syötit</h3><p>Vavat, kelat, siimat, koukut, rigit ja syötit, joilla on oikeasti merkitystä. Alku on yksinkertainen, ja lisää aukeaa edetessäsi.</p></div>
-<div class="feature"><h3>Kalastajan eteneminen</h3><p>Ansaitse XP:tä jokaisesta saaliista, nouse tasoissa ja avaa välineitä ja syöttejä matkan varrella. Järkäle voi pudottaa XP-tehostimen: säästä se kalastusreissulle, jolla on väliä. Syvemmät tasot ja palkinnot tulevat Early Accessin aikana.</p></div>
-<div class="feature"><h3>Turnaukset <span class="tag-planned">Suunnitteilla</span></h3><p>Verkkoturnaukset ja yhteinen kilpailukalenteri on suunniteltu julkaisun jälkeiseen aikaan. Ne eivät ole vielä pelissä.</p></div>
-<div class="feature"><h3>Tulostaulukot</h3><p>Kirjaa saaliisi ja nouse kalavesi- ja maailmanlaajuisilla tulostaulukoilla. Jokainen ennätys on sidottu kalapaikkaan, jolla teit sen.</p></div>
+<p class="lead">Swimcraft on erilainen kalastussimulaattori: teet oikeista valokuvista lempipaikoistasi täysin pelattavia kalavesiä ja kalastat niitä.</p>
+<p class="lead">Särki-, karppi-, viehe- ja merikalastusta yhdessä pelissä, jokainen vesi rakennettu paikasta, jonka joku tuntee.</p>
+</section>
+<section class="showcase">
+<div class="show-row">
+<img alt="Vesien luoja, syvyys maalattuna valokuvattuun järveen" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<div class="show-text"><h3>Sinun paikkasi, rakennettu omista kuvistasi</h3><p>Piirrä rantaviiva, maalaa syvyys, kasvillisuus ja sora, istuta sinne siellä elävät kalat, ja siitä tulee vesi, jota kuka tahansa voi kalastaa. Kiinnitä se maailmankartalle, niin vuodenajat seuraavat paikkaa, jossa se oikeasti on.</p></div>
 </div>
-<a class="indoors-card" href="/fi/stuck-indoors"><img alt="" loading="lazy" src="/indoors-window.jpg"/><span class="indoors-text"><strong>Jumissa sisällä?</strong> Sade, kipeä selkä tai elämä tulee väliin: lempivetesi ei tarvitse odottaa. <span class="indoors-more">Kalasta sohvalta →</span></span></a><div class="signup" id="updates">
+<div class="show-row flip">
+<img alt="Kalastusta somerikolta Durdle Doorin alla aamunkoitteessa" class="zoomable" loading="lazy" src="/gallery/ea/disciplines.webp"/>
+<div class="show-text"><h3>Särkikalat, karppi, viehe ja meri</h3><p>Kohoa, kiinteää vapaa, pohjakalastusta ja heittokalastusta järvillä ja joilla, rantaheittoa ja kohokalastusta merellä. Kaksi vapaa yhtä aikaa, pintauistimia, virtaavissa joissa ajelehtiva koho ja kalastusta yöhön asti, kääntyvät vuorovedet, ja jokaista vettä kalastetaan omalla tavallaan.</p></div>
+</div>
+<div class="show-row">
+<img alt="Tärppi Westberessä: VASTAA NYT, karppivapa hälyttimellään" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<div class="show-text"><h3>Heitto ja väsytys, jotka tuntuvat aidoilta</h3><p>Syötä paikkasi, seuraa kohoa, vastaa nykäisyyn. Jokainen kala syöksyy, väsyy ja koettelee välineitäsi, ja paremmat välineet todella kääntävät kalan nopeammin.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Syöttirasia: boiliet, pop-upit ja kunkin maku" class="zoomable" loading="lazy" src="/gallery/ea/bait-box.webp"/>
+<div class="show-text"><h3>Oikeat välineet, oikeat syötit</h3><p>Vavat, kelat, siimat, koukut, perukkeet ja hälyttimet, sekä boiliet, pop-upit, siemenet ja houkutin. Aloita yksinkertaisesti ja avaa lisää noustessasi.</p></div>
+</div>
+<div class="show-row">
+<img alt="Syöttiluoja: miten kala aistii syötin, maun, hajun ja koon" class="zoomable" loading="lazy" src="/gallery/ea/bait-creator.webp"/>
+<div class="show-text"><h3>Tee omasi</h3><p>Luo omia syöttejä ja kalalajeja, lähetä ne moderaattoreille ja näe ne kaikkien syöttirasiassa ja kaikkien vesillä.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Edistymistikkaat Kalastajan majassa, jokainen taso ja mitä se antaa" class="zoomable" loading="lazy" src="/gallery/ea/progress.webp"/>
+<div class="show-text"><h3>Kiipeä listoilla</h3><p>XP:tä jokaisesta saaliista, välinetasoja ansaittavaksi matkalla tasolle 40, saavutuksia, avatareja ja kausikappaleita, ja ennätyksiä jokaisella vedellä, kansallisesti ja maailmanlaajuisesti.</p></div>
+</div>
+<p class="lead muted show-foot">Kahdellakymmenellä kielellä, ohjaintuella ja itse asetettavilla näppäimillä, realistisella tilalla ilman ainuttakaan ruutuvihjettä sekä pienennetyllä tilalla, joka kalastaa eteenpäin ja säästää tärppisi.</p>
+</section>
+<section class="content">
+<h2>Tulossa Early Accessin aikana</h2>
+<p class="lead muted">Early Access kestää noin kolmesta neljään kuukautta. Kaikki nyt ostavat saavat jokaisen päivityksen ja täysversion ilman lisämaksua.</p>
+<div class="features">
+<div class="feature"><h3>Välineluoja</h3><p>Suunnittele omat kohot, hälyttimet ja muun välinelaatikon sisällön ja jaa ne.</p></div>
+<div class="feature"><h3>Pelaajien välinen chat</h3><p>Juttele muiden kalastajien kanssa pelissä.</p></div>
+<div class="feature"><h3>Lisää kalastettavaa</h3><p>Monikoukkuisia meririgejä sekä lisää kalavesiä, lajeja ja välineitä jokaisessa päivityksessä.</p></div>
+<div class="feature"><h3>Kauempana <span class="tag-planned">Suunniteltu</span></h3><p>Perhokalastus täysversiossa ja sen jälkeen verkkokilpailut ja turnaukset.</p></div>
+</div>
+<div class="signup" id="updates">
 <h3>Mieluummin sähköpostia?</h3>
-<p>Toivelistalle lisääminen Steamissa on paras tapa kuulla julkaisusta, mutta jätä sähköpostiosoitteesi, niin saat päivityksen silloin tällöin.</p>
+<p>Jätä sähköpostisi satunnaisia päivityksiä varten. Ei roskapostia, ja voit lähteä milloin tahansa.</p>
 <form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
 <button class="btn btn-primary" type="submit">Ilmoita minulle</button></form>
 </div>
 </section>
 <section class="shots">
 <h2>Kuvakaappaukset</h2>
-<p class="shots-sub">Nykyisestä kehitysversiosta, keskeneräistä työtä.</p>
+<p class="shots-sub">Early Access -versiosta.</p>
 <div class="shot-grid">
-<img alt="Kala koukussa, vapa taipuu ja kiristysmittari nousee" class="zoomable" loading="lazy" src="/gallery/the-fight.webp"/>
-<img alt="Välinelaatikko, oikeat välineet merkeittäin aseteltuina" class="zoomable" loading="lazy" src="/gallery/tackle-box.webp"/>
-<img alt="Syöttilaatikko, boiliet ja pop-upit" class="zoomable" loading="lazy" src="/gallery/bait-box.webp"/>
-<img alt="Meririgien näkymä, kolme rigiä piirrettynä ja selitettynä" class="zoomable" loading="lazy" src="/gallery/sea-rig.webp"/>
-<img alt="Lajieditori, jossa kuvataan oikea kala" class="zoomable" loading="lazy" src="/gallery/species-creator.webp"/>
-<img alt="Valmis kalavesi, jolla kalastetaan" class="zoomable" loading="lazy" src="/gallery/vc-01-finished-venue.webp"/>
-<img alt="Yhteisön rakentaman kalaveden valitseminen" class="zoomable" loading="lazy" src="/gallery/venue-chooser.webp"/>
-<img alt="Karppikalastusta yöllä Westberellä" class="zoomable" loading="lazy" src="/gallery/westbere-night.webp"/>
-<img alt="Feederkalastusta kaukaa" class="zoomable" loading="lazy" src="/gallery/feeder.webp"/>
-<img alt="Merikalastusta rannalta" class="zoomable" loading="lazy" src="/gallery/sea_fishing.webp"/>
-<img alt="Kalastajan maja" class="zoomable" loading="lazy" src="/gallery/anglers_lodge.webp"/>
-<img alt="Rantaviivan piirtäminen kalavesieditorissa" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
-<img alt="Etäisyysnastojen asettaminen kalapaikalle" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
-<img alt="Syvyyskäyrien ja pohjan esineiden maalaaminen kalavesieditorissa" class="zoomable" loading="lazy" src="/gallery/venue-creator-objects.webp"/>
-<img alt="Vesikasvien, liejun ja soran maalaaminen pohjaan" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
-<img alt="Saalis pudottaa XP-tehostintokenin" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
-<img alt="25lb karppi saaliskortilla" class="zoomable" loading="lazy" src="/gallery/carp-catch-card.webp"/>
+<img alt="Maalattu aloitusnäkymä" class="zoomable" loading="lazy" src="/gallery/ea/01-home.webp"/>
+<img alt="Tärppi Westberessä: VASTAA NYT" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<img alt="Merikalastusta Durdle Doorin alla aamunkoitteessa" class="zoomable" loading="lazy" src="/gallery/ea/03-durdle-door.webp"/>
+<img alt="Lake Nojiri, Japani" class="zoomable" loading="lazy" src="/gallery/ea/lake-nojiri.webp"/>
+<img alt="Koho Jimbo's Farm Lakella tyynenä aamuna" class="zoomable" loading="lazy" src="/gallery/ea/02-jimbos-float-out.webp"/>
+<img alt="Stour-joki, sillan alla" class="zoomable" loading="lazy" src="/gallery/ea/river-stour.webp"/>
+<img alt="Syvyyden maalaaminen valokuvattuun järveen" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<img alt="Istuta omat kalasi" class="zoomable" loading="lazy" src="/gallery/ea/stock-your-own.webp"/>
+<img alt="Vesiluettelo, yhteisön rakentamat vedet" class="zoomable" loading="lazy" src="/gallery/ea/04-catalogue.webp"/>
+<img alt="Syötin luominen: miten kala sen aistii" class="zoomable" loading="lazy" src="/gallery/ea/09-bait-creator.webp"/>
+<img alt="Lajin luominen: miten se syö ja taistelee" class="zoomable" loading="lazy" src="/gallery/ea/10-species-creator.webp"/>
+<img alt="Syöttirasia, boiliet ja pop-upit maun mukaan" class="zoomable" loading="lazy" src="/gallery/ea/07-bait-box.webp"/>
+<img alt="Välinelaatikko, menetelmän valinta" class="zoomable" loading="lazy" src="/gallery/ea/08-tackle-box.webp"/>
+<img alt="Suutari saaliskortilla" class="zoomable" loading="lazy" src="/gallery/ea/tench-card.webp"/>
 </div>
 </section>
 <!-- Lightbox gallery -->
@@ -332,6 +363,6 @@
   })();
 </script>
 <footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/fi/news" style="color:var(--muted);text-decoration:underline;">Uutiset</a> · <a href="/fi/advertise" style="color:var(--muted);text-decoration:underline;">Mainosta</a> · <a href="/fi/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Vaikuttajat</a> · <a href="/fi/stuck-indoors" style="color:var(--muted);text-decoration:underline;">Jumissa sisällä?</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Tietosuojakäytäntö</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Käyttöehdot</a></footer>
+  <a href="/fi/news" style="color:var(--muted);text-decoration:underline;">Uutiset</a> · <a href="/fi/advertise" style="color:var(--muted);text-decoration:underline;">Mainosta</a> · <a href="/fi/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Vaikuttajat</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Tietosuojakäytäntö</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Käyttöehdot</a></footer>
 <details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Suomi</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a aria-current="true" href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
 </html>

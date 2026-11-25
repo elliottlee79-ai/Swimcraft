@@ -150,12 +150,17 @@
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
   footer .fw .craft{color:var(--brand-olive);}
-.indoors-card{display:flex;gap:16px;align-items:center;max-width:760px;margin:28px auto 8px;padding:12px;background:#2A3420;border:1px solid rgba(143,170,107,.3);border-left:3px solid #C9A84C;border-radius:12px;color:#E8F0E0;text-decoration:none;text-align:left}
-.indoors-card:hover{border-color:#8FAA6B}
-.indoors-card img{width:132px;height:96px;object-fit:cover;object-position:72% 35%;border-radius:8px;flex:none}
-.indoors-card strong{color:#E6DCC6;font-size:1.1rem;display:block;margin-bottom:2px}
-.indoors-more{color:#F0D080;font-weight:700;white-space:nowrap}
-@media (max-width:560px){.indoors-card img{width:88px;height:72px}}
+  /* EA launch (5 Nov 2026): the showcase rows, a screenshot beside a few lines, alternating sides */
+  .hero-out{margin-top:0.9rem;font-family:var(--font-display);font-weight:700;color:var(--gold-light);letter-spacing:0.04em;}
+  .showcase{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 2rem;}
+  .show-row{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:center;margin:2.2rem 0;}
+  .show-row.flip{grid-template-columns:2fr 3fr;}
+  .show-row.flip img{order:2;}
+  .show-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--ink);cursor:zoom-in;box-shadow:0 8px 30px rgba(0,0,0,0.45);}
+  .show-text h3{font-family:var(--font-display);font-weight:700;font-size:1.45rem;color:var(--brand-bone);margin-bottom:0.6rem;}
+  .show-text p{color:var(--muted);line-height:1.65;font-size:1rem;}
+  .show-foot{text-align:center;margin-top:1rem;}
+  @media (max-width:760px){.show-row,.show-row.flip{grid-template-columns:1fr;gap:1rem;}.show-row.flip img{order:0;}}
 </style>
 <link href="https://swimcraft.harbledowndigital.com/ja/" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="x-default" rel="alternate"/><style>
 .sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
@@ -177,63 +182,89 @@
 <a href="/ja/swimcraft-influencers">インフルエンサー</a>
 <a href="/ja/press">プレス</a></nav>
 <div class="hero-inner">
-<div class="eyebrow">Harbledown Digital · 開発中</div>
+<div class="eyebrow">Harbledown Digital · 早期アクセス</div>
 <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
 <p class="tagline">お気に入りのポイントをバーチャル釣り場に</p>
-<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Steamでウィッシュリストに追加</a>
-<a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">体験版をプレイ</a>
+<p class="hero-out">Steamで早期アクセス配信中</p>
+<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Steamで購入</a>
+<a class="btn btn-primary" href="#trailer">トレーラーを見る</a>
 <a class="btn btn-ghost" href="#updates">メールで最新情報を受け取る</a></div>
 </div>
 </header>
-<section class="trailer">
-<h2>実際のプレイを見る</h2>
-<!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
-<div aria-label="Swimcraftのゲームプレイ動画を再生" class="video-facade" data-id="wB7IMyU5IBA" id="video-facade" role="button" tabindex="0">
-<img alt="Swimcraftのゲームプレイ動画を見る" loading="lazy"/>
+<section class="trailer" id="trailer">
+<h2>トレーラーを見る</h2>
+<!-- Swimcraft trailer — data-id is the YouTube video ID (after v= or youtu.be/). EA launch kit: swap in the new trailer's ID here. -->
+<div aria-label="Swimcraftのトレーラーを再生" class="video-facade" data-id="InZG76p4bbM" id="video-facade" role="button" tabindex="0">
+<img alt="Swimcraftのトレーラーを見る" loading="lazy"/>
 <div aria-hidden="true" class="play"></div>
 </div>
 </section>
 <section class="content">
 <h2>Swimcraftとは？</h2>
-<p class="lead">Swimcraftは一味違うフィッシングシミュレーターです。お気に入りのポイントを撮った実際の写真を、そのまま遊べる釣り場に変えて、そこで釣りができます。</p>
-<p class="lead">淡水、ルアー、海釣りの3つのジャンルをひとつのゲームに。どの釣り場も、あなたの知っている場所から作られます。</p>
-<p class="lead muted">現在、開発が活発に進んでいます。今遊べる内容と、これから登場する内容はこちらです。</p>
-<div class="features">
-<div class="feature"><h3>写真から釣り場へ</h3><p>自分の写真からポイントをなぞりましょう。水面、島、水深、地形をなぞれば、釣りができる釣り座になります。</p></div>
-<div class="feature"><h3>本物のキャスト＆ファイト</h3><p>ごまかしのないキャスト、ライン操作、そして魚種ごとにリアルなファイト。魚は走り、疲れ、あなたのタックルを試してきます。</p></div>
-<div class="feature"><h3>タックル＆エサ</h3><p>ロッド、リール、ライン、フック、仕掛け、エサのすべてに意味があります。最初はシンプルに、進むにつれてアンロックされます。</p></div>
-<div class="feature"><h3>アングラーの成長</h3><p>釣るたびにXPを獲得し、ランクを上げ、タックルやエサをアンロックしていきましょう。大物はXPブーストを落とすことがあります。ここぞという釣行のために取っておきましょう。さらに深いレベルと報酬は早期アクセス中に登場します。</p></div>
-<div class="feature"><h3>トーナメント <span class="tag-planned">予定</span></h3><p>オンライントーナメントと共有のマッチカレンダーは発売後に予定しています。まだゲームには入っていません。</p></div>
-<div class="feature"><h3>ランキング</h3><p>釣果を記録して、釣り場ランキングと世界ランキングを駆け上がりましょう。すべての記録は、それを出したポイントに紐づきます。</p></div>
+<p class="lead">Swimcraftは一味違う釣りシミュレーターです。お気に入りの釣り場の実際の写真を、完全にプレイできる釣り場に変えて、そこで釣りをします。</p>
+<p class="lead">淡水、コイ、ルアー、海釣りをひとつのゲームで。どの釣り場も、誰かが知っている場所から作られています。</p>
+</section>
+<section class="showcase">
+<div class="show-row">
+<img alt="釣り場クリエイター：撮影した湖に水深を描き込む" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<div class="show-text"><h3>あなたの釣り場を、あなたの写真から</h3><p>水際をなぞり、水深や水草、砂利を描き込み、そこにすむ魚を放流すれば、誰でも釣れる釣り場になります。世界地図にピンを立てれば、季節はその場所の実際の季節に従います。</p></div>
 </div>
-<a class="indoors-card" href="/ja/stuck-indoors"><img alt="" loading="lazy" src="/indoors-window.jpg"/><span class="indoors-text"><strong>外に出られない？</strong> 雨、腰痛、忙しい毎日。お気に入りの釣り場は待ってくれます。 <span class="indoors-more">ソファから釣りへ →</span></span></a><div class="signup" id="updates">
+<div class="show-row flip">
+<img alt="夜明けのダードル・ドア下、砂利浜からの釣り" class="zoomable" loading="lazy" src="/gallery/ea/disciplines.webp"/>
+<div class="show-text"><h3>淡水、コイ、ルアー、海</h3><p>湖や川でのウキ釣り、のべ竿、ボトムフィッシング、スピニング、海での投げ釣りとウキ釣り。2本竿の同時使用、トップウォータールアー、流れる川でのウキの流し釣り、そして夜釣り。潮は満ち引きし、どの釣り場にもそれぞれの釣れ方がある。</p></div>
+</div>
+<div class="show-row">
+<img alt="ウェストビアでのアタリ：今だ、アワセろ！ アラームにかけたカープロッド" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<div class="show-text"><h3>本物らしいキャストとやり取り</h3><p>ポイントに撒き餌をし、ウキを見つめ、アタリでアワセる。どの魚も走り、疲れ、あなたのタックルを試します。より良い道具は本当に魚を早く寄せます。</p></div>
+</div>
+<div class="show-row flip">
+<img alt="エサ箱：ボイリー、ポップアップ、それぞれのフレーバー" class="zoomable" loading="lazy" src="/gallery/ea/bait-box.webp"/>
+<div class="show-text"><h3>本物のタックル、本物のエサ</h3><p>ロッド、リール、ライン、ハリ、仕掛け、バイトアラーム、そしてボイリー、ポップアップ、粒エサ、寄せエサ。シンプルに始めて、レベルが上がるほど解放されます。</p></div>
+</div>
+<div class="show-row">
+<img alt="エサクリエイター：魚がエサをどう感じるか、味、匂い、大きさ" class="zoomable" loading="lazy" src="/gallery/ea/bait-creator.webp"/>
+<div class="show-text"><h3>自分で作る</h3><p>オリジナルのエサや魚種を作ってモデレーターに送れば、みんなのエサ箱やみんなの釣り場に登場します。</p></div>
+</div>
+<div class="show-row flip">
+<img alt="アングラーズロッジの成長ラダー、各レベルとその報酬" class="zoomable" loading="lazy" src="/gallery/ea/progress.webp"/>
+<div class="show-text"><h3>ランキングを駆け上がる</h3><p>釣るたびにXP、レベル40への道で手に入るタックルの段階、実績、アバターや季節のアイテム、そしてすべての釣り場での国内・世界記録。</p></div>
+</div>
+<p class="lead muted show-foot">20の言語に対応。コントローラーと自分で設定できるキー操作、画面表示が一切ないリアルモード、そして釣りを続けてアタリを取っておく最小化モードを備えています。</p>
+</section>
+<section class="content">
+<h2>早期アクセス中に追加予定</h2>
+<p class="lead muted">早期アクセスは約3〜4か月の予定です。今購入した方は、すべてのアップデートと製品版を追加料金なしで受け取れます。</p>
+<div class="features">
+<div class="feature"><h3>タックルクリエイター</h3><p>オリジナルのウキやバイトアラームなど、タックルボックスの中身をデザインして共有できます。</p></div>
+<div class="feature"><h3>プレイヤーチャット</h3><p>ゲーム内でほかの釣り人と話そう。</p></div>
+<div class="feature"><h3>もっと釣りを</h3><p>複数の針を使う海の仕掛け、そしてアップデートごとに増える釣り場、魚種、タックル。</p></div>
+<div class="feature"><h3>その先 <span class="tag-planned">予定</span></h3><p>製品版でフライフィッシング、その後にオンラインの大会とトーナメント。</p></div>
+</div>
+<div class="signup" id="updates">
 <h3>メールのほうがいいですか？</h3>
-<p>発売の知らせを受け取るにはSteamでのウィッシュリスト登録がいちばんですが、たまのお知らせ用にメールアドレスを残しておくこともできます。</p>
+<p>ときどき最新情報をお届けするので、メールアドレスを残してください。スパムはなく、いつでも解除できます。</p>
 <form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
 <button class="btn btn-primary" type="submit">通知を受け取る</button></form>
 </div>
 </section>
 <section class="shots">
 <h2>スクリーンショット</h2>
-<p class="shots-sub">現在の開発版から。制作途中のものです。</p>
+<p class="shots-sub">早期アクセス版より。</p>
 <div class="shot-grid">
-<img alt="魚がヒットし、ロッドが曲がって負荷ゲージが上がっていく様子" class="zoomable" loading="lazy" src="/gallery/the-fight.webp"/>
-<img alt="タックルボックス。実在のギアがブランド別に並んでいます" class="zoomable" loading="lazy" src="/gallery/tackle-box.webp"/>
-<img alt="エサ箱。ボイリーとポップアップ" class="zoomable" loading="lazy" src="/gallery/bait-box.webp"/>
-<img alt="海の仕掛け画面。3種類の仕掛けを図と説明付きで" class="zoomable" loading="lazy" src="/gallery/sea-rig.webp"/>
-<img alt="魚種クリエイターで実在の魚を設定しているところ" class="zoomable" loading="lazy" src="/gallery/species-creator.webp"/>
-<img alt="完成した釣り場で釣りをしているところ" class="zoomable" loading="lazy" src="/gallery/vc-01-finished-venue.webp"/>
-<img alt="コミュニティが作った釣り場を選んでいるところ" class="zoomable" loading="lazy" src="/gallery/venue-chooser.webp"/>
-<img alt="Westbereでの夜のコイ釣り" class="zoomable" loading="lazy" src="/gallery/westbere-night.webp"/>
-<img alt="遠投でのフィーダー釣り" class="zoomable" loading="lazy" src="/gallery/feeder.webp"/>
-<img alt="岸からの海釣り" class="zoomable" loading="lazy" src="/gallery/sea_fishing.webp"/>
-<img alt="釣り人の小屋" class="zoomable" loading="lazy" src="/gallery/anglers_lodge.webp"/>
-<img alt="釣り場エディターで水際をなぞっているところ" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
-<img alt="ポイントに距離ピンを設定しているところ" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
-<img alt="釣り場クリエイターで等深線と湖底のオブジェクトを描いているところ" class="zoomable" loading="lazy" src="/gallery/venue-creator-objects.webp"/>
-<img alt="湖底に水草、泥、砂利を描いているところ" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
-<img alt="釣果からXPブーストトークンが落ちたところ" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
-<img alt="釣果カードに載った25lbのコイ" class="zoomable" loading="lazy" src="/gallery/carp-catch-card.webp"/>
+<img alt="描かれたホーム画面" class="zoomable" loading="lazy" src="/gallery/ea/01-home.webp"/>
+<img alt="ウェストビアでのアタリ：今だ、アワセろ！" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<img alt="夜明けのダードル・ドア下での海釣り" class="zoomable" loading="lazy" src="/gallery/ea/03-durdle-door.webp"/>
+<img alt="野尻湖（日本）" class="zoomable" loading="lazy" src="/gallery/ea/lake-nojiri.webp"/>
+<img alt="静かな朝、Jimbo's Farm Lakeに浮かぶウキ" class="zoomable" loading="lazy" src="/gallery/ea/02-jimbos-float-out.webp"/>
+<img alt="橋の下を流れるストゥール川" class="zoomable" loading="lazy" src="/gallery/ea/river-stour.webp"/>
+<img alt="撮影した湖に水深を描き込む" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<img alt="自分の魚を放流しよう" class="zoomable" loading="lazy" src="/gallery/ea/stock-your-own.webp"/>
+<img alt="釣り場カタログ、コミュニティが作った釣り場" class="zoomable" loading="lazy" src="/gallery/ea/04-catalogue.webp"/>
+<img alt="エサを作る：魚がそれをどう感じるか" class="zoomable" loading="lazy" src="/gallery/ea/09-bait-creator.webp"/>
+<img alt="魚種を作る：どう食べ、どう抵抗するか" class="zoomable" loading="lazy" src="/gallery/ea/10-species-creator.webp"/>
+<img alt="エサ箱、フレーバー別のボイリーとポップアップ" class="zoomable" loading="lazy" src="/gallery/ea/07-bait-box.webp"/>
+<img alt="タックルボックス、釣り方を選ぶ" class="zoomable" loading="lazy" src="/gallery/ea/08-tackle-box.webp"/>
+<img alt="釣果カードに載ったテンチ" class="zoomable" loading="lazy" src="/gallery/ea/tench-card.webp"/>
 </div>
 </section>
 <!-- Lightbox gallery -->
@@ -332,6 +363,6 @@
   })();
 </script>
 <footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/ja/news" style="color:var(--muted);text-decoration:underline;">ニュース</a> · <a href="/ja/advertise" style="color:var(--muted);text-decoration:underline;">広告掲載</a> · <a href="/ja/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">インフルエンサー</a> · <a href="/ja/stuck-indoors" style="color:var(--muted);text-decoration:underline;">外に出られない？</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">プライバシーポリシー</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">利用規約</a></footer>
+  <a href="/ja/news" style="color:var(--muted);text-decoration:underline;">ニュース</a> · <a href="/ja/advertise" style="color:var(--muted);text-decoration:underline;">広告掲載</a> · <a href="/ja/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">インフルエンサー</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">プライバシーポリシー</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">利用規約</a></footer>
 <details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 日本語</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a aria-current="true" href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
 </html>

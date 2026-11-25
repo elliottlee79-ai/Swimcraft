@@ -150,12 +150,17 @@
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
   footer .fw .craft{color:var(--brand-olive);}
-.indoors-card{display:flex;gap:16px;align-items:center;max-width:760px;margin:28px auto 8px;padding:12px;background:#2A3420;border:1px solid rgba(143,170,107,.3);border-left:3px solid #C9A84C;border-radius:12px;color:#E8F0E0;text-decoration:none;text-align:left}
-.indoors-card:hover{border-color:#8FAA6B}
-.indoors-card img{width:132px;height:96px;object-fit:cover;object-position:72% 35%;border-radius:8px;flex:none}
-.indoors-card strong{color:#E6DCC6;font-size:1.1rem;display:block;margin-bottom:2px}
-.indoors-more{color:#F0D080;font-weight:700;white-space:nowrap}
-@media (max-width:560px){.indoors-card img{width:88px;height:72px}}
+  /* EA launch (5 Nov 2026): the showcase rows, a screenshot beside a few lines, alternating sides */
+  .hero-out{margin-top:0.9rem;font-family:var(--font-display);font-weight:700;color:var(--gold-light);letter-spacing:0.04em;}
+  .showcase{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 2rem;}
+  .show-row{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:center;margin:2.2rem 0;}
+  .show-row.flip{grid-template-columns:2fr 3fr;}
+  .show-row.flip img{order:2;}
+  .show-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--ink);cursor:zoom-in;box-shadow:0 8px 30px rgba(0,0,0,0.45);}
+  .show-text h3{font-family:var(--font-display);font-weight:700;font-size:1.45rem;color:var(--brand-bone);margin-bottom:0.6rem;}
+  .show-text p{color:var(--muted);line-height:1.65;font-size:1rem;}
+  .show-foot{text-align:center;margin-top:1rem;}
+  @media (max-width:760px){.show-row,.show-row.flip{grid-template-columns:1fr;gap:1rem;}.show-row.flip img{order:0;}}
 </style>
 <link href="https://swimcraft.harbledowndigital.com/ru/" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="x-default" rel="alternate"/><style>
 .sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
@@ -177,63 +182,89 @@
 <a href="/ru/swimcraft-influencers">Блогерам</a>
 <a href="/ru/press">Прессе</a></nav>
 <div class="hero-inner">
-<div class="eyebrow">Harbledown Digital · В разработке</div>
+<div class="eyebrow">Harbledown Digital · Ранний доступ</div>
 <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
 <p class="tagline">Преврати любимые рыбацкие места в виртуальные водоёмы</p>
-<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Добавить в список желаемого в Steam</a>
-<a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Играть в демо</a>
-<a class="btn btn-ghost" href="#updates">Новости на почту</a></div>
+<p class="hero-out">Уже в раннем доступе в Steam</p>
+<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Купить в Steam</a>
+<a class="btn btn-primary" href="#trailer">Смотреть трейлер</a>
+<a class="btn btn-ghost" href="#updates">Получать новости на почту</a></div>
 </div>
 </header>
-<section class="trailer">
-<h2>Посмотри в деле</h2>
-<!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
-<div aria-label="Запустить геймплейное видео Swimcraft" class="video-facade" data-id="wB7IMyU5IBA" id="video-facade" role="button" tabindex="0">
-<img alt="Смотреть геймплейное видео Swimcraft" loading="lazy"/>
+<section class="trailer" id="trailer">
+<h2>Смотреть трейлер</h2>
+<!-- Swimcraft trailer — data-id is the YouTube video ID (after v= or youtu.be/). EA launch kit: swap in the new trailer's ID here. -->
+<div aria-label="Запустить трейлер Swimcraft" class="video-facade" data-id="InZG76p4bbM" id="video-facade" role="button" tabindex="0">
+<img alt="Смотреть трейлер Swimcraft" loading="lazy"/>
 <div aria-hidden="true" class="play"></div>
 </div>
 </section>
 <section class="content">
 <h2>Что такое Swimcraft?</h2>
-<p class="lead">Swimcraft — необычный симулятор рыбалки: ты превращаешь реальные фотографии своих любимых мест в полностью играбельные водоёмы, а потом ловишь на них.</p>
-<p class="lead">Поплавок и донка, спиннинг и морская рыбалка: три дисциплины в одной игре, и каждый водоём построен по месту, которое ты знаешь.</p>
-<p class="lead muted">Игра активно разрабатывается. Вот что уже можно попробовать и что ещё впереди.</p>
-<div class="features">
-<div class="feature"><h3>Из фото в водоём</h3><p>Обведи место по своим фото: вода, острова, глубины и особенности дна, и оно станет местом для ловли.</p></div>
-<div class="feature"><h3>Честный заброс и вываживание</h3><p>Честный заброс, работа с леской и вываживание с учётом вида рыбы: рыба уходит в проводку, устаёт и проверяет твою снасть на прочность.</p></div>
-<div class="feature"><h3>Снасти и наживка</h3><p>Удилища, катушки, лески, крючки, оснастки и наживки, которые действительно важны: сначала простое, остальное открывается по мере прогресса.</p></div>
-<div class="feature"><h3>Прогресс рыболова</h3><p>Получай XP за каждую рыбу, поднимайся в рангах и открывай снасти и наживки. Трофейная рыба может принести буст XP: прибереги его для рыбалки, которая того стоит. Новые уровни и награды появятся в раннем доступе.</p></div>
-<div class="feature"><h3>Турниры <span class="tag-planned">Запланировано</span></h3><p>Онлайн-турниры и общий календарь соревнований запланированы на после релиза, в игре их пока нет.</p></div>
-<div class="feature"><h3>Таблицы лидеров</h3><p>Записывай уловы и поднимайся в таблицах лидеров водоёма и мира: каждый рекорд привязан к месту, где он установлен.</p></div>
+<p class="lead">Swimcraft — необычный рыболовный симулятор: вы превращаете настоящие фотографии любимых мест в полностью играбельные водоёмы, а потом ловите на них.</p>
+<p class="lead">Поплавок, карп, спиннинг и морская рыбалка в одной игре, каждый водоём построен по месту, которое кто-то знает.</p>
+</section>
+<section class="showcase">
+<div class="show-row">
+<img alt="Конструктор водоёмов: глубина, нарисованная на сфотографированном озере" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<div class="show-text"><h3>Ваше место, построенное по вашим фото</h3><p>Обведите берег, нарисуйте глубину, траву и гравий, зарыбьте теми рыбами, что там живут, и получится водоём, на котором может ловить любой. Отметьте его на карте мира, и времена года будут следовать месту, где он на самом деле находится.</p></div>
 </div>
-<a class="indoors-card" href="/ru/stuck-indoors"><img alt="" loading="lazy" src="/indoors-window.jpg"/><span class="indoors-text"><strong>Не можешь выбраться из дома?</strong> Дождь, больная спина или просто жизнь вмешалась: любимому водоёму не нужно ждать. <span class="indoors-more">Рыбачь с дивана →</span></span></a><div class="signup" id="updates">
+<div class="show-row flip">
+<img alt="Рыбалка с галечного берега под Дердл-Дор на рассвете" class="zoomable" loading="lazy" src="/gallery/ea/disciplines.webp"/>
+<div class="show-text"><h3>Поплавок, карп, спиннинг и море</h3><p>Поплавок, маховая удочка, донная ловля и спиннинг на озёрах и реках, ловля с берега моря и на поплавок в море. Две удочки сразу, поверхностные приманки, поплавок по течению текущих рек и ловля до ночи, приливы, которые сменяются, и на каждом водоёме ловится по-своему.</p></div>
+</div>
+<div class="show-row">
+<img alt="Поклёвка на Вестбир: ПОДСЕКАЙ, карповое удилище на сигнализаторе" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<div class="show-text"><h3>Заброс и вываживание, которые ощущаются по-настоящему</h3><p>Прикормите место, следите за поплавком, подсекайте на поклёвке. Каждая рыба рвётся, устаёт и проверяет снасть, и снасть получше и правда разворачивает рыбу быстрее.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Коробка с насадками: бойлы, поп-апы и вкус каждой" class="zoomable" loading="lazy" src="/gallery/ea/bait-box.webp"/>
+<div class="show-text"><h3>Настоящие снасти, настоящие насадки</h3><p>Удилища, катушки, лески, крючки, оснастки и сигнализаторы, а ещё бойлы, поп-апы, зерновые и прикормка. Начните с простого и открывайте больше по мере роста.</p></div>
+</div>
+<div class="show-row">
+<img alt="Конструктор насадок: как рыба чувствует насадку, её вкус, запах и размер" class="zoomable" loading="lazy" src="/gallery/ea/bait-creator.webp"/>
+<div class="show-text"><h3>Создайте своё</h3><p>Создавайте свои насадки и виды рыб, отправляйте их модераторам и встречайте их в коробках с насадками и на водоёмах у всех.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Лестница прогресса в Домике рыболова, каждый уровень и что он даёт" class="zoomable" loading="lazy" src="/gallery/ea/progress.webp"/>
+<div class="show-text"><h3>Поднимайтесь в таблицах</h3><p>Опыт за каждую рыбу, ступени снастей на пути к 40-му уровню, достижения, аватары и сезонные предметы, и рекорды на каждом водоёме, по стране и по миру.</p></div>
+</div>
+<p class="lead muted show-foot">На двадцати языках, с поддержкой контроллера и клавишами, которые вы настраиваете сами, с реалистичным режимом совсем без подсказок на экране и свёрнутым режимом, который продолжает ловить и сохраняет ваши поклёвки.</p>
+</section>
+<section class="content">
+<h2>Появится в раннем доступе</h2>
+<p class="lead muted">Ранний доступ продлится примерно три-четыре месяца. Все, кто купит сейчас, получат каждое обновление и полную версию без доплаты.</p>
+<div class="features">
+<div class="feature"><h3>Конструктор снастей</h3><p>Создавайте свои поплавки, сигнализаторы и остальное содержимое ящика и делитесь ими.</p></div>
+<div class="feature"><h3>Чат игроков</h3><p>Общайтесь с другими рыболовами в игре.</p></div>
+<div class="feature"><h3>Больше рыбалки</h3><p>Морские оснастки с несколькими крючками, а также больше водоёмов, видов рыб и снастей с каждым обновлением.</p></div>
+<div class="feature"><h3>Дальше <span class="tag-planned">В планах</span></h3><p>Нахлыст в полной версии, а после — онлайн-соревнования и турниры.</p></div>
+</div>
+<div class="signup" id="updates">
 <h3>Удобнее по почте?</h3>
-<p>Добавить игру в список желаемого в Steam — лучший способ узнать о релизе, но можешь оставить и почту, чтобы иногда получать новости.</p>
+<p>Оставьте почту, и иногда мы будем присылать новости. Без спама, отписаться можно в любой момент.</p>
 <form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
 <button class="btn btn-primary" type="submit">Сообщите мне</button></form>
 </div>
 </section>
 <section class="shots">
 <h2>Скриншоты</h2>
-<p class="shots-sub">Из текущей сборки в разработке: игра ещё не готова.</p>
+<p class="shots-sub">Из сборки раннего доступа.</p>
 <div class="shot-grid">
-<img alt="Рыба на крючке: удилище согнуто, шкала натяжения растёт" class="zoomable" loading="lazy" src="/gallery/the-fight.webp"/>
-<img alt="Ящик для снастей: настоящее снаряжение, разложенное по брендам" class="zoomable" loading="lazy" src="/gallery/tackle-box.webp"/>
-<img alt="Коробка с наживкой: бойлы и поп-апы" class="zoomable" loading="lazy" src="/gallery/bait-box.webp"/>
-<img alt="Экран морских оснасток: три оснастки с рисунками и пояснениями" class="zoomable" loading="lazy" src="/gallery/sea-rig.webp"/>
-<img alt="Редактор видов: описание настоящей рыбы" class="zoomable" loading="lazy" src="/gallery/species-creator.webp"/>
-<img alt="Готовый водоём, на котором идёт ловля" class="zoomable" loading="lazy" src="/gallery/vc-01-finished-venue.webp"/>
-<img alt="Выбор водоёма, созданного сообществом" class="zoomable" loading="lazy" src="/gallery/venue-chooser.webp"/>
-<img alt="Ночная ловля карпа на Westbere" class="zoomable" loading="lazy" src="/gallery/westbere-night.webp"/>
-<img alt="Фидерная ловля на дальней дистанции" class="zoomable" loading="lazy" src="/gallery/feeder.webp"/>
-<img alt="Морская рыбалка с берега" class="zoomable" loading="lazy" src="/gallery/sea_fishing.webp"/>
-<img alt="Домик рыболова" class="zoomable" loading="lazy" src="/gallery/anglers_lodge.webp"/>
-<img alt="Обводка береговой линии в редакторе водоёмов" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
-<img alt="Расстановка меток дистанции на месте" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
-<img alt="Рисование изобат и объектов на дне в редакторе водоёмов" class="zoomable" loading="lazy" src="/gallery/venue-creator-objects.webp"/>
-<img alt="Рисование травы, ила и гравия на дне" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
-<img alt="Улов, принёсший жетон буста XP" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
-<img alt="Карп 25lb на карточке улова" class="zoomable" loading="lazy" src="/gallery/carp-catch-card.webp"/>
+<img alt="Нарисованный главный экран" class="zoomable" loading="lazy" src="/gallery/ea/01-home.webp"/>
+<img alt="Поклёвка на Вестбир: ПОДСЕКАЙ" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<img alt="Морская рыбалка под Дердл-Дор на рассвете" class="zoomable" loading="lazy" src="/gallery/ea/03-durdle-door.webp"/>
+<img alt="Озеро Нодзири, Япония" class="zoomable" loading="lazy" src="/gallery/ea/lake-nojiri.webp"/>
+<img alt="Поплавок на Jimbo's Farm Lake тихим утром" class="zoomable" loading="lazy" src="/gallery/ea/02-jimbos-float-out.webp"/>
+<img alt="Река Стур, под мостом" class="zoomable" loading="lazy" src="/gallery/ea/river-stour.webp"/>
+<img alt="Рисуем глубину на сфотографированном озере" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<img alt="Зарыбляйте своей рыбой" class="zoomable" loading="lazy" src="/gallery/ea/stock-your-own.webp"/>
+<img alt="Каталог водоёмов, построенных сообществом" class="zoomable" loading="lazy" src="/gallery/ea/04-catalogue.webp"/>
+<img alt="Создание насадки: как её чувствует рыба" class="zoomable" loading="lazy" src="/gallery/ea/09-bait-creator.webp"/>
+<img alt="Создание вида: как он кормится и борется" class="zoomable" loading="lazy" src="/gallery/ea/10-species-creator.webp"/>
+<img alt="Коробка с насадками, бойлы и поп-апы по вкусу" class="zoomable" loading="lazy" src="/gallery/ea/07-bait-box.webp"/>
+<img alt="Ящик со снастями, выбор способа ловли" class="zoomable" loading="lazy" src="/gallery/ea/08-tackle-box.webp"/>
+<img alt="Линь на карточке улова" class="zoomable" loading="lazy" src="/gallery/ea/tench-card.webp"/>
 </div>
 </section>
 <!-- Lightbox gallery -->
@@ -332,6 +363,6 @@
   })();
 </script>
 <footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/ru/news" style="color:var(--muted);text-decoration:underline;">Новости</a> · <a href="/ru/advertise" style="color:var(--muted);text-decoration:underline;">Реклама</a> · <a href="/ru/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Блогерам</a> · <a href="/ru/stuck-indoors" style="color:var(--muted);text-decoration:underline;">Не можешь выбраться из дома?</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Политика конфиденциальности</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Условия использования</a></footer>
+  <a href="/ru/news" style="color:var(--muted);text-decoration:underline;">Новости</a> · <a href="/ru/advertise" style="color:var(--muted);text-decoration:underline;">Реклама</a> · <a href="/ru/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Блогерам</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Политика конфиденциальности</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Условия использования</a></footer>
 <details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Русский</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a aria-current="true" href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
 </html>

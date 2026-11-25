@@ -150,12 +150,17 @@
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
   footer .fw .craft{color:var(--brand-olive);}
-.indoors-card{display:flex;gap:16px;align-items:center;max-width:760px;margin:28px auto 8px;padding:12px;background:#2A3420;border:1px solid rgba(143,170,107,.3);border-left:3px solid #C9A84C;border-radius:12px;color:#E8F0E0;text-decoration:none;text-align:left}
-.indoors-card:hover{border-color:#8FAA6B}
-.indoors-card img{width:132px;height:96px;object-fit:cover;object-position:72% 35%;border-radius:8px;flex:none}
-.indoors-card strong{color:#E6DCC6;font-size:1.1rem;display:block;margin-bottom:2px}
-.indoors-more{color:#F0D080;font-weight:700;white-space:nowrap}
-@media (max-width:560px){.indoors-card img{width:88px;height:72px}}
+  /* EA launch (5 Nov 2026): the showcase rows, a screenshot beside a few lines, alternating sides */
+  .hero-out{margin-top:0.9rem;font-family:var(--font-display);font-weight:700;color:var(--gold-light);letter-spacing:0.04em;}
+  .showcase{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 2rem;}
+  .show-row{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:center;margin:2.2rem 0;}
+  .show-row.flip{grid-template-columns:2fr 3fr;}
+  .show-row.flip img{order:2;}
+  .show-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--ink);cursor:zoom-in;box-shadow:0 8px 30px rgba(0,0,0,0.45);}
+  .show-text h3{font-family:var(--font-display);font-weight:700;font-size:1.45rem;color:var(--brand-bone);margin-bottom:0.6rem;}
+  .show-text p{color:var(--muted);line-height:1.65;font-size:1rem;}
+  .show-foot{text-align:center;margin-top:1rem;}
+  @media (max-width:760px){.show-row,.show-row.flip{grid-template-columns:1fr;gap:1rem;}.show-row.flip img{order:0;}}
 </style>
 <link href="https://swimcraft.harbledowndigital.com/cs/" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="x-default" rel="alternate"/><style>
 .sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
@@ -177,63 +182,89 @@
 <a href="/cs/swimcraft-influencers">Influenceři</a>
 <a href="/cs/press">Pro média</a></nav>
 <div class="hero-inner">
-<div class="eyebrow">Harbledown Digital · Ve vývoji</div>
+<div class="eyebrow">Harbledown Digital · Předběžný přístup</div>
 <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
 <p class="tagline">Proměň svá oblíbená lovná místa ve virtuální rybářské revíry</p>
-<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Přidat do seznamu přání na Steamu</a>
-<a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Hrát demo</a>
-<a class="btn btn-ghost" href="#updates">Novinky e-mailem</a></div>
+<p class="hero-out">Nyní v předběžném přístupu na Steamu</p>
+<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">Koupit na Steamu</a>
+<a class="btn btn-primary" href="#trailer">Pustit trailer</a>
+<a class="btn btn-ghost" href="#updates">Dostávat novinky e-mailem</a></div>
 </div>
 </header>
-<section class="trailer">
-<h2>Podívej se, jak to funguje</h2>
-<!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
-<div aria-label="Přehrát video ze hry Swimcraft" class="video-facade" data-id="wB7IMyU5IBA" id="video-facade" role="button" tabindex="0">
-<img alt="Podívej se na video ze hry Swimcraft" loading="lazy"/>
+<section class="trailer" id="trailer">
+<h2>Pustit trailer</h2>
+<!-- Swimcraft trailer — data-id is the YouTube video ID (after v= or youtu.be/). EA launch kit: swap in the new trailer's ID here. -->
+<div aria-label="Přehrát trailer Swimcraftu" class="video-facade" data-id="InZG76p4bbM" id="video-facade" role="button" tabindex="0">
+<img alt="Pustit trailer Swimcraftu" loading="lazy"/>
 <div aria-hidden="true" class="play"></div>
 </div>
 </section>
 <section class="content">
 <h2>Co je Swimcraft?</h2>
-<p class="lead">Swimcraft je rybářský simulátor, který je jiný: skutečné fotky svých oblíbených lovných míst proměníš v plně hratelné revíry — a pak na nich chytáš.</p>
-<p class="lead">Lov na plavanou a na položenou, přívlač i mořský rybolov — tři disciplíny v jedné hře a každý revír postavený z místa, které znáš.</p>
-<p class="lead muted">Hra je v aktivním vývoji. Tady je, co se dá hrát už teď a co se chystá.</p>
-<div class="features">
-<div class="feature"><h3>Z fotky revír</h3><p>Obkresli lovné místo podle vlastních fotek — vodu, ostrovy, hloubky a prvky dna — a vznikne z něj lovné místo, na kterém se dá chytat.</p></div>
-<div class="feature"><h3>Skutečný nához a zdolávání</h3><p>Poctivý nához, práce s vlascem a zdolávání věrné danému druhu, kdy ryby utíkají, unavují se a prověří tvoji výbavu.</p></div>
-<div class="feature"><h3>Výbava a nástrahy</h3><p>Pruty, navijáky, vlasce, háčky, montáže a nástrahy, na kterých záleží — začneš jednoduše a další odemykáš postupně.</p></div>
-<div class="feature"><h3>Postup rybáře</h3><p>Za každý úlovek získáš XP, stoupáš v hodnosti a postupně odemykáš výbavu a nástrahy. Trofejní ryba může dát XP boost — schovej si ho na výpravu, na které záleží. Další úrovně a odměny přibudou během předběžného přístupu.</p></div>
-<div class="feature"><h3>Turnaje <span class="tag-planned">Plánováno</span></h3><p>Online turnaje a společný kalendář závodů plánujeme až po vydání — ve hře zatím nejsou.</p></div>
-<div class="feature"><h3>Žebříčky</h3><p>Zapisuj své úlovky a stoupej v žebříčcích revírů i v celosvětovém žebříčku — každý rekord je svázaný s lovným místem, kde padl.</p></div>
+<p class="lead">Swimcraft je rybářský simulátor s rozdílem: z opravdových fotek svých oblíbených míst uděláš plně hratelné revíry a pak na nich chytáš.</p>
+<p class="lead">Plavaná, kapr, přívlač a moře v jedné hře, každý revír postavený podle místa, které někdo zná.</p>
+</section>
+<section class="showcase">
+<div class="show-row">
+<img alt="Tvůrce revírů, hloubka malovaná na vyfocené jezero" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<div class="show-text"><h3>Tvoje místo, postavené z tvých fotek</h3><p>Obtáhni břeh, namaluj hloubku, vegetaci a štěrk, zarybni ho rybami, které tam žijí, a vznikne revír, na kterém může chytat kdokoli. Připíchni ho na mapu světa a roční období se budou řídit místem, kde opravdu leží.</p></div>
 </div>
-<a class="indoors-card" href="/cs/stuck-indoors"><img alt="" loading="lazy" src="/indoors-window.jpg"/><span class="indoors-text"><strong>Musíš zůstat doma?</strong> Déšť, bolavá záda nebo život, který se připlete: tvoje oblíbená voda čekat nemusí. <span class="indoors-more">Chytej z gauče →</span></span></a><div class="signup" id="updates">
+<div class="show-row flip">
+<img alt="Chytání ze štěrkové pláže pod Durdle Door za svítání" class="zoomable" loading="lazy" src="/gallery/ea/disciplines.webp"/>
+<div class="show-text"><h3>Plavaná, kapr, přívlač a moře</h3><p>Splávek, bič, lov na položenou a přívlač na jezerech i řekách, lov z pláže a na splávek na moři. Dva pruty najednou, hladinové nástrahy, splávek plující po proudu tekoucích řek a rybaření do noci, příliv a odliv, který se otáčí, a na každé vodě se chytá po svém.</p></div>
+</div>
+<div class="show-row">
+<img alt="Záběr na Westbere: ZASEKNI TEĎ, kaprový prut na signalizátoru" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<div class="show-text"><h3>Nához a zdolávání, které působí opravdově</h3><p>Zakrm místo, sleduj splávek, zasekni při ťuknutí. Každá ryba vyráží, unavuje se a zkouší tvé vybavení, a lepší vybavení rybu opravdu otočí dřív.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Krabička s nástrahami: boilies, pop-upy a příchuť každé" class="zoomable" loading="lazy" src="/gallery/ea/bait-box.webp"/>
+<div class="show-text"><h3>Opravdové vybavení, opravdové nástrahy</h3><p>Pruty, navijáky, vlasce, háčky, montáže a signalizátory, k tomu boilies, pop-upy, partikl a krmení. Začni jednoduše a postupně odemykej další.</p></div>
+</div>
+<div class="show-row">
+<img alt="Tvůrce nástrah: jak ryba vnímá nástrahu, její chuť, vůni a velikost" class="zoomable" loading="lazy" src="/gallery/ea/bait-creator.webp"/>
+<div class="show-text"><h3>Vytvoř si vlastní</h3><p>Vytvoř vlastní nástrahy a druhy ryb, pošli je moderátorům a uvidíš je v krabičce s nástrahami a na revírech všech hráčů.</p></div>
+</div>
+<div class="show-row flip">
+<img alt="Žebřík postupu v Rybářské chatě, každá úroveň a co dává" class="zoomable" loading="lazy" src="/gallery/ea/progress.webp"/>
+<div class="show-text"><h3>Stoupej v žebříčcích</h3><p>XP za každý úlovek, úrovně vybavení k získání na cestě k úrovni 40, úspěchy, avatary a sezónní kousky, a rekordy na každém revíru, národní i světové.</p></div>
+</div>
+<p class="lead muted show-foot">Ve dvaceti jazycích, s podporou ovladače a klávesami, které si nastavíš sám, s realistickým režimem úplně bez nápověd na obrazovce a minimalizovaným režimem, který chytá dál a schová ti záběry.</p>
+</section>
+<section class="content">
+<h2>Přijde během předběžného přístupu</h2>
+<p class="lead muted">Předběžný přístup potrvá zhruba tři až čtyři měsíce. Každý, kdo koupí teď, dostane každou aktualizaci a plnou verzi bez příplatku.</p>
+<div class="features">
+<div class="feature"><h3>Tvůrce vybavení</h3><p>Navrhni vlastní splávky, signalizátory a zbytek krabičky s náčiním a sdílej je.</p></div>
+<div class="feature"><h3>Chat mezi hráči</h3><p>Povídej si ve hře s ostatními rybáři.</p></div>
+<div class="feature"><h3>Víc k chytání</h3><p>Mořské montáže s více háčky a s každou aktualizací další vody, druhy ryb a výbava.</p></div>
+<div class="feature"><h3>Dál v budoucnu <span class="tag-planned">V plánu</span></h3><p>Muškaření v plné verzi a potom online závody a turnaje.</p></div>
+</div>
+<div class="signup" id="updates">
 <h3>Raději e-mail?</h3>
-<p>Přidání do seznamu přání na Steamu je nejlepší způsob, jak se o vydání dozvědět — ale klidně nám nech e-mail pro občasné novinky.</p>
+<p>Nech nám e-mail na občasné novinky. Žádný spam a odhlásit se můžeš kdykoli.</p>
 <form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
 <button class="btn btn-primary" type="submit">Dej mi vědět</button></form>
 </div>
 </section>
 <section class="shots">
 <h2>Snímky obrazovky</h2>
-<p class="shots-sub">Z aktuální vývojové verze — práce stále probíhá.</p>
+<p class="shots-sub">Z verze předběžného přístupu.</p>
 <div class="shot-grid">
-<img alt="Ryba na háčku, prut v oblouku a ukazatel napětí stoupá" class="zoomable" loading="lazy" src="/gallery/the-fight.webp"/>
-<img alt="Rybářský kufřík, skutečná výbava seřazená podle značek" class="zoomable" loading="lazy" src="/gallery/tackle-box.webp"/>
-<img alt="Krabička s nástrahami, boilies a pop-upy" class="zoomable" loading="lazy" src="/gallery/bait-box.webp"/>
-<img alt="Obrazovka mořských montáží, tři montáže nakreslené a vysvětlené" class="zoomable" loading="lazy" src="/gallery/sea-rig.webp"/>
-<img alt="Editor druhů, popis skutečné ryby" class="zoomable" loading="lazy" src="/gallery/species-creator.webp"/>
-<img alt="Hotový revír, na kterém se chytá" class="zoomable" loading="lazy" src="/gallery/vc-01-finished-venue.webp"/>
-<img alt="Výběr revíru postaveného komunitou" class="zoomable" loading="lazy" src="/gallery/venue-chooser.webp"/>
-<img alt="Noční lov kaprů na Westbere" class="zoomable" loading="lazy" src="/gallery/westbere-night.webp"/>
-<img alt="Lov na feeder na dálku" class="zoomable" loading="lazy" src="/gallery/feeder.webp"/>
-<img alt="Mořský rybolov ze břehu" class="zoomable" loading="lazy" src="/gallery/sea_fishing.webp"/>
-<img alt="Rybářská chata" class="zoomable" loading="lazy" src="/gallery/anglers_lodge.webp"/>
-<img alt="Obkreslování břehové linie v editoru revírů" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
-<img alt="Nastavení vzdálenostních značek na lovném místě" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
-<img alt="Malování hloubkových vrstevnic a objektů na dně v editoru revírů" class="zoomable" loading="lazy" src="/gallery/venue-creator-objects.webp"/>
-<img alt="Malování řas, bahna a štěrku na dno" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
-<img alt="Úlovek, který dal žeton XP boostu" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
-<img alt="Kapr 25 lb na kartě úlovku" class="zoomable" loading="lazy" src="/gallery/carp-catch-card.webp"/>
+<img alt="Malovaná úvodní obrazovka" class="zoomable" loading="lazy" src="/gallery/ea/01-home.webp"/>
+<img alt="Záběr na Westbere: ZASEKNI TEĎ" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<img alt="Chytání na moři pod Durdle Door za svítání" class="zoomable" loading="lazy" src="/gallery/ea/03-durdle-door.webp"/>
+<img alt="Jezero Nojiri, Japonsko" class="zoomable" loading="lazy" src="/gallery/ea/lake-nojiri.webp"/>
+<img alt="Splávek na Jimbo's Farm Lake za klidného rána" class="zoomable" loading="lazy" src="/gallery/ea/02-jimbos-float-out.webp"/>
+<img alt="Řeka Stour pod mostem" class="zoomable" loading="lazy" src="/gallery/ea/river-stour.webp"/>
+<img alt="Malování hloubky na vyfocené jezero" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<img alt="Zarybni vlastními rybami" class="zoomable" loading="lazy" src="/gallery/ea/stock-your-own.webp"/>
+<img alt="Katalog revírů, vod postavených komunitou" class="zoomable" loading="lazy" src="/gallery/ea/04-catalogue.webp"/>
+<img alt="Tvorba nástrahy: jak ji ryba vnímá" class="zoomable" loading="lazy" src="/gallery/ea/09-bait-creator.webp"/>
+<img alt="Tvorba druhu: jak žere a bojuje" class="zoomable" loading="lazy" src="/gallery/ea/10-species-creator.webp"/>
+<img alt="Krabička s nástrahami, boilies a pop-upy podle příchuti" class="zoomable" loading="lazy" src="/gallery/ea/07-bait-box.webp"/>
+<img alt="Krabička s náčiním, volba metody" class="zoomable" loading="lazy" src="/gallery/ea/08-tackle-box.webp"/>
+<img alt="Lín na kartě úlovku" class="zoomable" loading="lazy" src="/gallery/ea/tench-card.webp"/>
 </div>
 </section>
 <!-- Lightbox gallery -->
@@ -332,6 +363,6 @@
   })();
 </script>
 <footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/cs/news" style="color:var(--muted);text-decoration:underline;">Novinky</a> · <a href="/cs/advertise" style="color:var(--muted);text-decoration:underline;">Reklama</a> · <a href="/cs/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Influenceři</a> · <a href="/cs/stuck-indoors" style="color:var(--muted);text-decoration:underline;">Musíš zůstat doma?</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Zásady ochrany osobních údajů</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Podmínky použití</a></footer>
+  <a href="/cs/news" style="color:var(--muted);text-decoration:underline;">Novinky</a> · <a href="/cs/advertise" style="color:var(--muted);text-decoration:underline;">Reklama</a> · <a href="/cs/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">Influenceři</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">Zásady ochrany osobních údajů</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">Podmínky použití</a></footer>
 <details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> Čeština</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a aria-current="true" href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
 </html>

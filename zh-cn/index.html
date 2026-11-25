@@ -150,12 +150,17 @@
     font-size:0.8rem;border-top:1px solid var(--border);}
   footer .fw{font-family:var(--font-brand);color:var(--brand-bone);}
   footer .fw .craft{color:var(--brand-olive);}
-.indoors-card{display:flex;gap:16px;align-items:center;max-width:760px;margin:28px auto 8px;padding:12px;background:#2A3420;border:1px solid rgba(143,170,107,.3);border-left:3px solid #C9A84C;border-radius:12px;color:#E8F0E0;text-decoration:none;text-align:left}
-.indoors-card:hover{border-color:#8FAA6B}
-.indoors-card img{width:132px;height:96px;object-fit:cover;object-position:72% 35%;border-radius:8px;flex:none}
-.indoors-card strong{color:#E6DCC6;font-size:1.1rem;display:block;margin-bottom:2px}
-.indoors-more{color:#F0D080;font-weight:700;white-space:nowrap}
-@media (max-width:560px){.indoors-card img{width:88px;height:72px}}
+  /* EA launch (5 Nov 2026): the showcase rows, a screenshot beside a few lines, alternating sides */
+  .hero-out{margin-top:0.9rem;font-family:var(--font-display);font-weight:700;color:var(--gold-light);letter-spacing:0.04em;}
+  .showcase{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 2rem;}
+  .show-row{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:center;margin:2.2rem 0;}
+  .show-row.flip{grid-template-columns:2fr 3fr;}
+  .show-row.flip img{order:2;}
+  .show-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:var(--ink);cursor:zoom-in;box-shadow:0 8px 30px rgba(0,0,0,0.45);}
+  .show-text h3{font-family:var(--font-display);font-weight:700;font-size:1.45rem;color:var(--brand-bone);margin-bottom:0.6rem;}
+  .show-text p{color:var(--muted);line-height:1.65;font-size:1rem;}
+  .show-foot{text-align:center;margin-top:1rem;}
+  @media (max-width:760px){.show-row,.show-row.flip{grid-template-columns:1fr;gap:1rem;}.show-row.flip img{order:0;}}
 </style>
 <link href="https://swimcraft.harbledowndigital.com/zh-cn/" rel="canonical"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="en" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/de/" hreflang="de" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fr/" hreflang="fr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es/" hreflang="es-ES" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/es-419/" hreflang="es-419" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pt-br/" hreflang="pt-BR" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/it/" hreflang="it" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/nl/" hreflang="nl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/da/" hreflang="da" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/no/" hreflang="nb" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/sv/" hreflang="sv" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/fi/" hreflang="fi" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/pl/" hreflang="pl" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/cs/" hreflang="cs" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ru/" hreflang="ru" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/tr/" hreflang="tr" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ja/" hreflang="ja" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-cn/" hreflang="zh-Hans" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/zh-tw/" hreflang="zh-Hant" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/ko/" hreflang="ko" rel="alternate"/><link href="https://swimcraft.harbledowndigital.com/" hreflang="x-default" rel="alternate"/><style>
 .sc-lang{position:fixed;right:14px;bottom:14px;z-index:9999;font-family:'Bitter',Georgia,serif}
@@ -177,63 +182,89 @@
 <a href="/zh-cn/swimcraft-influencers">主播合作</a>
 <a href="/zh-cn/press">媒体</a></nav>
 <div class="hero-inner">
-<div class="eyebrow">Harbledown Digital · 开发中</div>
+<div class="eyebrow">Harbledown Digital · 抢先体验</div>
 <div class="wordmark"><span class="swim">swim</span><span class="craft">craft</span></div>
 <p class="tagline">把你心爱的钓点变成虚拟钓场</p>
-<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">在 Steam 上加入愿望单</a>
-<a class="btn btn-primary" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">试玩 Demo</a>
-<a class="btn btn-ghost" href="#updates">订阅邮件更新</a></div>
+<p class="hero-out">现已在 Steam 抢先体验</p>
+<div class="hero-cta"><a class="btn btn-gold" href="https://store.steampowered.com/app/4949860/Swimcraft/" rel="noopener" target="_blank">在 Steam 购买</a>
+<a class="btn btn-primary" href="#trailer">观看预告片</a>
+<a class="btn btn-ghost" href="#updates">通过邮件获取更新</a></div>
 </div>
 </header>
-<section class="trailer">
-<h2>实机演示</h2>
-<!-- Swimcraft gameplay video — data-id is the YouTube video ID (after v= or youtu.be/) -->
-<div aria-label="播放 Swimcraft 实机视频" class="video-facade" data-id="wB7IMyU5IBA" id="video-facade" role="button" tabindex="0">
-<img alt="观看 Swimcraft 实机视频" loading="lazy"/>
+<section class="trailer" id="trailer">
+<h2>观看预告片</h2>
+<!-- Swimcraft trailer — data-id is the YouTube video ID (after v= or youtu.be/). EA launch kit: swap in the new trailer's ID here. -->
+<div aria-label="播放 Swimcraft 预告片" class="video-facade" data-id="InZG76p4bbM" id="video-facade" role="button" tabindex="0">
+<img alt="观看 Swimcraft 预告片" loading="lazy"/>
 <div aria-hidden="true" class="play"></div>
 </div>
 </section>
 <section class="content">
 <h2>Swimcraft 是什么？</h2>
-<p class="lead">Swimcraft 是一款与众不同的钓鱼模拟游戏：你可以把心爱钓点的真实照片变成可以完整游玩的钓场，然后在那里钓鱼。</p>
-<p class="lead">粗钓、路亚钓和海钓，三种钓法尽在一款游戏中，每个钓场都来自你熟悉的地方。</p>
-<p class="lead muted">游戏正在积极开发中。下面是现在能玩到的内容，以及即将到来的内容。</p>
-<div class="features">
-<div class="feature"><h3>照片变钓场</h3><p>根据你自己拍的照片描出钓点：水面、小岛、水深和水下地形，它就会变成一个可以垂钓的钓位。</p></div>
-<div class="feature"><h3>真实的抛投与搏鱼</h3><p>真实的抛投、出线管理，以及符合鱼种特性的搏鱼过程：鱼会冲、会累，也会考验你的钓具。</p></div>
-<div class="feature"><h3>钓具与鱼饵</h3><p>鱼竿、渔轮、鱼线、鱼钩、钓组和鱼饵都举足轻重。从简单开始，随着进度逐步解锁。</p></div>
-<div class="feature"><h3>钓手成长</h3><p>每钓上一条鱼都能获得 XP，提升等级，一路解锁钓具和鱼饵。大物可能掉落 XP 加成，留到关键的钓行再用吧。更深入的等级和奖励将在抢先体验期间推出。</p></div>
-<div class="feature"><h3>比赛 <span class="tag-planned">计划中</span></h3><p>线上比赛和共享赛事日历计划在正式推出后加入，目前游戏中还没有。</p></div>
-<div class="feature"><h3>排行榜</h3><p>记录你的渔获，冲击钓场排行榜和全球排行榜。每项纪录都与你创下它的钓点绑定。</p></div>
+<p class="lead">Swimcraft 是一款与众不同的钓鱼模拟游戏：把你最爱钓点的真实照片变成完全可玩的钓场，然后去钓。</p>
+<p class="lead">淡水、鲤鱼、路亚和海钓集于一款游戏，每个钓场都来自某人熟悉的地方。</p>
+</section>
+<section class="showcase">
+<div class="show-row">
+<img alt="钓场创作器：在拍摄的湖面上绘制水深" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<div class="show-text"><h3>你的钓点，用你自己的照片打造</h3><p>描出水岸，画上水深、水草和砾石，投放生活在那里的鱼，它就成了人人都能钓的钓场。把它钉在世界地图上，季节就会跟随它真实所在的地方。</p></div>
 </div>
-<a class="indoors-card" href="/zh-cn/stuck-indoors"><img alt="" loading="lazy" src="/indoors-window.jpg"/><span class="indoors-text"><strong>出不了门？</strong> 下雨、腰不好，或者生活忙得抽不开身：你最爱的钓场不必等待。 <span class="indoors-more">在沙发上就能钓 →</span></span></a><div class="signup" id="updates">
+<div class="show-row flip">
+<img alt="黎明时分在杜德尔门下的砾石滩垂钓" class="zoomable" loading="lazy" src="/gallery/ea/disciplines.webp"/>
+<div class="show-text"><h3>淡水、鲤鱼、路亚与大海</h3><p>在湖泊和河流里用浮漂、手竿、沉底和路亚，在海上远投和浮漂钓。双竿同时作钓、水面系路亚、在流动的河流中让浮漂顺流而下，还能夜钓，潮汐涨落不停，每片水域都有自己的钓法。</p></div>
+</div>
+<div class="show-row">
+<img alt="韦斯特比尔有口：快扬竿！架在报警器上的鲤鱼竿" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<div class="show-text"><h3>真实的抛竿与搏鱼</h3><p>打窝，盯漂，见口扬竿。每条鱼都会冲、会累、会考验你的装备，更好的装备确实能更快把鱼拉回来。</p></div>
+</div>
+<div class="show-row flip">
+<img alt="饵盒：博饵、浮饵和各自的风味" class="zoomable" loading="lazy" src="/gallery/ea/bait-box.webp"/>
+<div class="show-text"><h3>真实的装备，真实的饵</h3><p>鱼竿、渔轮、鱼线、鱼钩、钓组和咬钩报警器，还有博饵、浮饵、谷物饵和窝料。从简单开始，越往上解锁越多。</p></div>
+</div>
+<div class="show-row">
+<img alt="饵料创作器：鱼如何感知饵料，它的味道、气味和大小" class="zoomable" loading="lazy" src="/gallery/ea/bait-creator.webp"/>
+<div class="show-text"><h3>亲手打造</h3><p>创作你自己的饵料和鱼种，提交给版主，然后在所有人的饵盒和钓场里看到它们。</p></div>
+</div>
+<div class="show-row flip">
+<img alt="钓客小屋里的成长阶梯，每一级及其奖励" class="zoomable" loading="lazy" src="/gallery/ea/progress.webp"/>
+<div class="show-text"><h3>攀登排行榜</h3><p>每条鱼都有经验，通往 40 级路上可解锁的装备档位、成就、头像和季节物品，以及每片水域的全国与世界纪录。</p></div>
+</div>
+<p class="lead muted show-foot">支持 20 种语言，支持手柄和自定义按键，有完全没有屏幕提示的写实模式，还有持续钓鱼并保留咬钩的最小化模式。</p>
+</section>
+<section class="content">
+<h2>抢先体验期间即将推出</h2>
+<p class="lead muted">抢先体验约持续三到四个月。现在购买的玩家都能免费获得每次更新以及正式版。</p>
+<div class="features">
+<div class="feature"><h3>装备创作器</h3><p>设计你自己的浮漂、咬钩报警器和钓箱里的其他装备，并分享出去。</p></div>
+<div class="feature"><h3>玩家聊天</h3><p>在游戏里和其他钓友聊天。</p></div>
+<div class="feature"><h3>更多可钓</h3><p>多钩海钓钓组，以及每次更新都会加入的更多水域、鱼种和钓具。</p></div>
+<div class="feature"><h3>更远的计划 <span class="tag-planned">计划中</span></h3><p>正式版加入飞钓，之后是在线比赛和锦标赛。</p></div>
+</div>
+<div class="signup" id="updates">
 <h3>更喜欢邮件？</h3>
-<p>在 Steam 上加入愿望单是第一时间得知发售消息的最佳方式，不过你也可以留下邮箱，偶尔接收我们的更新。</p>
+<p>留下邮箱，偶尔收到更新。不发垃圾邮件，随时可以退订。</p>
 <form action="https://formspree.io/f/xojgavnk" method="POST"><input name="email" placeholder="you@example.com" required="" type="email"/>
 <button class="btn btn-primary" type="submit">通知我</button></form>
 </div>
 </section>
 <section class="shots">
 <h2>游戏截图</h2>
-<p class="shots-sub">来自当前开发版本，仍在制作中。</p>
+<p class="shots-sub">截自抢先体验版本。</p>
 <div class="shot-grid">
-<img alt="鱼已上钩，鱼竿弯曲，张力表不断上升" class="zoomable" loading="lazy" src="/gallery/the-fight.webp"/>
-<img alt="钓具箱，真实装备按品牌陈列" class="zoomable" loading="lazy" src="/gallery/tackle-box.webp"/>
-<img alt="饵料盒，波丽和浮饵" class="zoomable" loading="lazy" src="/gallery/bait-box.webp"/>
-<img alt="海钓钓组界面，绘出并讲解三种钓组" class="zoomable" loading="lazy" src="/gallery/sea-rig.webp"/>
-<img alt="鱼种编辑器，正在描述一条真实的鱼" class="zoomable" loading="lazy" src="/gallery/species-creator.webp"/>
-<img alt="在一个建好的钓场里钓鱼" class="zoomable" loading="lazy" src="/gallery/vc-01-finished-venue.webp"/>
-<img alt="挑选一个社区玩家打造的钓场" class="zoomable" loading="lazy" src="/gallery/venue-chooser.webp"/>
-<img alt="夜钓鲤鱼，在 Westbere" class="zoomable" loading="lazy" src="/gallery/westbere-night.webp"/>
-<img alt="远距离投料器钓" class="zoomable" loading="lazy" src="/gallery/feeder.webp"/>
-<img alt="岸边海钓" class="zoomable" loading="lazy" src="/gallery/sea_fishing.webp"/>
-<img alt="钓鱼人小屋" class="zoomable" loading="lazy" src="/gallery/anglers_lodge.webp"/>
-<img alt="在钓场编辑器中描出水边轮廓" class="zoomable" loading="lazy" src="/gallery/vc-04-trace.webp"/>
-<img alt="在钓点上设置距离标记" class="zoomable" loading="lazy" src="/gallery/vc-05-calibration.webp"/>
-<img alt="在钓场编辑器中绘制等深线和湖底物体" class="zoomable" loading="lazy" src="/gallery/venue-creator-objects.webp"/>
-<img alt="在湖底绘制水草、淤泥和砾石" class="zoomable" loading="lazy" src="/gallery/vc-08-features-good.webp"/>
-<img alt="一次渔获掉落了 XP 加成代币" class="zoomable" loading="lazy" src="/gallery/sc-05-token-drop.webp"/>
-<img alt="渔获卡片上的一条 25lb 鲤鱼" class="zoomable" loading="lazy" src="/gallery/carp-catch-card.webp"/>
+<img alt="手绘的主界面" class="zoomable" loading="lazy" src="/gallery/ea/01-home.webp"/>
+<img alt="韦斯特比尔有口：快扬竿！" class="zoomable" loading="lazy" src="/gallery/ea/westbere-strike.webp"/>
+<img alt="黎明时分杜德尔门下的海钓" class="zoomable" loading="lazy" src="/gallery/ea/03-durdle-door.webp"/>
+<img alt="野尻湖，日本" class="zoomable" loading="lazy" src="/gallery/ea/lake-nojiri.webp"/>
+<img alt="宁静的早晨，Jimbo's Farm Lake 上的一支浮漂" class="zoomable" loading="lazy" src="/gallery/ea/02-jimbos-float-out.webp"/>
+<img alt="桥下的斯陶尔河" class="zoomable" loading="lazy" src="/gallery/ea/river-stour.webp"/>
+<img alt="在拍摄的湖面上绘制水深" class="zoomable" loading="lazy" src="/gallery/ea/venue-depth.webp"/>
+<img alt="投放你自己的鱼" class="zoomable" loading="lazy" src="/gallery/ea/stock-your-own.webp"/>
+<img alt="钓场目录，社区打造的水域" class="zoomable" loading="lazy" src="/gallery/ea/04-catalogue.webp"/>
+<img alt="创作饵料：鱼如何感知它" class="zoomable" loading="lazy" src="/gallery/ea/09-bait-creator.webp"/>
+<img alt="创作鱼种：它如何进食和搏斗" class="zoomable" loading="lazy" src="/gallery/ea/10-species-creator.webp"/>
+<img alt="饵盒，按风味排列的博饵和浮饵" class="zoomable" loading="lazy" src="/gallery/ea/07-bait-box.webp"/>
+<img alt="钓箱，选择钓法" class="zoomable" loading="lazy" src="/gallery/ea/08-tackle-box.webp"/>
+<img alt="渔获卡上的丁鱥" class="zoomable" loading="lazy" src="/gallery/ea/tench-card.webp"/>
 </div>
 </section>
 <!-- Lightbox gallery -->
@@ -332,6 +363,6 @@
   })();
 </script>
 <footer>© 2026 <span class="fw">swim<span class="craft">craft</span></span> · Harbledown Digital ·
-  <a href="/zh-cn/news" style="color:var(--muted);text-decoration:underline;">新闻</a> · <a href="/zh-cn/advertise" style="color:var(--muted);text-decoration:underline;">广告合作</a> · <a href="/zh-cn/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">主播合作</a> · <a href="/zh-cn/stuck-indoors" style="color:var(--muted);text-decoration:underline;">出不了门？</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">隐私政策</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">使用条款</a></footer>
+  <a href="/zh-cn/news" style="color:var(--muted);text-decoration:underline;">新闻</a> · <a href="/zh-cn/advertise" style="color:var(--muted);text-decoration:underline;">广告合作</a> · <a href="/zh-cn/swimcraft-influencers" style="color:var(--muted);text-decoration:underline;">主播合作</a> · <a href="/privacy" style="color:var(--muted);text-decoration:underline;">隐私政策</a> · <a href="/terms" style="color:var(--muted);text-decoration:underline;">使用条款</a></footer>
 <details class="sc-lang" data-noi18n=""><summary aria-label="Language">🌐<span class="n"> 简体中文</span></summary><ul><li><a href="/" hreflang="en" lang="en">English</a></li><li><a href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="/es/" hreflang="es-ES" lang="es-ES">Español (España)</a></li><li><a href="/es-419/" hreflang="es-419" lang="es-419">Español (Latinoamérica)</a></li><li><a href="/pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="/it/" hreflang="it" lang="it">Italiano</a></li><li><a href="/nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="/da/" hreflang="da" lang="da">Dansk</a></li><li><a href="/no/" hreflang="nb" lang="nb">Norsk</a></li><li><a href="/sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="/fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="/pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="/cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="/ja/" hreflang="ja" lang="ja">日本語</a></li><li><a aria-current="true" href="/zh-cn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="/zh-tw/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="/ko/" hreflang="ko" lang="ko">한국어</a></li></ul></details><script>(function(){try{var L=[{"c": "de", "hl": "de", "n": "Deutsch", "u": "/de/"}, {"c": "fr", "hl": "fr", "n": "Français", "u": "/fr/"}, {"c": "es", "hl": "es-es", "n": "Español (España)", "u": "/es/"}, {"c": "es-419", "hl": "es-419", "n": "Español (Latinoamérica)", "u": "/es-419/"}, {"c": "pt-br", "hl": "pt-br", "n": "Português (Brasil)", "u": "/pt-br/"}, {"c": "it", "hl": "it", "n": "Italiano", "u": "/it/"}, {"c": "nl", "hl": "nl", "n": "Nederlands", "u": "/nl/"}, {"c": "da", "hl": "da", "n": "Dansk", "u": "/da/"}, {"c": "no", "hl": "nb", "n": "Norsk", "u": "/no/"}, {"c": "sv", "hl": "sv", "n": "Svenska", "u": "/sv/"}, {"c": "fi", "hl": "fi", "n": "Suomi", "u": "/fi/"}, {"c": "pl", "hl": "pl", "n": "Polski", "u": "/pl/"}, {"c": "cs", "hl": "cs", "n": "Čeština", "u": "/cs/"}, {"c": "ru", "hl": "ru", "n": "Русский", "u": "/ru/"}, {"c": "tr", "hl": "tr", "n": "Türkçe", "u": "/tr/"}, {"c": "ja", "hl": "ja", "n": "日本語", "u": "/ja/"}, {"c": "zh-cn", "hl": "zh-hans", "n": "简体中文", "u": "/zh-cn/"}, {"c": "zh-tw", "hl": "zh-hant", "n": "繁體中文", "u": "/zh-tw/"}, {"c": "ko", "hl": "ko", "n": "한국어", "u": "/ko/"}, {"c": "", "hl": "en", "n": "English", "u": "/"}],P={"": "Read this page in {lang}", "de": "Diese Seite auf {lang} lesen", "fr": "Lire cette page en {lang}", "es": "Leer esta página en {lang}", "es-419": "Leer esta página en {lang}", "pt-br": "Ler esta página em {lang}", "it": "Leggi questa pagina in {lang}", "nl": "Deze pagina lezen in het {lang}", "da": "Læs denne side på {lang}", "no": "Les denne siden på {lang}", "sv": "Läs den här sidan på {lang}", "fi": "Lue tämä sivu kielellä {lang}", "pl": "Przeczytaj tę stronę: {lang}", "cs": "Přečíst tuto stránku: {lang}", "ru": "Читать эту страницу: {lang}", "tr": "Bu sayfayı oku: {lang}", "ja": "このページを{lang}で読む", "zh-cn": "用{lang}阅读本页", "zh-tw": "以{lang}閱讀本頁", "ko": "이 페이지를 {lang}로 읽기"},cur=(document.documentElement.lang||'en').toLowerCase();if(localStorage.getItem('sc.lang.dismiss'))return;var want=(navigator.languages||[navigator.language||'en']).map(function(x){return x.toLowerCase()});function pick(w){var b=w.split('-')[0];var m=L.filter(function(l){return l.hl===w})[0];if(m)return m;if(w==='es-es')return L.filter(function(l){return l.c==='es'})[0];if(b==='es')return L.filter(function(l){return l.c==='es-419'})[0];if(b==='pt')return L.filter(function(l){return l.c==='pt-br'})[0];if(w==='zh-tw'||w==='zh-hk'||w==='zh-hant'||w==='zh-mo')return L.filter(function(l){return l.c==='zh-tw'})[0];if(b==='zh')return L.filter(function(l){return l.c==='zh-cn'})[0];if(b==='nb'||b==='nn'||b==='no')return L.filter(function(l){return l.c==='no'})[0];return L.filter(function(l){return l.hl.split('-')[0]===b})[0]}var t=pick(want[0]);if(!t||t.hl===cur||t.hl.split('-')[0]===cur.split('-')[0]&&t.hl===cur)return;if(t.hl===cur)return;var d=document.createElement('div');d.className='sc-suggest';d.setAttribute('lang',t.hl);var a=document.createElement('a');a.href=t.u;a.textContent=(P[t.c]||P['']).replace('{lang}',t.n);a.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1')});var x=document.createElement('button');x.setAttribute('aria-label','Close');x.textContent='\u00d7';x.addEventListener('click',function(){localStorage.setItem('sc.lang.dismiss','1');d.remove()});d.appendChild(a);d.appendChild(x);document.body.appendChild(d)}catch(e){}})();</script></body>
 </html>
